@@ -7,6 +7,7 @@
  				<div class="page-header">
  					<h1>Busqueda de usuarios</h1>
  					{{ Form:open(['route'=>'users', 'method'=>'GET', 'class' =>'form-inline pull-right'])}}
+ 					{{ Form:open(['route'=>'users', 'method'=>'GET', 'class' =>'form-inline pull-right'])}}
  				</div>
  			</div>
  	     </div>
