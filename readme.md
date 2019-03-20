@@ -12,9 +12,9 @@ Sistema especializado en el control de guias e integracion con el grupo predeter
 
  [Juffyto Segovia](https://www.facebook.com/Juffyto).
 
-## Security Vulnerabilities
+## Version
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via  All security vulnerabilities will be promptly addressed.
+Actualmente, esta en desarrollo.
 
 ## Licencia
 
