@@ -7,7 +7,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
-
+use App\Http\Middleware\SessionTimeout;
+use App\User;
 
 
 
@@ -46,27 +47,59 @@ class LoginController extends Controller
  * @param  \Illuminate\Http\Request  $request
  * @return \Illuminate\Http\Response
  */
+
+
 protected function sendLoginResponse(Request $request)
 {
-    $request->session()->regenerate();
-    $previous_session = Auth::User()->session_id;
-    if ($previous_session) {
-        Session::getHandler()->destroy($previous_session);
+
+           $status=Auth::User()->status_login;
+       if($status=='activo') 
+       {
+            $this->clearLoginAttempts($request);  
+            Auth::logout();
+            return $this->authenticated($request, $this->guard()->user());
+        }elseif($status=='inactivo'){
+
+            $request->session()->regenerate();
+             Auth::user()->session_id = Session::getId();
+             Auth::user()->save();
+            $this->clearLoginAttempts($request);
+             $user=User::find(auth()->user()->id);
+              $user->status_login = 'activo';
+
+            if($user->save()) // se actualizar a la bd, si es exitoso
+            {
+                Auth::check();
+              return redirect()->intended($this->redirectPath());
+            }else{
+                echo "error";
+            }
+         
+       
+        }
+        
+   
+}
+
+protected function authenticated(Request $request, $user)
+    {
+        Auth::logout();
+
+  return view('auth.login',['request'=>$request,'user'=>$user, 'sesion'=>'Hay una sesion previa']);
+
     }
 
-    Auth::user()->session_id = Session::getId();
-    Auth::user()->save();
-    $this->clearLoginAttempts($request);
 
-    return $this->authenticated($request, $this->guard()->user())
-        ?: redirect()->intended($this->redirectPath());
-}
 
     public function __construct()
     {
+        $this->middleware('sessiontimeout');
         $this->middleware('guest')->except('logout');
+        
         if(Auth::check()){
+       
          Auth::logoutOtherDevices($request->input('password'));
      }
     }
 }
+

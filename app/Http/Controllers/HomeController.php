@@ -2,8 +2,14 @@
 
 namespace App\Http\Controllers;
 
+
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
+
 use App\User; 
+
 
 class HomeController extends Controller
 {
@@ -14,6 +20,8 @@ class HomeController extends Controller
      */
     public function __construct()
     {
+      
+      $this->middleware('sessiontimeout');
         $this->middleware('auth');
     }
 
@@ -24,24 +32,12 @@ class HomeController extends Controller
      */
     public function index(Request $request)
     {
-         if($request->user()->hasAnyRole('editor'))
-            $rol="editor";
-         elseif($request->user()->hasAnyRole('admin'))
-            $rol="admin";
-         
-         elseif($request->user()->hasAnyRole('foun'))
-            $rol="foun";
-         
-         elseif($request->user()->hasAnyRole('task0'))
-            $rol="task0";
-         
-         elseif($request->user()->hasAnyRole('task'))
-            $rol="task";
-         
-         elseif($request->user()->hasAnyRole('buyer'))
-            $rol="buyer";
-         
-//var_dump($rol);
+
+        $rol = roleuser($request); //se llama al helper en Helpers/role
+        $user=User::find(auth()->user()->id);
+              $user->status_login = 'activo';
+              $user->save();
+
        
         return view('home', ["rol" => $rol]);
 

@@ -1,5 +1,6 @@
 @include('layouts.head')
 
+                                  
 <body class="authentication-bg">
 
                 <div class="account-pages mt-5 mb-5">
@@ -21,7 +22,15 @@
                                             <h4 class="text-dark-50 text-center mt-0 font-weight-bold">{{ __('Iniciar sesión') }}</h4>
                                             <p class="text-muted mb-4">Ingrese su correo electronico y contraseña para acceder al panel administrativa.</p>
                                         </div>
-
+                                          @if(!empty($sesion))
+                                            <div class="alert alert-danger alert-dismissible bg-danger text-white border-0 fade show" role="alert">
+                                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                                <strong>Sesion previa activa- </strong>  cerrar dicha sesion y vuelva a intentarlo o hable con el Administrador
+                                             </div>
+                                        @endif
+                                      
                                         <form method="POST" action="{{ route('login') }}">
                                             @csrf
 
@@ -39,7 +48,7 @@
                                                 <a href="{{ route('password.request') }}" class="text-muted float-right"><small>¿Olvido su contraseña?</small></a>
                                                 <label for="password">Contraseña</label>
                                                 <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
-
+                                              
                                                 @if ($errors->has('password'))
                                                     <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $errors->first('password') }}</strong>
@@ -69,7 +78,7 @@
                                                 <div class="col-md-8 offset-md-2">
                                                     @if (Route::has('password.request'))
                                                         <a class="btn btn-link" href="{{ route('password.request') }}">
-                                                            {{ __('Forgot Your Password?') }}
+                                                            {{ __('¿Olvidastes tu contraseña?') }}
                                                         </a>
                                                     @endif
                                                  </div>

@@ -6,9 +6,17 @@ use App\User;
 use App\Person;
 use Illuminate\Http\Request;
 use App\Http\Resources\PeopleCollection;
-
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
 class UsersController extends Controller
 {
+     public function __construct()
+    {
+
+      $this->middleware('sessiontimeout');
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -19,24 +27,7 @@ class UsersController extends Controller
        //    $usuario = User::all();
            $usuario= User::join('people', 'people.id', '=', 'users.people_id')
        ->select('users.id as id', 'people.name as name',  'users.state as state','users.email as email','users.username as username', 'people.surname as surname', 'people.ci as ci')->get();
-
-   //var_dump($usuario);    
-         if($request->user()->hasAnyRole('editor'))
-            $rol="editor";
-         elseif($request->user()->hasAnyRole('admin'))
-            $rol="admin";
-         
-         elseif($request->user()->hasAnyRole('foun'))
-            $rol="foun";
-         
-         elseif($request->user()->hasAnyRole('task0'))
-            $rol="task0";
-         
-         elseif($request->user()->hasAnyRole('task'))
-            $rol="task";
-         
-         elseif($request->user()->hasAnyRole('buyer'))
-            $rol="buyer";
+       $rol = roleuser($request); 
   
          $tabla="activo";
        
@@ -50,22 +41,7 @@ class UsersController extends Controller
        ->select('users.id as id', 'people.name as name',  'users.state as state','users.email as email','users.username as username', 'people.surname as surname', 'people.ci as ci')->get();
 
    //var_dump($usuario);    
-         if($request->user()->hasAnyRole('editor'))
-            $rol="editor";
-         elseif($request->user()->hasAnyRole('admin'))
-            $rol="admin";
-         
-         elseif($request->user()->hasAnyRole('foun'))
-            $rol="foun";
-         
-         elseif($request->user()->hasAnyRole('task0'))
-            $rol="task0";
-         
-         elseif($request->user()->hasAnyRole('task'))
-            $rol="task";
-         
-         elseif($request->user()->hasAnyRole('buyer'))
-            $rol="buyer";
+    $rol = roleuser($request); 
   
          $tabla="activo";
      $editar="editar";
@@ -75,58 +51,27 @@ class UsersController extends Controller
 
         public function inactivity(Request $request)
     {
-       //    $usuario = User::all();
+       
            $usuario= Person::leftjoin('users', 'users.people_id', '=', 'people.id')->where('users.state','=','inactivo')
        ->select('users.id as id', 'people.name as name',  'users.state as state','users.email as email','users.username as username', 'people.surname as surname', 'people.ci as ci')->get();
-$tabla="inactivo";
-   //var_dump($usuario);    
-         if($request->user()->hasAnyRole('editor'))
-            $rol="editor";
-         elseif($request->user()->hasAnyRole('admin'))
-            $rol="admin";
+           $tabla="inactivo";
+    
+          $rol = roleuser($request); 
          
-         elseif($request->user()->hasAnyRole('foun'))
-            $rol="foun";
-         
-         elseif($request->user()->hasAnyRole('task0'))
-            $rol="task0";
-         
-         elseif($request->user()->hasAnyRole('task'))
-            $rol="task";
-         
-         elseif($request->user()->hasAnyRole('buyer'))
-            $rol="buyer";
+
   
-         
-//   var_dump($usuario);  
-  
-  return view('users.index',['rol'=>$rol,'usuarios'=>$usuario,'tabla'=>$tabla]);
+          return view('users.index',['rol'=>$rol,'usuarios'=>$usuario,'tabla'=>$tabla]);
     }
 
     
       public function locked(Request $request)
     {
-       //    $usuario = User::all();
+ 
            $usuario= Person::leftjoin('users', 'users.people_id', '=', 'people.id')->where('users.state','=','bloqueado')
        ->select('users.id as id', 'people.name as name',  'users.state as state','users.email as email','users.username as username', 'people.surname as surname', 'people.ci as ci')->get();
 
-   //var_dump($usuario);    
-         if($request->user()->hasAnyRole('editor'))
-            $rol="editor";
-         elseif($request->user()->hasAnyRole('admin'))
-            $rol="admin";
-         
-         elseif($request->user()->hasAnyRole('foun'))
-            $rol="foun";
-         
-         elseif($request->user()->hasAnyRole('task0'))
-            $rol="task0";
-         
-         elseif($request->user()->hasAnyRole('task'))
-            $rol="task";
-         
-         elseif($request->user()->hasAnyRole('buyer'))
-            $rol="buyer";
+   
+         $rol = roleuser($request); 
   
       $tabla="bloqueado";   
 //   var_dump($usuario);  
@@ -169,22 +114,7 @@ $tabla="inactivo";
    
 
        
-         if($request->user()->hasAnyRole('editor'))
-            $rol="editor";
-         elseif($request->user()->hasAnyRole('admin'))
-            $rol="admin";
-         
-         elseif($request->user()->hasAnyRole('foun'))
-            $rol="foun";
-         
-         elseif($request->user()->hasAnyRole('task0'))
-            $rol="task0";
-         
-         elseif($request->user()->hasAnyRole('task'))
-            $rol="task";
-         
-         elseif($request->user()->hasAnyRole('buyer'))
-            $rol="buyer";
+         $rol = roleuser($request); 
 
 
        return view('users.show',['rol'=>$rol,'people'=>$people, 'usuario'=> $usuario]);
@@ -199,30 +129,14 @@ $tabla="inactivo";
      */
     public function edit(Request $request,$id)
     {
-         $usuario= User::find($id);
-          $people_id=$usuario->people_id;
+        $usuario= User::find($id);
+        $people_id=$usuario->people_id;
         $people=  Person::where('id',$people_id)->first();
    
 
-       
-         if($request->user()->hasAnyRole('editor'))
-            $rol="editor";
-         elseif($request->user()->hasAnyRole('admin'))
-            $rol="admin";
-         
-         elseif($request->user()->hasAnyRole('foun'))
-            $rol="foun";
-         
-         elseif($request->user()->hasAnyRole('task0'))
-            $rol="task0";
-         
-         elseif($request->user()->hasAnyRole('task'))
-            $rol="task";
-         
-         elseif($request->user()->hasAnyRole('buyer'))
-            $rol="buyer";
- $jsonuser= json_encode($usuario);
-  $status= json_encode($usuario->state);
+          $rol = roleuser($request); 
+          $jsonuser= json_encode($usuario);
+          $status= json_encode($usuario->state);
 
        return view('users.edit',['rol'=>$rol,'people'=>$people, 'usuario'=> $usuario, 'state'=>$jsonuser,'statu'=>$status]);
     }
@@ -245,6 +159,18 @@ $tabla="inactivo";
 
         }
     }
+     public function logout(){ 
+
+      $user=User::find(auth()->user()->id);
+      $user->status_login = 'inactivo';
+
+        if($user->save()){
+            Auth::logout();
+            Session::flush(); return redirect(property_exists($this, 'redirectAfterLogout') ? $this->redirectAfterLogout : '/'); 
+        }
+        
+   }
+
 
     /**
      * Remove the specified resource from storage.
@@ -255,5 +181,32 @@ $tabla="inactivo";
     public function destroy($id)
     {
         //
+    }
+     /**
+     * Remove the specified resource from search.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function search(Request $request)
+    {
+         $usuario= User::find(auth()->user()->id);
+          $people_id=$usuario->people_id;
+        $people=  Person::where('id',$people_id)->first();
+     
+
+     $rol = roleuser($request); 
+        
+        $username = $request->get('username');
+        $email = $request->get('email');
+        $state = $request->get('state');
+
+        $users= User::orderBy("id", "DESC")
+        ->username($username)
+        ->email($email)
+        ->state($state)
+
+        ->paginate(4);
+        return view('users.search',compact('users'),['rol'=>$rol]);
     }
 }

@@ -63,6 +63,12 @@ class User extends Authenticatable
         }
         return false;
     }
+public function user_status(){
+
+   
+  return $this->id ? 'login' : 'login'; 
+
+    }
 
 
     /**
@@ -82,4 +88,21 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+    public function scopeUsername($query, $username)
+    {
+      if($username)
+        return $query->where('username', 'LIKE', "%$username%"); //el % al principio es para todo valor o caracter que comience o termine con el valor se relacione
+    }
+
+    public function scopeEmail($query, $email)
+    {
+      if($email)
+        return $query->where('email', 'LIKE', "%$email%"); //el % al principio es para todo valor o caracter que comience o termine con el valor se relacione
+    }
+    
+    public function scopeState($query, $state)
+    {
+      if($state)
+        return $query->where('state', 'LIKE', "%$state%");
+    }
 }

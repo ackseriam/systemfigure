@@ -20,19 +20,20 @@ Auth::routes();
 
 Route::get('register', 'Auth\RegisterController@index')->name('register');
 
-Route::get('register/{a}', 'Auth\RegisterControllerr@index')->name('auth.register');
+Route::get('register/{a}', 'Auth\RegisterController@index')->name('auth.register');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('people/aprobacion', 'PeopleController@aprobacion');
+Route::get('people/search', 'PeopleController@search')->name('searchperson');
 Route::get('users/inactivity', 'UsersController@inactivity');
 Route::get('users/locked', 'UsersController@locked');
 Route::get('users/index_edit', 'UsersController@index_edit');
 Route::get('users/edit/{a}', 'UsersController@edit');
 Route::get('users/update', 'UsersController@update');
 
-
-
+Route::post('users/logout', 'UsersController@logout')->name('logout');
+Route::get('users/search', 'UsersController@search')->name('search');
 
 Route::resource('people','PeopleController');
 Route::resource('/users','UsersController');

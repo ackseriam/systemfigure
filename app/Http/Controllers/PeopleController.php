@@ -10,6 +10,12 @@ use Illuminate\Http\Request;
 use App\Http\Resources\PeopleCollection;
 class PeopleController extends Controller
 {
+     public function __construct()
+    {
+
+      $this->middleware('sessiontimeout');
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -24,54 +30,20 @@ class PeopleController extends Controller
        
 
       
-         if($request->user()->hasAnyRole('editor'))
-            $rol="editor";
-         elseif($request->user()->hasAnyRole('admin'))
-            $rol="admin";
+      $rol = roleuser($request); 
          
-         elseif($request->user()->hasAnyRole('foun'))
-            $rol="foun";
-         
-         elseif($request->user()->hasAnyRole('task0'))
-            $rol="task0";
-         
-         elseif($request->user()->hasAnyRole('task'))
-            $rol="task";
-         
-         elseif($request->user()->hasAnyRole('buyer'))
-            $rol="buyer";
-  
-         
-$people_contr="people";
+       $people_contr="people";
   
 return view('people.aprob',['rol'=>$rol,'people'=>$people]);
     }   
 
     public function index(Request $request)
     {
-
         $people = Person::all();
-         if($request->user()->hasAnyRole('editor'))
-            $rol="editor";
-         elseif($request->user()->hasAnyRole('admin'))
-            $rol="admin";
-         
-         elseif($request->user()->hasAnyRole('foun'))
-            $rol="foun";
-         
-         elseif($request->user()->hasAnyRole('task0'))
-            $rol="task0";
-         
-         elseif($request->user()->hasAnyRole('task'))
-            $rol="task";
-         
-         elseif($request->user()->hasAnyRole('buyer'))
-            $rol="buyer";
+        $rol = roleuser($request); 
+        $people_contr="people";
   
-         
-     $people_contr="people";
-  
-   return view('people.index',['rol'=>$rol,'people'=>$people]);
+        return view('people.index',['rol'=>$rol,'people'=>$people]);
     }
 
     /**
@@ -136,25 +108,7 @@ return view('people.aprob',['rol'=>$rol,'people'=>$people]);
     {
         $people= Person::find($id);
         $usuario=  User::where('people_id',$id)->first();
-   
-
-     //   var_dump($usuario);
-         if($request->user()->hasAnyRole('editor'))
-            $rol="editor";
-         elseif($request->user()->hasAnyRole('admin'))
-            $rol="admin";
-         
-         elseif($request->user()->hasAnyRole('foun'))
-            $rol="foun";
-         
-         elseif($request->user()->hasAnyRole('task0'))
-            $rol="task0";
-         
-         elseif($request->user()->hasAnyRole('task'))
-            $rol="task";
-         
-         elseif($request->user()->hasAnyRole('buyer'))
-            $rol="buyer";
+       $rol = roleuser($request); 
 
         $usuario1=0;
         $usuario2=$usuario;
@@ -166,6 +120,29 @@ return view('people.aprob',['rol'=>$rol,'people'=>$people]);
            
 
        return view('people.show',['rol'=>$rol,'people'=>$people, 'usuario'=> $usuario2]);
+    }
+
+    public function search(Request $request)
+    {
+
+          
+       $rol = roleuser($request); 
+        
+        $name = $request->get('name');
+        $surname = $request->get('surname');
+        $nacionality = $request->get('nacionality');
+        $address = $request->get('address');
+        $ci = $request->get('ci');
+
+        $people= Person::orderBy("id", "DESC")
+        ->name($name)
+        ->surname($surname)
+        ->nacionality($nacionality)
+        ->address($address)
+        ->ci($ci)
+
+        ->paginate(4);
+        return view('people.search',compact('people'),['rol'=>$rol]);
     }
     
 

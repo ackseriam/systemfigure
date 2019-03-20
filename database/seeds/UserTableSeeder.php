@@ -39,8 +39,9 @@ class UserTableSeeder extends Seeder
          $user->mac= "dc:85:de:85:6d:9f ";
          $user->state ="activo";
          $user->people_id =  $person_foundd;
+         $user->status_login =  'inactivo';
          $user->save();
-         $user->roles()->attach($role_foun);	
+         $user->roles()->attach($role_foun);    
                
 $person_adminn= $person_admin->id;
          $user = new User();
@@ -51,8 +52,9 @@ $person_adminn= $person_admin->id;
          $user->mac= "dc:85:de:85:6d:9f ";
          $user->state ="activo";
          $user->people_id =  $person_adminn;
+         $user->status_login =  'inactivo';
          $user->save();
-        $user->roles()->attach($role_admin);	
+        $user->roles()->attach($role_admin);    
 
 $person_editorr= $person_editor->id;
          $user = new User();
@@ -63,6 +65,7 @@ $person_editorr= $person_editor->id;
          $user->mac= "dc:85:de:85:6d:9f ";
          $user->state ="activo";
          $user->people_id =  $person_editorr;
+         $user->status_login =  'inactivo';
          $user->save();
         $user->roles()->attach($role_editor);  
 
@@ -75,6 +78,7 @@ $person_editorr= $person_editor->id;
          $user->mac= "dc:85:de:85:6d:9f ";
          $user->state ="activo";
          $user->people_id =  $person_task00;
+         $user->status_login =  'inactivo';
          $user->save();
         $user->roles()->attach($role_task0 );    
 
@@ -88,6 +92,7 @@ $person_editorr= $person_editor->id;
          $user->mac= "dc:85:de:85:6d:9f ";
          $user->state ="activo";
          $user->people_id =  $person_task;
+         $user->status_login =  'inactivo';
          $user->save();
         $user->roles()->attach($role_task); 
 
@@ -100,6 +105,7 @@ $person_editorr= $person_editor->id;
          $user->mac= "dc:85:de:85:6d:9f ";
          $user->state ="activo";
          $user->people_id =  $person_buyer;
+         $user->status_login =  'inactivo';
          $user->save();
         $user->roles()->attach($role_buyer);    
 
