@@ -20,7 +20,8 @@ class Kernel extends HttpKernel
         \App\Http\Middleware\TrimStrings::class,
         \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
         \App\Http\Middleware\TrustProxies::class,
-        \App\Http\Middleware\SessionTimeout::class, 
+        \App\Http\Middleware\SessionTimeout::class,
+         \App\Http\Middleware\activeUsers::class,   
 
     ];
 
@@ -66,6 +67,7 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'sessiontimeout' => \App\Http\Middleware\SessionTimeout::class,
+         'users_ac' =>  \App\Http\Middleware\activeUsers::class,   
     ];
 
     /**

@@ -13,7 +13,7 @@ use Illuminate\Http\Request;
 
 class SessionTimeout {
     protected $session;
-    protected $timeout=2147483640;
+    protected $timeout=300;//2147483640
     public function __construct(Store $session){
         $this->session=$session;
     }

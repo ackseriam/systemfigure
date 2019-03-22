@@ -23,6 +23,8 @@ class HomeController extends Controller
       
       $this->middleware('sessiontimeout');
         $this->middleware('auth');
+        $this->middleware('users_ac');
+        
     }
 
     /**
