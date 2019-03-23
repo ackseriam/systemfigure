@@ -66,14 +66,12 @@ protected function sendLoginResponse(Request $request)
                 Session::getHandler()->destroy($previous_session);
             }
              Auth::user()->session_id = Session::getId();
-             Auth::user()->save();
+            Auth::user()->save();
             $this->clearLoginAttempts($request);
-             $user=User::find(auth()->user()->id);
-              $user->status_login = 'activo';
-
-            if($user->save()) // se actualizar a la bd, si es exitoso
+          
+            if(Auth::check()) // se actualizar a la bd, si es exitoso
             {
-                Auth::check();
+                
               return redirect()->intended($this->redirectPath());
             }else{
                 echo "error";

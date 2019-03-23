@@ -1,19 +1,14 @@
 <?php
-
 namespace App;
-
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Cache;
-
 class User extends Authenticatable
 {
     use Notifiable;
-
  public function roles(){
     return $this->belongsToMany('App\Role'); //aqui se relaciona este modelo con los roles con la relacion de muchos  a muchos es decir un usuario puede tener varios roles
-
 }
  public function authoraizeRole($roles)
     {
@@ -48,7 +43,6 @@ class User extends Authenticatable
         }
         return false;
     }
-
     public function hasRole($role){
         //aqui se comprueba si el usuario tiene un rol
         if($this->roles()->where('name',$role)->first()){
@@ -56,7 +50,6 @@ class User extends Authenticatable
         }
         return false;
     }
-
  public function person_user($id){
         //aqui se comprueba si el usuario tiene un rol
         if($this->users()->where('people_id',$id)->first()){
@@ -65,13 +58,9 @@ class User extends Authenticatable
         return false;
     }
 public function user_status(){
-
    
   return $this->id ? 'login' : 'login'; 
-
     }
-
-
     /**
      * The attributes that are mass assignable.
      *
@@ -80,7 +69,6 @@ public function user_status(){
     protected $fillable = [
         'username', 'email', 'password', 'ip','mac', 'people_id','state'
     ];
-
     /**
      * The attributes that should be hidden for arrays.
      *
@@ -94,7 +82,6 @@ public function user_status(){
       if($username)
         return $query->where('username', 'LIKE', "%$username%"); //el % al principio es para todo valor o caracter que comience o termine con el valor se relacione
     }
-
     public function scopeEmail($query, $email)
     {
       if($email)
@@ -106,11 +93,7 @@ public function user_status(){
       if($state)
         return $query->where('state', 'LIKE', "%$state%");
     }
-
     public function isOnline(){
       return Cache::has('user-is-online'. $this->id);
-
-
     }
-    
 }

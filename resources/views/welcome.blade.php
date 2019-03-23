@@ -32,7 +32,7 @@
             }
 
             .links > a {
-                color: #636b6f;
+                color: #aab8c5;
                 padding: 0 25px;
                 font-size: 13px;
                 font-weight: 600;
@@ -62,17 +62,12 @@
                                  <div class="app-search">
                                 <form>
                                     <div class="input-group">
-                                        <input type="text" class="form-control" placeholder="Search...">
-                                        <span class="mdi mdi-magnify"></span>
-                                        <div class="input-group-append">
-                                            <button class="btn btn-primary" type="submit">Search</button>
-                                        </div>
+                                        <p>LLamanos al +51 939 824 399</p>
                                     </div>
                                 </form>
                             </div>
                                      
-                                            <span class="text-muted mt-3">Figure eig</span>
-                                   
+                            
                             </ul>
                             <ul class="list-unstyled topbar-right-menu float-right mb-0">
                                       @if (Route::has('login'))
@@ -141,12 +136,10 @@
                                 <div class="text-center">
                                     <img src="{{ asset('images/logofigure2.png') }}" alt="" height="100">
                                     <h1 class="">Figure Eight Task </h1>
-                                    <p class="text-muted mt-3"> Nisi praesentium similique totam odio obcaecati, reprehenderit,
-                                        dignissimos rem temporibus ea inventore alias!<br/> Beatae animi nemo ea
-                                        tempora, temporibus laborum facilis ut!</p>
+                                    <p class="text-muted mt-3"> Somos una comunidad especializada en las soluciones de las tareas suministradas por la plataforma FigureEight</p>
         
-                                    <button type="button" class="btn btn-success btn-sm mt-2"><i class="mdi mdi-email-outline mr-1"></i> Email us your question</button>
-                                    <button type="button" class="btn btn-info btn-sm mt-2 ml-1"><i class="mdi mdi-twitter mr-1"></i> Send us a tweet</button>
+                                    <button type="button" class="btn btn-success btn-sm mt-2"><i class="mdi mdi-email-outline mr-1"></i>Contactano por email</button>
+                                    <button type="button" class="btn btn-info btn-sm mt-2 ml-1"><i class="mdi mdi-twitter mr-1"></i> Contactanos por facebook</button>
                                 </div>
                             </div><!-- end col -->
                         </div><!-- end row -->
@@ -156,14 +149,14 @@
                                 <!-- Question/Answer -->
                                 <div>
                                     <div class="faq-question-q-box">Q.</div>
-                                    <h4 class="faq-question" data-wow-delay=".1s">What is Lorem Ipsum?</h4>
+                                    <h4 class="faq-question" data-wow-delay=".1s">Por que nosotors?</h4>
                                     <p class="faq-answer mb-4">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
                                 </div>
         
                                 <!-- Question/Answer -->
                                 <div>
                                     <div class="faq-question-q-box">Q.</div>
-                                    <h4 class="faq-question">Why use Lorem Ipsum?</h4>
+                                    <h4 class="faq-question">Trabaja con nosotros</h4>
                                     <p class="faq-answer mb-4">Lorem ipsum dolor sit amet, in mea nonumes dissentias dissentiunt, pro te solet oratio iriure. Cu sit consetetur moderatius intellegam, ius decore accusamus te. Ne primis suavitate disputando nam. Mutat convenirete.</p>
                                 </div>
         
@@ -172,14 +165,14 @@
                                 <!-- Question/Answer -->
                                 <div>
                                     <div class="faq-question-q-box">Q.</div>
-                                    <h4 class="faq-question">Is safe use Lorem Ipsum?</h4>
+                                    <h4 class="faq-question">Taskeo las 24 horas</h4>
                                     <p class="faq-answer mb-4">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
                                 </div>
         
                                 <!-- Question/Answer -->
                                 <div>
                                     <div class="faq-question-q-box">Q.</div>
-                                    <h4 class="faq-question">When can be used?</h4>
+                                    <h4 class="faq-question">Se parte de nuestra comunidad</h4>
                                     <p class="faq-answer mb-4">Lorem ipsum dolor sit amet, in mea nonumes dissentias dissentiunt, pro te solet oratio iriure. Cu sit consetetur moderatius intellegam, ius decore accusamus te. Ne primis suavitate disputando nam. Mutat convenirete.</p>
                                 </div>
         
