@@ -109,5 +109,8 @@ public function user_status(){
 
     public function isOnline(){
       return Cache::has('user-is-online'. $this->id);
+
+
     }
+    
 }

@@ -45,29 +45,102 @@
                 margin-bottom: 30px;
             }
         </style>
+        <!-- Topbar Start -->
+                    <div class="navbar-custom topnav-navbar">
+                        <div class="container-fluid">
+
+                            <!-- LOGO -->
+                            <a href="index.html" class="topnav-logo">
+                                <span class="topnav-logo-lg">
+                                    <img src="{{ asset('images/logo2.png') }}" alt="" height="100">
+                                </span>
+                                <span class="topnav-logo-sm">
+                                    <img src="assets/images/logo_sm.png" alt="" height="16">
+                                </span>
+                            </a>
+                                    <ul class="list-unstyled topbar-center-menu float-center mb-12">
+                                 <div class="app-search">
+                                <form>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" placeholder="Search...">
+                                        <span class="mdi mdi-magnify"></span>
+                                        <div class="input-group-append">
+                                            <button class="btn btn-primary" type="submit">Search</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                                     
+                                            <span class="text-muted mt-3">Figure eig</span>
+                                   
+                            </ul>
+                            <ul class="list-unstyled topbar-right-menu float-right mb-0">
+                                      @if (Route::has('login'))
+                                    <div class="top-right links">
+                                        @auth
+                                            <a href="{{ url('/home') }}"><span class="text-muted mt-3">Home</span></a>
+                                        @else
+                                            <a href="{{ route('login') }}">Iniciar Sesion</a>
+
+                                         @if (Route::has('register'))
+                                                        <a href="{{ route('people.create') }}">Registro de Personas</a>
+                                                    @endif
+                                                @endauth
+                                        @endif       
+                                    </div>
+                            </ul>
+                        </div>
+                    </div>
+            <div class="topnav">
+                        <div class="container-fluid">
+                            <nav class="navbar navbar-dark navbar-expand-lg topnav-menu">
+        
+                                <div class="collapse navbar-collapse" id="topnav-menu-content">
+                                    <ul class="navbar-nav">
+                                        <li class="nav-item dropdown">
+                                            <a class="nav-link dropdown-toggle arrow-none" href="layouts-horizontal.html#" id="topnav-dashboards" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <i class="mdi mdi-speedometer mr-1"></i>Inicio
+                                            </a>
+                                            
+                                        </li>
+                                        <li class="nav-item dropdown">
+                                            <a class="nav-link dropdown-toggle arrow-none" href="layouts-horizontal.html#" id="topnav-apps" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <i class="mdi mdi-apps mr-1"></i>Nosotros 
+                                            </a>
+                                           
+                                        </li>
+                                        <li class="nav-item dropdown">
+                                            <a class="nav-link dropdown-toggle arrow-none" href="layouts-horizontal.html#" id="topnav-pages" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <i class="mdi mdi-google-pages mr-1"></i>Nuestros Programas
+                                            </a>
+                                        </li>
+                                        <li class="nav-item dropdown">
+                                            <a class="nav-link dropdown-toggle arrow-none" href="layouts-horizontal.html#" id="topnav-layouts" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <i class="mdi mdi-buffer mr-1"></i>Requisitos
+                                            </a>
+                                        </li>
+                                        <li class="nav-item dropdown">
+                                            <a class="nav-link dropdown-toggle arrow-none" href="layouts-horizontal.html#" id="topnav-components" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <i class="mdi mdi-briefcase-outline mr-1"></i>Registro
+                                            </a>
+                                           
+                                        </li>
+                                    </ul>
+                                </div>
+                            </nav>
+                        </div>
+            </div>
 
         <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Iniciar Sesion</a>
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('people.create') }}">Registro de Personas</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif
-
+          
 
                     <!-- Start Content-->
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-sm-12">
                                 <div class="text-center">
-                                    <h3 class="">Frequently Asked Questions</h3>
+                                    <img src="{{ asset('images/logofigure2.png') }}" alt="" height="100">
+                                    <h1 class="">Figure Eight Task </h1>
                                     <p class="text-muted mt-3"> Nisi praesentium similique totam odio obcaecati, reprehenderit,
                                         dignissimos rem temporibus ea inventore alias!<br/> Beatae animi nemo ea
                                         tempora, temporibus laborum facilis ut!</p>

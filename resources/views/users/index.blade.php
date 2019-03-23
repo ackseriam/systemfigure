@@ -54,6 +54,12 @@
                                             En esta seccion estan listados todos los usuarios registrados en el sistema 
                                         </p>
                                         @endif
+                                        <!--
+                                        <div class="dropdown float-right">
+
+                                                    <a href="javascript: void(0);" class="right-bar-toggle">Ver todos</a>
+
+                                            </div><br>-->
 
 
                                         <table id="basic-datatable" class="table dt-responsive nowrap" width="100%">

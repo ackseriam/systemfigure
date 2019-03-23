@@ -16,6 +16,7 @@ class UsersController extends Controller
 
       $this->middleware('sessiontimeout');
         $this->middleware('auth');
+        
     }
     /**
      * Display a listing of the resource.

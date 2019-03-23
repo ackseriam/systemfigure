@@ -7,7 +7,7 @@ use Auth;
 
 use Carbon\Carbon;
 use Cache;
-
+use App\User; 
 
 class activeUsers
 {
@@ -21,8 +21,23 @@ class activeUsers
     public function handle($request, Closure $next)
     {
         if(Auth::check()){
-            $expiresAt = Carbon::now()->addMinutes(2);
+            $expiresAt = Carbon::now()->addMinutes(5);
             Cache::put('user-is-online'. Auth::user()->id, true, $expiresAt);
+            
+            foreach(User::all() as $user)
+             {
+              if($user->isOnline())  {
+                   $user=User::find($user->id);
+              $user->status_login = 'activo';
+              $user->save();
+              }else{
+                $user=User::find($user->id);
+              $user->status_login = 'inactivo';
+              $user->save();
+              }
+             }
+
+            
         }
         return $next($request);
     }
