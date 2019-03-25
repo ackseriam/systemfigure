@@ -20,7 +20,7 @@
                                         
                                         <div class="text-center w-75 m-auto">
                                             <h4 class="text-dark-50 text-center mt-0 font-weight-bold">{{ __('Iniciar sesión') }}</h4>
-                                            <p class="text-muted mb-4">Ingrese su correo electronico y contraseña para acceder al panel administrativa.</p>
+                                            <p class="text-muted mb-4">Ingrese su correo electronico y contraseña para acceder al panel administrativo.</p>
                                         </div>
                                           @if(!empty($sesion))
                                             <div class="alert alert-danger alert-dismissible bg-danger text-white border-0 fade show" role="alert">

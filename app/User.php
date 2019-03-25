@@ -1,6 +1,7 @@
 <?php
 namespace App;
 use Illuminate\Notifications\Notifiable;
+use App\Notifications\ResetPasswordNotification;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Cache;
@@ -95,5 +96,16 @@ public function user_status(){
     }
     public function isOnline(){
       return Cache::has('user-is-online'. $this->id);
+    }
+
+     /**
+     * PAra enviar email .Send the password reset notification.
+     *
+     * @param  string  $token
+     * @return void
+     */
+    public function sendPasswordResetNotification($token)
+    {
+        $this->notify(new ResetPasswordNotification($token));
     }
 }
