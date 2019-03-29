@@ -30,53 +30,34 @@
 
 @include('layouts.nav')
 
-    <body>
-        <br><br>
+                <body>
+                    <br><br>
         
                         <div class="row">
                             <div class="col-12">
                                 <div class="card">
                                     <div class="card-body">
-                                        <h4 class="header-title">Tabla de personas pendientes para realizar usuario </h4>
+                                         @if($level==0)
+                                         
+                                        <h4 class="header-title">Tabla de guias level 0 </h4>
                                         <p class="text-muted font-14 mb-4">
-                                            En esta seccion estan listados todas las personas registradas en el sistema 
+                                            En esta seccion estan listados todas las guias level 0
                                         </p>
-
-                                        <table id="basic-datatable" class="table dt-responsive nowrap" width="100%">
-                                          
-
-                                            <thead>
-                                                <tr>
-                                                    <th>Nombre</th>
-                                                    <th>Apellido</th>
-                                                    <th>Nacionalidad</th>
-                                                    <th>Cedula</th>
-                                                    <th>Dirección</th>
-                                                    <th>Acción</th>
-                                                </tr>
-                                            </thead>
-                                        
-                                        @foreach($people as $person )
-                                            <tbody>
-                                                <tr>
-                                                    
-                                                    <td>{{$person->name}}</td>
-                                                    <th>{{$person->surname}}</th>
-                                                    <th>{{$person->nacionality}}</th>
-                                                    <th>{{$person->ci}}</th>
-                                                    <th>{{$person->address}}</th>
-                                                    
-                                                  <th> <a href="/people/{{$person->id}}" class="btn btn-primary" title="Ver persona"><i class="mdi mdi-account-search-outline"></i></a> </th>
-                                               </tr>
-                                            </tbody>
-                                              @endforeach
-                                        </table>
+                                        @include('guias.level')
+                                        @else
+                                         <h4 class="header-title">Tabla de guias de level </h4>
+                                        <p class="text-muted font-14 mb-4">
+                                             En esta seccion estan listados todas las guias de level 
+                                        </p>
+                                        @include('guias.level')
+                                        @endif
+     
 
                                     </div> <!-- end card body-->
                                 </div> <!-- end card -->
                             </div><!-- end col-->
                         </div>
-            </body>
+               </body>
 
                 <!-- Footer Start -->
                
@@ -88,9 +69,9 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="text-md-right footer-links d-none d-md-block">
-                                    <a href="javascript: void(0);">About</a>
-                                    <a href="javascript: void(0);">Support</a>
-                                    <a href="javascript: void(0);">Contact Us</a>
+                                    <a href="javascript: void(0);">Acerca de nosotros</a>
+                                    <a href="javascript: void(0);">Soporte</a>
+                                    <a href="javascript: void(0);">Contactanos</a>
                                 </div>
                             </div>
                         </div>
@@ -145,4 +126,5 @@
           </script>
     </body>
 </html>
+
 

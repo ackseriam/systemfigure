@@ -126,6 +126,7 @@ class RegisterController extends Controller
             'rol' => $data['rol'],
             'ip' => $ip,
             'mac' => $mac,
+            'status_login' => 'inactivo',
             'people_id' => $data['person'],
             'state' => 'activo',
         ]);

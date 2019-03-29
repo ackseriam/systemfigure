@@ -1,6 +1,5 @@
-
-
 @include('layouts.head')
+@include('layouts.nav')
 
 
     <body class="authentication-bg">
@@ -44,13 +43,8 @@
         </div>
         <!-- end page -->
 
-        <footer class="footer footer-alt">
-           2019 © Figure Taskeros
-        </footer>
-
-        <!-- App js -->
-        <script src="assets/js/app.min.js"></script>
+    
     </body>
-
+    @include('layouts.footer')
 
                         

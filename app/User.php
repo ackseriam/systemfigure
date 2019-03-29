@@ -68,7 +68,7 @@ public function user_status(){
      * @var array
      */
     protected $fillable = [
-        'username', 'email', 'password', 'ip','mac', 'people_id','state'
+        'username', 'email', 'password', 'ip','mac', 'status_login','people_id','state'
     ];
     /**
      * The attributes that should be hidden for arrays.

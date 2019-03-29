@@ -88,13 +88,16 @@
                             </a>
                             <ul class="side-nav-second-level" aria-expanded="false">
                                 <li>
-                                    <a href="form-elements.html">Guias lvl 0</a>
+                                     <a href="{{ url('guias/create') }}">Insertar Guias</a>
                                 </li>
                                 <li>
-                                    <a href="form-advanced.html">Guias lvl </a>
+                                     <a href="{{ url('guias/index/0') }}">Guias lvl 0</a>
                                 </li>
                                 <li>
-                                    <a href="form-validation.html">Buscar guias por nombre</a>
+                                     <a href="{{ url('guias/index/1') }}">Guias lvl</a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('search_guias') }}">Buscar guias por nombre</a>
                                 </li>
                             </ul>
                         </li>
@@ -124,10 +127,10 @@
                             </a>
                             <ul class="side-nav-second-level" aria-expanded="false">
                                 <li>
-                                    <a href="form-elements.html">Enviar correcciones lvl0</a>
+                                    <a href="{{ url('corrections/index/0') }}">Enviar correcciones lvl0</a>
                                 </li>
                                 <li>
-                                    <a href="form-advanced.html">Enviar correcciones lvl</a>
+                                    <a href="{{ url('corrections/index/1') }}">Enviar correcciones lvl</a>
                                 </li>
                             </ul>
                         </li>
@@ -575,15 +578,18 @@
                                 <span> Guias  </span>
                                 <span class="menu-arrow"></span>
                             </a>
-                            <ul class="side-nav-second-level" aria-expanded="false">
+                              <ul class="side-nav-second-level" aria-expanded="false">
                                 <li>
-                                    <a href="form-elements.html">Guias lvl 0</a>
+                                     <a href="{{ url('guias/create') }}">Insertar Guias</a>
                                 </li>
                                 <li>
-                                    <a href="form-advanced.html">Guias lvl </a>
+                                     <a href="{{ url('guias/index/0') }}">Guias lvl 0</a>
                                 </li>
                                 <li>
-                                    <a href="form-validation.html">Buscar guias por nombre</a>
+                                     <a href="{{ url('guias/index/1') }}">Guias lvl</a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('search_guias') }}">Buscar guias por nombre</a>
                                 </li>
                             </ul>
                         </li>
@@ -1004,7 +1010,7 @@
                             </a>
                             <ul class="side-nav-second-level" aria-expanded="false">
                                 <li>
-                                    <a href="form-elements.html">Guias lvl 0</a>
+                                     <a href="{{ route('guia') }}">Guias lvl 0</a>
                                 </li>
                                 <li>
                                     <a href="form-advanced.html">Guias lvl </a>
@@ -1426,7 +1432,7 @@
                             </a>
                             <ul class="side-nav-second-level" aria-expanded="false">
                                 <li>
-                                    <a href="form-elements.html">Guias lvl 0</a>
+                                    <a href="{{ route('guia') }}">Guias lvl 0</a>
                                 </li>
                                 <li>
                                     <a href="form-advanced.html">Guias lvl </a>

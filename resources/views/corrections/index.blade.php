@@ -12,10 +12,10 @@
                                         <ol class="breadcrumb m-0">
                                             <li class="breadcrumb-item"><a href="javascript: void(0);">Tablero</a></li>
                                             <li class="breadcrumb-item"><a href="javascript: void(0);">Personas</a></li>
-                                            <li class="breadcrumb-item active">Buscar persona</li>
+                                            <li class="breadcrumb-item active">Buscar correciones</li>
                                         </ol>
                                     </div>
-                                    <h4 class="page-title">Buscar Persona</h4>
+                                    <h4 class="page-title">Buscar guia para enviar Corrección</h4>
                                 </div>
                             </div>
                         </div>   
@@ -25,26 +25,30 @@
                                 <div class="card">
                                     <div class="card-body">
 
-                                        <h4 class="header-title">Ingresa los datos para la busqueda</h4>
+                                        <h4 class="header-title">Ingresa los datos de la guia para enviar la correccion</h4>
+                                         <p class="text-muted mb-4">Buscar los datos de la guia para </p>
 
                                         <p class="text-muted mb-3">
                                         </p>
-                            		  <h6 class="font-13 mt-3">Datos de la persona</h6>
-                                 
-								 		{{ Form::open(['route'=> 'searchperson', 'method'=> 'GET', 'class' => '']) }}
+                            		  <h6 class="font-13 mt-3">Datos de la guia </h6>
+                                        @if($level==0)
+								 		{{ Form::open(['url'=> 'corrections/search/0', 'method'=> 'GET', 'class' => '']) }}
+                                        @else
+                                        {{ Form::open(['url'=> 'corrections/search/1', 'method'=> 'GET', 'class' => '']) }}
+                                        @endif
 								 		<div class="form-row align-items-center">
 
 									 		<div class="col-auto">
-									 	    	{{Form::text('name', null, ['class'=> 'form-control mb-2', 'placeholder' => 'Nombre de la persona'])}}
+									 	    	{{Form::text('name', null, ['class'=> 'form-control mb-2', 'placeholder' => 'Nombre de la guia'])}}
 									 	   </div>
                                            <div class="col-auto">
-                                                {{Form::text('surname', null, ['class'=> 'form-control mb-2', 'placeholder' => 'Apellido de la persona'])}}
+                                               
                                            </div>
 									 	      <div class="col-auto">
-									 	    	{{Form::text('address', null, ['class'=> 'form-control mb-2', 'placeholder' => 'Direccion'])}}
+									 	    	{{Form::text('status', null, ['class'=> 'form-control mb-2', 'placeholder' => 'status'])}}
 									 	    </div>
                                             <div class="col-auto">
-                                                {{Form::text('ci', null, ['class'=> 'form-control mb-2', 'placeholder' => 'Cedula'])}}
+                                                {{Form::text('level', null, ['class'=> 'form-control mb-2', 'placeholder' => 'level'])}}
                                             </div>
 									 	    <div class="col-auto">
                                                     <button type="submit" class="btn btn-primary mb-2">Buscar</button>
@@ -58,36 +62,31 @@
 
                                   
                                         <div class="table-responsive-sm">
-                                            <table class="table table-striped table-centered mb-0">
+                                            <table class="table table-striped table-centered mb-0" readonly>
                                                 <thead>
                                                     <tr>
-                                                        <th>Cedula</th>
                                                         <th>Nombre</th>
-                                                        <th>Apellido</th>
-                                                        <th>Nacionalidad</th>
-                                                        <th>Direccion</th>
+                                                        <th>Imagen</th>
+                                                        <th>Estado</th>
+                                                        <th>Level</th>
                                                         <th>Accion</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                	@foreach($people as $person)
-                                                    <tr>
-                                                        <td class="table-user">
-                                                            {{$person->ci}}
-                                                        </td>
-                                                        <td>{{$person->name}}</td>
-                                                        <td>{{$person->surname}}</td>
-                                                        <td>{{$person->nacionality}}</td>
-                                                        <td>{{$person->address}}</td>
+                                                	@foreach($guias as $guia)
+                                                    <tr readonly>
+                                                        <td>{{$guia->name}}</td>
+                                                        <td>{{$guia->img}}</td>
+                                                         <td>{{$guia->status}}</td>
+                                                        <td>{{$guia->level}}</td>
                                                         <td class="table-action">
-                                                            <a href="/people/edit/{{$person->id}}" class="action-icon" title="Editar"> <i class="mdi mdi-pencil"></i></a>
-                                                            <a href="/people/{{$person->id}}" class="action-icon" title="Buscar"> <i class="mdi mdi-account-search-outline"></i></a>
+                                                            <a href="/corrections/create/{{$guia->id}}" class="action-icon" title="Enviar corrección" class=""> <i class="mdi mdi-plus btn btn-primary "></i></a>
                                                         </td>
                                                     </tr>
                                                     @endforeach
                                                 </tbody>
                                             </table>
-                                            {{$people->render()}}
+                                            {{$guias->render()}}
                                         </div> <!-- end table-responsive-->
 
                                     </div> <!-- end card body-->

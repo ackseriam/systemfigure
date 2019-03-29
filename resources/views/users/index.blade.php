@@ -20,7 +20,6 @@
         <link href="{{ asset('css/vendor/select.bootstrap4.css') }}" rel="stylesheet" type="text/css" />
         <!-- third party css end -->
 
-
         <!-- App css -->
         <link href="{{ asset('css/icons.min.css') }}" rel="stylesheet" type="text/css" />
         <link href="{{ asset('css/app.min.css') }}" rel="stylesheet" type="text/css" />
@@ -30,7 +29,6 @@
     </head>
 
 @include('layouts.nav')
-
     <body>
         <br><br>
         
@@ -54,54 +52,7 @@
                                             En esta seccion estan listados todos los usuarios registrados en el sistema 
                                         </p>
                                         @endif
-                                        <!--
-                                        <div class="dropdown float-right">
-
-                                                    <a href="javascript: void(0);" class="right-bar-toggle">Ver todos</a>
-
-                                            </div><br>-->
-
-
-                                        <table id="basic-datatable" class="table dt-responsive nowrap" width="100%">
-                                          
-
-                                            <thead>
-                                                <tr>
-                                                    <th>Username</th>
-                                                    <th>email</th>
-                                                    <th>Estado de usuario</th>
-                                                    <th>Nombre</th>
-                                                    <th>Acción</th>
-
-                                                </tr>
-                                            </thead>
-                                        
-                                        @foreach($usuarios as $usuario )
-                                            <tbody>
-
-                                                <tr>
-                                                    
-                                                    <td>{{$usuario->username}}</td>
-                                                    <th>{{$usuario->email}}</th>
-
-                                                    @if($usuario->state=="inactivo")
-                                                    <th class="mt-12"><h3><span class="badge badge-primary-lighten">{{$usuario->state}}</span></h3></th>
-                                                    @elseif($usuario->state=="bloqueado")
-                                                    <th class="mt-12"><h3><span class="badge badge-danger-lighten">{{$usuario->state}}</span></h3></th>
-                                                    @elseif($usuario->state=="activo")
-                                                    <th class="mt-12"><h3><span class="badge badge-success-lighten">{{$usuario->state}}</span></h3></th>
-                                                    @endif
-                                                    <th>{{$usuario->name}}</th>
-                                                    
-                                                  <th> <a href="/users/{{$usuario->id}}" class="btn btn-primary" title="Ver usuario"> <i class="mdi mdi-account-search-outline"></i></a> 
-                                                    @if(!empty($editar))
-                                                    <a href="/users/edit/{{$usuario->id}}" class="btn btn-success" title="Editar Usuario"><i class="mdi mdi-square-edit-outline"></i></a>
-                                                    @endif
-                                                   </th>
-                                               </tr>
-                                            </tbody>
-                                              @endforeach
-                                        </table>
+                                    @include('users.table_users')
 
                                     </div> <!-- end card body-->
                                 </div> <!-- end card -->
@@ -176,4 +127,5 @@
           </script>
     </body>
 </html>
+
 

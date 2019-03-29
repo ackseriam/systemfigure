@@ -35,6 +35,13 @@ Route::get('users/update', 'UsersController@update');
 Route::post('users/logout', 'UsersController@logout')->name('logout');
 Route::get('users/search', 'UsersController@search')->name('search');
 
+Route::get('guias/index/{a}', 'GuiasController@index');
+Route::get('guias/search', 'GuiasController@search')->name('search_guias');
+
+Route::get('corrections/index/{a}', 'CorrectionsController@index');
+Route::get('corrections/create/{a}', 'CorrectionsController@create');
+Route::get('corrections/search/{a}', 'CorrectionsController@search')->name('search_correc');
+Route::resource('corrections','CorrectionsController');
 Route::resource('people','PeopleController');
 Route::resource('/users','UsersController');
 //Route::get('people/showaprob/{a}', 'PeopleController@showaprob');
