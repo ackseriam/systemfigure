@@ -142,10 +142,10 @@
                             </a>
                             <ul class="side-nav-second-level" aria-expanded="false">
                                 <li>
-                                    <a href="form-elements.html">Correcciones lvl0</a>
+                                    <a href="{{ url('corrections/search/0') }}">Correcciones lvl0</a>
                                 </li>
                                 <li>
-                                    <a href="form-advanced.html">Correcciones lvl</a>
+                                    <a href="{{ url('corrections/search/1') }}">Correcciones lvl</a>
                                 </li>
                             </ul>
                         </li>
@@ -570,7 +570,8 @@
                             </ul>
                         </li>
 
-                     <li class="side-nav-title side-nav-item mt-1">Guias </li>
+                    
+                           <li class="side-nav-title side-nav-item mt-1">Guias </li>
                        
                         <li class="side-nav-item">
                             <a href="javascript: void(0);" class="side-nav-link">
@@ -578,7 +579,7 @@
                                 <span> Guias  </span>
                                 <span class="menu-arrow"></span>
                             </a>
-                              <ul class="side-nav-second-level" aria-expanded="false">
+                            <ul class="side-nav-second-level" aria-expanded="false">
                                 <li>
                                      <a href="{{ url('guias/create') }}">Insertar Guias</a>
                                 </li>
@@ -619,10 +620,10 @@
                             </a>
                             <ul class="side-nav-second-level" aria-expanded="false">
                                 <li>
-                                    <a href="form-elements.html">Enviar correcciones lvl0</a>
+                                    <a href="{{ url('corrections/index/0') }}">Enviar correcciones lvl0</a>
                                 </li>
                                 <li>
-                                    <a href="form-advanced.html">Enviar correcciones lvl</a>
+                                    <a href="{{ url('corrections/index/1') }}">Enviar correcciones lvl</a>
                                 </li>
                             </ul>
                         </li>
@@ -641,6 +642,7 @@
                                 </li>
                             </ul>
                         </li>
+                      
                       
                        <li class="side-nav-title side-nav-item mt-1">Guias VPN</li>
                          <li class="side-nav-item">

@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Guias extends Model
 {
-    public $fillable = ['name','img','status','level','created_at']; //Todos los campos aqui
+    public $fillable = ['name','img','names_campo','number_campos','number_campos_img','names_campo_img','status','level','created_at']; //Todos los campos aqui
 
     public function scopeName($query, $name)
     {

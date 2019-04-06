@@ -41,15 +41,7 @@
                                 
                                @include('corrections.form')
                                </div>
-                                <!--
-                                    <form>
-
-                                        <div class="form-group mb-3">
-                                            <label for="simpleinput">Text</label>
-                                            <input type="text" id="simpleinput" class="form-control">
-                                        </div>
-
-                                    </form>-->
+                                
                                 </div> <!-- end col -->
                             </div>
                             </div>

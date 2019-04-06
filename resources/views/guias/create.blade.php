@@ -2,46 +2,55 @@
 @include('layouts.nav')
 
 
-    <body class="authentication-bg">
+    <body>
 
-        <div class="account-pages mt-5 mb-5">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-lg-6">
-                        <div class="card">
-                            <!-- Logo-->
-                            <div class="card-header pt-4 pb-4 text-center bg-primary">
-                                <a href="#">
-                                    <span><img src="{{ asset('images/logo2.png') }}" alt="" width="200"></span>
-                                </a>
+       <div class="container-fluid">       
+                <!-- start page title -->
+                <div class="row">
+                    <div class="col-12">
+                        <div class="page-title-box">
+                            <div class="page-title-right">
+                                <ol class="breadcrumb m-0">
+                                    <li class="breadcrumb-item"><a href="javascript: void(0);">Guias</a></li>
+                                    <li class="breadcrumb-item"><a href="javascript: void(0);">Creacion</a></li>
+                                    <li class="breadcrumb-item active">Insertar guia</li>
+                                </ol>
                             </div>
-
-                            <div class="card-body p-4">
-                                
-                                <div class="text-center w-75 m-auto">
-                                    <h4 class="text-dark-50 text-center mt-0 font-weight-bold">Registrar datos personales </h4>
-                                    <p class="text-muted mb-4">Sus datos personales solo seran usados para uso exclusivamente de la plataforma para su seguridad y para la comunidad</p>
-                                </div>
-
-                                @include('people.form')
-                            </div> <!-- end card-body -->
+                            <h4 class="page-title">Insertar guia</h4>
                         </div>
-                        <!-- end card -->
-
-                        <div class="row mt-3">
-                            <div class="col-12 text-center">
-                                <p class="text-muted">¿Ya tienes una cuenta? <a href="pages-login.html" class="text-muted ml-1"><b>Inciar sesión</b></a></p>
-                            </div> <!-- end col-->
-                        </div>
-                        <!-- end row -->
-
-                    </div> <!-- end col -->
+                    </div>
                 </div>
-                <!-- end row -->
-            </div>
-            <!-- end container -->
-        </div>
-        <!-- end page -->
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card-header pt-2 pb-1 text-center bg-primary">
+                                        <a href="#">
+                                            <span><img src="{{ asset('images/logo2.png') }}" alt="" width="50"></span>
+                                        </a>
+                                    </div>
+                        <div class="card">
+                            <div class="card-body"> 
+                                 <div class="row">
+                                <div class="col-lg-3">
+                                </div>    
+                                <div class="col-lg-6">
+                                      <!-- Logo-->
+                                     <div class="text-center w-75 m-auto">
+                                    <h4 class="text-dark-50 text-center mt-0 font-weight-bold">Inertar guia </h4>
+                                    <p class="text-muted mb-4">Asegurese de enviar los datos correctamente.</p>
+                                </div>
+                                
+                               @include('guias.form')
+                               </div>
+                               
+                                </div> <!-- end col -->
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+</div>
+                <!-- end card -->
+
 
     
     </body>

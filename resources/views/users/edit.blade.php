@@ -66,7 +66,6 @@
                                                     </div>
                                                     <div class="mt-4">
                                                         <h3 class="mt-0">Pais de residencia: {{$people->nacionality}}</h3>
-                                                     
                                                       
                                                     </div>
                                                 

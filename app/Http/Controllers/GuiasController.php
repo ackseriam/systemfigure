@@ -67,8 +67,38 @@ class GuiasController extends Controller
      */
     public function store(Request $request)
     {
-        //
+          if ($request->hasFile('img')) {
+        $file = $request->file('img');
+       
+
+    
+        $name = time().$file->getClientOriginalName(); 
+        $file->move(public_path().'/images_guias/', $name);
+
+        
+            
     }
+
+        $options =[
+            'name' => $request->name,
+            'img'=> $name,
+            'status' => $request->status,
+            'names_campo' => $request->names_campo,
+            'number_campos' => $request->number_campos,
+            'names_campo_img' => $request->names_campo_img,
+            'number_campos_img' => $request->number_campos_img,
+
+            'level'=> $request->level,
+            
+            
+        ];
+         if(Guias::create($options)){
+            return redirect('guias/search');
+        }else{
+            return view('guias.create');
+        }
+    }
+   
 
     /**
      * Display the specified resource.

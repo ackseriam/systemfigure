@@ -66,7 +66,7 @@ class CorrectionsController extends Controller
     }
         
        
-        return view('corrections.index',compact('guias'),['rol'=>$rol,'level'=>$level_b]);
+        return view('corrections.index',compact('guias'),['rol'=>$rol,'level'=>$level_b,'correccion_user'=>'correccion_user']);
     }
 
     /**
@@ -138,17 +138,30 @@ class CorrectionsController extends Controller
     
     }
 
+
     /**
      * Display the specified resource.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($id, Request $request)
     {
-        //
-    }
+      $rol = roleuser($request); 
+       $guia= Guias::find($id);
+       $correcciones= Correction::where('id_guias',$id)->get();
+       foreach ($correcciones as $correction) {
+        $i=0;
+           $correction_user= Correction_user::where('id_corrections',$correction->id)->get();
+           $correc[$i++]= $correction_user;
+       
+       }
+       var_dump($correc);
 
+        
+        //return view('corrections/corrections_user/show',['rol'=>$rol]);
+     //  var_dump($correcciones);
+   }
     /**
      * Show the form for editing the specified resource.
      *

@@ -16,7 +16,8 @@
             <tr>
                 
                 <td>{{$guia->name}}</td>
-                <th>{{$guia->img}}</th>
+                <th> <a href="javascript: void(0);" class="text-center d-block mb-4">
+                    <img src="{{ asset('images_guias/')}}/{{$guia->img}}" class="img-fluid" style="max-width: 280px;" alt="No ese encontro imagen" /></a></th>
 
                 @if($guia->status=="inactivo")
                 <th class="mt-12"><h3><span class="badge badge-primary-lighten">{{$guia->status}}</span></h3></th>

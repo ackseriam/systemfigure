@@ -76,12 +76,20 @@
                                                 	@foreach($guias as $guia)
                                                     <tr readonly>
                                                         <td>{{$guia->name}}</td>
-                                                        <td>{{$guia->img}}</td>
+                                                        <td><a href="javascript: void(0);" class="text-center d-block mb-4">
+                                                        <img src="{{ asset('images_guias/')}}/{{$guia->img}}" class="img-fluid" style="max-width: 280px;" alt="No ese encontro imagen" /></a></td>
                                                          <td>{{$guia->status}}</td>
                                                         <td>{{$guia->level}}</td>
+                                                        
+                                                        @if(!empty($correccion_user))
+                                                        <td class="table-action">
+                                                            <a href="/corrections/show/{{$guia->id}}" class="action-icon" title="Ver correcciones" class=""> <i class="mdi mdi-account-search-outline btn btn-primary "></i></a>
+                                                        </td>@else
+
                                                         <td class="table-action">
                                                             <a href="/corrections/create/{{$guia->id}}" class="action-icon" title="Enviar corrección" class=""> <i class="mdi mdi-plus btn btn-primary "></i></a>
                                                         </td>
+                                                        @endif
                                                     </tr>
                                                     @endforeach
                                                 </tbody>

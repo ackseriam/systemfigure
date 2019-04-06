@@ -39,6 +39,7 @@ window.store = new Vuex.Store({
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('person-component', require('./components/people/PersonComponent.vue').default);
 Vue.component('person-card-component', require('./components/people/PersoncardComponent.vue').default);
+Vue.component('guias-form-component', require('./components/guias/GuiasComponent.vue').default);
 
 
 Vue.component('user-status-component', require('./components/user/UserComponent.vue').default);

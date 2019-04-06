@@ -72,7 +72,8 @@
                                                 	@foreach($guias as $guia)
                                                     <tr readonly>
                                                         <td>{{$guia->name}}</td>
-                                                        <td>{{$guia->img}}</td>
+                                                        <td><a href="javascript: void(0);" class="text-center d-block mb-4">
+                                                        <img src="{{ asset('images_guias/')}}/{{$guia->img}}" class="img-fluid" style="max-width: 280px;" alt="No ese encontro imagen" /></a></td>
                                                          <td>{{$guia->status}}</td>
                                                         <td>{{$guia->level}}</td>
                                                         <td class="table-action">

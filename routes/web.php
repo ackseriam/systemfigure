@@ -41,7 +41,10 @@ Route::get('guias/search', 'GuiasController@search')->name('search_guias');
 Route::get('corrections/index/{a}', 'CorrectionsController@index');
 Route::get('corrections/create/{a}', 'CorrectionsController@create');
 Route::get('corrections/search/{a}', 'CorrectionsController@search')->name('search_correc');
+Route::get('corrections/show/{a}','CorrectionsController@show');
 Route::resource('corrections','CorrectionsController');
+
+Route::resource('guias','GuiasController');
 Route::resource('people','PeopleController');
 Route::resource('/users','UsersController');
 //Route::get('people/showaprob/{a}', 'PeopleController@showaprob');
