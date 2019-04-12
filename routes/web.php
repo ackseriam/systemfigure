@@ -40,11 +40,12 @@ Route::get('guias/search', 'GuiasController@search')->name('search_guias');
 
 Route::get('corrections/index/{a}', 'CorrectionsController@index');
 Route::get('corrections/create/{a}', 'CorrectionsController@create');
-Route::get('corrections/search/{a}', 'CorrectionsController@search')->name('search_correc');
-Route::get('corrections/show/{a}','CorrectionsController@show');
+Route::get('corrections/search/{a}', 'CorrectionsController@search');
+//Route::get('corrections/search_to/{a}', 'CorrectionsController@search_to')->name('search_correc');
+Route::get('corrections/correc_user/{a}','CorrectionsController@correc_user')->name('correc_user');
+Route::get('corrections/show/{a}','CorrectionsController@show')->name('showa');
 Route::resource('corrections','CorrectionsController');
 
 Route::resource('guias','GuiasController');
 Route::resource('people','PeopleController');
 Route::resource('/users','UsersController');
-//Route::get('people/showaprob/{a}', 'PeopleController@showaprob');

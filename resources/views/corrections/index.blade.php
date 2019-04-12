@@ -83,7 +83,7 @@
                                                         
                                                         @if(!empty($correccion_user))
                                                         <td class="table-action">
-                                                            <a href="/corrections/show/{{$guia->id}}" class="action-icon" title="Ver correcciones" class=""> <i class="mdi mdi-account-search-outline btn btn-primary "></i></a>
+                                                            <a href="/corrections/correc_user/{{$guia->id}}" class="action-icon" title="Ver correcciones" class=""> <i class="mdi mdi-account-search-outline btn btn-primary "></i></a>
                                                         </td>@else
 
                                                         <td class="table-action">

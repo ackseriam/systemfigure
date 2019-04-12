@@ -145,33 +145,84 @@ class CorrectionsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id, Request $request)
+    public function correc_user($id, Request $request)
     {
       $rol = roleuser($request); 
        $guia= Guias::find($id);
+       $correc=array();
        $correcciones= Correction::where('id_guias',$id)->get();
-       foreach ($correcciones as $correction) {
-        $i=0;
-           $correction_user= Correction_user::where('id_corrections',$correction->id)->get();
-           $correc[$i++]= $correction_user;
-       
-       }
-       var_dump($correc);
 
-        
-        //return view('corrections/corrections_user/show',['rol'=>$rol]);
-     //  var_dump($correcciones);
+      $text = $request->get('text');
+      $img = $request->get('img');
+      $name_campo = $request->get('name_campo');
+    
+      $number_gui=$guia->number_campos;
+      $number_guia=$number_gui-1;
+      $number_img_guia=$guia->number_campos_img;
+
+      $names_campo=explode(',', $guia->names_campo);
+       foreach ($correcciones as $correction) {
+        $i=0; $y=0;
+  
+          $correction_user[]= Correction_user::where('id_corrections',$correction->id)
+          ->get();
+                                                                                          
+        }
+       //$correction_user ->paginate(4);
+         
+
+    
+                                                                    
+    return view('corrections/corrections_user/correc',compact('correction_user'),['rol'=>$rol, 'id'=>$id,'number_guia'=>$number_guia,'names_campo'=>$names_campo]);
+
    }
+  
     /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+ public function show($id,Request $request)
+    {
+         $rol = roleuser($request); 
+      $guia= Guias::find($id);
+    // var_dump($guia);
+      $names_campo=explode(',', $guia->names_campo);
+      $text = $request->get('text');
+      $number_guia=$guia->number_campos;
+     $number_gui[]=$number_guia-1;
+      $correcciones= Correction::where('id_guias',$id)->get();
+
+   
+          foreach ($correcciones as $correction) {
+  
+  
+          $correction_search_prev= Correction_user::where("id_corrections", $correction->id)
+          ->text($text)
+          ->get(); 
+           $id=$correction_search_prev[0]->id_corrections;
+         
+         
+          $otros_text= Correction_user::where("id_corrections", $id)->select('text','name_campo')->get();
+            foreach ( $otros_text as $texts ) {
+              
+                 $correction_search[]=$otros_text; 
+               
+              }
+          
+        }
+        $common_stuff= array_unique($correction_search);
+ 
+  
+ return  view('corrections/corrections_user/correc',compact('common_stuff'),['rol'=>$rol,'names_campo'=>$names_campo,'number_guia'=>$number_guia,'id'=>$id]);
+    }
+
     public function edit($id)
     {
         //
     }
+    
 
     /**
      * Update the specified resource in storage.
