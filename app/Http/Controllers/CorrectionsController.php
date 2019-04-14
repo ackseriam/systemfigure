@@ -183,39 +183,86 @@ class CorrectionsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
- public function show($id,Request $request)
+ public function show($id_guia,Request $request)
     {
          $rol = roleuser($request); 
-      $guia= Guias::find($id);
+         
+      $guia= Guias::find($id_guia);
     // var_dump($guia);
       $names_campo=explode(',', $guia->names_campo);
       $text = $request->get('text');
       $number_guia=$guia->number_campos;
      $number_gui[]=$number_guia-1;
-      $correcciones= Correction::where('id_guias',$id)->get();
+      $correcciones= Correction::where('id_guias',$id_guia)->get();
+
 
    
-          foreach ($correcciones as $correction) {
+          foreach ($correcciones as $correction) 
+          {
   
   
-          $correction_search_prev= Correction_user::where("id_corrections", $correction->id)
-          ->text($text)
-          ->get(); 
-           $id=$correction_search_prev[0]->id_corrections;
+            $correction_search_prev= Correction_user::where("id_corrections", $correction->id)
+            ->text($text)
+            ->get(); 
+           
+       
          
-         
-          $otros_text= Correction_user::where("id_corrections", $id)->select('text','name_campo')->get();
-            foreach ( $otros_text as $texts ) {
-              
-                 $correction_search[]=$otros_text; 
-               
-              }
+           $id=array($correction_search_prev);
+      
+           $idd[]=$id[0];
+
+            // var_dump($idd);
+           $implo=implode($idd);
           
-        }
-        $common_stuff= array_unique($correction_search);
+           foreach ($correction_search_prev as $cc) {
+               $ide[]=$cc->id_corrections;
+    
+           }
+         
+         }
+
  
+         if(!empty($ide))
+         {
+           $idee=$ide[0];
+           
+      foreach ($ide as $ided ) {
+
+         $otros_textU[]= Correction_user::where("id_corrections", $ided)->select('text','name_campo')->get();
+
+    
+        
+      }
+        foreach (  $otros_textU as $texts ) {
+                
+                   $correction_search2[]=$texts; 
+                  
+                }
+
+     //  dd($correction_search2);
+    // dd($otros_textU);
+   
+           $otros_text= Correction_user::where("id_corrections", $idee)->select('text','name_campo')->get();
+      //    dd($otros_text);
+              foreach ( $otros_text as $texts ) {
+                
+                   $correction_search[]=$otros_text; 
+                 
+                }
+       
+          
+        $common_stuff= array_unique($correction_search);
+        
+      //    dd($common_stuff);
+         return  view('corrections/corrections_user/correc',compact('correction_search2'),['rol'=>$rol,'names_campo'=>$names_campo,'number_guia'=>$number_guia,'id'=>$id_guia]);
+ 
+         }else{
+      
+           return redirect("corrections/correc_user/".$id_guia);
+         }
+        
   
- return  view('corrections/corrections_user/correc',compact('common_stuff'),['rol'=>$rol,'names_campo'=>$names_campo,'number_guia'=>$number_guia,'id'=>$id]);
+
     }
 
     public function edit($id)

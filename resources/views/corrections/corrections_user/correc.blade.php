@@ -60,16 +60,18 @@
                                                         <th>Accion</th>
                                                     </tr>
                                                 </thead>
-                                                      @if(!empty($common_stuff))
-                                                  @foreach($common_stuff as $correction)
+                                               
+                                                      @if(!empty($correction_search2))
+                                                  @foreach($correction_search2 as $correction)
                                                 <tbody>
 
                                               
                                                     <tr>
                                                      @for($i=0; $i< $number_guia; $i++)
                                                         <td>{{$correction[$i]->text}}</td>
-                                                        
+                                                    
                                                          @endfor
+                                                        <td><a href="/corrections/correc_user/{{$id}}" class="action-icon" title="Ver corrección" class=""> <i class="mdi mdi-account-search-outline btn btn-primary "></i></a></td>
                                                    </tr>
                                                 </tbody>
                                                  @endforeach
