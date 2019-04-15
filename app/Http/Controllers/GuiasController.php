@@ -105,10 +105,14 @@ class GuiasController extends Controller
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
-     */
-    public function show($id)
+     */                                                                                                                                                                                                                                                              
+    public function show(Request $request,$id)
     {
-        //
+         $rol = roleuser($request);
+         $guia= Guias::find($id);
+
+           return view('guias.show',['rol'=>$rol,'guia'=>$guia]);
+
     }
 
     /**

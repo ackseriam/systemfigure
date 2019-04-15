@@ -14,7 +14,7 @@ class PeopleController extends Controller
     {
 
       $this->middleware('sessiontimeout');
-            $this->middleware('auth', ['except'=> ['create']]);
+            $this->middleware('auth', ['except'=> ['create','store']]);
     }
     /**
      * Display a listing of the resource.

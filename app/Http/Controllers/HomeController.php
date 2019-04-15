@@ -10,6 +10,8 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 use App\User; 
 
+use App\Guias; 
+
 
 class HomeController extends Controller
 {
@@ -39,9 +41,10 @@ class HomeController extends Controller
         $user=User::find(auth()->user()->id);
               $user->status_login = 'activo';
               $user->save();
+       $guias=  Guias::where('level','0')->where('status','activo')->get();
+        $guias_n=  Guias::where('level','!=','0')->where('status','activo')->get();
 
-       
-        return view('home', ["rol" => $rol]);
+        return view('home', ["rol" => $rol,"guias" => $guias, "guias_n" => $guias_n]);
 
     }
 }

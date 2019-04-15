@@ -68,7 +68,7 @@
                                               
                                                     <tr>
                                                      @for($i=0; $i< $number_guia; $i++)
-                                                        <td>{{$correction[$i]->text}}</td>
+                                                        <td><input type="text" name="" readonly="readonly" class="form-control" value="{{$correction[$i]->text}}"></td>
                                                     
                                                          @endfor
                                                         <td><a href="/corrections/correc_user/{{$id}}" class="action-icon" title="Ver corrección" class=""> <i class="mdi mdi-account-search-outline btn btn-primary "></i></a></td>

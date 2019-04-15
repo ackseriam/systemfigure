@@ -293,4 +293,22 @@ class CorrectionsController extends Controller
     {
         //
     }
+
+    public function multi()
+    {
+
+      $content = \View::make('txt.index')->with('order', $order);
+
+  // Set the name of the text file
+  $filename = 'WhateverYouWant.txt';
+
+  // Set headers necessary to initiate a download of the textfile, with the specified name
+  $headers = array(
+      'Content-Type' => 'plain/txt',
+      'Content-Disposition' => sprintf('attachment; filename="%s"', $filename),
+      'Content-Length' => sizeof($content),
+  );
+
+  return \Response::make($content, 200, $headers);
+    }
 }
