@@ -161,7 +161,7 @@ class GuiasController extends Controller
         $guias->names_campo_img=$request->names_campo_img;
         
         if($guias->save()){
-            return view('/');
+            return redirect('guias/search');
             }else{
                 return view('guias.edit',['rol'=>$rol,'guia'=>$guia]);
             }
