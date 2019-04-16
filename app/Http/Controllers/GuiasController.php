@@ -121,9 +121,11 @@ class GuiasController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Request $request,$id)
     {
-        //
+         $rol = roleuser($request);
+        $guia=Guias::find($id);
+        return view('guias.edit',['rol'=>$rol,'guia'=>$guia]);
     }
 
     /**
@@ -135,7 +137,38 @@ class GuiasController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $rol = roleuser($request); 
+        var_dump($request->number_campos);
+        
+        $guias= Guias::find($id);
+          if ($request->hasFile('img')) {
+        $file = $request->file('img');
+       
+
+      
+        $name = time().$file->getClientOriginalName(); 
+        $file->move(public_path().'/images_guias/', $name);
+    }else{
+         $name=$guias->img;
+    }
+      
+        $guias->name=$request->name;
+        $guias->level=$request->level;
+        $guias->img=$name;
+        $guias->names_campo=$request->names_campo;
+        $guias->number_campos=$request->number_campos;
+        $guias->number_campos_img=$request->number_campos_img;
+        $guias->names_campo_img=$request->names_campo_img;
+        
+        if($guias->save()){
+            return view('/');
+            }else{
+                return view('guias.edit',['rol'=>$rol,'guia'=>$guia]);
+            }
+        
+
+
+
     }
 
     /**

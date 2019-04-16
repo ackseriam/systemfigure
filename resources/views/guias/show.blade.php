@@ -36,7 +36,8 @@
                                                     <!-- Product title -->
                                                     <h3 class="mt-0"> {{$guia->name}}   
                                                     	@if(($rol=='admin') ||($rol=='foun') )
-                                                    	<a href="javascript: void(0);" class="text-muted" title="Editar guia"><i class="mdi mdi-square-edit-outline ml-2"></i></a> 
+                                                    
+                                                    	<a href="/guias/edit/{{$guia->id}}" class="text-muted" title="Editar guia"><i class="mdi mdi-square-edit-outline ml-2"></i></a> 
                                                     	@endif
                                                     </h3>
                                                     <p class="mb-1">Fecha de registro de la guia: {{$guia->created_at}} </p>

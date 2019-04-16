@@ -60,7 +60,7 @@
                                                         <th>Accion</th>
                                                     </tr>
                                                 </thead>
-                                               
+                                                                                                                                                    
                                                       @if(!empty($correction_search2))
                                                   @foreach($correction_search2 as $correction)
                                                 <tbody>

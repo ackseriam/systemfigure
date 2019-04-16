@@ -8,6 +8,10 @@ class Guias extends Model
 {
     public $fillable = ['name','img','names_campo','number_campos','number_campos_img','names_campo_img','status','level','created_at']; //Todos los campos aqui
 
+    public function method(){
+      return $this->id ? 'PUT' : 'POST';
+    }
+
     public function scopeName($query, $name)
     {
       if($name)

@@ -107,4 +107,4 @@
     <input type="submit" value="Guardar" class="btn btn-primary">
 </div>
 {!! Form::close() !!}
-</div>
+
