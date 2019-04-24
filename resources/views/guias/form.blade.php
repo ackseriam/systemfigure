@@ -25,6 +25,8 @@
 	        <option value="1">Level 1</option>
 	        <option value="2">Level 2</option>
 	        <option value="3">Level 3</option>
+          <option value="vpn0">VPN Lvl0 </option>
+          <option value="vpn">VPN Lvl </option>
 	    </select> 
   </div>
    <br>
@@ -40,11 +42,12 @@
 </div>
 
 
-
 <div class="form-group position-relative mb-3"> 
 	   <label for="validationTooltip03">Nombre  de campos de texto</label>
+   <div class="tags-default">
+      <input type="text" id="validationTooltip03" name="names_campo" data-role="tagsinput" placeholder="Agregar campos" required />
+  </div>
    
-    {!! Form::text('names_campo','',['class'=> 'form-control','id'=>"validationTooltip03", "placeholder"=>"Nombre de los campos", "required"]) !!}
     <div class="valid-tooltip">
         Muy bien
     </div>
@@ -77,6 +80,8 @@
            El campo no puede quedar vacio
         </div>
     </div>
+ 
+
      <div class="form-group position-relative mb-3"> 
    	   <label for="validationTooltip03">Nombre  de campos de las imagenes</label>
 	   

@@ -44,6 +44,8 @@ Vue.component('guias-form-component', require('./components/guias/GuiasComponent
 
 Vue.component('user-status-component', require('./components/user/UserComponent.vue').default);
 
+Vue.component('correction-form', require('./components/guias/CorreccionComponent.vue').default);
+
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application

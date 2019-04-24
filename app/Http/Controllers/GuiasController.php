@@ -27,6 +27,7 @@ class GuiasController extends Controller
        
         return view('guias.index',['rol'=>$rol, 'level'=>$level, 'guias'=>$guias]);
     }
+
      public function search(Request $request)
     {
         $rol = roleuser($request); 
@@ -37,7 +38,70 @@ class GuiasController extends Controller
         $status = $request->get('status');
         $level = $request->get('level');
 
-     $guias= Guias::orderBy("id", "DESC")
+     $guias= Guias::where('level','!=','VPN')->where('level','!=','VPN0')->orderBy("id", "DESC")
+        ->name($name)
+        ->img($img)
+        ->status($status)
+        ->level($level)
+        ->paginate(4);
+       
+      //  var_dump($guias);
+       return view('guias.search',compact('guias'),['rol'=>$rol]);
+    }
+
+    public function search_0(Request $request)
+    {
+        $rol = roleuser($request);
+            $name = $request->get('name');
+            $img = $request->get('img');
+            $status = $request->get('status');
+            $level = $request->get('level'); 
+       
+
+         $guias= Guias::where('level','!=','VPN')->where('level','!=','VPN0')->where('level','!=','1')->where('level','!=','2')->where('level','!=','3')->orderBy("id", "DESC")
+            ->name($name)
+            ->img($img)
+            ->status($status)
+            ->level($level)
+            ->paginate(4);
+
+        return view('guias.search',compact('guias'),['rol'=>$rol]);
+      
+    }
+
+   
+        public function search_vpn0(Request $request)
+    {
+        $rol = roleuser($request); 
+        //$guias= Guias::all();
+         
+        $name = $request->get('name');
+        $img = $request->get('img');
+        $status = $request->get('status');
+        $level = $request->get('level');
+
+     $guias= Guias::where('level','!=','VPN')->where('level','!=','0')->where('level','!=','1')->where('level','!=','2')->where('level','!=','3')->orderBy("id", "DESC")
+        ->name($name)
+        ->img($img)
+        ->status($status)
+        ->level($level)
+        ->paginate(4);
+       
+      //  var_dump($guias);
+       return view('guias.search',compact('guias'),['rol'=>$rol,'vpn0'=>'vpn0']);
+    }
+    
+        public function search_vpn(Request $request)
+    {
+        $rol = roleuser($request); 
+        //$guias= Guias::all();
+         
+        $name = $request->get('name');
+        $img = $request->get('img');
+        $status = $request->get('status');
+        $level = $request->get('level');
+
+     $guias= Guias::where('level','!=','VPN0')->where('level','!=','0')->where('level','!=','1')->where('level','!=','2')->where('level','!=','3')->orderBy("id", "DESC")
         ->name($name)
         ->img($img)
         ->status($status)
@@ -67,6 +131,17 @@ class GuiasController extends Controller
      */
     public function store(Request $request)
     {
+   /*  header("Access-Control-Allow-Origin: *");
+      header("Content-Type: application/json; charset=UTF-8"); 
+
+echo json_encode($request);
+        //      $file = $request->input('img');
+             if ($request->hasFile('img')) {
+                echo "dasda";
+             }
+
+    */  
+
           if ($request->hasFile('img')) {
         $file = $request->file('img');
        
@@ -98,7 +173,6 @@ class GuiasController extends Controller
             return view('guias.create');
         }
     }
-   
 
     /**
      * Display the specified resource.
@@ -110,6 +184,8 @@ class GuiasController extends Controller
     {
          $rol = roleuser($request);
          $guia= Guias::find($id);
+         $guias=  Guias::where('level','0')->where('status','activo')->get();
+         $guias_n=  Guias::where('level','!=','0')->where('status','activo')->get();
 
            return view('guias.show',['rol'=>$rol,'guia'=>$guia]);
 

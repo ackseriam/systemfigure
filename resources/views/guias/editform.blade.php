@@ -37,11 +37,11 @@
 </div>
 
 
-
 <div class="form-group position-relative mb-3"> 
 	   <label for="validationTooltip03">Nombre  de campos de texto</label>
-   
-    {!! Form::text('names_campo',$guia->names_campo,['class'=> 'form-control','id'=>"validationTooltip03", "placeholder"=>"Nombre de los campos", "required"]) !!}
+    <div class="tags-default">
+      <input type="text" id="validationTooltip03" value="{{$guia->names_campo}}" name="names_campo" data-role="tagsinput" placeholder="Agregar campos" required />
+  </div>
     <div class="valid-tooltip">
         Muy bien
     </div>
@@ -119,7 +119,11 @@
      <div class="form-group position-relative mb-3"> 
    	   <label for="validationTooltip03">Nombre  de campos de las imagenes</label>
 	   
-	    {!! Form::text('names_campo_img','',['class'=> 'form-control','id'=>"validationTooltip03", "placeholder"=>"Nombre de los campos", ]) !!}
+
+
+      <div class="tags-default">
+      <input type="text" id="validationTooltip03" name="names_campo_img" data-role="tagsinput" placeholder="Agregar campos" required />
+    </div>
         <div class="valid-tooltip">
             Muy bien
         </div>

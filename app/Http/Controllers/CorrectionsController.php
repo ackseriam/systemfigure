@@ -26,11 +26,30 @@ class CorrectionsController extends Controller
          $rol = roleuser($request); 
          if($level_b=='0')
        {
-        $guias = Guias::where(['level'=> $level_b, 'status'=>'activo'])->paginate(4);;
+        $guias = Guias::where(['level'=> $level_b, 'status'=>'activo'])->paginate(4);
        }else{
-         $guias= Guias::where('level','!=','0')->paginate(4);;
+         $guias= Guias::where('level','!=','0')->where('level','!=','vpn0')->where('level','!=','vpn')->paginate(4);
 
        }
+        return view('corrections.index',compact('guias'),['rol'=>$rol, 'level'=>$level_b]);
+    }
+
+    public function index_vpn( $level_b, Request $request)
+    {
+         $rol = roleuser($request); 
+      if($level_b=='vpn0')
+      {
+         $guias= Guias::where('level',$level_b)->paginate(4);
+      }elseif($level_b=='vpn'){
+         $guias= Guias::where('level',$level_b)->paginate(4);
+      }elseif(($level_b!="vpn0")|| ($level_b!="vpn")){
+
+        $guias=  Guias::where('level','0')->where('status','activo')->get();
+        $guias_n=  Guias::where('level','!=','0')->where('status','activo')->get();
+
+        return view('home', ["rol" => $rol,"guias" => $guias, "guias_n" => $guias_n]);
+      }
+
         return view('corrections.index',compact('guias'),['rol'=>$rol, 'level'=>$level_b]);
     }
 
@@ -55,7 +74,7 @@ class CorrectionsController extends Controller
     }else{
 
 
-         $guias= Guias::where('level','!=','0')
+         $guias= Guias::where('level','!=','0')->where('level','!=','vpn')->where('level','!=','vpn0')
         //->where("level", $level)
         ->name($name)
         ->img($img)
@@ -69,12 +88,53 @@ class CorrectionsController extends Controller
         return view('corrections.index',compact('guias'),['rol'=>$rol,'level'=>$level_b,'correccion_user'=>'correccion_user']);
     }
 
+       public function search_vpn( $level_b, Request $request)
+    {
+        $rol = roleuser($request); 
+        $name = $request->get('name');
+        $img = $request->get('img');
+        $status = $request->get('status');
+        $level = $request->get('level');
+       if($level_b=='vpn0')
+       {
+      
+
+         $guias= Guias::where('level','!=','0')->where('level','!=','1')->where('level','!=','2')->where('level','!=','3')->where('level','!=','vpn')->where('status','activo')
+        //->where("level", $level)
+        ->name($name)
+        ->img($img)
+        ->status($status)
+        ->level($level)
+        ->paginate(4);
+    }elseif($level_b=='vpn'){
+
+
+         $guias= Guias::where('level','!=','0')->where('level','!=','1')->where('level','!=','2')->where('level','!=','3')->where('level','!=','vpn0')->where('status','activo')
+        //->where("level", $level)
+        ->name($name)
+        ->img($img)
+        ->status($status)
+        ->level($level)
+        ->paginate(4);
+
+    }elseif(($level_b!="vpn0")|| ($level_b!="vpn")){
+
+        $guias=  Guias::where('level','0')->where('status','activo')->get();
+        $guias_n=  Guias::where('level','!=','0')->where('status','activo')->get();
+
+        return view('home', ["rol" => $rol,"guias" => $guias, "guias_n" => $guias_n]);
+      }
+        
+       
+        return view('corrections.index',compact('guias'),['rol'=>$rol,'level'=>$level_b,'correccion_user'=>'correccion_user']);
+    }
+
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function create($guia, Request $request)
+       public function create($guia, Request $request)
     {
         
          $rol = roleuser($request); 
@@ -132,8 +192,11 @@ class CorrectionsController extends Controller
            Correction_user::create($corrections_cam);
 
       }
-       $rol = roleuser($request); 
-    return view('home',['rol'=>$rol]);
+        $rol = roleuser($request); 
+        $guias=  Guias::where('level','0')->where('status','activo')->get();
+        $guias_n=  Guias::where('level','!=','0')->where('status','activo')->get();
+
+          return view('home', ["rol" => $rol,"guias" => $guias, "guias_n" => $guias_n]);
 
     
     }

@@ -139,7 +139,7 @@
                                     <p class="text-muted mt-3"> Somos una comunidad especializada en las soluciones de las tareas suministradas por la plataforma FigureEight</p>
         
                                     <button type="button" class="btn btn-success btn-sm mt-2"><i class="mdi mdi-email-outline mr-1"></i>Contactano por email</button>
-                                    <button type="button" class="btn btn-info btn-sm mt-2 ml-1"><i class="mdi mdi-twitter mr-1"></i> Contactanos por facebook</button>
+                                    <button type="button" class="btn btn-info btn-sm mt-2 ml-1"><i class="mdi mdi-twitter mr-1"></i> Contactanos por twitter</button>
                                 </div>
                             </div><!-- end col -->
                         </div><!-- end row -->

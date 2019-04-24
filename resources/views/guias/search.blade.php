@@ -30,9 +30,14 @@
                                         <p class="text-muted mb-3">
                                         </p>
                             		  <h6 class="font-13 mt-3">Datos de la guia</h6>
-                                 
-								 		{{ Form::open(['route'=> 'search_guias', 'method'=> 'GET', 'class' => '']) }}
-								 		<div class="form-row align-items-center">
+                                    @if(!empty($vpn0))
+                                    {{ Form::open(['route'=> 'search_guias_vpn0', 'method'=> 'GET', 'class' => '']) }}
+                                    @elseif(!empty($vpn))
+								 		{{ Form::open(['route'=> 'search_guias_vpn', 'method'=> 'GET', 'class' => '']) }}
+                                    @else
+                                        {{ Form::open(['route'=> 'search_guias', 'method'=> 'GET', 'class' => '']) }}
+								 	@endif	
+                                        <div class="form-row align-items-center">
 
 									 		<div class="col-auto">
 									 	    	{{Form::text('name', null, ['class'=> 'form-control mb-2', 'placeholder' => 'Nombre de la guia'])}}

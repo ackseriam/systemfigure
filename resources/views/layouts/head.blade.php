@@ -24,7 +24,32 @@
         <!-- App css -->
         <link href="{{ asset('css/icons.min.css') }}" rel="stylesheet" type="text/css" />
         <link href="{{ asset('css/app.min.css') }}" rel="stylesheet" type="text/css" />
-        
+
+           <!-- Plugins css-->
+        <link href="{{ asset('css/vendor/bootstrap-tagsinput.css') }}" rel="stylesheet" />
+     <link href="{{ asset('css/vendor/plugins/bootstrap-touchspin/css/jquery.bootstrap-touchspin.min.css') }}" rel="stylesheet" />
 
 
     </head>
+    <style type="text/css">
+        /* Bootstrap tagsinput */
+.bootstrap-tagsinput {
+  box-shadow: none;
+  padding: 10px 16px 8px;
+  width: 100%;
+  line-height: 1;
+  border: 1px solid  #464f5b;
+  background-color: #464f5b;
+   color: #e3eaef;
+}
+
+.bootstrap-tagsinput .label-info {
+  background-color: #5d6dc3;
+  color: #e3eaef;
+  background: linear-gradient(to top, #5d6dc3, #3c86d8);
+  display: inline-block;
+  padding: 8px 16px;
+  font-size: 16px;
+  margin: 3px 1px;
+  border-radius: 3px;
+}   </style>

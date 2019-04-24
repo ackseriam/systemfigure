@@ -40,6 +40,7 @@
                                 </div>
                                 
                                @include('corrections.form')
+
                                </div>
                                 
                                 </div> <!-- end col -->

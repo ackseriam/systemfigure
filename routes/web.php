@@ -35,17 +35,28 @@ Route::get('users/update', 'UsersController@update');
 Route::post('users/logout', 'UsersController@logout')->name('logout');
 Route::get('users/search', 'UsersController@search')->name('search');
 
+
+Route::get('guias/search_vpn', 'GuiasController@search_vpn')->name('search_guias_vpn');
+Route::get('guias/search_vpn0', 'GuiasController@search_vpn0')->name('search_guias_vpn0');
+
+
+
 Route::get('guias/index/{a}', 'GuiasController@index');
-Route::get('guias/search', 'GuiasController@search')->name('search_guias');
+Route::get('guias/search/', 'GuiasController@search')->name('search_guias');
+Route::get('guias/search_0/', 'GuiasController@search_0');
 
 Route::get('corrections/index/{a}', 'CorrectionsController@index');
 Route::get('corrections/create/{a}', 'CorrectionsController@create');
 Route::get('corrections/search/{a}', 'CorrectionsController@search');
-//Route::get('corrections/search_to/{a}', 'CorrectionsController@search_to')->name('search_correc');
+Route::get('corrections/index_vpn/{a}', 'CorrectionsController@index_vpn');
+Route::get('corrections/search_vpn/{a}', 'CorrectionsController@search_vpn');
+//Route::get('corrections/search_vpn0', 'CorrectionsController@search_vpn0');
+
 Route::get('corrections/correc_user/{a}','CorrectionsController@correc_user')->name('correc_user');
 Route::get('corrections/show/{a}','CorrectionsController@show')->name('showa');
 Route::resource('corrections','CorrectionsController');
 Route::get('guias/edit/{a}', 'GuiasController@edit');
+Route::put('guias/registrar/{a}', 'GuiasController@store');
 Route::put('guias/update/{a}', 'GuiasController@update');
 Route::resource('guias','GuiasController');
 Route::resource('people','PeopleController');

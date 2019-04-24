@@ -16,7 +16,6 @@
                <p>Para cambiar el estado del usuario {{usuario.username}}. Por favor presionar cualquiera de las opciones mostradas a continuación</p>
         </div>
 		<div class="col-lg-7">
-
 			<div v-if="status.state === 'activo'" >
 				<div class="row center">
 					<form @submit.prevent="inactive">

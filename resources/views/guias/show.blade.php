@@ -69,7 +69,14 @@
 
                                                       <div class="mt-4">
                                                         <div class="d-flex">
-                                                        	<a href="/corrections/create/{{$guia->id}}" class="action-icon" title="Enviar corrección"><i class="mdi mdi-plus btn btn-primary "> Enviar corrección a la guia</i></a>
+                                                        	<a href="/corrections/create/{{$guia->id}}" class="action-icon" title="Enviar corrección"><i class="mdi mdi-plus btn btn-primary "> Enviar corrección.</i></a>
+                                                            
+                                                          
+                                                        </div>
+                                                    </div>
+                                                      <div class="mt-4">
+                                                        <div class="d-flex">
+                                                            <a href="/corrections/correc_user/{{$guia->id}}" class="action-icon" title="Ver correcciones"><i class="mdi mdi-account-search-outline btn btn-primary "> Ver correcciones.</i></a>
                                                             
                                                           
                                                         </div>
