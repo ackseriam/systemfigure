@@ -12,6 +12,11 @@ class Correction_user extends Model
       if($text)
         return $query->where('text', 'LIKE', "%$text%"); //el % al principio es para todo valor o caracter que comience o termine con el valor se relacione
     }
+      public function scopeImg($query, $text)
+    {
+      if($text)
+        return $query->where('img', 'LIKE', "%$img%"); //el % al principio es para todo valor o caracter que comience o termine con el valor se relacione
+    }
 /*
     public function scopeImg($query, $img)
     {

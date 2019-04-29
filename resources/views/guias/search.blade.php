@@ -1,6 +1,6 @@
 @include('layouts.head')
 @include('layouts.nav')
- <body>
+ <body >
  	           <!-- Start Content-->
                     <div class="container-fluid">
                         
@@ -11,7 +11,7 @@
                                     <div class="page-title-right">
                                         <ol class="breadcrumb m-0">
                                             <li class="breadcrumb-item"><a href="javascript: void(0);">Tablero</a></li>
-                                            <li class="breadcrumb-item"><a href="javascript: void(0);">Personas</a></li>
+                                            <li class="breadcrumb-item"><a href="javascript: void(0);">Guias</a></li>
                                             <li class="breadcrumb-item active">Buscar guia</li>
                                         </ol>
                                     </div>
@@ -63,7 +63,7 @@
 
                                   
                                         <div class="table-responsive-sm">
-                                            <table class="table table-striped table-centered mb-0" readonly>
+                                            <table class="table table-striped table-centered mb-0" onmousedown='return false;' onselectstart="return false;">
                                                 <thead>
                                                     <tr>
                                                         <th>Nombre</th>

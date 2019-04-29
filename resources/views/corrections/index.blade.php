@@ -8,14 +8,14 @@
                         <div class="row">
                             <div class="col-12">
                                 <div class="page-title-box">
-                                    <div class="page-title-right">
+                                    <div class="page-title-right" onmousedown='return false;' onselectstart="return false;">
                                         <ol class="breadcrumb m-0">
                                             <li class="breadcrumb-item"><a href="javascript: void(0);">Tablero</a></li>
-                                            <li class="breadcrumb-item"><a href="javascript: void(0);">Personas</a></li>
+                                            <li class="breadcrumb-item"><a href="javascript: void(0);">Correcciones</a></li>
                                             <li class="breadcrumb-item active">Buscar correciones</li>
                                         </ol>
                                     </div>
-                                    <h4 class="page-title">Buscar guia para enviar Corrección</h4>
+                                    <h4 class="page-title" onmousedown='return false;' onselectstart="return false;">Buscar guia para enviar Corrección</h4>
                                 </div>
                             </div>
                         </div>   
@@ -24,13 +24,14 @@
                             <div class="col-md-12 center">
                                 <div class="card">
                                     <div class="card-body">
-
+                                        <div onmousedown='return false;' onselectstart="return false;">
                                         <h4 class="header-title">Ingresa los datos de la guia para enviar la correccion</h4>
                                          <p class="text-muted mb-4">Buscar los datos de la guia para </p>
 
                                         <p class="text-muted mb-3">
                                         </p>
                             		  <h6 class="font-13 mt-3">Datos de la guia </h6>
+                                    </div>
                                         @if($level==0)
 								 		{{ Form::open(['url'=> 'corrections/search/0', 'method'=> 'GET', 'class' => '']) }}
                                         @else
@@ -56,13 +57,13 @@
 								 	     </div>
 								 	</div>
 								 	  {{ Form::close()}}
-								 	    <div class="col-xl-12">
+								 	    <div class="col-xl-12" onmousedown='return false;' onselectstart="return false;">
                                 <div class="card">
                                     <div class="card-body">
 
                                   
-                                        <div class="table-responsive-sm">
-                                            <table class="table table-striped table-centered mb-0" readonly>
+                                        <div class="table-responsive-sm" >
+                                            <table class="table table-striped table-centered mb-0" >
                                                 <thead>
                                                     <tr>
                                                         <th>Nombre</th>

@@ -30,7 +30,7 @@
 
 @include('layouts.nav')
 
-                <body>
+                <body >
                     <br><br>
         
                         <div class="row">

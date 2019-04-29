@@ -131,18 +131,8 @@ class GuiasController extends Controller
      */
     public function store(Request $request)
     {
-   /*  header("Access-Control-Allow-Origin: *");
-      header("Content-Type: application/json; charset=UTF-8"); 
 
-echo json_encode($request);
-        //      $file = $request->input('img');
-             if ($request->hasFile('img')) {
-                echo "dasda";
-             }
-
-    */  
-
-          if ($request->hasFile('img')) {
+        if ($request->hasFile('img')) {
         $file = $request->file('img');
        
 

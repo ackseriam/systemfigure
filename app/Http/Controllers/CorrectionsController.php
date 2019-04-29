@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 use App\Guias;
 use App\Correction_user;
-
+//use Alert;
 use Illuminate\Support\Facades\Auth;
 use App\Correction;
 use Illuminate\Http\Request;
@@ -144,8 +144,14 @@ class CorrectionsController extends Controller
          $number_campos=$guia->number_campos;
          //var_dump($campos);
          $campo=explode(",", $campos);
-         //var_dump($campo);
-        return view('corrections.create',['rol'=>$rol,'campos'=>$campo, 'number_campos'=>$number_campos,'id_guias'=>$guia->id ]); 
+        
+         $number_campos_img= $guia->number_campos_img;
+         $campos_img=$guia->names_campo_img;
+         $campos_img=explode(",",  $campos_img);
+        
+     
+        
+         return view('corrections.create',['rol'=>$rol,'campos'=>$campo, 'number_campos'=>$number_campos,'id_guias'=>$guia->id,'campos_img'=>$campos_img, 'number_campos_img'=>$number_campos_img  ]); 
     }
 
     /**
@@ -156,47 +162,77 @@ class CorrectionsController extends Controller
      */
     public function store(Request $request)
     {
+       $rol = roleuser($request); 
+    
        $id_users=Auth::user()->id;
        $guia= Guias::find($request->id_guias);
        $number_campos=$guia->number_campos;
        $campo_n=$guia->names_campo;
-        $campo_nombre=explode(",", $campo_n);
-
+       $campo_nombre=explode(",", $campo_n);
+       $number_campos_img= $guia->number_campos_img;
+       $campos_img=$guia->names_campo_img;
+       $campos_img_nombre=explode(",",$campos_img);
+      
+       $id_guias= $request->id_guias;
        $options =[
             'id_users' => $id_users,
-            'id_guias' => $request->id_guias,
-           
-        ];
-        $img='0';
-  
-        
+            'id_guias' =>  $id_guias,    
+        ];  
     $corrections=Correction::create($options);
+ 
       foreach ($campo_nombre as $campo_nombre ) 
-                {
-                    $campos[]=['name' => $campo_nombre]; 
-           
-                }
+      {
+          $campos[]=['name' => $campo_nombre]; 
 
-     for ($i=0; $i < $number_campos; $i++) { 
-         
+      }
+     for ($i=0; $i < $number_campos; $i++) 
+     { 
+         $img='0';
 
                $corrections_cam =[
                 'text' => $_POST[$i],
-                'img'=>$img,
+                'img'=> $img,
                 'name_campo'=>$campos[$i]["name"],
+                'id_corrections' => $corrections->id,
+            ];
+          Correction_user::create($corrections_cam);
+      }
+
+      foreach ($campos_img_nombre as $campos_img_nombre  ) 
+      {
+        $camposs[]=['name' => $campos_img_nombre];   
+      }
+                
+        for ($i=0; $i < $number_campos_img; $i++)
+       { 
+            $img = $request->file($i);
+               $name = time().$img->getClientOriginalName(); 
+        $img->move(public_path().'/images_guias/', $name);
+
+         $text='0';
+
+               $corrections_cam_im =[
+                'text' => $text,
+                'img'=> $name,
+               'name_campo'=> $camposs[$i]["name"],
                 'id_corrections' => $corrections->id,
                 
             ];
-   
+            
+        Correction_user::create($corrections_cam_im);
+       }
+       $rol = roleuser($request); 
+       $guia= Guias::find($guia->id);
+       $campos=$guia->names_campo;
+       $number_campos=$guia->number_campos;
+       $campo=explode(",", $campos);
+      
+       $number_campos_img= $guia->number_campos_img;
+       $campos_img=$guia->names_campo_img;
+       $campos_img=explode(",",  $campos_img);
+  //  Alert::success('Success Message', 'Optional Title');
 
-           Correction_user::create($corrections_cam);
-
-      }
-        $rol = roleuser($request); 
-        $guias=  Guias::where('level','0')->where('status','activo')->get();
-        $guias_n=  Guias::where('level','!=','0')->where('status','activo')->get();
-
-          return view('home', ["rol" => $rol,"guias" => $guias, "guias_n" => $guias_n]);
+         return view('corrections.create',['rol'=>$rol,'campos'=>$campo, 'number_campos'=>$number_campos,'id_guias'=>$guia->id,'campos_img'=>$campos_img, 'number_campos_img'=>$number_campos_img  ]); 
 
     
     }
@@ -222,6 +258,8 @@ class CorrectionsController extends Controller
       $number_gui=$guia->number_campos;
       $number_guia=$number_gui-1;
       $number_img_guia=$guia->number_campos_img;
+      $number_campos_img=$number_img_guia-1;
+      $campos_img=explode(",",$guia->names_campo_img);
 
       $names_campo=explode(',', $guia->names_campo);
        foreach ($correcciones as $correction) {
@@ -231,12 +269,11 @@ class CorrectionsController extends Controller
           ->get();
                                                                                           
         }
-       //$correction_user ->paginate(4);
-         
+           
 
     
                                                                     
-    return view('corrections/corrections_user/correc',compact('correction_user'),['rol'=>$rol, 'id'=>$id,'number_guia'=>$number_guia,'names_campo'=>$names_campo]);
+    return view('corrections/corrections_user/correc',compact('correction_user'),['rol'=>$rol, 'id'=>$id,'number_guia'=>$number_guia,'names_campo'=>$names_campo, 'campos_img'=>$campos_img,'number_campos_img'=>  '0']);
 
    }
   
@@ -251,79 +288,71 @@ class CorrectionsController extends Controller
          $rol = roleuser($request); 
          
       $guia= Guias::find($id_guia);
-    // var_dump($guia);
+   
       $names_campo=explode(',', $guia->names_campo);
+       $campos_img=explode(",",$guia->names_campo_img);
+
       $text = $request->get('text');
       $number_guia=$guia->number_campos;
-     $number_gui[]=$number_guia-1;
+      $number_campos_img=$guia->number_campos_img;
+      $number_gui[]=$number_guia-1;
       $correcciones= Correction::where('id_guias',$id_guia)->get();
 
-
-   
           foreach ($correcciones as $correction) 
           {
-  
-  
-            $correction_search_prev= Correction_user::where("id_corrections", $correction->id)
+         $id_d[]=$correction->id;       
+         }
+         if(!empty($id_d))
+         {
+             $cound_id= count($id_d);
+
+         foreach ($id_d as  $clave=>$valor) {
+          for ($i=0; $i <  $cound_id ; $i++) { 
+              $correction_search_text= Correction_user::where("id_corrections",$id_d[$i] )
             ->text($text)
             ->get(); 
-           
-       
-         
-           $id=array($correction_search_prev);
-      
-           $idd[]=$id[0];
-
-            // var_dump($idd);
-           $implo=implode($idd);
-          
-           foreach ($correction_search_prev as $cc) {
-               $ide[]=$cc->id_corrections;
-    
-           }
-         
+            $co=count($correction_search_text);
+            if($co!=0)
+            {
+              $correction_search_text2[]=$correction_search_text;
+            }
+          }
          }
-
- 
-         if(!empty($ide))
-         {
-           $idee=$ide[0];
-           
-      foreach ($ide as $ided ) {
-
-         $otros_textU[]= Correction_user::where("id_corrections", $ided)->select('text','name_campo')->get();
-
-    
-        
-      }
-        foreach (  $otros_textU as $texts ) {
-                
-                   $correction_search2[]=$texts; 
-                  
-                }
-
-     //  dd($correction_search2);
-    // dd($otros_textU);
-   
-           $otros_text= Correction_user::where("id_corrections", $idee)->select('text','name_campo')->get();
-      //    dd($otros_text);
-              foreach ( $otros_text as $texts ) {
-                
-                   $correction_search[]=$otros_text; 
-                 
-                }
-       
-          
-        $common_stuff= array_unique($correction_search);
-        
-      //    dd($common_stuff);
-         return  view('corrections/corrections_user/correc',compact('correction_search2'),['rol'=>$rol,'names_campo'=>$names_campo,'number_guia'=>$number_guia,'id'=>$id_guia]);
- 
-         }else{
+  
       
+        $co_def_text= array_unique($correction_search_text2);
+        $count_d=count($co_def_text);
+        foreach ( $co_def_text as $image) {
+            for ($i=0; $i < $count_d ; $i++) { 
+             $id_corrections[]=$co_def_text[$i][0]->id_corrections;
+
+              $otros_text= Correction_user::where("id_corrections", $id_corrections)->select('text','name_campo')->get();
+
+            }
+        }
+        
+         // dd($co_def_text);
+          $id_co= array_unique($id_corrections);
+          $count_id=count($id_co);
+          for ($i=0; $i < $count_id; $i++) { 
+             $otros_img_d[]= Correction_user::where("id_corrections", $id_co[$i])->where('img','!=','0')->select('img','name_campo','id')->get();
+
+
+          }
+         // dd($co_def_text);
+
+         return  view('corrections/corrections_user/correc',compact('names_campos'),['rol'=>$rol,'names_campo'=>$names_campo,'campos_img'=> $campos_img,'number_guia'=>$number_guia,'id'=>$id_guia, 'correction_search2'=>$otros_text, 'correction_sear_img'=>  $otros_img_d, 'number_campos_img'=> $number_campos_img]);
+         }else
+         {
+
+        
            return redirect("corrections/correc_user/".$id_guia);
          }
-        
+       
+      
+   
+ 
+      
   
 
     }

@@ -1,4 +1,4 @@
-  <table id="basic-datatable" class="table dt-responsive nowrap" width="100%">
+  <table id="basic-datatable" class="table dt-responsive nowrap" width="100%" onmousedown='return false;' onselectstart="return false;">
         <thead>
             <tr>
                 <th>Nombre de la guia</th>
