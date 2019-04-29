@@ -47,11 +47,13 @@
 								 	     </div>
 								 	</div>
 								 	  {{ Form::close()}}
-								 	    <div class="col-xl-12">
+                                      <div class="col-lg-2">
+                                        <button class="btn btn-primary">Agregar corrección</button>    
+                                      </div>
+                                      
+							<div class="col-xl-12">
                                 <div class="card">
                                     <div class="card-body">
-
-                          
                                         <div class="table-responsive-sm">
                                             <table class="table table-striped table-centered mb-0" onmousedown='return false;' onselectstart="return false;">
                                                 <thead>
@@ -70,10 +72,9 @@
                                                     
                                                      <tr>
                                                          @foreach($correction_search2 as $correction)
-                                                   
                                                     @if($correction->text != '0')
-                                                      <td><input type="text" name="" readonly="readonly" class="form-control" value="{{$correction->text}}" id="e{{$correction->text}}">  
-                                                      <button type="button" id="copyClip" data-clipboard-target="#e{{$correction->text}}" class="btn btn-primary"><i class=" mdi mdi-content-copy"></i></button>
+                                                      <td><input type="text" name="" readonly="readonly" class="form-control" value="{{$correction->text}}" id="listen_{{$correction->id}}">  
+                                                      <button type="button" id="copyClip" data-clipboard-target="#listen_{{$correction->id}}" class="btn btn-primary"><i class=" mdi mdi-content-copy"></i></button>
                                                       </td> 
                                                       @else
 
@@ -87,7 +88,60 @@
                                                            <button class="btn btn-primary"> Ver ímagenes de la corrección</button> 
                                                            @endif
                                                             @if(!empty($correction_search2))
-                                                           <button class="btn btn-primary"> Ver detalles de la corrección</button>
+                                                           
+                                                                        <!-- Primary Header Modal -->
+                                        <div id="full-width-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="primary-header-modalLabel" aria-hidden="true">
+                                            <div class="modal-dialog modal-full-width">
+                                                <div class="modal-content">
+                                                    <div class="modal-header modal-colored-header bg-primary">
+                                                        <h4 class="modal-title" id="primary-header-modalLabel">{{$guia->name}}</h4>
+                                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <h5 class="mt-0">Fecha</h5>
+                                                        <p>Guia creada :{{$guia->created_at}}</p><br>
+                                                        <h5 class="mt-0">Detalle de la corrección:</h5>
+                                                        <br>
+                                                        <p>  
+                                                        <div class="row">
+                                                            
+                                                      <div class="col-lg-6">
+                                                            @foreach($names_campo as $campos)
+                                                             <input type="text" name=""  class="form-control" value="  {{$campos}}" >
+                                                            
+                                                           @endforeach  
+                                                       </div> 
+                                                        
+                                                        
+                                                        
+                                                         <div class="col-lg-6">
+                                                   
+                                                            @if(!empty($correction_search2))
+                                                        @foreach($correction_search2 as $correction)
+                                                        <div class="col-lg-2">
+                                                             <!--<button type="button" id="copyClip" data-clipboard-target="#f{{$correction->text}}" class="btn btn-primary"><i class=" mdi mdi-content-copy"></i></button>-->
+                                                        </div>
+                                                        <div class="col-lg-4">
+                                                             <input type="text" name="" readonly="readonly" class="form-control" value="{{$correction->text}}" id="f{{$correction->text}}"> 
+                                                              </div>
+                                                       @endforeach
+                                                        @endif
+                                                        </div>
+                                                        
+                                                         
+                                                        </div>
+                                                     
+                                                   </p><br>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-light" data-dismiss="modal">Cerrar ventana</button>
+                                                       
+                                                    </div>
+
+                                                </div><!-- /.modal-content -->
+                                            </div><!-- /.modal-dialog -->
+                                        </div><!-- /.modal -->
+                                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#full-width-modal">Detalles  </button>
                                                            @endif
                                                       </td>
                                                      </tr>
