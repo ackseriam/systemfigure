@@ -47,9 +47,8 @@
 								 	     </div>
 								 	</div>
 								 	  {{ Form::close()}}
-                                      <div class="col-lg-2">
-                                        <button class="btn btn-primary">Agregar corrección</button>    
-                                        <a href="" target="_blank"></a>
+                                      <div class="col-lg-2">   
+                                        <a href="{{ url('corrections/create') }}/{{$id}}" target="_blank" class="btn btn-primary">Agregar corrección</a>
                                       </div>
                                       
 							<div class="col-xl-12">

@@ -31,13 +31,16 @@
                             <div class="card-body"> 
                                  <div class="row">
                                 <div class="col-lg-3">
+                                      <a href="{{ url('corrections/correc_user/') }}/{{$id_guias}}" target="_blank" class="btn btn-primary">Ver corrección de la guia</a>
                                 </div>    
                                 <div class="col-lg-6">
                                       <!-- Logo-->
                                      <div class="text-center w-75 m-auto">
-                                    <h4 class="text-dark-50 text-center mt-0 font-weight-bold">Inertar correccion a la guia </h4>
-                                    <p class="text-muted mb-4">Asegurese de enviar los datos correctamente.</p>
-                                </div>
+                                        <h4 class="text-dark-50 text-center mt-0 font-weight-bold">Inertar correccion a la guia </h4>
+                                        <p class="text-muted mb-4">Asegurese de enviar los datos correctamente.</p>
+                                    </div>
+
+
                                 
                                @include('corrections.form')
 

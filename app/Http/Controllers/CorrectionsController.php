@@ -319,8 +319,9 @@ class CorrectionsController extends Controller
           }
          }
   
-      
-        $co_def_text= array_unique($correction_search_text2);
+      if(!empty($correction_search_text2))
+      {
+            $co_def_text= array_unique($correction_search_text2);
         $count_d=count($co_def_text);
         foreach ( $co_def_text as $image) {
             for ($i=0; $i < $count_d ; $i++) { 
@@ -330,10 +331,10 @@ class CorrectionsController extends Controller
               ->select('text','name_campo','username','correction_users.id as id')->get();
               
             }
-
-
         }
-        
+        <php
+      }
+    
         
          // dd($co_def_text);
           $id_co= array_unique($id_corrections);
