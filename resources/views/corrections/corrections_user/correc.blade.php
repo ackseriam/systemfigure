@@ -49,6 +49,7 @@
 								 	  {{ Form::close()}}
                                       <div class="col-lg-2">
                                         <button class="btn btn-primary">Agregar corrección</button>    
+                                        <a href="" target="_blank"></a>
                                       </div>
                                       
 							<div class="col-xl-12">
@@ -73,6 +74,7 @@
                                                      <tr>
                                                          @foreach($correction_search2 as $correction)
                                                     @if($correction->text != '0')
+                                                    {{$correction->id}}
                                                       <td><input type="text" name="" readonly="readonly" class="form-control" value="{{$correction->text}}" id="listen_{{$correction->id}}">  
                                                       <button type="button" id="copyClip" data-clipboard-target="#listen_{{$correction->id}}" class="btn btn-primary"><i class=" mdi mdi-content-copy"></i></button>
                                                       </td> 
@@ -83,52 +85,108 @@
                                                       @endforeach
                                                     @endif
                                                       
-                                                     <td>
-                                                           @if($number_campos_img > '0')
-                                                           <button class="btn btn-primary"> Ver ímagenes de la corrección</button> 
-                                                           @endif
-                                                            @if(!empty($correction_search2))
+                                                  <td>
+                                                   @if($number_campos_img > '0')
+                                                   <button class="btn btn-success" " data-toggle="modal" data-target="#img-width-modal"> Ver ímagenes de la corrección</button> 
+
+                                                   @endif
+                                                    @if(!empty($correction_search2))
                                                            
                                                                         <!-- Primary Header Modal -->
-                                        <div id="full-width-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="primary-header-modalLabel" aria-hidden="true">
-                                            <div class="modal-dialog modal-full-width">
-                                                <div class="modal-content">
-                                                    <div class="modal-header modal-colored-header bg-primary">
-                                                        <h4 class="modal-title" id="primary-header-modalLabel">{{$guia->name}}</h4>
-                                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                                                    </div>
-                                                    <div class="modal-body">
-                                                        <h5 class="mt-0">Fecha</h5>
-                                                        <p>Guia creada :{{$guia->created_at}}</p><br>
-                                                        <h5 class="mt-0">Detalle de la corrección:</h5>
-                                                        <br>
-                                                        <p>  
+                                                              <div id="full-width-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="primary-header-modalLabel" aria-hidden="true">
+                                                             <div class="modal-dialog modal-full-width">
+                                                                  <div class="modal-content">
+                                                                    <div class="modal-header modal-colored-header bg-primary">
+                                                                    <h4 class="modal-title" id="primary-header-modalLabel">{{$guia->name}}</h4>
+                                                                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                                                      </div>
+                                                                      <div class="modal-body">
+                                                                        <h5 class="mt-0">Fecha</h5>
+                                                                        <p>Guia creada :{{$guia->created_at}}</p><br>
+                                                                        <h5 class="mt-0">Detalle de la corrección:</h5>
+                                                                        <br>
+                                                                         <?php $username= $correction_search2[0]->username ?>
+                                                                         <h5 class="mt-0"> Usuario que realizo la corrección: {{$username}}</h5>
+                                                                        <p>  
+
                                                         <div class="row">
                                                             
-                                                      <div class="col-lg-6">
-                                                            @foreach($names_campo as $campos)
-                                                             <input type="text" name=""  class="form-control" value="  {{$campos}}" >
-                                                            
-                                                           @endforeach  
-                                                       </div> 
-                                                        
-                                                        
-                                                        
-                                                         <div class="col-lg-6">
-                                                   
-                                                            @if(!empty($correction_search2))
-                                                        @foreach($correction_search2 as $correction)
-                                                        <div class="col-lg-2">
-                                                             <!--<button type="button" id="copyClip" data-clipboard-target="#f{{$correction->text}}" class="btn btn-primary"><i class=" mdi mdi-content-copy"></i></button>-->
+                                                              <div class="col-lg-6">
+                                                                    <h5 class="mt-0"> Campos:</h5>
+                                                                    @foreach($names_campo as $campos)
+                                                                     <input type="text" name=""  class="form-control" value="  {{$campos}}" >
+                                                                    
+                                                                   @endforeach  
+                                                               </div> 
+                                                                
+                                                                 @if(!empty($correction_search2))
+                                                                 <div class="col-lg-6">
+
+                                                                @foreach($correction_search2 as $correction)
+                                                                  @if($correction->text != '0')
+                                                             
+                                                                <div class="col-lg-4">
+                                                                     <input type="text" name="" readonly="readonly" class="form-control" value="{{$correction->text}}"  id="list_{{$correction->id}}"> 
+                                                               </div>
+                                                                 <div class="col-lg-2">
+                                                                     <button type="button" id="copyClip"  data-clipboard-target="#list_{{$correction->id}}" class="btn btn-primary"><i class=" mdi mdi-content-copy"></i></button>
+                                                                </div>
+                                                                @endif
+                                                               @endforeach
+                                                                @endif
+                                                                </div>
                                                         </div>
-                                                        <div class="col-lg-4">
-                                                             <input type="text" name="" readonly="readonly" class="form-control" value="{{$correction->text}}" id="f{{$correction->text}}"> 
-                                                              </div>
-                                                       @endforeach
-                                                        @endif
-                                                        </div>
-                                                        
-                                                         
+                                                     
+                                                   </p><br>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-light" data-dismiss="modal">Cerrar ventana</button>
+                                                       
+                                                    </div>
+
+                                                </div><!-- /.modal-content -->
+                                            </div><!-- /.modal-dialog -->
+                                        </div><!-- /.modal -->
+                                           <!-- Primary Header Modal -->
+                                            <div id="img-width-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="success-header-modalLabel" aria-hidden="true">
+                                                     <div class="modal-dialog modal-full-width">
+                                                         <div class="modal-content">
+                                                             <div class="modal-header modal-colored-header bg-success">
+                                                                    <h4 class="modal-title" id="primary-header-modalLabel">{{$guia->name}}</h4>
+                                                                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                                                      </div>
+                                                                      <div class="modal-body">
+                                                                        <h5 class="mt-0">Fecha</h5>
+                                                                        <p>Guia creada :{{$guia->created_at}}</p><br>
+                                                                        <h5 class="mt-0">Detalle de la corrección:</h5>
+                                                                        <br>
+                                                                         <?php $username= $correction_search2[0]->username ?>
+                                                                         <h5 class="mt-0"> Usuario que realizo la corrección: {{$username}}</h5>
+                                                                        <p>  
+
+                                                        <div class="row">
+                                                              <div class="col-lg-6">
+                                                                    <h5 class="mt-0"> Campos:</h5>
+                                                                    @foreach($campos_img as $campos)
+                                                                     <input type="text" name=""  class="form-control" value="  {{$campos}}" >
+                                                                    
+                                                                   @endforeach  
+                                                               </div> 
+                                                                
+                                                                 @if(!empty($correction_sear_img))
+                                                                 <div class="col-lg-6">
+
+                                                                    @foreach($correction_sear_img as $correction)
+                                                                   
+                                                                      
+                                                                 @for($i=0; $i < $number_campos_img; $i++)
+                                                                   
+                                                                         <img src="{{ asset('images_guias/')}}/{{$correction[$i]->img}}" class="img-fluid" style="max-width: 600px;" alt="No ese encontro imagen" />
+                                                                   
+                                                                   @endfor
+                                                                   @endforeach
+                                                                    @endif
+                                                                </div>
                                                         </div>
                                                      
                                                    </p><br>

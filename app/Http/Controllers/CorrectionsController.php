@@ -326,10 +326,14 @@ class CorrectionsController extends Controller
             for ($i=0; $i < $count_d ; $i++) { 
              $id_corrections[]=$co_def_text[$i][0]->id_corrections;
 
-              $otros_text= Correction_user::where("id_corrections", $id_corrections)->select('text','name_campo','id')->get();
-
+              $otros_text= Correction_user::join('corrections', 'corrections.id', '=', 'correction_users.id_corrections')->join('users','users.id','=','corrections.id_users')->where("id_corrections", $id_corrections)
+              ->select('text','name_campo','username','correction_users.id as id')->get();
+              
             }
+
+
         }
+        
         
          // dd($co_def_text);
           $id_co= array_unique($id_corrections);
@@ -339,9 +343,9 @@ class CorrectionsController extends Controller
 
 
           }
-         // dd($co_def_text);
 
-         return  view('corrections/corrections_user/correc',compact('names_campos'),['rol'=>$rol,'names_campo'=>$names_campo,'campos_img'=> $campos_img,'number_guia'=>$number_guia,'id'=>$id_guia, 'correction_search2'=>$otros_text, 'correction_sear_img'=>  $otros_img_d, 'number_campos_img'=> $number_campos_img,'guia'=>$guia]);
+
+        return  view('corrections/corrections_user/correc',compact('names_campos'),['rol'=>$rol,'names_campo'=>$names_campo,'campos_img'=> $campos_img,'number_guia'=>$number_guia,'id'=>$id_guia, 'correction_search2'=>$otros_text, 'correction_sear_img'=>  $otros_img_d, 'number_campos_img'=> $number_campos_img,'guia'=>$guia]);
          }else
          {
 
