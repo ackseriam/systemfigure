@@ -28,7 +28,8 @@ class SessionTimeout {
         elseif(time() - $this->session->get('lastActivityTime') > $this->getTimeOut()){
             $this->session->forget('lastActivityTime');
             
-              
+       if(!empty(auth()->user()->id))   
+       {
               $user=User::find(auth()->user()->id);
               $user->status_login = 'inactivo';
             if($user->save()) // se actualizar a la bd, si es exitoso
@@ -37,6 +38,8 @@ class SessionTimeout {
             //return view('auth.login',['err_f'=>'No ha tenido actividad en los ultimos minutos']);
                 abort(403, 'No ha tenido actividad en los ultimos minutos');
             }
+       }    
+        
         }
         $this->session->put('lastActivityTime',time());
         return $next($request);

@@ -306,59 +306,48 @@ class CorrectionsController extends Controller
          {
              $cound_id= count($id_d);
 
-         foreach ($id_d as  $clave=>$valor) {
-          for ($i=0; $i <  $cound_id ; $i++) { 
-              $correction_search_text= Correction_user::where("id_corrections",$id_d[$i] )
-            ->text($text)
-            ->get(); 
-            $co=count($correction_search_text);
-            if($co!=0)
-            {
-              $correction_search_text2[]=$correction_search_text;
-            }
-          }
-         }
+               foreach ($id_d as  $clave=>$valor) {
+                for ($i=0; $i <  $cound_id ; $i++) { 
+                    $correction_search_text= Correction_user::where("id_corrections",$id_d[$i] )
+                  ->text($text)
+                  ->get(); 
+                  $co=count($correction_search_text);
+                  if($co!=0)
+                  {
+                    $correction_search_text2[]=$correction_search_text;
+                  }
+                }
+               }
   
-      if(!empty($correction_search_text2))
-      {
-            $co_def_text= array_unique($correction_search_text2);
-        $count_d=count($co_def_text);
-        foreach ( $co_def_text as $image) {
-            for ($i=0; $i < $count_d ; $i++) { 
-             $id_corrections[]=$co_def_text[$i][0]->id_corrections;
+                if(!empty($correction_search_text2))
+                {
+                      $co_def_text= array_unique($correction_search_text2);
+                  $count_d=count($co_def_text);
+                  foreach ( $co_def_text as $image) {
+                      for ($i=0; $i < $count_d ; $i++) { 
+                       $id_corrections[]=$co_def_text[$i][0]->id_corrections;
 
-              $otros_text= Correction_user::join('corrections', 'corrections.id', '=', 'correction_users.id_corrections')->join('users','users.id','=','corrections.id_users')->where("id_corrections", $id_corrections)
-              ->select('text','name_campo','username','correction_users.id as id')->get();
-              
-            }
-        }
-        <php
-      }
-    
+                        $otros_text= Correction_user::join('corrections', 'corrections.id', '=', 'correction_users.id_corrections')->join('users','users.id','=','corrections.id_users')->where("id_corrections", $id_corrections)
+                        ->select('text','name_campo','username','correction_users.id as id')->get();
+                        
+                      }
+                  }
+
+                   // dd($co_def_text);
+                    $id_co= array_unique($id_corrections);
+                    $count_id=count($id_co);
+                    for ($i=0; $i < $count_id; $i++) { 
+                       $otros_img_d[]= Correction_user::where("id_corrections", $id_co[$i])->where('img','!=','0')->select('img','name_campo','id')->get();
+                    }
         
-         // dd($co_def_text);
-          $id_co= array_unique($id_corrections);
-          $count_id=count($id_co);
-          for ($i=0; $i < $count_id; $i++) { 
-             $otros_img_d[]= Correction_user::where("id_corrections", $id_co[$i])->where('img','!=','0')->select('img','name_campo','id')->get();
-
-
-          }
-
-
-        return  view('corrections/corrections_user/correc',compact('names_campos'),['rol'=>$rol,'names_campo'=>$names_campo,'campos_img'=> $campos_img,'number_guia'=>$number_guia,'id'=>$id_guia, 'correction_search2'=>$otros_text, 'correction_sear_img'=>  $otros_img_d, 'number_campos_img'=> $number_campos_img,'guia'=>$guia]);
-         }else
-         {
-
-        
-           return redirect("corrections/correc_user/".$id_guia);
-         }
-       
-      
-   
- 
-      
-  
+                }else{
+                  return redirect("corrections/correc_user/".$id_guia);
+                }
+            return  view('corrections/corrections_user/correc',compact('names_campos'),['rol'=>$rol,'names_campo'=>$names_campo,'campos_img'=> $campos_img,'number_guia'=>$number_guia,'id'=>$id_guia, 'correction_search2'=>$otros_text, 'correction_sear_img'=>  $otros_img_d, 'number_campos_img'=> $number_campos_img,'guia'=>$guia]);
+          }else
+           {
+             return redirect("corrections/correc_user/".$id_guia);
+           }
 
     }
 
@@ -409,3 +398,4 @@ class CorrectionsController extends Controller
   return \Response::make($content, 200, $headers);
     }
 }
+ 
