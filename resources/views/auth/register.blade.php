@@ -78,10 +78,10 @@
 
                             <div class="col-md-8">
                                 <select class="form-control" name="rol"> 
-                                <option value="Administrador">Administrador</option>
-                                <option value="Editor">Editor</option>
-                                <option value="Taskerolevel">Taskero de Level</option>
-                                <option value="Taskerolevel0">Taskero de Level0</option>
+                                <option value="admin">Administrador</option>
+                                <option value="editor">Editor</option>
+                                <option value="task">Taskero de Level</option>
+                                <option value="task0">Taskero de Level0</option>
 
                                 </select>   
                              </div>

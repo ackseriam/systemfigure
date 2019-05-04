@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
-
+use App\Role;
 use App\Person;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
@@ -117,19 +117,21 @@ class RegisterController extends Controller
           $mac= "dc:85:de:85:6d:9f ";
 
 
- 
-       
-   User::create([
-            'username' => $data['username'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
-            'rol' => $data['rol'],
-            'ip' => $ip,
-            'mac' => $mac,
-            'status_login' => 'inactivo',
-            'people_id' => $data['person'],
-            'state' => 'activo',
-        ]);
+   $user = new User();
+         $user->username=$data['username'];
+         $user->email=$data['email'];
+         $user->password= Hash::make($data['password']);
+         $user->ip= $ip;
+         $user->mac=  $mac;
+         $user->state ="activo";
+         $user->people_id =   $data['person'];
+         $user->status_login =  'activo';
+         $user->save();
+
+            $role = Role::where('name',$data['rol'])->select('id')->first();
+        $user->roles()->attach($role);  
+
+
         return auth()->user();
 
 
