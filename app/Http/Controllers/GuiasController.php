@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\User;
 use App\Guias;
 use Illuminate\Http\Request;
 
@@ -12,6 +12,7 @@ class GuiasController extends Controller
 
       $this->middleware('sessiontimeout');
       $this->middleware('auth');
+      $this->middleware('users_ac');
     }
     /**
      * Display a listing of the resource.
@@ -21,7 +22,10 @@ class GuiasController extends Controller
     public function index( Request $request, $level)
     {
         //$guias = Guias::all();
-        $rol = roleuser($request); 
+        $rol = roleuser($request); //se llama al helper en Helpers/role
+          $user=User::find(auth()->user()->id);
+          $user->status_login = 'activo';
+          $user->save();
          $guias=  Guias::where('level',$level)->get();
         
        
@@ -30,8 +34,10 @@ class GuiasController extends Controller
 
      public function search(Request $request)
     {
-        $rol = roleuser($request); 
-        //$guias= Guias::all();
+        $rol = roleuser($request); //se llama al helper en Helpers/role
+        $user=User::find(auth()->user()->id);
+        $user->status_login = 'activo';
+        $user->save();  
          
         $name = $request->get('name');
         $img = $request->get('img');
@@ -51,7 +57,10 @@ class GuiasController extends Controller
 
     public function search_0(Request $request)
     {
-        $rol = roleuser($request);
+             $rol = roleuser($request); //se llama al helper en Helpers/role
+            $user=User::find(auth()->user()->id);
+            $user->status_login = 'activo';
+            $user->save();  
             $name = $request->get('name');
             $img = $request->get('img');
             $status = $request->get('status');
@@ -72,8 +81,10 @@ class GuiasController extends Controller
    
         public function search_vpn0(Request $request)
     {
-        $rol = roleuser($request); 
-        //$guias= Guias::all();
+        $rol = roleuser($request); //se llama al helper en Helpers/role
+        $user=User::find(auth()->user()->id);
+        $user->status_login = 'activo';
+        $user->save();  
          
         $name = $request->get('name');
         $img = $request->get('img');
@@ -93,8 +104,10 @@ class GuiasController extends Controller
     
         public function search_vpn(Request $request)
     {
-        $rol = roleuser($request); 
-        //$guias= Guias::all();
+        $rol = roleuser($request); //se llama al helper en Helpers/role
+        $user=User::find(auth()->user()->id);
+        $user->status_login = 'activo';
+        $user->save();  
          
         $name = $request->get('name');
         $img = $request->get('img');
@@ -119,7 +132,10 @@ class GuiasController extends Controller
      */
     public function create(Request $request)
     {
-         $rol = roleuser($request); 
+        $rol = roleuser($request); //se llama al helper en Helpers/role
+        $user=User::find(auth()->user()->id);
+        $user->status_login = 'activo';
+        $user->save();  
          return view('guias.create',['rol'=>$rol]); 
     }
 
@@ -132,6 +148,9 @@ class GuiasController extends Controller
     public function store(Request $request)
     {
 
+        $user=User::find(auth()->user()->id);
+        $user->status_login = 'activo';
+        $user->save();  
         if ($request->hasFile('img')) {
         $file = $request->file('img');
        
@@ -172,7 +191,10 @@ class GuiasController extends Controller
      */                                                                                                                                                                                                                                                              
     public function show(Request $request,$id)
     {
-         $rol = roleuser($request);
+         $rol = roleuser($request); //se llama al helper en Helpers/role
+         $user=User::find(auth()->user()->id);
+         $user->status_login = 'activo';
+         $user->save();  
          $guia= Guias::find($id);
          $guias=  Guias::where('level','0')->where('status','activo')->get();
          $guias_n=  Guias::where('level','!=','0')->where('status','activo')->get();
@@ -189,7 +211,10 @@ class GuiasController extends Controller
      */
     public function edit(Request $request,$id)
     {
-         $rol = roleuser($request);
+         $rol = roleuser($request); //se llama al helper en Helpers/role
+        $user=User::find(auth()->user()->id);
+        $user->status_login = 'activo';
+        $user->save();  
         $guia=Guias::find($id);
         return view('guias.edit',['rol'=>$rol,'guia'=>$guia]);
     }
@@ -203,8 +228,11 @@ class GuiasController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $rol = roleuser($request); 
-        var_dump($request->number_campos);
+        $rol = roleuser($request); //se llama al helper en Helpers/role
+        $user=User::find(auth()->user()->id);
+        $user->status_login = 'activo';
+        $user->save();   
+       
         
         $guias= Guias::find($id);
           if ($request->hasFile('img')) {
@@ -246,5 +274,35 @@ class GuiasController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+       public function multi_index(Request $request,$level)
+    {
+      $rol = roleuser($request); //se llama al helper en Helpers/role
+      $user=User::find(auth()->user()->id);
+      $user->status_login = 'activo';
+      $user->save();
+
+     $guias=  Guias::where('level','!=','VPN')->where('level',$level)->where('level','!=','1')->where('level','!=','2')->where('level','!=','3')->get();
+        
+       
+        return view('guias.index',['rol'=>$rol, 'level'=>$level, 'guias'=>$guias,'multi'=>'multi']);
+    }
+
+
+        public function multi(Request $request, $id)
+    {
+      $rol = roleuser($request); //se llama al helper en Helpers/role
+      $user=User::find(auth()->user()->id);
+      $user->status_login = 'activo';
+      $user->save();
+       $guias= Guias::find($id);
+   $fileText = $guias;
+   var_dump($fileText);
+
+        $myName = $guias->name.".txt";
+        $headers = ['Content-type'=>'text/plain', 'test'=>'YoYo', 'Content-Disposition'=>sprintf('attachment; filename="%s"', $myName),'X-BooYAH'=>'WorkyWorky',/*' Content-Length' => ''*/];
+   //     return \Response::make($fileText, 200, $headers);
+
     }
 }

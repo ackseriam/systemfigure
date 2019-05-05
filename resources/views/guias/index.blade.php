@@ -38,11 +38,17 @@
                                 <div class="card">
                                     <div class="card-body">
                                          @if($level==0)
-                                         
+                                           @if($multi=='multi')
+                                            <h4 class="header-title">Tabla de guias para descargar mutlis disponibles </h4>
+                                            <p class="text-muted font-14 mb-4">
+                                                En esta seccion estan listados todas las guias level 0 en donde podras descargar dicha guia
+                                            </p>
+                                          @else
                                         <h4 class="header-title">Tabla de guias level 0 </h4>
                                         <p class="text-muted font-14 mb-4">
                                             En esta seccion estan listados todas las guias level 0
                                         </p>
+                                         @endif
                                         @include('guias.level')
                                         @else
                                          <h4 class="header-title">Tabla de guias de level </h4>

@@ -15,7 +15,8 @@ class UsersController extends Controller
     {
 
       $this->middleware('sessiontimeout');
-        $this->middleware('auth');
+      $this->middleware('auth');
+      $this->middleware('users_ac');
         
     }
     /**
@@ -25,10 +26,13 @@ class UsersController extends Controller
      */
     public function index(Request $request)
     {
-       //    $usuario = User::all();
+            $rol = roleuser($request); //se llama al helper en Helpers/role
+            $user=User::find(auth()->user()->id);
+            $user->status_login = 'activo';
+            $user->save(); 
            $usuario= User::join('people', 'people.id', '=', 'users.people_id')
        ->select('users.id as id', 'people.name as name',  'users.state as state','users.email as email','users.username as username', 'people.surname as surname', 'people.ci as ci')->get();
-       $rol = roleuser($request); 
+
   
          $tabla="activo";
        
@@ -37,13 +41,13 @@ class UsersController extends Controller
     }
      public function index_edit(Request $request)
     {
-       //    $usuario = User::all();
+       $rol = roleuser($request); //se llama al helper en Helpers/role
+        $user=User::find(auth()->user()->id);
+        $user->status_login = 'activo';
+        $user->save(); 
            $usuario= User::join('people', 'people.id', '=', 'users.people_id')
        ->select('users.id as id', 'people.name as name',  'users.state as state','users.email as email','users.username as username', 'people.surname as surname', 'people.ci as ci')->get();
 
-   //var_dump($usuario);    
-    $rol = roleuser($request); 
-  
          $tabla="activo";
      $editar="editar";
    return view('users.index',['rol'=>$rol,'usuarios'=>$usuario, 'tabla'=>$tabla,'editar'=>$editar]);
@@ -52,21 +56,23 @@ class UsersController extends Controller
 
         public function inactivity(Request $request)
     {
-       
+        $rol = roleuser($request); //se llama al helper en Helpers/role
+        $user=User::find(auth()->user()->id);
+        $user->status_login = 'activo';
+        $user->save(); 
            $usuario= Person::leftjoin('users', 'users.people_id', '=', 'people.id')->where('users.state','=','inactivo')
        ->select('users.id as id', 'people.name as name',  'users.state as state','users.email as email','users.username as username', 'people.surname as surname', 'people.ci as ci')->get();
            $tabla="inactivo";
-    
-          $rol = roleuser($request); 
-         
-
-  
           return view('users.index',['rol'=>$rol,'usuarios'=>$usuario,'tabla'=>$tabla]);
     }
 
     
       public function locked(Request $request)
     {
+       $rol = roleuser($request); //se llama al helper en Helpers/role
+        $user=User::find(auth()->user()->id);
+        $user->status_login = 'activo';
+        $user->save();  
  
            $usuario= Person::leftjoin('users', 'users.people_id', '=', 'people.id')->where('users.state','=','bloqueado')
        ->select('users.id as id', 'people.name as name',  'users.state as state','users.email as email','users.username as username', 'people.surname as surname', 'people.ci as ci')->get();
@@ -109,6 +115,10 @@ class UsersController extends Controller
      */
     public function show(Request $request,$id)
     {
+         $rol = roleuser($request); //se llama al helper en Helpers/role
+        $user=User::find(auth()->user()->id);
+        $user->status_login = 'activo';
+        $user->save(); 
         $usuario= User::find($id);
         $people_id=$usuario->people_id;
         $people=  Person::where('id',$people_id)->first();
@@ -130,6 +140,10 @@ class UsersController extends Controller
      */
     public function edit(Request $request,$id)
     {
+        $rol = roleuser($request); //se llama al helper en Helpers/role
+        $user=User::find(auth()->user()->id);
+        $user->status_login = 'activo';
+        $user->save(); 
         $usuario= User::find($id);
         $people_id=$usuario->people_id;
         $people=  Person::where('id',$people_id)->first();
@@ -191,8 +205,12 @@ class UsersController extends Controller
      */
     public function search(Request $request)
     {
-         $usuario= User::find(auth()->user()->id);
-          $people_id=$usuario->people_id;
+         $rol = roleuser($request); //se llama al helper en Helpers/role
+        $user=User::find(auth()->user()->id);
+        $user->status_login = 'activo';
+        $user->save(); 
+        $usuario= User::find(auth()->user()->id);
+        $people_id=$usuario->people_id;
         $people=  Person::where('id',$people_id)->first();
      
 

@@ -52,33 +52,59 @@ class LoginController extends Controller
 protected function sendLoginResponse(Request $request)
 {
 
-           $status=Auth::User()->status_login;
-       if($status=='activo') 
-       {
-            $this->clearLoginAttempts($request);  
-            Auth::logout();
-            return $this->authenticated($request, $this->guard()->user());
-        }elseif($status=='inactivo'){
 
-           $request->session()->regenerate();
-            $previous_session = Auth::User()->session_id;
-            if ($previous_session) {
-                Session::getHandler()->destroy($previous_session);
-            }
-             Auth::user()->session_id = Session::getId();
-            Auth::user()->save();
-            $this->clearLoginAttempts($request);
+           $status=Auth::User()->status_login;
+           $rol = roleuser($request); 
+           if($rol!='foun')
+           {
+              if($status=='activo') 
+                   {
+                        $this->clearLoginAttempts($request);  
+                        Auth::logout();
+                        return $this->authenticated($request, $this->guard()->user());
+                    }elseif($status=='inactivo'){
+
+                       $request->session()->regenerate();
+                        $previous_session = Auth::User()->session_id;
+                        if ($previous_session) {
+                            Session::getHandler()->destroy($previous_session);
+                        }
+                         Auth::user()->session_id = Session::getId();
+                        Auth::user()->save();
+                        $this->clearLoginAttempts($request);
+                      
+                        if(Auth::check()) // se actualizar a la bd, si es exitoso
+                        {
+                            
+                          return redirect()->intended($this->redirectPath());
+                        }else{
+                            echo "error";
+                        }
+                     
+                   
+                    }
+           }else{
+
+                       $request->session()->regenerate();
+                        $previous_session = Auth::User()->session_id;
+                        if ($previous_session) {
+                            Session::getHandler()->destroy($previous_session);
+                        }
+                         Auth::user()->session_id = Session::getId();
+                        Auth::user()->save();
+                        $this->clearLoginAttempts($request);
+                      
+                        if(Auth::check()) // se actualizar a la bd, si es exitoso
+                        {
+                            
+                          return redirect()->intended($this->redirectPath());
+                        }else{
+                            echo "error";
+                        }   
+
+           }
           
-            if(Auth::check()) // se actualizar a la bd, si es exitoso
-            {
-                
-              return redirect()->intended($this->redirectPath());
-            }else{
-                echo "error";
-            }
-         
-       
-        }
+     
         
    
 }

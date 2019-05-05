@@ -120,10 +120,10 @@
                             </a>
                             <ul class="side-nav-second-level" aria-expanded="false">
                                 <li>
-                                    <a href="ui-cards.html">Multis disponibles Tasks level 0</a>
+                                    <a href="{{ url('guias/multi_index/0') }}">Multis disponibles Tasks level 0</a>
                                 </li>
                                 <li>
-                                    <a href="ui-buttons.html"> Multis disponibles Tasks Level</a>
+                                    <a href="{{ url('guias/multi_index/1') }}"> Multis disponibles Tasks Level</a>
                                 </li>
                                 <li>
                                     <a href="ui-modals.html">Generacion de multis</a>

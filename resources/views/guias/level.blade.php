@@ -25,11 +25,16 @@
                 <th class="mt-12"><h3><span class="badge badge-success-lighten">{{$guia->status}}</span></h3></th>
                 @endif
                 <th>{{$guia->level}}</th>
-                
-              <th> <a href="/guias/{{$guia->id}}" class="btn btn-primary" title="Ver guia"> <i class="mdi mdi-account-search-outline"></i></a> 
+                               
+              
+              <th>
+                 @if(!empty($multi))
+               <a href="/guias/multi/{{$guia->id}}" class="btn btn-primary" title="Descargar mdi-square-edit-outline">   <i class="mdi mdi-download ml-1"></i></a>
+               @else
+               <a href="/guias/{{$guia->id}}" class="btn btn-primary" title="Ver guia"> <i class="mdi mdi-account-search-outline"></i></a> 
               
                 <a href="/guias/edit/{{$guia->id}}" class="btn btn-success" title="Editar guia"><i class="mdi mdi-square-edit-outline"></i></a>
-            
+                @endif
                </th>
            </tr>
         </tbody>

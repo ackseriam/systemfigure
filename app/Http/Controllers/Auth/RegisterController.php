@@ -133,6 +133,11 @@ class RegisterController extends Controller
 
 
         return auth()->user();
+             $guias=  Guias::where('level','0')->where('status','activo')->get();
+        $guias_n=  Guias::where('level','!=','0')->where('status','activo')->get();
+
+        return view('home', ["rol" => $data['rol'],"guias" => $guias, "guias_n" => $guias_n]);
+
 
 
     }

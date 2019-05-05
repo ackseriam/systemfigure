@@ -53,9 +53,12 @@ Route::get('corrections/search_vpn/{a}', 'CorrectionsController@search_vpn');
 //Route::get('corrections/search_vpn0', 'CorrectionsController@search_vpn0');
 
 Route::get('corrections/correc_user/{a}','CorrectionsController@correc_user')->name('correc_user');
+
 Route::get('corrections/show/{a}','CorrectionsController@show')->name('showa');
 Route::resource('corrections','CorrectionsController');
 Route::get('guias/edit/{a}', 'GuiasController@edit');
+Route::get('guias/multi/{a}', 'GuiasController@multi');
+Route::get('guias/multi_index/{a}', 'GuiasController@multi_index');
 Route::put('guias/registrar/{a}', 'GuiasController@store');
 Route::put('guias/update/{a}', 'GuiasController@update');
 Route::resource('guias','GuiasController');

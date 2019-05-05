@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 
 use App\User;
-
 use App\Person;
 use Illuminate\Http\Request;
 use App\Http\Resources\PeopleCollection;
@@ -14,7 +13,8 @@ class PeopleController extends Controller
     {
 
       $this->middleware('sessiontimeout');
-            $this->middleware('auth', ['except'=> ['create','store']]);
+      $this->middleware('auth', ['except'=> ['create','store']]);
+      $this->middleware('users_ac');
     }
     /**
      * Display a listing of the resource.
@@ -24,7 +24,11 @@ class PeopleController extends Controller
 
     public function aprobacion(Request $request)
     {
-       
+      $rol = roleuser($request); //se llama al helper en Helpers/role
+      $user=User::find(auth()->user()->id);
+      $user->status_login = 'activo';
+      $user->save(); 
+
        $people= Person::leftjoin('users', 'users.people_id', '=', 'people.id')->where('users.people_id')
        ->select('people.id as id', 'people.name as name', 'people.surname as surname','people.nacionality as nacionality','people.ci as ci','people.address as address')->get();
        
@@ -39,6 +43,10 @@ return view('people.aprob',['rol'=>$rol,'people'=>$people]);
 
     public function index(Request $request)
     {
+        $rol = roleuser($request); //se llama al helper en Helpers/role
+        $user=User::find(auth()->user()->id);
+        $user->status_login = 'activo';
+        $user->save(); 
         $people = Person::all();
         $rol = roleuser($request); 
         $people_contr="people";
@@ -106,9 +114,12 @@ return view('people.aprob',['rol'=>$rol,'people'=>$people]);
     
     public function show(Request $request,$id)
     {
-        $people= Person::find($id);
-        $usuario=  User::where('people_id',$id)->first();
-       $rol = roleuser($request); 
+       $people= Person::find($id);
+       $usuario=  User::where('people_id',$id)->first();
+        $rol = roleuser($request); //se llama al helper en Helpers/role
+        $user=User::find(auth()->user()->id);
+        $user->status_login = 'activo';
+        $user->save();  
 
         $usuario1=0;
         $usuario2=$usuario;
@@ -126,7 +137,10 @@ return view('people.aprob',['rol'=>$rol,'people'=>$people]);
     {
 
           
-       $rol = roleuser($request); 
+        $rol = roleuser($request); //se llama al helper en Helpers/role
+        $user=User::find(auth()->user()->id);
+        $user->status_login = 'activo';
+        $user->save();  
         
         $name = $request->get('name');
         $surname = $request->get('surname');

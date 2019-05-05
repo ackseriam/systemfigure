@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\User;
 use App\Guias;
 use App\Correction_user;
 //use Alert;
@@ -14,7 +15,8 @@ class CorrectionsController extends Controller
     {
 
       $this->middleware('sessiontimeout');
-            $this->middleware('auth');
+      $this->middleware('auth');
+      $this->middleware('users_ac');
     }
     /**
      * Display a listing of the resource.
@@ -23,7 +25,10 @@ class CorrectionsController extends Controller
      */
     public function index( $level_b, Request $request)
     {
-         $rol = roleuser($request); 
+        $rol = roleuser($request); //se llama al helper en Helpers/role
+        $user=User::find(auth()->user()->id);
+        $user->status_login = 'activo';
+        $user->save();  
          if($level_b=='0')
        {
         $guias = Guias::where(['level'=> $level_b, 'status'=>'activo'])->paginate(4);
@@ -36,7 +41,13 @@ class CorrectionsController extends Controller
 
     public function index_vpn( $level_b, Request $request)
     {
-         $rol = roleuser($request); 
+        $rol = roleuser($request); //se llama al helper en Helpers/role
+        $user=User::find(auth()->user()->id);
+        $user->status_login = 'activo';
+        $user->save();  
+        $user=User::find(auth()->user()->id);
+        $user->status_login = 'activo';
+        $user->save();  
       if($level_b=='vpn0')
       {
          $guias= Guias::where('level',$level_b)->paginate(4);
@@ -55,7 +66,12 @@ class CorrectionsController extends Controller
 
     public function search( $level_b, Request $request)
     {
-        $rol = roleuser($request); 
+
+        $rol = roleuser($request); //se llama al helper en Helpers/role
+        $user=User::find(auth()->user()->id);
+        $user->status_login = 'activo';
+        $user->save();   
+
         $name = $request->get('name');
         $img = $request->get('img');
         $status = $request->get('status');
@@ -90,7 +106,10 @@ class CorrectionsController extends Controller
 
        public function search_vpn( $level_b, Request $request)
     {
-        $rol = roleuser($request); 
+        $rol = roleuser($request); //se llama al helper en Helpers/role
+        $user=User::find(auth()->user()->id);
+        $user->status_login = 'activo';
+        $user->save();   
         $name = $request->get('name');
         $img = $request->get('img');
         $status = $request->get('status');
@@ -137,7 +156,10 @@ class CorrectionsController extends Controller
        public function create($guia, Request $request)
     {
         
-         $rol = roleuser($request); 
+         $rol = roleuser($request); //se llama al helper en Helpers/role
+         $user=User::find(auth()->user()->id);
+         $user->status_login = 'activo';
+         $user->save();  
          $guia= Guias::find($guia);
         // var_dump($guia);
          $campos=$guia->names_campo;
@@ -162,7 +184,10 @@ class CorrectionsController extends Controller
      */
     public function store(Request $request)
     {
-       $rol = roleuser($request); 
+       $rol = roleuser($request); //se llama al helper en Helpers/role
+       $user=User::find(auth()->user()->id);
+       $user->status_login = 'activo';
+       $user->save();  
     
        $id_users=Auth::user()->id;
        $guia= Guias::find($request->id_guias);
@@ -246,7 +271,10 @@ class CorrectionsController extends Controller
      */
     public function correc_user($id, Request $request)
     {
-      $rol = roleuser($request); 
+       $rol = roleuser($request); //se llama al helper en Helpers/role
+       $user=User::find(auth()->user()->id);
+       $user->status_login = 'activo';
+       $user->save(); 
        $guia= Guias::find($id);
        $correc=array();
        $correcciones= Correction::where('id_guias',$id)->get();
@@ -285,7 +313,10 @@ class CorrectionsController extends Controller
      */
  public function show($id_guia,Request $request)
     {
-         $rol = roleuser($request); 
+      $rol = roleuser($request); //se llama al helper en Helpers/role
+      $user=User::find(auth()->user()->id);
+      $user->status_login = 'activo';
+      $user->save();
          
       $guia= Guias::find($id_guia);
    
@@ -380,22 +411,6 @@ class CorrectionsController extends Controller
         //
     }
 
-    public function multi()
-    {
 
-      $content = \View::make('txt.index')->with('order', $order);
-
-  // Set the name of the text file
-  $filename = 'WhateverYouWant.txt';
-
-  // Set headers necessary to initiate a download of the textfile, with the specified name
-  $headers = array(
-      'Content-Type' => 'plain/txt',
-      'Content-Disposition' => sprintf('attachment; filename="%s"', $filename),
-      'Content-Length' => sizeof($content),
-  );
-
-  return \Response::make($content, 200, $headers);
-    }
 }
  
