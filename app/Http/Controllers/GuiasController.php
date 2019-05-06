@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 use App\User;
+use App\Correction_user;
+use App\Correction;
 use App\Guias;
 use Illuminate\Http\Request;
 
@@ -296,13 +298,43 @@ class GuiasController extends Controller
       $user=User::find(auth()->user()->id);
       $user->status_login = 'activo';
       $user->save();
-       $guias= Guias::find($id);
-   $fileText = $guias;
-   var_dump($fileText);
+      $guias= Guias::find($id);
+      $correc= Correction::where('id_guias',$id)->get();
+    //  dd($correc);
+      $count=count($correc);
+
+      for ($i=0; $i < $count; $i++) { 
+          //$id_correc[]=$correc[$i]->id;
+         $correc_user[]= Correction_user::where('id_corrections',$correc[$i]->id)->get();
+         
+        
+      }
+   
+      $count=count($correc_user);
+    // dd($correc_user[0][0]->text);
+     for ($i=0; $i < $count; $i++) { 
+        for ($y=0; $y < 1; $y++) { 
+           $co[]=$correc_user[$i][$y]->text;
+        }
+      
+        
+     }
+ 
+    
+  $fileText = $co;
+    
+ 
+    foreach ($fileText as $key ) {
+        
+        $em=implode("\r\n",$fileText);
+      // $em = fwrite($fileText,"\n");
+     //   $am=$em."<br>";
+        }
+
 
         $myName = $guias->name.".txt";
         $headers = ['Content-type'=>'text/plain', 'test'=>'YoYo', 'Content-Disposition'=>sprintf('attachment; filename="%s"', $myName),'X-BooYAH'=>'WorkyWorky',/*' Content-Length' => ''*/];
-   //     return \Response::make($fileText, 200, $headers);
+    return \Response::make($em, 200, $headers);
 
     }
 }
