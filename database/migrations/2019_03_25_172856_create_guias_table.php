@@ -21,8 +21,8 @@ class CreateGuiasTable extends Migration
             $table->string('status');
             $table->string('names_campo');
             $table->string('number_campos');
-            $table->string('number_campos_img');
-            $table->string('names_campo_img');
+            $table->string('number_campos_img')->nullable();
+            $table->string('names_campo_img')->nullable();
             $table->string('level');
             $table->timestamps();
         });
