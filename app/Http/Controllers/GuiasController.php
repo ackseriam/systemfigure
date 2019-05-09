@@ -230,9 +230,11 @@ class GuiasController extends Controller
      */
     public function update(Request $request, $id)
     {
+        
+       
         $rol = roleuser($request); //se llama al helper en Helpers/role
         $user=User::find(auth()->user()->id);
-        $user->status_login = 'activo';
+    //    $user->status_login = 'activo';
         $user->save();   
        
         
@@ -255,7 +257,9 @@ class GuiasController extends Controller
         $guias->number_campos=$request->number_campos;
         $guias->number_campos_img=$request->number_campos_img;
         $guias->names_campo_img=$request->names_campo_img;
-        
+        $guias->status=$request->status;
+
+     
         if($guias->save()){
             return redirect('guias/search');
             }else{
@@ -284,8 +288,13 @@ class GuiasController extends Controller
       $user=User::find(auth()->user()->id);
       $user->status_login = 'activo';
       $user->save();
-
-     $guias=  Guias::where('level','!=','VPN')->where('level',$level)->where('level','!=','1')->where('level','!=','2')->where('level','!=','3')->get();
+      if($level==0)
+      {
+         $guias=  Guias::where('level','!=','VPN')->where('level',$level)->where('level','!=','1')->where('level','!=','2')->where('level','!=','3')->where('level','!=','VPN0')->where('status','activo')->get();
+     }else{
+         $guias=  Guias::where('level','!=','VPN')->where('level','!=','0')->where('status','activo')->where('level','!=','VPN0')->get();
+     }
+    
         
        
         return view('guias.index',['rol'=>$rol, 'level'=>$level, 'guias'=>$guias,'multi'=>'multi']);
