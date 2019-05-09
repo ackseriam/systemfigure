@@ -290,12 +290,16 @@ class GuiasController extends Controller
       $user->save();
       if($level==0)
       {
-         $guias=  Guias::where('level','!=','VPN')->where('level',$level)->where('level','!=','1')->where('level','!=','2')->where('level','!=','3')->where('level','!=','VPN0')->where('status','activo')->get();
+         $guias=  Guias::where('level','!=','vpn')->where('level',$level)->where('level','!=','1')->where('level','!=','2')->where('level','!=','3')->where('level','!=','vpn0')->where('status','activo')->get();
      }else{
-         $guias=  Guias::where('level','!=','VPN')->where('level','!=','0')->where('status','activo')->where('level','!=','VPN0')->get();
+         $guias=  Guias::where('level','!=','vpn')->where('level','!=','0')->where('status','activo')->where('level','!=','vpn0')->get();
      }
     
-        
+        if($level=='VPN0'){
+         $guias=  Guias::where('level','!=','vpn')->where('level','!=','0')->where('status','activo')->where('level','!=','1')->where('level','!=','2')->where('level','!=','3')->get();
+     } if($level=='VPN'){
+        $guias=  Guias::where('level','!=','vpn0')->where('level','!=','0')->where('status','activo')->where('level','!=','1')->where('level','!=','2')->where('level','!=','3')->get();
+     }
        
         return view('guias.index',['rol'=>$rol, 'level'=>$level, 'guias'=>$guias,'multi'=>'multi']);
     }
@@ -308,29 +312,31 @@ class GuiasController extends Controller
       $user->status_login = 'activo';
       $user->save();
       $guias= Guias::find($id);
+      $level=$guias->level;
+ 
       $correc= Correction::where('id_guias',$id)->get();
     //  dd($correc);
+
       $count=count($correc);
 
       for ($i=0; $i < $count; $i++) { 
           //$id_correc[]=$correc[$i]->id;
          $correc_user[]= Correction_user::where('id_corrections',$correc[$i]->id)->get();
-         
-        
       }
-   
-      $count=count($correc_user);
-    // dd($correc_user[0][0]->text);
-     for ($i=0; $i < $count; $i++) { 
-        for ($y=0; $y < 1; $y++) { 
-           $co[]=$correc_user[$i][$y]->text;
-        }
+      if( !empty($correc_user))
+      {
+
+          $count=count($correc_user);
+         for ($i=0; $i < $count; $i++) { 
+            for ($y=0; $y < 1; $y++) { 
+               $co[]=$correc_user[$i][$y]->text;
+            }
+          
+          } 
       
-        
-     }
  
     
-  $fileText = $co;
+     $fileText = $co;
     
  
     foreach ($fileText as $key ) {
@@ -344,6 +350,21 @@ class GuiasController extends Controller
         $myName = $guias->name.".txt";
         $headers = ['Content-type'=>'text/plain', 'test'=>'YoYo', 'Content-Disposition'=>sprintf('attachment; filename="%s"', $myName),'X-BooYAH'=>'WorkyWorky',/*' Content-Length' => ''*/];
     return \Response::make($em, 200, $headers);
-
+      }else{
+        if($level==0)
+      {
+         $guias=  Guias::where('level','!=','vpn')->where('level',$level)->where('level','!=','1')->where('level','!=','2')->where('level','!=','3')->where('level','!=','vpn0')->where('status','activo')->get();
+     }else{
+         $guias=  Guias::where('level','!=','vpn')->where('level','!=','0')->where('status','activo')->where('level','!=','vpn0')->get();
+     }
+    
+        if($level=='vpn0'){
+         $guias=  Guias::where('level','!=','vpn')->where('level','!=','0')->where('status','activo')->where('level','!=','1')->where('level','!=','2')->where('level','!=','3')->get();
+     }elseif($level=='vpn'){
+        $guias=  Guias::where('level','!=','vpn0')->where('level','!=','0')->where('status','activo')->where('level','!=','1')->where('level','!=','2')->where('level','!=','3')->get();
+     }
+    
+       return view('guias.index',['rol'=>$rol, 'level'=>$level, 'guias'=>$guias,'multi'=>'multi']); 
+      }
     }
 }

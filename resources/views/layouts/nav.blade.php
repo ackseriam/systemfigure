@@ -191,10 +191,10 @@
                             </a>
                             <ul class="side-nav-second-level" aria-expanded="false">
                                 <li>
-                                    <a href="ui-cards.html">Multis disponibles VPN lvl0</a>
+                                    <a href="{{ url('guias/multi_index/VPN0') }}">Multis disponibles VPN lvl0</a>
                                 </li>
                                 <li>
-                                    <a href="ui-buttons.html"> Multis disponibles VPN lvl</a>
+                                    <a href="{{ url('guias/multi_index/VPN') }}"> Multis disponibles VPN lvl</a>
                                 </li>
                                 <li>
                                     <a href="ui-modals.html">Generacion de multis </a>
