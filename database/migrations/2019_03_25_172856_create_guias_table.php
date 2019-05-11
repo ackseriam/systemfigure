@@ -17,7 +17,7 @@ class CreateGuiasTable extends Migration
         Schema::create('guias', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->string('img');
+            $table->string('img')->nullable();
             $table->string('status');
             $table->string('names_campo');
             $table->string('number_campos');

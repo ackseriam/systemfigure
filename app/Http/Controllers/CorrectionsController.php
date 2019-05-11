@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 use App\User;
 use App\Guias;
 use App\Correction_user;
-//use Alert;
+use Alert;
 use Illuminate\Support\Facades\Auth;
 use App\Correction;
 use Illuminate\Http\Request;
@@ -255,9 +255,9 @@ class CorrectionsController extends Controller
        $number_campos_img= $guia->number_campos_img;
        $campos_img=$guia->names_campo_img;
        $campos_img=explode(",",  $campos_img);
-  //  Alert::success('Success Message', 'Optional Title');
 
-         return view('corrections.create',['rol'=>$rol,'campos'=>$campo, 'number_campos'=>$number_campos,'id_guias'=>$guia->id,'campos_img'=>$campos_img, 'number_campos_img'=>$number_campos_img  ]); 
+
+         return view('corrections.create',['exito'=>'exito','rol'=>$rol,'campos'=>$campo, 'number_campos'=>$number_campos,'id_guias'=>$guia->id,'campos_img'=>$campos_img, 'number_campos_img'=>$number_campos_img  ]); 
 
     
     }

@@ -6,6 +6,7 @@ use App\Correction_user;
 use App\Correction;
 use App\Guias;
 use Illuminate\Http\Request;
+use Alert;
 
 class GuiasController extends Controller
 {
@@ -149,7 +150,7 @@ class GuiasController extends Controller
      */
     public function store(Request $request)
     {
-
+          $rol = roleuser($request);
         $user=User::find(auth()->user()->id);
         $user->status_login = 'activo';
         $user->save();  
@@ -179,7 +180,7 @@ class GuiasController extends Controller
             
         ];
          if(Guias::create($options)){
-            return redirect('guias/search');
+            return view('guias.create',['exito'=>'exito','rol'=>$rol]);
         }else{
             return view('guias.create');
         }
@@ -261,9 +262,23 @@ class GuiasController extends Controller
 
      
         if($guias->save()){
-            return redirect('guias/search');
+
+                 $name = $request->get('name');
+                $img = $request->get('img');
+                $status = $request->get('status');
+                $level = $request->get('level');
+                $guias= Guias::where('level','!=','VPN')->where('level','!=','VPN0')->orderBy("id", "DESC")
+                ->name($name)
+                ->img($img)
+                ->status($status)
+                ->level($level)
+                ->paginate(4);
+               
+              //  var_dump($guias);
+                  
+                  return view('guias.search',compact('guias'),['exito'=>'exito','rol'=>$rol]);
             }else{
-                return view('guias.edit',['rol'=>$rol,'guia'=>$guia]);
+                return view('guias.edit',['error_in'=>'error_in','rol'=>$rol,'guia'=>$guia]);
             }
         
 
@@ -364,7 +379,13 @@ class GuiasController extends Controller
         $guias=  Guias::where('level','!=','vpn0')->where('level','!=','0')->where('status','activo')->where('level','!=','1')->where('level','!=','2')->where('level','!=','3')->get();
      }
     
-       return view('guias.index',['rol'=>$rol, 'level'=>$level, 'guias'=>$guias,'multi'=>'multi']); 
+      // return view('guias.index',['rol'=>$rol, 'level'=>$level, 'guias'=>$guias,'multi'=>'multi']);
+
+ 
+
+
+ return view('guias.index',['rol'=>$rol, 'level'=>$level, 'guias'=>$guias,'multi'=>'multi','error'=>'error']);
+
       }
     }
 }

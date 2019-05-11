@@ -610,25 +610,6 @@ pre code {
   margin-left: auto;
 }
 
-/* Bootstrap tagsinput */
-.bootstrap-tagsinput {
-  box-shadow: none;
-  padding: 3px 7px 5px;
-  width: 100%;
-  line-height: 1;
-  border: 1px solid #e6e6e6;
-}
-
-.bootstrap-tagsinput .label-info {
-  background-color: #5d6dc3;
-  background: linear-gradient(to top, #5d6dc3, #3c86d8);
-  display: inline-block;
-  padding: 4px 8px;
-  font-size: 13px;
-  margin: 3px 1px;
-  border-radius: 3px;
-}
-
 .row {
   display: flex;
   flex-wrap: wrap;

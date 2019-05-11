@@ -25,6 +25,10 @@
         <link href="{{ asset('css/app.min.css') }}" rel="stylesheet" type="text/css" />
          <script src="{{ asset('js/app.js') }}" defer></script>
 <script src="{{asset('js/app.js')}}"></script>
+ <link href="{{ asset('js/sweetalert/sweetalert2.css') }}" rel="stylesheet" />
+
+
+  
 
     </head>
 
@@ -36,7 +40,17 @@
                         <div class="row">
                             <div class="col-12">
                                 <div class="card">
+
                                     <div class="card-body">
+                                         <!-- @if(!empty($error))
+                                            <div class="alert alert-secondary 
+                                        <div class="alert alert-info alert-dismissible fade show" role="alert">
+                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                            <strong>Atención - </strong> No se encontro registros en la guia para descargar archivo multi
+                                        </div>
+                                        @endif-->
                                          @if($level==0)
                                            @if(!empty($multi))
                                             <h4 class="header-title">Tabla de guias para descargar mutlis disponibles </h4>
@@ -48,6 +62,7 @@
                                         <p class="text-muted font-14 mb-4">
                                             En esta seccion estan listados todas las guias level 0
                                         </p>
+                                      
                                          @endif
                                         @include('guias.level')
                                         @else
@@ -57,12 +72,13 @@
                                         </p>
                                         @include('guias.level')
                                         @endif
-     
 
                                     </div> <!-- end card body-->
                                 </div> <!-- end card -->
                             </div><!-- end col-->
                         </div>
+                     
+    
                </body>
 
                 <!-- Footer Start -->
@@ -100,8 +116,21 @@
      
 
         <div class="rightbar-overlay"></div>
+  <script src="{{ asset('js/sweetalert/sweetalert2.js') }}"></script>
+    <script src="{{ asset('js/sweetalert/sweetalert2.all.js') }}"></script>
+                               <!-- Include this after the sweet alert js file -->
+<!--    @include('sweet::alert')-->
+@if(!empty($error))
+<script>
 
-
+  Swal.fire({
+  type: 'error',
+  title: 'Oops...',
+  text: 'El multi no tiene suficientes correcciones para descargar el archivo!',
+  footer: '<a href>Quieres ingresar una corrección?</a>'
+})
+</script>
+@endif
         <script src="{{ asset('js/app.min.js') }}"></script>
 
         <script src="{{ asset('js/vendor/jquery.dataTables.js') }}"></script>
@@ -115,9 +144,9 @@
         <script src="{{ asset('js/vendor/buttons.print.min.js') }}"></script>
         <script src="{{ asset('js/vendor/dataTables.keyTable.min.js') }}"></script>
         <script src="{{ asset('js/vendor/dataTables.select.min.js') }}"></script>
+   
 
-           
-        
+           <!-- Include this after the sweet alert js file -->
         <!-- demo app -->
     <!--    <script src="{{ asset('js/pages/demo.datatable-init.js') }}"></script>
 -->

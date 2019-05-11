@@ -144,79 +144,6 @@
                         </div>
 
                         <div class="slimscroll-menu rightbar-content">
-
-                            <!-- Settings -->
-                            <!--
-                            <hr class="mt-0" />
-                            <h5 class="pl-3">Recent Activity</h5>
-                            <hr class="mb-0" />
-                            <div class="pl-2 pr-2">
-                                <div class="timeline-alt">
-                                    <div class="timeline-item">
-                                        <i class="mdi mdi-upload bg-info-lighten text-info timeline-icon"></i>
-                                        <div class="timeline-item-info">
-                                            <a href="dashboard-crm.html#" class="text-info font-weight-bold mb-1 d-block">You sold an item</a>
-                                            <small>Paul Burgess just purchased “Hyper - Admin Dashboard”!</small>
-                                            <p class="mb-0 pb-2">
-                                                <small class="text-muted">5 minutes ago</small>
-                                            </p>
-                                        </div>
-                                    </div>
-
-                                    <div class="timeline-item">
-                                        <i class="mdi mdi-airplane bg-primary-lighten text-primary timeline-icon"></i>
-                                        <div class="timeline-item-info">
-                                            <a href="dashboard-crm.html#" class="text-primary font-weight-bold mb-1 d-block">Product on the Bootstrap Market</a>
-                                            <small>Dave Gamache added
-                                                <span class="font-weight-bold">Admin Dashboard</span>
-                                            </small>
-                                            <p class="mb-0 pb-2">
-                                                <small class="text-muted">30 minutes ago</small>
-                                            </p>
-                                        </div>
-                                    </div>
-
-                                    <div class="timeline-item">
-                                        <i class="mdi mdi-microphone bg-info-lighten text-info timeline-icon"></i>
-                                        <div class="timeline-item-info">
-                                            <a href="dashboard-crm.html#" class="text-info font-weight-bold mb-1 d-block">Robert Delaney</a>
-                                            <small>Send you message
-                                                <span class="font-weight-bold">"Are you there?"</span>
-                                            </small>
-                                            <p class="mb-0 pb-2">
-                                                <small class="text-muted">2 hours ago</small>
-                                            </p>
-                                        </div>
-                                    </div>
-
-                                    <div class="timeline-item">
-                                        <i class="mdi mdi-upload bg-primary-lighten text-primary timeline-icon"></i>
-                                        <div class="timeline-item-info">
-                                            <a href="dashboard-crm.html#" class="text-primary font-weight-bold mb-1 d-block">Audrey Tobey</a>
-                                            <small>Uploaded a photo
-                                                <span class="font-weight-bold">"Error.jpg"</span>
-                                            </small>
-                                            <p class="mb-0 pb-2">
-                                                <small class="text-muted">14 hours ago</small>
-                                            </p>
-                                        </div>
-                                    </div>
-
-                                    <div class="timeline-item">
-                                        <i class="mdi mdi-upload bg-info-lighten text-info timeline-icon"></i>
-                                        <div class="timeline-item-info">
-                                            <a href="dashboard-crm.html#" class="text-info font-weight-bold mb-1 d-block">You sold an item</a>
-                                            <small>Paul Burgess just purchased “Hyper - Admin Dashboard”!</small>
-                                            <p class="mb-0 pb-2">
-                                                <small class="text-muted">1 day ago</small>
-                                            </p>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-                            -->
-
                             <!-- Timeline -->
                             <hr class="mt-0" />
                             <h5 class="pl-3">Usuarios del sistema</h5>
@@ -297,4 +224,41 @@
 <!-- demo app -->
 <script src="{{ asset('js/pages/demo.dashboard.js') }}"></script>
 <!-- end demo js-->
+
+
+@if(!empty($exito))
+<script src="{{ asset('js/sweetalert/sweetalert2.js') }}"></script>
+<script src="{{ asset('js/sweetalert/sweetalert2.all.js') }}"></script>
+                               <!-- Include this after the sweet alert js file -->
+<!--    @include('sweet::alert')-->
+<script>
+
+Swal.fire({
+  title: 'Información enviada con exito.',
+  html:
+    'Gracias por colaborar en la plataforma. ',
+  width: 600,
+  padding: '2em',
+  background: '#fff url()',
+  backdrop: `
+   rgba(27, 101, 176, 0.3)
+    url("/images/logo2.png")
+    center left
+    no-repeat
+  `
+})
+</script>
+@endif
+
+@if(!empty($error_in))
+<script>
+
+  Swal.fire({
+  type: 'error',
+  title: 'Ha ocurrido un error...',
+  text: 'Hubo un inconveniente durante la inserción. Intentelo mas tarde !',
+  footer: '<a href>Quieres ingresar una corrección?</a>'
+})
+</script>
+@endif
 </html>

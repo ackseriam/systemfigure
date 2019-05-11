@@ -68,6 +68,7 @@ class Kernel extends HttpKernel
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'sessiontimeout' => \App\Http\Middleware\SessionTimeout::class,
          'users_ac' =>  \App\Http\Middleware\activeUsers::class,   
+          'sweetalert' => \UxWeb\SweetAlert\ConvertMessagesIntoSweetAlert::class,
     ];
 
     /**

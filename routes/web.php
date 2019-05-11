@@ -16,7 +16,11 @@ Route::get('/', function () {
 });
 Auth::routes();
 
-
+   Route::get('menu', function()
+    {
+        Alert::message('Welcome back!');
+        return view('auth.login');
+    })->name('menu');
 
 Route::get('register', 'Auth\RegisterController@index')->name('register');
 

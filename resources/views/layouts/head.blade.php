@@ -29,6 +29,9 @@
         <link href="{{ asset('css/vendor/bootstrap-tagsinput.css') }}" rel="stylesheet" />
      <link href="{{ asset('css/vendor/plugins/bootstrap-touchspin/css/jquery.bootstrap-touchspin.min.css') }}" rel="stylesheet" />
 
+     @if(!empty($exito))
+       <link href="{{ asset('js/sweetalert/sweetalert2.css') }}" rel="stylesheet" />
+     @endif
 
     </head>
     <style type="text/css">
