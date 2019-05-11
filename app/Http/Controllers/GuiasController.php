@@ -157,18 +157,19 @@ class GuiasController extends Controller
         if ($request->hasFile('img')) {
         $file = $request->file('img');
        
-
-    
         $name = time().$file->getClientOriginalName(); 
         $file->move(public_path().'/images_guias/', $name);
+        }else{
+            $name=NULL;
+        }
+   
 
         
-            
-    }
 
         $options =[
             'name' => $request->name,
-            'img'=> $name,
+             
+            
             'status' => $request->status,
             'names_campo' => $request->names_campo,
             'number_campos' => $request->number_campos,
@@ -177,12 +178,14 @@ class GuiasController extends Controller
 
             'level'=> $request->level,
             
+              'img'=> $name,
             
         ];
+        
          if(Guias::create($options)){
-            return view('guias.create',['exito'=>'exito','rol'=>$rol]);
+            return view('guias.create',['exito'=>'error_in','rol'=>$rol]);
         }else{
-            return view('guias.create');
+            return view('guias.create',['error_in'=>'error_in','rol'=>$rol]);
         }
     }
 

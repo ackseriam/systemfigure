@@ -41,9 +41,9 @@
 									 	   </div>
 
                                           
-									 	    <div class="col-auto">
-                                                    <button type="submit" class="btn btn-primary mb-2">Buscar</button>
-                                                </div>
+            									 	    <div class="col-auto">
+                                      <button type="submit" class="btn btn-primary mb-2">Buscar</button>
+                                  </div>
 								 	     </div>
 								 	</div>
 								 	  {{ Form::close()}}
@@ -73,7 +73,7 @@
                                                      <tr>
                                                          @foreach($correction_search2 as $correction)
                                                     @if($correction->text != '0')
-                                                    {{$correction->id}}
+                                          
                                                       <td><input type="text" name="" readonly="readonly" class="form-control" value="{{$correction->text}}" id="listen_{{$correction->id}}">  
                                                       <button type="button" id="copyClip" data-clipboard-target="#listen_{{$correction->id}}" class="btn btn-primary"><i class=" mdi mdi-content-copy"></i></button>
                                                       </td> 
