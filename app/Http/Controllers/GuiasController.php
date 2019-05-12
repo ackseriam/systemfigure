@@ -29,7 +29,18 @@ class GuiasController extends Controller
           $user=User::find(auth()->user()->id);
           $user->status_login = 'activo';
           $user->save();
-         $guias=  Guias::where('level',$level)->get();
+          if($level=='0'){
+          $guias=  Guias::where('level','!=','VPN')->where('level','!=','VPN0')->where('level','!=','1')->where('level','!=','2')->where('level','!=','3')->orderBy("id", "DESC")->get();
+          }elseif(($level==1)||($level==2)|| ($level==3)){
+            $guias=  Guias::where('level','!=','VPN')->where('level','!=','0')->where('level','!=','VPN0')->orderBy("id", "DESC")->get();
+          }elseif($level=='vpn') {
+             $guias=  Guias::where('level','!=','0')->where('level','!=','1')->where('level','!=','2')->where('level','!=','3')->where('level','!=','vpn0')->get();
+           
+          }elseif($level=='vpn0'){
+             $guias=  Guias::where('level','!=','0')->where('level','!=','1')->where('level','!=','2')->where('level','!=','3')->where('level','!=','vpn')->get();
+          }
+        
+          
         
        
         return view('guias.index',['rol'=>$rol, 'level'=>$level, 'guias'=>$guias]);
