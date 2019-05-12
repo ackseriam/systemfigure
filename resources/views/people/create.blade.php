@@ -53,4 +53,5 @@
     </body>
 
 
+@include('layouts.footer')
                         

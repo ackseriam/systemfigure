@@ -98,7 +98,7 @@ return view('people.aprob',['rol'=>$rol,'people'=>$people]);
         ];
        
         if(Person::create($options)){
-            return redirect('/');
+            return view('people.create',['exito_register'=>'exito_register']);
         }else{
             return view('people.create');
         }

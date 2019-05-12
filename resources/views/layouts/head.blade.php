@@ -29,7 +29,7 @@
         <link href="{{ asset('css/vendor/bootstrap-tagsinput.css') }}" rel="stylesheet" />
      <link href="{{ asset('css/vendor/plugins/bootstrap-touchspin/css/jquery.bootstrap-touchspin.min.css') }}" rel="stylesheet" />
 
-     @if(!empty($exito))
+     @if(!empty($exito) || !empty($exito_register))
        <link href="{{ asset('js/sweetalert/sweetalert2.css') }}" rel="stylesheet" />
      @endif
 

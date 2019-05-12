@@ -250,6 +250,36 @@ Swal.fire({
 </script>
 @endif
 
+
+@if(!empty($exito_register))
+<script src="{{ asset('js/sweetalert/sweetalert2.js') }}"></script>
+<script src="{{ asset('js/sweetalert/sweetalert2.all.js') }}"></script>
+                               <!-- Include this after the sweet alert js file -->
+<!--    @include('sweet::alert')-->
+<script>
+
+Swal.fire({
+  title: 'Registro realizado con exito.',
+  html:
+    '<b>Gracias por elegirnos</b>,<br> ' +
+    '<h3>Atencion!</h3>.<p>Cuando el administrador confirme el usuario le llegara a su correo los datos para ingresar a la platadorma.</p> ',
+type: 'success',
+confirmButtonText:
+    '<i class="fa fa-thumbs-up"></i> Muy bien!',
+  confirmButtonAriaLabel: 'Thumbs up, great!',
+  width: 600,
+  padding: '2em',
+  background: '#fff url()',
+  backdrop: `
+   rgba(27, 101, 176, 0.3)
+    url("/images/logo2.png")
+    center left
+    no-repeat
+  `
+})
+</script>
+@endif
+
 @if(!empty($error_in))
 <script>
 

@@ -79,9 +79,13 @@
                             <div class="col-md-8">
                                 <select class="form-control" name="rol"> 
                                 <option value="admin">Administrador</option>
-                                <option value="editor">Editor</option>
+                                <option value="editor">Editor lvl</option>
+                                 <option value="editor0">Editor lvl0</option>
                                 <option value="task">Taskero de Level</option>
                                 <option value="task0">Taskero de Level0</option>
+                                <option value="vpn0">Taskero VPN level 0</option>
+                                <option value="vpnlevel">Taskero VPN level</option>
+                                <option value="buyer">Comprador</option>
 
                                 </select>   
                              </div>

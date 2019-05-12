@@ -124,7 +124,7 @@
                                             <div class="slimscroll" style="max-height: 171px;">
                                                  
                                                 <div class="timeline-alt pb-0">
-                                                    @if(($rol=='admin')||($rol=='foun')||($rol=='editor')||($rol=='task'))
+                                                    @if(($rol=='admin')||($rol=='foun')||($rol=='editor')||($rol=='task')||($rol=='vpnlevel'))
                                                      @foreach($guias_n as $guia_n )
                                                     <div class="timeline-item">
                                                         <i class="mdi mdi-upload bg-info-lighten text-primary timeline-icon"></i>
@@ -150,6 +150,7 @@
                             </div> <!-- end col-->
                         </div>
                         <!-- end row -->
+                        <!--
                         <div class="row">
                             <div class="col-xl-8">
                                 <div class="card">
@@ -207,12 +208,12 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <!-- end timeline -->
-                                            </div> <!-- end slimscroll -->
-                                    </div> <!-- end card-body-->
-                                </div> <!-- end card-->
-                            </div> <!-- end col-->
-                        </div>                    
+                                               
+                                            </div> 
+                                    </div> 
+                                </div>
+                            </div> 
+                        </div>        -->            
                     </div>
                         <!-- Right Sidebar -->
                 
