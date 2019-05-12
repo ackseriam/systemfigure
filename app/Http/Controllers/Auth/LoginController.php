@@ -54,10 +54,16 @@ protected function sendLoginResponse(Request $request)
 
 
            $status=Auth::User()->status_login;
+           $status_user=Auth::User()->state;
+            if(($status_user=='inactivo') ||($status_user=='bloqueado'))
+            {       Auth::logout();
+                     return view('auth.login',['estado'=>'estado','status'=>$status_user]);
+            }else{
            $rol = roleuser($request); 
            if($rol!='foun')
            {
-              if($status=='activo') 
+           
+                if($status=='activo') 
                    {
                         $this->clearLoginAttempts($request);  
                         Auth::logout();
@@ -80,9 +86,11 @@ protected function sendLoginResponse(Request $request)
                         }else{
                             echo "error";
                         }
-                     
-                   
                     }
+
+                   
+
+         
            }else{
 
                        $request->session()->regenerate();
@@ -102,7 +110,8 @@ protected function sendLoginResponse(Request $request)
                             echo "error";
                         }   
 
-           }
+                }
+            }
           
      
         

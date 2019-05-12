@@ -30,6 +30,23 @@
                                                 <strong>Sesion previa activa- </strong>  cerrar dicha sesion y vuelva a intentarlo o hable con el Administrador
                                              </div>
                                         @endif
+                                        @if(!empty($estado))
+                                        @if($status=='bloqueado')
+                                            <div class="alert alert-danger alert-dismissible bg-danger text-white border-0 fade show" role="alert">
+                                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                                <strong>Usted ha sido bloqueado- </strong> Ha sido bloqueado permanentemente de la plataforma, si cree que se trata de un error contactese con el Administrador o soporte(figureeighttasks@gmail.com)
+                                             </div>
+                                            @elseif($status=='inactivo') 
+                                                 <div class="alert alert-info alert-dismissible bg-info text-white border-0 fade show" role="alert">
+                                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                                <strong>Inactivo- </strong> Actualmente su estado es inactivo en la plataforma, para cambiarlo por favor, contactarse con el Administrador o al soporte(figureeighttasks@gmail.com)
+                                             </div>
+                                             @endif
+                                        @endif
                                       
                                         <form method="POST" action="{{ route('login') }}">
                                             @csrf
