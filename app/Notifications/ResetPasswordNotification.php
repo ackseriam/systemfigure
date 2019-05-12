@@ -9,6 +9,7 @@ use Illuminate\Notifications\Messages\MailMessage;
 
 class ResetPasswordNotification extends Notification
 {
+   
    /**
      * The password reset token.
      *

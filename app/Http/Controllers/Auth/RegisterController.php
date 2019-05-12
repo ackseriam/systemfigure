@@ -5,6 +5,10 @@ namespace App\Http\Controllers\Auth;
 use App\User;
 use App\Role;
 use App\Person;
+use App\Guias;
+use DB;
+use Mail;
+use App\Mail\ConfirmUser;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -128,15 +132,31 @@ class RegisterController extends Controller
          $user->status_login =  'activo';
          $user->save();
 
-            $role = Role::where('name',$data['rol'])->select('id')->first();
+          $role = Role::where('name',$data['rol'])->select('id')->first();
         $user->roles()->attach($role);  
 
 
-        return auth()->user();
+       
              $guias=  Guias::where('level','0')->where('status','activo')->get();
         $guias_n=  Guias::where('level','!=','0')->where('status','activo')->get();
 
-        return view('home', ["rol" => $data['rol'],"guias" => $guias, "guias_n" => $guias_n]);
+
+         if($user){
+            Mail::to($data['email'],$data['username'], Hash::make($data['password']))->send(new ConfirmUser($data));
+            if(!Mail::failures()){
+              DB::commit();
+               
+                 
+         //   return view('home', ['exito'=>'exito',"rol" => $data['rol'],"guias" => $guias, "guias_n" => $guias_n]);
+            return auth()->user();  
+            }else{
+                DB::rollBack();
+                 return view('home', ['error_in'=>'error_in',"rol" => $data['rol'],"guias" => $guias, "guias_n" => $guias_n]);;
+            }
+
+        }
+           
+     //   return view('home', ['exito'=>'exito',"rol" => $data['rol'],"guias" => $guias, "guias_n" => $guias_n]);
 
 
 
