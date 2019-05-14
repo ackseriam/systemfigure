@@ -32,9 +32,9 @@ class UserTableSeeder extends Seeder
   
   $person_foundd= $person_found->id;
          $user = new User();
-         $user->username="juffyto";
-         $user->email="juffyto@gmail.com";
-         $user->password= bcrypt('1234');
+         $user->username="Juffyto";
+         $user->email="jusego1696@gmail.com";
+         $user->password= bcrypt('123456');
          $user->ip= "127.0.0.1";
          $user->mac= "dc:85:de:85:6d:9f ";
          $user->state ="activo";
@@ -45,69 +45,70 @@ class UserTableSeeder extends Seeder
                
 $person_adminn= $person_admin->id;
          $user = new User();
-         $user->username="mike";
-         $user->email="mike@gmail.com";
-         $user->password= bcrypt('1234');
+         $user->username="Mike Castillo";
+         $user->email="vompiermichael.98@gmail.com";
+         $user->password= bcrypt('123456');
          $user->ip= "127.0.0.1";
          $user->mac= "dc:85:de:85:6d:9f ";
          $user->state ="activo";
          $user->people_id =  $person_adminn;
          $user->status_login =  'inactivo';
          $user->save();
-        $user->roles()->attach($role_admin);    
+        $user->roles()->attach($role_admin);   
 
-$person_editorr= $person_editor->id;
+        $person_adminn= $person_admin->id;
          $user = new User();
-         $user->username="yix";
-         $user->email="jorge_yix@hotmail.com";
+         $user->username="Leonardo Alvino";
+         $user->email="josealvinokikelio@gmail.com";
          $user->password= bcrypt('123456');
          $user->ip= "127.0.0.1";
          $user->mac= "dc:85:de:85:6d:9f ";
          $user->state ="activo";
-         $user->people_id =  $person_editorr;
+         $user->people_id =  $person_adminn;
          $user->status_login =  'inactivo';
          $user->save();
-        $user->roles()->attach($role_editor);  
+        $user->roles()->attach($role_admin);   
 
-  $person_task00= $person_task0->id;
+
+    $person_adminn= $person_admin->id;
          $user = new User();
-         $user->username="emma";
-         $user->email="emma@gmail.com";
+         $user->username="Luzmary Gil ";
+         $user->email="luzmarydelvalle70@gmail.com";
          $user->password= bcrypt('123456');
          $user->ip= "127.0.0.1";
          $user->mac= "dc:85:de:85:6d:9f ";
          $user->state ="activo";
-         $user->people_id =  $person_task00;
+         $user->people_id =  $person_adminn;
          $user->status_login =  'inactivo';
          $user->save();
-        $user->roles()->attach($role_task0 );    
+        $user->roles()->attach($role_admin); 
 
-
- $person_task= $person_task->id;
+        $person_adminn= $person_admin->id;
          $user = new User();
-         $user->username="juann";
-         $user->email="juana@gmail.com";
+         $user->username="Josue Ascenzi ";
+         $user->email="josue.ascenzi@gmail.com";
          $user->password= bcrypt('123456');
          $user->ip= "127.0.0.1";
          $user->mac= "dc:85:de:85:6d:9f ";
          $user->state ="activo";
-         $user->people_id =  $person_task;
+         $user->people_id =  $person_adminn;
          $user->status_login =  'inactivo';
          $user->save();
-        $user->roles()->attach($role_task); 
+        $user->roles()->attach($role_admin); 
 
-        $person_buyer= $person_buyer->id;
+    $person_adminn= $person_admin->id;
          $user = new User();
-         $user->username="alex";
-         $user->email="alex@gmail.com";
+         $user->username="Luigi Holmes ";
+         $user->email="luigifernando1111@gmail.com";
          $user->password= bcrypt('123456');
          $user->ip= "127.0.0.1";
          $user->mac= "dc:85:de:85:6d:9f ";
          $user->state ="activo";
-         $user->people_id =  $person_buyer;
+         $user->people_id =  $person_adminn;
          $user->status_login =  'inactivo';
          $user->save();
-        $user->roles()->attach($role_buyer);    
+        $user->roles()->attach($role_admin); 
+  
 
         
     }

@@ -55,10 +55,7 @@ class RoleTableSeeder extends Seeder
         $role->description ="VPNlvl";
         $role->save();
 
-        $role= new Role();
-        $role->name ="vpn0";
-        $role->description ="VPN0";
-        $role->save();
+    
     }
 }
 
