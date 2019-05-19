@@ -62,3 +62,6 @@ Route::put('guias/update/{a}', 'GuiasController@update');
 Route::resource('guias','GuiasController');
 Route::resource('people','PeopleController');
 Route::resource('/users','UsersController')->except(['create','store']);
+Route::get('/users/edit_info/{a}', 'UsersController@edit_info');
+Route::put('/users/update_info/{a}','UsersController@update_info');
+

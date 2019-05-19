@@ -3,7 +3,7 @@
 
     <head>
         <meta charset="utf-8" />
-        <title>Figure taskeros</title>
+        <title>Figure Eight Task</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
         <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
@@ -87,7 +87,7 @@
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-md-6">
-                                2018 - 2019 ©Figure Taskeros
+                                2018 - 2019 ©Figure Eight Task
                             </div>
                             <div class="col-md-6">
                                 <div class="text-md-right footer-links d-none d-md-block">

@@ -42,8 +42,8 @@
                                             </div> <!-- end col -->
                                             <div class="col-lg-7">
                                                 <div class="pl-lg-4">
-                                                    <!-- Product title -->
-                                                    <h3 class="mt-0"> {{$usuario->username}}   <a href="javascript: void(0);" class="text-muted"><i class="mdi mdi-square-edit-outline ml-2"></i></a> </h3>
+                                                    <!-- Product title --> 
+                                                    <h3 class="mt-0"> {{$usuario->username}}   <a href="/users/edit_info/{{$usuario->id}}" title="Editar usuario" class="text-muted"><i class="mdi mdi-square-edit-outline ml-2"></i></a> </h3>
                                                       <h3 class="mt-0">{{$usuario->email}}</h3>
                                                     <p class="mb-1">Fecha de registro del usuario: {{$usuario->created_at}} </p>
                                                     <p class="font-16">

@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 use App\User;
-
+use App\Role;
 use App\Person;
 use Illuminate\Http\Request;
 use App\Http\Resources\PeopleCollection;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 class UsersController extends Controller
 {
@@ -37,7 +38,7 @@ class UsersController extends Controller
          $tabla="activo";
        
   
-   return view('users.index',['rol'=>$rol,'usuarios'=>$usuario, 'tabla'=>$tabla]);
+   return view('users.index',['rol'=>$rol,'usuarios'=>$usuario, 'tabla'=>$tabla,'editar_usuario'=>'editar_usuario']);
     }
      public function index_edit(Request $request)
     {
@@ -49,8 +50,8 @@ class UsersController extends Controller
        ->select('users.id as id', 'people.name as name',  'users.state as state','users.email as email','users.username as username', 'people.surname as surname', 'people.ci as ci')->get();
 
          $tabla="activo";
-     $editar="editar";
-   return view('users.index',['rol'=>$rol,'usuarios'=>$usuario, 'tabla'=>$tabla,'editar'=>$editar]);
+   
+   return view('users.index',['rol'=>$rol,'usuarios'=>$usuario, 'tabla'=>$tabla,'editar'=>'editar']);
     }
 
 
@@ -154,6 +155,47 @@ class UsersController extends Controller
           $status= json_encode($usuario->state);
 
        return view('users.edit',['rol'=>$rol,'people'=>$people, 'usuario'=> $usuario, 'state'=>$jsonuser,'statu'=>$status]);
+    }
+    
+        public function edit_info(Request $request,$id)
+    {
+        $rol = roleuser($request); //se llama al helper en Helpers/role
+
+       
+        $usuario= User::find($id);
+        $people_id=$usuario->people_id;
+        $people=  Person::where('id',$people_id)->first();
+        $rol_s= Role::where('name',$rol)->first();
+        $role=$rol_s->description;  
+       return view('users.edit_info',['rol'=>$rol,'role'=>$role,'people'=>$people, 'usuario'=> $usuario]);
+    }
+
+    public function update_info(Request $request,$id)
+    {
+        $rol = roleuser($request); //se llama al helper en Helpers/role
+         
+        $usuario=User::find($id);
+          $people_id=$usuario->people_id;
+        $people=  Person::where('id',$people_id)->first();
+
+         $role = Role::where('name',$request->rol)->select('id')->first();
+      
+        $usuario->roles()->attach($role);  
+        $rol_s= Role::where('id',$role->id)->first();
+       $role=$rol_s->description;  
+var_dump( $role);
+
+        $usuario->username = $request->username;
+        $usuario->email = $request->email;
+        if($request->password!=NULL)  
+        $usuario->password= Hash::make($request->password);  
+        else
+          $usuario->password=  $usuario->password; 
+        if($usuario->save()){
+           //  return view('users.edit_info',['exito'=>'exito','rol'=>$rol,'role'=>$role,'people'=>$people, 'usuario'=> $usuario]);
+        }  
+
+    
     }
 
     /**

@@ -31,6 +31,9 @@
                                                     @if(!empty($editar))
                                                     <a href="/users/edit/{{$usuario->id}}" class="btn btn-success" title="Editar Usuario"><i class="mdi mdi-square-edit-outline"></i></a>
                                                     @endif
+                                                      @if(!empty($editar_usuario))
+                                                    <a href="/users/edit_info/{{$usuario->id}}" class="btn btn-success" title="Editar Usuario"><i class="mdi mdi-square-edit-outline"></i></a>
+                                                    @endif
                                                    </th>
                                                </tr>
                                             </tbody>
