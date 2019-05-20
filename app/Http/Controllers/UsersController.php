@@ -171,7 +171,7 @@ class UsersController extends Controller
          $last=end($roles);
          $roles_n=end($last);
           $role= $roles_n->name;
-      return view('users.edit_info',['rol'=>$rol,'role'=>$role,'people'=>$people, 'usuario'=> $usuario]);
+      return view('users.edit_info',['rol'=>$rol,'role'=>$role,'people'=>$people,'people_id'=>$people_id, 'usuario'=> $usuario]);
     }
 
     public function update_info(Request $request,$id)
