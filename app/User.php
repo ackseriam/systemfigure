@@ -9,7 +9,7 @@ class User extends Authenticatable
 {
     use Notifiable;
  public function roles(){
-    return $this->belongsToMany('App\Role'); //aqui se relaciona este modelo con los roles con la relacion de muchos  a muchos es decir un usuario puede tener varios roles
+    return $this->belongsToMany('App\Roles'); //aqui se relaciona este modelo con los roles con la relacion de muchos  a muchos es decir un usuario puede tener varios roles
 }
  public function authoraizeRole($roles)
     {

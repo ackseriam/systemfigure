@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\User;
 use App\Role;
+use App\Roles;
 use App\Person;
 use Illuminate\Http\Request;
 use App\Http\Resources\PeopleCollection;
@@ -165,25 +166,37 @@ class UsersController extends Controller
         $usuario= User::find($id);
         $people_id=$usuario->people_id;
         $people=  Person::where('id',$people_id)->first();
-        $rol_s= Role::where('name',$rol)->first();
-        $role=$rol_s->description;  
-       return view('users.edit_info',['rol'=>$rol,'role'=>$role,'people'=>$people, 'usuario'=> $usuario]);
+        $roles=Role::leftjoin('roles_user', 'roles_user.roles_id', '=', 'roles.id')->where('roles_user.user_id','=',$id )->select('roles.name')->get();
+ 
+         $last=end($roles);
+         $roles_n=end($last);
+          $role= $roles_n->name;
+      return view('users.edit_info',['rol'=>$rol,'role'=>$role,'people'=>$people, 'usuario'=> $usuario]);
     }
 
     public function update_info(Request $request,$id)
     {
         $rol = roleuser($request); //se llama al helper en Helpers/role
          
-        $usuario=User::find($id);
+          $usuario=User::find($id);
           $people_id=$usuario->people_id;
-        $people=  Person::where('id',$people_id)->first();
+          $people=  Person::where('id',$people_id)->first();
 
-         $role = Role::where('name',$request->rol)->select('id')->first();
+          $role_n = Role::where('name',$request->rol)->first();
+       
+          $role_user = Role::where('name',$role_n->name)->first();
+        
+          $roles=Role::leftjoin('roles_user', 'roles_user.roles_id', '=', 'roles.id')->where('roles_user.user_id','=',$id )->get();
+          $role=$role_user;
       
-        $usuario->roles()->attach($role);  
-        $rol_s= Role::where('id',$role->id)->first();
-       $role=$rol_s->description;  
-var_dump( $role);
+
+        
+          $usuario->roles()->attach($role_user);  
+       
+
+          $role=$role_user->description;  
+
+
 
         $usuario->username = $request->username;
         $usuario->email = $request->email;
@@ -192,7 +205,7 @@ var_dump( $role);
         else
           $usuario->password=  $usuario->password; 
         if($usuario->save()){
-           //  return view('users.edit_info',['exito'=>'exito','rol'=>$rol,'role'=>$role,'people'=>$people, 'usuario'=> $usuario]);
+             return view('users.edit_info',['exito'=>'exito','rol'=>$rol,'role'=>$role,'people'=>$people, 'usuario'=> $usuario]);
         }  
 
     

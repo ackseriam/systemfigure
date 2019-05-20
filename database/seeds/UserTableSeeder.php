@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use App\Role;
+use App\Role_user;
 use App\User;
 use App\Person;
 class UserTableSeeder extends Seeder
