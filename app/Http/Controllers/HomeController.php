@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Session;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 use App\User; 
+use App\Role; 
 
 use App\Guias; 
 
@@ -42,9 +43,42 @@ class HomeController extends Controller
               $user->status_login = 'activo';
               $user->save();
        $guias=  Guias::where('level','0')->where('status','activo')->get();
-        $guias_n=  Guias::where('level','!=','0')->where('status','activo')->get();
+       $guias_n=  Guias::where('level','!=','0')->where('status','activo')->get();
+       $role=array();
+         if(Auth::check()){
+             foreach(User::all() as $user)
+             {
+                 if($user->isOnline())  {
+                   $users_ac[]= User::join('people', 'users.people_id', '=', 'people.id')->where("users.id", $user->id)
+                        ->select('people.name as name','people.surname as surname','people.email as email','users.id as id')->get();
 
-        return view('home', ["rol" => $rol,"guias" => $guias, "guias_n" => $guias_n]);
+                    $role[]= Role::join('roles_user', 'roles_user.roles_id', '=', 'roles.id')->where("roles_user.user_id", $user->id)
+                        ->select('roles.name','roles.description')->get();
+                   
+              }else{
+                $users_inac= User::leftjoin('people', 'users.people_id', '=', 'people.id')->where("users.id", "!=",$user->id)
+                        ->select('people.name as name','people.surname as surname','people.email as email','users.id as id')->get();
+
+                  $role2[]= Role::join('roles_user', 'roles_user.roles_id', '=', 'roles.id')->where("roles_user.user_id", $user->id)
+                        ->select('roles.name','roles.description')->get();
+
+              }
+             }
+     //  var_dump($users_ac);
+          foreach ( $users_ac as $user) {
+              $i=0;
+             
+               $role[]= Role::join('roles_user', 'roles_user.roles_id', '=', 'roles.id')->where("roles_user.user_id", $user[$i]->id)
+                        ->select('roles.name','roles.description')->get();
+              $i++;
+          }
+
+         }
+
+      
+      
+
+  return view('home', ["roles"=>$role,"role2"=>$role2,"users_ac"=>$users_ac,"users_inac"=>$users_inac,"rol" => $rol,"guias" => $guias, "guias_n" => $guias_n]);
 
     }
 }

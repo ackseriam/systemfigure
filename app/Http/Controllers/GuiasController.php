@@ -273,7 +273,7 @@ class GuiasController extends Controller
         $guias->number_campos_img=$request->number_campos_img;
         $guias->names_campo_img=$request->names_campo_img;
         $guias->status=$request->status;
-
+        
      
         if($guias->save()){
 

@@ -112,6 +112,7 @@
                                 </li>
                             </ul>
                         </li>
+                        
                           <li class="side-nav-item">
                             <a href="javascript: void(0);" class="side-nav-link">
                                 <i class="dripicons-briefcase"></i>
@@ -1485,6 +1486,7 @@
                                 </li>
                             </ul>
                         </li>
+                        <!--
                           <li class="side-nav-item">
                             <a href="javascript: void(0);" class="side-nav-link">
                                 <i class="dripicons-briefcase"></i>
@@ -1502,7 +1504,7 @@
                                     <a href="ui-modals.html">Generacion de multis</a>
                                 </li>                           
                             </ul>
-                        </li>
+                        </li>-->
                          <li class="side-nav-item">
                             <a href="javascript: void(0);" class="side-nav-link">
                                 <i class="dripicons-document"></i>
@@ -1833,6 +1835,7 @@
                                 </li>
                             </ul>
                         </li>
+                        <!--
                           <li class="side-nav-item">
                             <a href="javascript: void(0);" class="side-nav-link">
                                 <i class="dripicons-briefcase"></i>
@@ -1848,7 +1851,7 @@
                                     <a href="ui-modals.html">Generacion de multis</a>
                                 </li>                           
                             </ul>
-                        </li>
+                        </li>-->
                          <li class="side-nav-item">
                             <a href="javascript: void(0);" class="side-nav-link">
                                 <i class="dripicons-document"></i>
@@ -2240,6 +2243,7 @@
                                 </li>
                             </ul>
                         </li>
+                        <!--
                           <li class="side-nav-item">
                             <a href="javascript: void(0);" class="side-nav-link">
                                 <i class="dripicons-briefcase"></i>
@@ -2257,7 +2261,7 @@
                                     <a href="ui-modals.html">Generacion de multis</a>
                                 </li>                           
                             </ul>
-                        </li>
+                        </li>-->
                          <li class="side-nav-item">
                             <a href="javascript: void(0);" class="side-nav-link">
                                 <i class="dripicons-document"></i>
@@ -2311,6 +2315,7 @@
                                 </li>
                             </ul>
                         </li>
+                        <!--
                           <li class="side-nav-item">
                             <a href="javascript: void(0);" class="side-nav-link">
                                 <i class="dripicons-briefcase"></i>
@@ -2328,7 +2333,7 @@
                                     <a href="ui-modals.html">Generacion de multis </a>
                                 </li>                           
                             </ul>
-                        </li>
+                        </li>-->
 
                        
                          <li class="side-nav-item">
@@ -2663,6 +2668,7 @@
                                 </li>
                             </ul>
                         </li>
+                        <!--
                           <li class="side-nav-item">
                             <a href="javascript: void(0);" class="side-nav-link">
                                 <i class="dripicons-briefcase"></i>
@@ -2677,7 +2683,7 @@
                                     <a href="ui-modals.html">Generacion de multis</a>
                                 </li>                           
                             </ul>
-                        </li>
+                        </li>-->
                          <li class="side-nav-item">
                             <a href="javascript: void(0);" class="side-nav-link">
                                 <i class="dripicons-document"></i>

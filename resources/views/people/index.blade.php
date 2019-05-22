@@ -66,7 +66,8 @@
                                                     <th>{{$person->ci}}</th>
                                                     <th>{{$person->address}}</th>
                                                     
-                                                  <th> <a href="/people/{{$person->id}}" class="btn btn-primary" title="Ver persona"><i class="mdi mdi-account-search-outline"></i></a> </th>
+                                                  <th> <a href="/people/{{$person->id}}" class="btn btn-primary" title="Ver persona"><i class="mdi mdi-account-search-outline"></i></a> <a href="/people/edit/{{$person->id}}" class="btn btn-success" title="Editar Persona"><i class="mdi mdi-square-edit-outline"></i></a></th>
+
                                                </tr>
                                             </tbody>
                                               @endforeach

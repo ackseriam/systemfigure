@@ -168,7 +168,18 @@ return view('people.aprob',['rol'=>$rol,'people'=>$people]);
      */
     public function edit($id)
     {
-        //
+        $rol = roleuser($request); //se llama al helper en Helpers/role
+
+       
+        $people= Person::find($id);
+        $people=$people->people_id;
+
+        $roles=Role::leftjoin('roles_user', 'roles_user.roles_id', '=', 'roles.id')->where('roles_user.user_id','=',$id )->select('roles.name')->get();
+ 
+         $last=end($roles);
+         $roles_n=end($last);
+          $role= $roles_n->name;
+      return view('users.edit_info',['rol'=>$rol,'role'=>$role,'people'=>$people,'people_id'=>$people_id, 'usuario'=> $usuario]);
     }
 
     /**
