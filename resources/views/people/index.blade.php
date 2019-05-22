@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="">
 
+
     <head>
         <meta charset="utf-8" />
         <title>Figure Eight Task</title>
@@ -10,7 +11,7 @@
         <meta content="Coderthemes" name="author" />
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <!-- App favicon -->
-        <link rel="shortcut icon" href="{{ asset('images/favicon.ico') }}">
+        <link rel="shortcut icon" href="{{ asset('images/faviicon.ico') }}">
 
          <!-- third party css -->
         <link href="{{ asset('css/vendor/dataTables.bootstrap4.css') }}" rel="stylesheet" type="text/css" />

@@ -24,6 +24,10 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('people/aprobacion', 'PeopleController@aprobacion');
 Route::get('people/search', 'PeopleController@search')->name('searchperson');
+
+Route::get('people/edit/{a}', 'PeopleController@edit');
+Route::put('people/update/{a}', 'PeopleController@update');
+
 Route::get('users/inactivity', 'UsersController@inactivity');
 Route::get('users/locked', 'UsersController@locked');
 Route::get('users/index_edit', 'UsersController@index_edit');

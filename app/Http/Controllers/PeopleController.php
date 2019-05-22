@@ -166,20 +166,18 @@ return view('people.aprob',['rol'=>$rol,'people'=>$people]);
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Request $request,$id)
     {
         $rol = roleuser($request); //se llama al helper en Helpers/role
 
        
         $people= Person::find($id);
-        $people=$people->people_id;
+        $people_id=$people->people_id;
 
-        $roles=Role::leftjoin('roles_user', 'roles_user.roles_id', '=', 'roles.id')->where('roles_user.user_id','=',$id )->select('roles.name')->get();
+        //$roles=Role::leftjoin('roles_user', 'roles_user.roles_id', '=', 'roles.id')->where('roles_user.user_id','=',$id )->select('roles.name')->get();
  
-         $last=end($roles);
-         $roles_n=end($last);
-          $role= $roles_n->name;
-      return view('users.edit_info',['rol'=>$rol,'role'=>$role,'people'=>$people,'people_id'=>$people_id, 'usuario'=> $usuario]);
+       
+      return view('people.edit',['rol'=>$rol,'people'=>$people,'people_id'=>$people_id]);
     }
 
     /**
@@ -191,7 +189,42 @@ return view('people.aprob',['rol'=>$rol,'people'=>$people]);
      */
     public function update(Request $request, $id)
     {
-        //
+          $rol = roleuser($request); //se llama al helper en Helpers/role
+         
+        $people=Person::find($id);
+        $people_id=$people->people_id;
+        $people->name = $request->name;
+        $people->surname = $request->surname;
+        $people->address = $request->address;
+        $people->ci = $request->ci;
+
+          if ($request->hasFile('image_url')) {
+        $file = $request->file('image_url');
+        $name = time().$file->getClientOriginalName(); 
+        $file->move(public_path().'/images_user/', $name);    
+        }
+
+      if ($request->file('img_ci')) {
+         $file2 = $request->file('img_ci');
+         $name2 = time().$file2->getClientOriginalName(); 
+         $file2->move(public_path().'/images_user/', $name2);
+        }
+    
+      if($request->image_url!=NULL)  
+        $people->img_url= $name;  
+        else
+          $people->img_url=  $people->img_url;
+
+      if($request->img_ci!=NULL)  
+        $people->img_ci= $name2;  
+        else
+          $people->img_ci=  $people->ci;
+
+        if($people->save()){
+             return view('people.edit',['exito'=>'exito','rol'=>$rol,'people'=>$people,'people_id'=>$people_id]);
+        }else{
+            return view('people.edit',['error_in'=>'error_in','rol'=>$rol,'people'=>$people,'people_id'=>$people_id]);
+        }  
     }
 
     /**
