@@ -56,7 +56,7 @@ class HomeController extends Controller
                         ->select('roles.name','roles.description')->get();
                    
               }else{
-                $users_inac= User::leftjoin('people', 'users.people_id', '=', 'people.id')->where("users.id", "!=",$user->id)
+                $users_inac= User::leftjoin('people', 'users.people_id', '=', 'people.id')->where("users.id", "!=",$user->id)->where('users.status_login','inactivo')
                         ->select('people.name as name','people.surname as surname','people.email as email','users.id as id')->get();
 
                   $role2[]= Role::join('roles_user', 'roles_user.roles_id', '=', 'roles.id')->where("roles_user.user_id", $user->id)
