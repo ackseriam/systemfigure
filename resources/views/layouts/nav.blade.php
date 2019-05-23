@@ -431,7 +431,7 @@
                                 <a class="nav-link dropdown-toggle nav-user arrow-none mr-0" data-toggle="dropdown" href="#" role="button" aria-haspopup="false"
                                     aria-expanded="false">
                                     <span class="account-user-avatar"> 
-                                        <img src="{{ asset('images/users/avatar-1.jpg') }}" alt="user-image" class="rounded-circle">
+                                        <img src="{{ asset('images/logo2.png') }}" alt="user-image" class="rounded-circle">
                                     </span>
                                     <span>
                                         <span class="account-user-name"> {{ Auth::user()->username }} </span>
@@ -443,9 +443,8 @@
                                     <div class=" dropdown-header noti-title">
                                         <h6 class="text-overflow m-0">Bienvenido !</h6>
                                     </div>
-
                                     <!-- item-->
-                                    <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                    <a href="{{ url('users/profile') }}" class="dropdown-item notify-item">
                                         <i class="mdi mdi-account-circle mr-1"></i>
                                         <span>Mi cuenta</span>
                                     </a>
@@ -456,17 +455,17 @@
                                         <span>Configuración</span>
                                     </a>
 
-                                    <!-- item-->
+                                    <!-- 
                                     <a href="javascript:void(0);" class="dropdown-item notify-item">
                                         <i class="mdi mdi-lifebuoy mr-1"></i>
                                         <span>Soporte</span>
-                                    </a>
-
-                                    <!-- item-->
+                                    </a>-->
+            
+                                    <!-- 
                                     <a href="javascript:void(0);" class="dropdown-item notify-item">
                                         <i class="mdi mdi-lock-outline mr-1"></i>
                                         <span>Lock Screen</span>
-                                    </a>
+                                    </a>-->
 
                                     <!-- item-->
                                     <a href="{{ url('users/logout') }}"
@@ -576,6 +575,7 @@
                                     <a href="{{ url('people/aprobacion') }}">Lista de personas por aprobación</a>
                                 </li>
                                 <li>
+
                                     <a href="{{ url('people/search') }}">Buscar persona</a>
                                 </li>   
                             </ul>
@@ -947,7 +947,7 @@
                                     </div>
 
                                     <!-- item-->
-                                    <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                    <a href="{{ url('users/profile') }}" class="dropdown-item notify-item">
                                         <i class="mdi mdi-account-circle mr-1"></i>
                                         <span>Mi cuenta</span>
                                     </a>
@@ -958,17 +958,17 @@
                                         <span>Configuración</span>
                                     </a>
 
-                                    <!-- item-->
+                                   <!-- 
                                     <a href="javascript:void(0);" class="dropdown-item notify-item">
                                         <i class="mdi mdi-lifebuoy mr-1"></i>
                                         <span>Soporte</span>
-                                    </a>
-
-                                    <!-- item-->
+                                    </a>-->
+            
+                                    <!-- 
                                     <a href="javascript:void(0);" class="dropdown-item notify-item">
                                         <i class="mdi mdi-lock-outline mr-1"></i>
                                         <span>Lock Screen</span>
-                                    </a>
+                                    </a>-->
 
                                     <!-- item-->
                                     <a href="{{route('logout') }}"
@@ -1384,17 +1384,17 @@
                                         <span>Configuración</span>
                                     </a>
 
-                                    <!-- item-->
+                                     <!-- 
                                     <a href="javascript:void(0);" class="dropdown-item notify-item">
                                         <i class="mdi mdi-lifebuoy mr-1"></i>
                                         <span>Soporte</span>
-                                    </a>
-
-                                    <!-- item-->
+                                    </a>-->
+            
+                                    <!-- 
                                     <a href="javascript:void(0);" class="dropdown-item notify-item">
                                         <i class="mdi mdi-lock-outline mr-1"></i>
                                         <span>Lock Screen</span>
-                                    </a>
+                                    </a>-->
 
                                     <!-- item-->
                                     <a href="{{route('logout') }}"
@@ -1737,18 +1737,17 @@
                                         <span>Configuración</span>
                                     </a>
 
-                                    <!-- item-->
+                                  <!-- 
                                     <a href="javascript:void(0);" class="dropdown-item notify-item">
                                         <i class="mdi mdi-lifebuoy mr-1"></i>
                                         <span>Soporte</span>
-                                    </a>
-
-                                    <!-- item-->
+                                    </a>-->
+            
+                                    <!-- 
                                     <a href="javascript:void(0);" class="dropdown-item notify-item">
                                         <i class="mdi mdi-lock-outline mr-1"></i>
                                         <span>Lock Screen</span>
-                                    </a>
-
+                                    </a>-->
                                     <!-- item-->
                                     <a href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
@@ -2140,18 +2139,17 @@
                                         <i class="mdi mdi-account-edit mr-1"></i>
                                         <span>Configuración</span>
                                     </a>
-
-                                    <!-- item-->
+  <!-- 
                                     <a href="javascript:void(0);" class="dropdown-item notify-item">
                                         <i class="mdi mdi-lifebuoy mr-1"></i>
                                         <span>Soporte</span>
-                                    </a>
-
-                                    <!-- item-->
+                                    </a>-->
+            
+                                    <!-- 
                                     <a href="javascript:void(0);" class="dropdown-item notify-item">
                                         <i class="mdi mdi-lock-outline mr-1"></i>
                                         <span>Lock Screen</span>
-                                    </a>
+                                    </a>-->
 
                                     <!-- item-->
                                     <a href="{{ route('logout') }}"
@@ -2569,19 +2567,17 @@
                                         <i class="mdi mdi-account-edit mr-1"></i>
                                         <span>Configuración</span>
                                     </a>
-
-                                    <!-- item-->
+                                    <!-- 
                                     <a href="javascript:void(0);" class="dropdown-item notify-item">
                                         <i class="mdi mdi-lifebuoy mr-1"></i>
                                         <span>Soporte</span>
-                                    </a>
-
-                                    <!-- item-->
+                                    </a>-->
+            
+                                    <!-- 
                                     <a href="javascript:void(0);" class="dropdown-item notify-item">
                                         <i class="mdi mdi-lock-outline mr-1"></i>
                                         <span>Lock Screen</span>
-                                    </a>
-
+                                    </a>--> 
                                     <!-- item-->
                                     <a href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
@@ -2911,17 +2907,17 @@
                                         <span>Configuración</span>
                                     </a>
 
-                                    <!-- item-->
+                                    <!-- 
                                     <a href="javascript:void(0);" class="dropdown-item notify-item">
                                         <i class="mdi mdi-lifebuoy mr-1"></i>
                                         <span>Soporte</span>
-                                    </a>
-
-                                    <!-- item-->
+                                    </a>-->
+            
+                                    <!-- 
                                     <a href="javascript:void(0);" class="dropdown-item notify-item">
                                         <i class="mdi mdi-lock-outline mr-1"></i>
                                         <span>Lock Screen</span>
-                                    </a>
+                                    </a>-->
 
                                     <!-- item-->
                                     <a href="{{ route('logout') }}"
@@ -3103,17 +3099,17 @@
                                         <span>Configuración</span>
                                     </a>
 
-                                    <!-- item-->
+                                    <!--
                                     <a href="javascript:void(0);" class="dropdown-item notify-item">
                                         <i class="mdi mdi-lifebuoy mr-1"></i>
                                         <span>Soporte</span>
-                                    </a>
+                                    </a> item-->
 
-                                    <!-- item-->
+                                    <!--
                                     <a href="javascript:void(0);" class="dropdown-item notify-item">
                                         <i class="mdi mdi-lock-outline mr-1"></i>
                                         <span>Lock Screen</span>
-                                    </a>
+                                    </a> item-->
 
                                     <!-- item-->
                                     <a href="{{ url('users/logout') }}"

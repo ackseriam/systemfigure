@@ -28,10 +28,13 @@ Route::get('people/search', 'PeopleController@search')->name('searchperson');
 Route::get('people/edit/{a}', 'PeopleController@edit');
 Route::put('people/update/{a}', 'PeopleController@update');
 
+Route::get('/users/profile', 'UsersController@profile')->name('profile');
 Route::get('users/inactivity', 'UsersController@inactivity');
 Route::get('users/locked', 'UsersController@locked');
 Route::get('users/index_edit', 'UsersController@index_edit');
 Route::get('users/edit/{a}', 'UsersController@edit');
+
+Route::get('users/edit_profile/{a}', 'UsersController@edit_profile');
 Route::get('users/update', 'UsersController@update');
 
 Route::post('users/logout', 'UsersController@logout')->name('logout');
@@ -66,6 +69,7 @@ Route::put('guias/update/{a}', 'GuiasController@update');
 Route::resource('guias','GuiasController');
 Route::resource('people','PeopleController');
 Route::resource('/users','UsersController')->except(['create','store']);
-Route::get('/users/edit_info/{a}', 'UsersController@edit_info');
+
 Route::put('/users/update_info/{a}','UsersController@update_info');
 
+Route::put('users/update_profile/{a}', 'UsersController@update_profile');

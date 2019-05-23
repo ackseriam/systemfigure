@@ -11,6 +11,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Foundation\Auth\RegistersUsers;
 class UsersController extends Controller
 {
      public function __construct()
@@ -26,6 +28,20 @@ class UsersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+ 
+ protected function validator(array $data)
+    {
+        
+       
+    
+        return Validator::make($data, [
+         
+            'password' => ['required', 'string', 'min:6', 'confirmed'],
+            'password' => ['required', 'string', 'min:6', 'confirmed'],
+
+        ]);
+    }
+
     public function index(Request $request)
     {
             $rol = roleuser($request); //se llama al helper en Helpers/role
@@ -41,6 +57,25 @@ class UsersController extends Controller
   
    return view('users.index',['rol'=>$rol,'usuarios'=>$usuario, 'tabla'=>$tabla,'editar_usuario'=>'editar_usuario']);
     }
+ 
+
+       public function profile(Request $request)
+    {
+
+          
+        $rol = roleuser($request); //se llama al helper en Helpers/role
+        $user=User::find(auth()->user()->id);
+        $user->status_login = 'activo';
+        $user->save(); 
+        $people_id=$user->people_id;
+        $people=  Person::where('id',$people_id)->first();
+        
+          $role = Role::where('name',$rol)->first();
+
+        return view('users.profile',compact('people'),['role'=>$role,'rol'=>$rol,'user'=>$user]);
+    }
+
+
      public function index_edit(Request $request)
     {
        $rol = roleuser($request); //se llama al helper en Helpers/role
@@ -157,6 +192,22 @@ class UsersController extends Controller
 
        return view('users.edit',['rol'=>$rol,'people'=>$people, 'usuario'=> $usuario, 'state'=>$jsonuser,'statu'=>$status]);
     }
+
+
+     public function edit_profile(Request $request,$id)
+    {
+        $rol = roleuser($request); //se llama al helper en Helpers/role
+        $user=User::find(auth()->user()->id);
+        $user->status_login = 'activo';
+        $user->save(); 
+        $usuario= User::find($id);
+        $people_id=$usuario->people_id;
+        $people=  Person::where('id',$people_id)->first();
+            $role = Role::where('name',$rol)->first();
+
+       return view('users.edit_profile',['role'=>$role,'rol'=>$rol,'people'=>$people,'people_id'=>$people_id, 'usuario'=> $usuario]);
+    }
+
     
         public function edit_info(Request $request,$id)
     {
@@ -172,6 +223,28 @@ class UsersController extends Controller
          $roles_n=end($last);
           $role= $roles_n->name;
       return view('users.edit_info',['rol'=>$rol,'role'=>$role,'people'=>$people,'people_id'=>$people_id, 'usuario'=> $usuario]);
+    }
+
+    public function update_profile(Request $request,$id)
+    {
+        $rol = roleuser($request); //se llama al helper en Helpers/role
+        $user=User::find(auth()->user()->id);
+        $user->status_login = 'activo';
+        $user->save(); 
+        $usuario= User::find($id);
+        $people_id=$usuario->people_id;
+        $people=  Person::where('id',$people_id)->first();
+        $role = Role::where('name',$rol)->first();
+
+        if($request->password!=NULL)  
+        $usuario->password= Hash::make($request->password);  
+        else
+          $usuario->password=  $usuario->password; 
+        if($usuario->save()){
+            return view('users.edit_profile',['role'=>$role,'rol'=>$rol,'people'=>$people,'people_id'=>$people_id, 'usuario'=> $usuario]);
+        }  
+
+    
     }
 
     public function update_info(Request $request,$id)

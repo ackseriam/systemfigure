@@ -36,14 +36,7 @@
                                             <h4 class="text-dark-50 text-center mt-0 font-weight-bold">Editar persona seleccionada </h4>
                                             <p class="text-muted mb-4">Asegurese de enviar los datos correctamente.</p>
                                         </div>
-                                        <div class="row">
-                                            <div class="col-lg-8"></div>
-                                          <div class="col-lg-4">   
-                                        <a href="{{ url('people') }}/{{$people_id}}" target="_blank" class="btn btn-success">Ve</a>
-                                      </div><br>
-                                        </div>
-                                        
-                                        
+                                    
                                        @include('people.editform')
                                        </div>
                                         

@@ -1,6 +1,3 @@
-
-
-
 @include('layouts.head')
 @include('layouts.nav')
              <div id="ap">
