@@ -35,6 +35,7 @@ Route::get('users/index_edit', 'UsersController@index_edit');
 Route::get('users/edit/{a}', 'UsersController@edit');
 
 Route::get('users/edit_profile/{a}', 'UsersController@edit_profile');
+Route::get('users/edit_info/{a}', 'UsersController@edit_info');
 Route::get('users/update', 'UsersController@update');
 
 Route::post('users/logout', 'UsersController@logout')->name('logout');
