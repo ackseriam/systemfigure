@@ -62,8 +62,8 @@ class PersonTableSeeder extends Seeder
        $person->surname ="Holmes";
        $person->email ="luigifernando1111@gmail.com"; 
        $person->nacionality ="Venezuela";
-       $person->ci ="20323456";
-       $person->address ="Venezuela";
+       $person->ci ="203234567";
+       $person->address ="Mexico";
        $person->save();
     }
 }

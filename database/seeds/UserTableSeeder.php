@@ -10,6 +10,7 @@ class UserTableSeeder extends Seeder
     /**
      * Run the database seeds.
      *
+
      * @return void
      */
     public function run()
@@ -26,10 +27,10 @@ class UserTableSeeder extends Seeder
 
          $person_found = Person::where('ci','1234')->first();
          $person_admin = Person::where('ci','12345')->first();
-         $person_editor = Person::where('ci','20431682')->first();
-         $person_task0 = Person::where('ci','23244522')->first();
-         $person_task = Person::where('ci','20323434')->first();
-         $person_buyer = Person::where('ci','20323456')->first();
+         $person_admin_2 = Person::where('ci','23244522')->first();
+         $person_admin3 = Person::where('ci','20323434')->first();
+         $person_admin4 = Person::where('ci','20323456')->first();
+         $person_admin5 = Person::where('ci','203234567')->first();
   
   $person_foundd= $person_found->id;
          $user = new User();
@@ -57,7 +58,7 @@ $person_adminn= $person_admin->id;
          $user->save();
         $user->roles()->attach($role_admin);   
 
-        $person_adminn= $person_admin->id;
+          $person_admin_2= $person_admin_2->id;
          $user = new User();
          $user->username="Leonardo Alvino";
          $user->email="josealvinokikelio@gmail.com";
@@ -65,13 +66,13 @@ $person_adminn= $person_admin->id;
          $user->ip= "127.0.0.1";
          $user->mac= "dc:85:de:85:6d:9f ";
          $user->state ="activo";
-         $user->people_id =  $person_adminn;
+         $user->people_id =  $person_admin_2;
          $user->status_login =  'inactivo';
          $user->save();
         $user->roles()->attach($role_admin);   
 
 
-    $person_adminn= $person_admin->id;
+         $person_admin3= $person_admin3->id;
          $user = new User();
          $user->username="Luzmary Gil ";
          $user->email="luzmarydelvalle70@gmail.com";
@@ -79,12 +80,12 @@ $person_adminn= $person_admin->id;
          $user->ip= "127.0.0.1";
          $user->mac= "dc:85:de:85:6d:9f ";
          $user->state ="activo";
-         $user->people_id =  $person_adminn;
+         $user->people_id =  $person_admin3;
          $user->status_login =  'inactivo';
          $user->save();
         $user->roles()->attach($role_admin); 
 
-        $person_adminn= $person_admin->id;
+         $person_admin4= $person_admin4->id;
          $user = new User();
          $user->username="Josue Ascenzi ";
          $user->email="josue.ascenzi@gmail.com";
@@ -92,12 +93,12 @@ $person_adminn= $person_admin->id;
          $user->ip= "127.0.0.1";
          $user->mac= "dc:85:de:85:6d:9f ";
          $user->state ="activo";
-         $user->people_id =  $person_adminn;
+         $user->people_id =  $person_admin3;
          $user->status_login =  'inactivo';
          $user->save();
         $user->roles()->attach($role_admin); 
 
-    $person_adminn= $person_admin->id;
+         $person_admin5= $person_admin5->id;
          $user = new User();
          $user->username="Luigi Holmes ";
          $user->email="luigifernando1111@gmail.com";
@@ -105,7 +106,7 @@ $person_adminn= $person_admin->id;
          $user->ip= "127.0.0.1";
          $user->mac= "dc:85:de:85:6d:9f ";
          $user->state ="activo";
-         $user->people_id =  $person_adminn;
+         $user->people_id =  $person_admin5;
          $user->status_login =  'inactivo';
          $user->save();
         $user->roles()->attach($role_admin); 
