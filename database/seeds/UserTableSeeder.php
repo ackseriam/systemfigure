@@ -24,7 +24,6 @@ class UserTableSeeder extends Seeder
         $role_task = Role::where('name','task')->first();
         $role_buyer = Role::where('name','buyer')->first();
 
-
          $person_found = Person::where('ci','1234')->first();
          $person_admin = Person::where('ci','12345')->first();
          $person_admin_2 = Person::where('ci','23244522')->first();
@@ -93,7 +92,7 @@ $person_adminn= $person_admin->id;
          $user->ip= "127.0.0.1";
          $user->mac= "dc:85:de:85:6d:9f ";
          $user->state ="activo";
-         $user->people_id =  $person_admin3;
+         $user->people_id =  $person_admin4;
          $user->status_login =  'inactivo';
          $user->save();
         $user->roles()->attach($role_admin); 
