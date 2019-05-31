@@ -21,7 +21,7 @@ class activeUsers
     public function handle($request, Closure $next)
     {
         if(Auth::check()){
-            $expiresAt = Carbon::now()->addMinutes(5);
+            $expiresAt = Carbon::now()->addMinutes(3);
             Cache::put('user-is-online'. Auth::user()->id, true, $expiresAt);
             
             foreach(User::all() as $user)
