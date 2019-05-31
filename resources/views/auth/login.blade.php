@@ -47,7 +47,14 @@
                                              </div>
                                              @endif
                                         @endif
-                                      
+                                         @if(!empty($error_in))
+                                             <div class="alert alert-info alert-dismissible bg-info text-white border-0 fade show" role="alert">
+                                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                                <strong>Inactivo- </strong> Actualmente su estado es inactivo en la plataforma, para cambiarlo por favor, contactarse con el Administrador o al soporte(figureeighttasks@gmail.com)
+                                             </div>
+                                            @endif
                                         <form method="POST" action="{{ route('login') }}">
                                             @csrf
 
@@ -119,13 +126,27 @@
             <!-- end container -->
         </div>
         <!-- end page -->
-         
+        
         <footer class="footer footer-alt">
-            2018 - 2019 © Figuretaskeros
+            2018 - 2019 © Figure Eight Task
         </footer>
 
+            @if(!empty($_REQUEST['error_in'] ))
+           
+            <script>
+
+              Swal.fire({
+              type: 'info',
+              title: 'Tiempo de inactividad ...',
+              text: 'No ha tenido actividad en los ultimos minutos. Ingrese de nuevo a la plataforma !',
+              footer: '¡Muy bien!'
+            })
+            </script>
+            @endif
         <!-- App js -->
         <script src="assets/js/app.min.js"></script>
+
+
         </body>
 
   

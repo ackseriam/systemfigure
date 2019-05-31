@@ -46,8 +46,20 @@ class User extends Authenticatable
     }
     public function hasRole($role){
         //aqui se comprueba si el usuario tiene un rol
-        if($this->roles()->where('name',$role)->first()){
+       $role= $this->roles()->where('name',$role)->latest();
+        /*  $role= $this->roles()->join('roles_user', 'roles_user.roles_id', '=', 'roles.id')->where('roles_user.user_id', $useri->id)->select('roles.name')->latest();*/
+        if($role){
     return true;
+        }
+        return false;
+    }
+
+    public function hasRoleUSer($id){
+        //aqui se comprueba si el usuario tiene un rol
+      
+          $role= Role::join('roles_user', 'roles_user.roles_id', '=', 'roles.id')->where('roles_user.user_id', $id)->select('roles.name')->get(1);
+        if($role){
+    return $role;
         }
         return false;
     }

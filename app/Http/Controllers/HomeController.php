@@ -45,26 +45,38 @@ class HomeController extends Controller
        $guias=  Guias::where('level','0')->where('status','activo')->get();
        $guias_n=  Guias::where('level','!=','0')->where('status','activo')->get();
        $role=array();
+
+
+
          if(Auth::check()){
              foreach(User::all() as $user)
              {
                  if($user->isOnline())  {
-                   $users_ac[]= User::join('people', 'users.people_id', '=', 'people.id')->where("users.id", $user->id)
+                  if(($rol=="admin")||($rol=="foun")){
+                    $users_ac[]= User::join('people', 'users.people_id', '=', 'people.id')->where("users.id", $user->id)
                         ->select('people.name as name','people.surname as surname','people.email as email','users.id as id')->get();
+                      }else{
+                        $users_ac[]= User::join('people', 'users.people_id', '=', 'people.id')->where("users.id", $user->id)
+                        ->select('people.name as name','people.surname as surname','users.id as id')->get();
+                      }
+                   
 
                     $role[]= Role::join('roles_user', 'roles_user.roles_id', '=', 'roles.id')->where("roles_user.user_id", $user->id)
                         ->select('roles.name','roles.description')->get();
                    
               }else{
-                $users_inac= User::leftjoin('people', 'users.people_id', '=', 'people.id')->where("users.id", "!=",$user->id)->where('users.status_login','inactivo')
+                 if(($rol=="admin")||($rol=="foun")){
+                    $users_inac= User::leftjoin('people', 'users.people_id', '=', 'people.id')->where("users.id", "!=",$user->id)->where('users.status_login','inactivo')
                         ->select('people.name as name','people.surname as surname','people.email as email','users.id as id')->get();
-
-                  $role2[]= Role::join('roles_user', 'roles_user.roles_id', '=', 'roles.id')->where("roles_user.user_id", $user->id)
+                      }else{
+                        $users_inac= User::leftjoin('people', 'users.people_id', '=', 'people.id')->where("users.id", "!=",$user->id)->where('users.status_login','inactivo')
+                        ->select('people.name as name','people.surname as surname','users.id as id')->get();
+                      }
+                    $role2[]= Role::join('roles_user', 'roles_user.roles_id', '=', 'roles.id')->where("roles_user.user_id", $user->id)
                         ->select('roles.name','roles.description')->get();
 
               }
              }
-     //  var_dump($users_ac);
           foreach ( $users_ac as $user) {
               $i=0;
              
@@ -75,10 +87,12 @@ class HomeController extends Controller
 
          }
 
+
       
+  
       
 
-  return view('home', ["roles"=>$role,"role2"=>$role2,"users_ac"=>$users_ac,"users_inac"=>$users_inac,"rol" => $rol,"guias" => $guias, "guias_n" => $guias_n]);
+ return view('home', ["roles"=>$role,"role2"=>$role2,"users_ac"=>$users_ac,"users_inac"=>$users_inac,"rol" => $rol,"guias" => $guias, "guias_n" => $guias_n]);
 
     }
 }

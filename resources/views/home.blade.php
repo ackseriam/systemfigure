@@ -4,7 +4,7 @@
 <body>
  
                   <div class="wrapper">
-                          <!-- Start Content-->
+            <!-- Start Content-->
                                                   <!-- start page title -->
                         <div class="row">
                             <div class="col-12">
@@ -36,20 +36,6 @@
                                                         </div>
                                                     </div>
                                                     @endforeach
-                                                    <!--
-                                                    <div class="timeline-item">
-                                                        <i class="mdi mdi-airplane bg-primary-lighten text-primary timeline-icon"></i>
-                                                        <div class="timeline-item-info">
-                                                            <a href="#" class="text-primary font-weight-bold mb-1 d-block">Product on the Bootstrap Market</a>
-                                                            <small>Dave Gamache added
-                                                                <span class="font-weight-bold">Admin Dashboard</span>
-                                                            </small>
-                                                            <p class="mb-0 pb-2">
-                                                                <small class="text-muted">30 minutes ago</small>
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                    -->
                                                 </div>
                                                 <!-- end timeline -->
                                             </div> <!-- end slimscroll -->
@@ -84,19 +70,27 @@
                                                                     <h5 class="mt-0 mb-1">{{$user[$i]->name}} {{$user[$i]->surname}} 
                                                                           <?php
                                                                     $roles = DB::table('roles')
-                                                                ->join('roles_user', 'roles_user.roles_id', '=', 'roles.id')
+                                                                ->leftjoin('roles_user', 'roles_user.roles_id', '=', 'roles.id')
                                                                 ->where('roles_user.user_id', $user[$i]->id)
                                                                 ->select('roles.name','roles.description')
-                                                                ->get();
-                                                                    ?>@foreach($roles as $role)@if($role->name == 'foun') <span class="badge badge-danger">{{$role->description}}</span>@elseif($role->name == 'admin') <span class="badge badge-info">{{$role->description}}</span>@elseif($role->name == 'editor') <span class="badge badge-success">{{$role->description}}</span>@elseif($role->name == 'editor0') <span class="badge badge-success">{{$role->description}}</span>@elseif($role->name == 'task') <span class="badge badge-primary">{{$role->description}}</span>@elseif($role->name == 'task0') <span class="badge">{{$role->description}}</span>@endif @endforeach
+                                                                ->get(1);
+                                                                    $ultimo = last($roles);
+                                                                    $role = last($ultimo);
+                                                                   
+                                                                    ?>
+
+                                                                    @if($role->name == 'foun') <span class="badge badge-danger">{{$role->description}}</span>@elseif($role->name == 'admin') <span class="badge badge-info">{{$role->description}}</span>@elseif($role->name == 'editor') <span class="badge badge-success">{{$role->description}}</span>@elseif($role->name == 'editor0') <span class="badge badge-success">{{$role->description}}</span>@elseif($role->name == 'task') <span class="badge badge-primary">{{$role->description}}</span>@elseif($role->name == 'task0') <span class="badge">{{$role->description}}</span>@endif 
                                                                      </h5>
+                                                                     @if(!empty($user[$i]->email))
                                                                     <span class="font-13">{{$user[$i]->email}}</span>
+                                                                    @else <span class="font-13">{{$role->description}}</span>
+                                                                    @endif
                                                                 <?php $i++; $j++;?>
                                                                 </div>
                                                                 <i class="mdi mdi-checkbox-blank-circle text-success"></i>
                                                             </div><br>
                                                          </div>  
-                                                               @endforeach
+                                                                 @endforeach
 
                                                         </div>   
                                                      <div class="timeline-item">
@@ -114,12 +108,20 @@
                                                                 ->join('roles_user', 'roles_user.roles_id', '=', 'roles.id')
                                                                 ->where('roles_user.user_id', $useri->id)
                                                                 ->select('roles.name','roles.description')
-                                                                ->get();
+                                                                ->get(1);
+                                                                 $ultimo = last($roles);
+                                                                    $role = last($ultimo);
+                                                                   
                                                           
-                                                                    ?>@foreach($roles as $role)@if($role->name == 'foun') <span class="badge badge-danger">{{$role->description}}</span>@elseif($role->name == 'admin') <span class="badge badge-info">{{$role->description}}</span>@elseif($role->name == 'editor') <span class="badge badge-success">{{$role->description}}</span>@elseif($role->name == 'editor0') <span class="badge badge-success">{{$role->description}}</span>@elseif($role->name == 'task') <span class="badge badge-primary">{{$role->description}}</span>@elseif($role->name == 'task0') <span class="badge">{{$role->description}}</span>@endif @endforeach
+                                                                    ?>
+                                                                    
+                                                                    @if($role->name == 'foun') <span class="badge badge-danger">{{$role->description}}</span>@elseif($role->name == 'admin') <span class="badge badge-info">{{$role->description}}</span>@elseif($role->name == 'editor') <span class="badge badge-success">{{$role->description}}</span>@elseif($role->name == 'editor0') <span class="badge badge-success">{{$role->description}}</span>@elseif($role->name == 'task') <span class="badge badge-primary">{{$role->description}}</span>@elseif($role->name == 'task0') <span class="badge">{{$role->description}}</span>@endif 
                                                                     </h5>
+                                                                    @if(!empty($useri->email))
                                                                     <span class="font-13">{{$useri->email}}</span>
-                                                                  
+                                                                    @else <span class="font-13">{{$role->description}}</span>
+                                                                    @endif
+                                                                
                                                                     
                                                                 </div>
                                                                 <i class="mdi mdi-checkbox-blank-circle text-primary"></i>

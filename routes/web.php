@@ -20,6 +20,7 @@ Route::get('register', 'Auth\RegisterController@index')->name('register');
 
 Route::get('register/{a}', 'Auth\RegisterController@index')->name('auth.register');
 
+Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('people/aprobacion', 'PeopleController@aprobacion');

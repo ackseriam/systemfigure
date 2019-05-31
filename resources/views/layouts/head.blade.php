@@ -9,7 +9,9 @@
         <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
         <meta content="Coderthemes" name="author" />
         <!-- App favicon -->
-        <link rel="shortcut icon" href="{{ asset('images/faviicon.ico') }}">
+      <!--  <link rel="shortcut icon" href="{{ asset('images/faviicon.ico') }}">-->
+
+        <link class="logo-sm" rel="shortcut icon" href="{{ asset('images/faviicon.ico') }}">
 
         <!-- third party css -->
         <link href="{{ asset('css/vendor/jquery-jvectormap-1.2.2.css') }} " rel="stylesheet" type="text/css" />
@@ -29,7 +31,11 @@
         <link href="{{ asset('css/vendor/bootstrap-tagsinput.css') }}" rel="stylesheet" />
      <link href="{{ asset('css/vendor/plugins/bootstrap-touchspin/css/jquery.bootstrap-touchspin.min.css') }}" rel="stylesheet" />
 
-     @if(!empty($exito) || !empty($exito_register))
+     @if(!empty($exito) || !empty($exito_register) || !empty($error_in))
+       <link href="{{ asset('js/sweetalert/sweetalert2.css') }}" rel="stylesheet" />
+     @endif
+
+      @if(!empty($_REQUEST['error_in'] ))
        <link href="{{ asset('js/sweetalert/sweetalert2.css') }}" rel="stylesheet" />
      @endif
 
