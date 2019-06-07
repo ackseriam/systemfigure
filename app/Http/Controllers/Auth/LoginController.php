@@ -68,7 +68,7 @@ protected function sendLoginResponse(Request $request)
                         $this->clearLoginAttempts($request);  
                         Auth::logout();
                         return $this->authenticated($request, $this->guard()->user());
-                    }elseif($status=='inactivo'){
+                    }elseif(($status=='inactivo')||($status=='inactivo')){
 
                        $request->session()->regenerate();
                         $previous_session = Auth::User()->session_id;
@@ -87,10 +87,6 @@ protected function sendLoginResponse(Request $request)
                             echo "error";
                         }
                     }
-
-                   
-
-         
            }else{
 
                        $request->session()->regenerate();

@@ -455,17 +455,45 @@
                                         <span>Configuración</span>
                                     </a>
                                     <!-- item-->
-                                    <a href="{{ url('users/logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();"
-                                       class="dropdown-item notify-item">
-                                    
+                                   <a  id="a" class="dropdown-item notify-item">
                                         <i class="mdi mdi-logout mr-1"></i>
                                         {{ __('Logout') }}  
                                     </a>
-                                    <form id="logout-form" action="{{ url('users/logout')}}" method="POST" style="display: none;">
+                                    <form id="logout-form" name="storyForm" action="{{ url('users/logout')}}" method="POST" style="display: none;">
                                         @csrf
                                     </form>
+
+
+                                    <script>
+                                        $('#a').click(function(e){
+                                            e.preventDefault();
+                                          
+
+                                            Swal.fire({
+                                              type: 'info',
+                                              title: 'Salida de la plataforma!! ...',
+                                              text: '¿Estas seguro de salir de la plataforma?, de igual manera recordamos que la plataforma  luego de algunos minutos cierra sesion por inactividad.',
+                                              footer: 'Muchas gracias por elegirnos',
+                                               showCloseButton: true,
+                                              showCancelButton: true,
+                                              focusConfirm: false,
+                                               confirmButtonText: 'Si, deseo salir!',
+                                               cancelButtonText: 'Cancelar',
+
+                                              
+                                            }).then((result) => {
+                                                if(result.value){
+                                                    document.storyForm.action = '{{ url('users/logout')}}';
+                                                    document.storyForm.submit();
+                                                } else {
+                                                    Swal.fire('Cancelado', 'Buena elección :)', 'error');
+                                                }
+                                            }); 
+                                        });
+
+
+                                        
+                                    </script>
 
                                 </div>
                             </li>
@@ -957,19 +985,46 @@
                                         <span>Lock Screen</span>
                                     </a>-->
 
-                                    <!-- item-->
-                                    <a href="{{route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();"
-                                       class="dropdown-item notify-item">
-                                    
+                                       <!-- item-->
+                                   <a  id="a" class="dropdown-item notify-item">
                                         <i class="mdi mdi-logout mr-1"></i>
                                         {{ __('Logout') }}  
                                     </a>
-                                    <form id="logout-form" action="{{ route('logout')}}" method="POST" style="display: none;">
+                                    <form id="logout-form" name="storyForm" action="{{ url('users/logout')}}" method="POST" style="display: none;">
                                         @csrf
                                     </form>
 
+
+                                  <script>
+                                        $('#a').click(function(e){
+                                            e.preventDefault();
+                                          
+
+                                            Swal.fire({
+                                              type: 'info',
+                                              title: 'Salida de la plataforma!! ...',
+                                              text: '¿Estas seguro de salir de la plataforma?, de igual manera recordamos que la plataforma  luego de algunos minutos cierra sesion por inactividad.',
+                                              footer: 'Muchas gracias por elegirnos',
+                                               showCloseButton: true,
+                                              showCancelButton: true,
+                                              focusConfirm: false,
+                                               confirmButtonText: 'Si, deseo salir!',
+                                               cancelButtonText: 'Cancelar',
+
+                                              
+                                            }).then((result) => {
+                                                if(result.value){
+                                                    document.storyForm.action = '{{ url('users/logout')}}';
+                                                    document.storyForm.submit();
+                                                } else {
+                                                    Swal.fire('Cancelado', 'Buena elección :)', 'error');
+                                                }
+                                            }); 
+                                        });
+
+
+                                        
+                                    </script>
                                 </div>
                             </li>
 
@@ -1384,18 +1439,45 @@
                                     </a>-->
 
                                     <!-- item-->
-                                    <a href="{{route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();"
-                                       class="dropdown-item notify-item">
-                                    
+                                   <a  id="a" class="dropdown-item notify-item">
                                         <i class="mdi mdi-logout mr-1"></i>
                                         {{ __('Logout') }}  
                                     </a>
-                                    <form id="logout-form" action="{{route('logout') }}" method="POST" style="display: none;">
+                                    <form id="logout-form" name="storyForm" action="{{ url('users/logout')}}" method="POST" style="display: none;">
                                         @csrf
                                     </form>
 
+
+                                  <script>
+                                        $('#a').click(function(e){
+                                            e.preventDefault();
+                                          
+
+                                            Swal.fire({
+                                              type: 'info',
+                                              title: 'Salida de la plataforma!! ...',
+                                              text: '¿Estas seguro de salir de la plataforma?, de igual manera recordamos que la plataforma  luego de algunos minutos cierra sesion por inactividad.',
+                                              footer: 'Muchas gracias por elegirnos',
+                                               showCloseButton: true,
+                                              showCancelButton: true,
+                                              focusConfirm: false,
+                                               confirmButtonText: 'Si, deseo salir!',
+                                               cancelButtonText: 'Cancelar',
+
+                                              
+                                            }).then((result) => {
+                                                if(result.value){
+                                                    document.storyForm.action = '{{ url('users/logout')}}';
+                                                    document.storyForm.submit();
+                                                } else {
+                                                    Swal.fire('Cancelado', 'Buena elección :)', 'error');
+                                                }
+                                            }); 
+                                        });
+
+
+                                        
+                                    </script>
                                 </div>
                             </li>
 
@@ -1735,18 +1817,46 @@
                                         <i class="mdi mdi-lock-outline mr-1"></i>
                                         <span>Lock Screen</span>
                                     </a>-->
-                                    <!-- item-->
-                                    <a href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();"
-                                       class="dropdown-item notify-item">
-                                    
+                                     <!-- item-->
+                                   <a  id="a" class="dropdown-item notify-item">
                                         <i class="mdi mdi-logout mr-1"></i>
                                         {{ __('Logout') }}  
                                     </a>
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    <form id="logout-form" name="storyForm" action="{{ url('users/logout')}}" method="POST" style="display: none;">
                                         @csrf
                                     </form>
+
+
+                                  <script>
+                                        $('#a').click(function(e){
+                                            e.preventDefault();
+                                          
+
+                                            Swal.fire({
+                                              type: 'info',
+                                              title: 'Salida de la plataforma!! ...',
+                                              text: '¿Estas seguro de salir de la plataforma?, de igual manera recordamos que la plataforma  luego de algunos minutos cierra sesion por inactividad.',
+                                              footer: 'Muchas gracias por elegirnos',
+                                               showCloseButton: true,
+                                              showCancelButton: true,
+                                              focusConfirm: false,
+                                               confirmButtonText: 'Si, deseo salir!',
+                                               cancelButtonText: 'Cancelar',
+
+                                              
+                                            }).then((result) => {
+                                                if(result.value){
+                                                    document.storyForm.action = '{{ url('users/logout')}}';
+                                                    document.storyForm.submit();
+                                                } else {
+                                                    Swal.fire('Cancelado', 'Buena elección :)', 'error');
+                                                }
+                                            }); 
+                                        });
+
+
+                                        
+                                    </script>
 
                                 </div>
                             </li>
@@ -2138,18 +2248,46 @@
                                         <span>Lock Screen</span>
                                     </a>-->
 
-                                    <!-- item-->
-                                    <a href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();"
-                                       class="dropdown-item notify-item">
-                                    
+                                     <!-- item-->
+                                   <a  id="a" class="dropdown-item notify-item">
                                         <i class="mdi mdi-logout mr-1"></i>
                                         {{ __('Logout') }}  
                                     </a>
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    <form id="logout-form" name="storyForm" action="{{ url('users/logout')}}" method="POST" style="display: none;">
                                         @csrf
                                     </form>
+
+
+                                  <script>
+                                        $('#a').click(function(e){
+                                            e.preventDefault();
+                                          
+
+                                            Swal.fire({
+                                              type: 'info',
+                                              title: 'Salida de la plataforma!! ...',
+                                              text: '¿Estas seguro de salir de la plataforma?, de igual manera recordamos que la plataforma  luego de algunos minutos cierra sesion por inactividad.',
+                                              footer: 'Muchas gracias por elegirnos',
+                                               showCloseButton: true,
+                                              showCancelButton: true,
+                                              focusConfirm: false,
+                                               confirmButtonText: 'Si, deseo salir!',
+                                               cancelButtonText: 'Cancelar',
+
+                                              
+                                            }).then((result) => {
+                                                if(result.value){
+                                                    document.storyForm.action = '{{ url('users/logout')}}';
+                                                    document.storyForm.submit();
+                                                } else {
+                                                    Swal.fire('Cancelado', 'Buena elección :)', 'error');
+                                                }
+                                            }); 
+                                        });
+
+
+                                        
+                                    </script>
 
                                 </div>
                             </li>
@@ -2563,18 +2701,46 @@
                                         <i class="mdi mdi-lock-outline mr-1"></i>
                                         <span>Lock Screen</span>
                                     </a>--> 
-                                    <!-- item-->
-                                    <a href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();"
-                                       class="dropdown-item notify-item">
-                                    
+                                      <!-- item-->
+                                   <a  id="a" class="dropdown-item notify-item">
                                         <i class="mdi mdi-logout mr-1"></i>
                                         {{ __('Logout') }}  
                                     </a>
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    <form id="logout-form" name="storyForm" action="{{ url('users/logout')}}" method="POST" style="display: none;">
                                         @csrf
                                     </form>
+
+
+                                  <script>
+                                        $('#a').click(function(e){
+                                            e.preventDefault();
+                                          
+
+                                            Swal.fire({
+                                              type: 'info',
+                                              title: 'Salida de la plataforma!! ...',
+                                              text: '¿Estas seguro de salir de la plataforma?, de igual manera recordamos que la plataforma  luego de algunos minutos cierra sesion por inactividad.',
+                                              footer: 'Muchas gracias por elegirnos',
+                                               showCloseButton: true,
+                                              showCancelButton: true,
+                                              focusConfirm: false,
+                                               confirmButtonText: 'Si, deseo salir!',
+                                               cancelButtonText: 'Cancelar',
+
+                                              
+                                            }).then((result) => {
+                                                if(result.value){
+                                                    document.storyForm.action = '{{ url('users/logout')}}';
+                                                    document.storyForm.submit();
+                                                } else {
+                                                    Swal.fire('Cancelado', 'Buena elección :)', 'error');
+                                                }
+                                            }); 
+                                        });
+
+
+                                        
+                                    </script>
 
                                 </div>
                             </li>
@@ -2649,22 +2815,7 @@
                                 </li>
                             </ul>
                         </li>
-                        <!--
-                          <li class="side-nav-item">
-                            <a href="javascript: void(0);" class="side-nav-link">
-                                <i class="dripicons-briefcase"></i>
-                                <span> Multis </span>
-                                <span class="menu-arrow"></span>
-                            </a>
-                            <ul class="side-nav-second-level" aria-expanded="false">
-                                <li>
-                                    <a href="{{ url('guias/multi_index/0') }}">Multis disponibles Tasks level 0</a>
-                                </li>                             
-                                <li>
-                                    <a href="ui-modals.html">Generacion de multis</a>
-                                </li>                           
-                            </ul>
-                        </li>-->
+                      
                          <li class="side-nav-item">
                             <a href="javascript: void(0);" class="side-nav-link">
                                 <i class="dripicons-document"></i>
@@ -2903,18 +3054,43 @@
                                         <span>Lock Screen</span>
                                     </a>-->
 
-                                    <!-- item-->
-                                    <a href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();"
-                                       class="dropdown-item notify-item">
-                                    
+                                  <!-- item-->
+                                   <a  id="a" class="dropdown-item notify-item">
                                         <i class="mdi mdi-logout mr-1"></i>
                                         {{ __('Logout') }}  
                                     </a>
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    <form id="logout-form" name="storyForm" action="{{ url('users/logout')}}" method="POST" style="display: none;">
                                         @csrf
                                     </form>
+
+
+                                  <script>
+                                        $('#a').click(function(e){
+                                            e.preventDefault();
+                                          
+
+                                            Swal.fire({
+                                              type: 'info',
+                                              title: 'Salida de la plataforma!! ...',
+                                              text: '¿Estas seguro de salir de la plataforma?, de igual manera recordamos que la plataforma  luego de algunos minutos cierra sesion por inactividad.',
+                                              footer: 'Muchas gracias por elegirnos',
+                                               showCloseButton: true,
+                                              showCancelButton: true,
+                                              focusConfirm: false,
+                                               confirmButtonText: 'Si, deseo salir!',
+                                               cancelButtonText: 'Cancelar',
+
+                                              
+                                            }).then((result) => {
+                                                if(result.value){
+                                                    document.storyForm.action = '{{ url('users/logout')}}';
+                                                    document.storyForm.submit();
+                                                } else {
+                                                    Swal.fire('Cancelado', 'Buena elección :)', 'error');
+                                                }
+                                            }); 
+                                        });    
+                                    </script>
 
                                 </div>
                             </li>
@@ -3094,23 +3270,46 @@
                                         <i class="mdi mdi-lock-outline mr-1"></i>
                                         <span>Lock Screen</span>
                                     </a> item-->
-
-                                    <!-- item-->
-                                    <a href="{{ url('users/logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();"
-                                       class="dropdown-item notify-item">
-                                    
+  <!-- item-->
+                                   <a  id="a" class="dropdown-item notify-item">
                                         <i class="mdi mdi-logout mr-1"></i>
                                         {{ __('Logout') }}  
                                     </a>
-                                    <!--
-                                      <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                        @csrf
-                                    </form> -->
-                                    <form id="logout-form" action="{{ url('users/logout') }}" method="POST" style="display: none;">
+                                    <form id="logout-form" name="storyForm" action="{{ url('users/logout')}}" method="POST" style="display: none;">
                                         @csrf
                                     </form>
+
+
+                                  <script>
+                                        $('#a').click(function(e){
+                                            e.preventDefault();
+                                          
+
+                                            Swal.fire({
+                                              type: 'info',
+                                              title: 'Salida de la plataforma!! ...',
+                                              text: '¿Estas seguro de salir de la plataforma?, de igual manera recordamos que la plataforma  luego de algunos minutos cierra sesion por inactividad.',
+                                              footer: 'Muchas gracias por elegirnos',
+                                               showCloseButton: true,
+                                              showCancelButton: true,
+                                              focusConfirm: false,
+                                               confirmButtonText: 'Si, deseo salir!',
+                                               cancelButtonText: 'Cancelar',
+
+                                              
+                                            }).then((result) => {
+                                                if(result.value){
+                                                    document.storyForm.action = '{{ url('users/logout')}}';
+                                                    document.storyForm.submit();
+                                                } else {
+                                                    Swal.fire('Cancelado', 'Buena elección :)', 'error');
+                                                }
+                                            }); 
+                                        });
+
+
+                                        
+                                    </script>
 
                                 </div>
                             </li>

@@ -40,8 +40,8 @@ class HomeController extends Controller
 
         $rol = roleuser($request); //se llama al helper en Helpers/role
         $user=User::find(auth()->user()->id);
-              $user->status_login = 'activo';
-              $user->save();
+        $user->status_login = 'activo';
+        $user->save();
        $guias=  Guias::where('level','0')->where('status','activo')->get();
        $guias_n=  Guias::where('level','!=','0')->where('status','activo')->get();
        $role=array();
@@ -86,11 +86,6 @@ class HomeController extends Controller
           }
 
          }
-
-
-      
-  
-      
 
  return view('home', ["roles"=>$role,"role2"=>$role2,"users_ac"=>$users_ac,"users_inac"=>$users_inac,"rol" => $rol,"guias" => $guias, "guias_n" => $guias_n]);
 

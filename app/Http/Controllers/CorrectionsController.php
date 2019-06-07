@@ -72,7 +72,7 @@ class CorrectionsController extends Controller
         $user->status_login = 'activo';
         $user->save();   
 
-        $name = $request->get('name');
+        $name = $request->get('respues');
         $img = $request->get('img');
         $status = $request->get('status');
         $level = $request->get('level');
@@ -193,58 +193,79 @@ class CorrectionsController extends Controller
        $guia= Guias::find($request->id_guias);
        $number_campos=$guia->number_campos;
        $campo_n=$guia->names_campo;
-       $campo_nombre=explode(",", $campo_n);
+      // $campo_nombre=explode(",", $campo_n);
        $number_campos_img= $guia->number_campos_img;
        $campos_img=$guia->names_campo_img;
-       $campos_img_nombre=explode(",",$campos_img);
+       $number_campos_total=$number_campos+$number_campos_img;
       
+       //$campos_img_nombre=explode(",",$campos_img);
+       $campos_def=$campo_n."".$campos_img;
+     // dd($campos_def);
        $id_guias= $request->id_guias;
        $options =[
             'id_users' => $id_users,
             'id_guias' =>  $id_guias,    
         ];  
     $corrections=Correction::create($options);
- 
-      foreach ($campo_nombre as $campo_nombre ) 
-      {
-          $campos[]=['name' => $campo_nombre]; 
+  
+      for ($i=0; $i <  $number_campos; $i++) 
+        {                   
+          if($i==0)
+          {
+                   $respuestas =[
+                    'respues'.$i =>  $_POST['respues'.$i],
+                    ];
 
-      }
-     for ($i=0; $i < $number_campos; $i++) 
-     { 
-         $img='0';
-
-               $corrections_cam =[
-                'text' => $_POST[$i],
-                'img'=> $img,
-                'name_campo'=>$campos[$i]["name"],
-                'id_corrections' => $corrections->id,
-            ];
-          Correction_user::create($corrections_cam);
-      }
-
-      foreach ($campos_img_nombre as $campos_img_nombre  ) 
-      {
-        $camposs[]=['name' => $campos_img_nombre];   
-      }
+                 $correction= Correction_user::create($respuestas);
+                 }elseif($i>0){$y=0;
+                 $id= $correction->id;
+                
+                  $correc = Correction_user::find($id);
+                  $correc->id=$id; $respues='respues'.$i;
+                  $correc->$respues=$_POST['respues'.$i];
+                  $correc->tipos_campos=$campo_n;
+                  $correc->id_corrections=$corrections->id;
+                     $correc->save();
+            
+            }
+       
+        }
                 
         for ($i=0; $i < $number_campos_img; $i++)
        { 
-            $img = $request->file($i);
-               $name = time().$img->getClientOriginalName(); 
-        $img->move(public_path().'/images_guias/', $name);
-
-         $text='0';
-
-               $corrections_cam_im =[
-                'text' => $text,
-                'img'=> $name,
-               'name_campo'=> $camposs[$i]["name"],
-                'id_corrections' => $corrections->id,
-                
-            ];
+ 
+              $img = $request->file($i);
+                $name = time().$img->getClientOriginalName(); 
+                $img->move(public_path().'/images_guias/', $name);
             
-        Correction_user::create($corrections_cam_im);
+
+           if($i==0)
+          {
+                   $respuestas =[
+                    'respues'.$i =>  $name];
+
+                 $correction= Correction_user::all();
+                 $corre=$correction->last();
+                 $id=$corre->id;
+                 $corre->id=$id;$y=$number_campos;
+                 $respues='respues'.$y;
+                 $corre->$respues=$name;
+                 $y++;
+                 $corre->save();
+                
+                
+                 }elseif($i>0){$y=0;
+                 $id= $corre->id;
+                
+                  $correc = Correction_user::find($id);
+                  $correc->id=$id; $y=$i+1;
+                  $respues='respues'.$y;
+                  $correc->$respues=$name;
+                  $correc->tipos_campos=$campo_n;
+                  $correc->id_corrections=$corrections->id;
+                  $correc->save();
+           
+            }
        }
        $rol = roleuser($request); 
        $guia= Guias::find($guia->id);
@@ -257,11 +278,11 @@ class CorrectionsController extends Controller
        $campos_img=explode(",",  $campos_img);
 
 
-         return view('corrections.create',['exito'=>'exito','rol'=>$rol,'campos'=>$campo, 'number_campos'=>$number_campos,'id_guias'=>$guia->id,'campos_img'=>$campos_img, 'number_campos_img'=>$number_campos_img  ]); 
+      return view('corrections.create',['exito'=>'exito','rol'=>$rol,'campos'=>$campo, 'number_campos'=>$number_campos,'id_guias'=>$guia->id,'campos_img'=>$campos_img, 'number_campos_img'=>$number_campos_img  ]); 
 
     
     }
-
+   
 
     /**
      * Display the specified resource.
@@ -279,9 +300,9 @@ class CorrectionsController extends Controller
        $correc=array();
        $correcciones= Correction::where('id_guias',$id)->get();
 
-      $text = $request->get('text');
-      $img = $request->get('img');
-      $name_campo = $request->get('name_campo');
+      $text = $request->get('respues');
+    
+ 
     
       $number_gui=$guia->number_campos;
       $number_guia=$number_gui-1;
@@ -297,14 +318,22 @@ class CorrectionsController extends Controller
           ->get();
                                                                                           
         }
-           
+          if(!empty( $correction_user)){
 
-    
-                                                                    
     return view('corrections/corrections_user/correc',compact('correction_user'),['rol'=>$rol, 'id'=>$id,'number_guia'=>$number_guia,'names_campo'=>$names_campo, 'campos_img'=>$campos_img,'number_campos_img'=>  '0']);
+  }else{
+    $correction_user = array('' );
+     return view('corrections/corrections_user/correc',['correction_user'=>$correction_user,'rol'=>$rol, 'id'=>$id,'number_guia'=>$number_guia,'names_campo'=>$names_campo, 'campos_img'=>$campos_img,'number_campos_img'=>  '0']);
+  }
 
    }
   
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
     /**
      * Show the form for editing the specified resource.
      *
@@ -323,11 +352,12 @@ class CorrectionsController extends Controller
       $names_campo=explode(',', $guia->names_campo);
        $campos_img=explode(",",$guia->names_campo_img);
 
-      $text = $request->get('text');
+      $respues = $request->get('text');
       $number_guia=$guia->number_campos;
       $number_campos_img=$guia->number_campos_img;
       $number_gui[]=$number_guia-1;
       $correcciones= Correction::where('id_guias',$id_guia)->get();
+
 
           foreach ($correcciones as $correction) 
           {
@@ -335,13 +365,17 @@ class CorrectionsController extends Controller
          }
          if(!empty($id_d))
          {
+        
              $cound_id= count($id_d);
 
                foreach ($id_d as  $clave=>$valor) {
                 for ($i=0; $i <  $cound_id ; $i++) { 
-                    $correction_search_text= Correction_user::where("id_corrections",$id_d[$i] )
-                  ->text($text)
+        
+                    $correction_search_text= Correction_user::join('corrections', 'corrections.id', '=', 'correction_users.id_corrections')->join('users','users.id','=','corrections.id_users')->join('people','people.id','=','users.people_id')->where("id_corrections",$id_d[$i] )->select('respues0','respues1','respues2','respues3','respues4','respues5','respues6','respues7','respues8','respues9','respues10','respues11','respues12','respues13','respues14','respues15','respues16','respues17','respues18','respues19','respues20','surname','tipos_campos','username','id_corrections','correction_users.id as id')
+                  ->respues($respues)
+
                   ->get(); 
+                  
                   $co=count($correction_search_text);
                   if($co!=0)
                   {
@@ -349,44 +383,42 @@ class CorrectionsController extends Controller
                   }
                 }
                }
-  
-                if(!empty($correction_search_text2))
-                {
-                      $co_def_text= array_unique($correction_search_text2);
-                  $count_d=count($co_def_text);
-                  foreach ( $co_def_text as $image) {
-                      for ($i=0; $i < $count_d ; $i++) { 
-                       $id_corrections[]=$co_def_text[$i][0]->id_corrections;
-
-                        $otros_text= Correction_user::join('corrections', 'corrections.id', '=', 'correction_users.id_corrections')->join('users','users.id','=','corrections.id_users')->where("id_corrections", $id_corrections)
-                        ->select('text','name_campo','username','correction_users.id as id')->get();
-                        
-                      }
-                  }
-
-                   // dd($otros_text);
-                    $id_co= array_unique($id_corrections);
-                    $count_id=count($id_co);
-                    for ($i=0; $i < $count_id; $i++) { 
-                       $otros_img_d[]= Correction_user::where("id_corrections", $id_co[$i])->where('img','!=','0')->select('img','name_campo','id')->get();
-                    }
-        
-                }else{
-                 return redirect("corrections/correc_user/".$id_guia);
-                }
-           return  view('corrections/corrections_user/correc',compact('names_campos'),['rol'=>$rol,'names_campo'=>$names_campo,'campos_img'=> $campos_img,'number_guia'=>$number_guia,'id'=>$id_guia, 'correction_search2'=>$otros_text, 'correction_sear_img'=>  $otros_img_d, 'number_campos_img'=> $number_campos_img,'guia'=>$guia]);
-          }else
+              
+                $co_def_text= array_unique($correction_search_text2);
+               
+       return  view('corrections/corrections_user/correc',['user'=>$user,'rol'=>$rol,'names_campo'=>$names_campo,'campos_img'=> $campos_img,'number_guia'=>$number_guia,'id'=>$id_guia, 'correction_search2'=>$co_def_text, 'number_campos_img'=> $number_campos_img,'guia'=>$guia]);
+         }else
            {
            return redirect("corrections/correc_user/".$id_guia);
            }
+                     
+
 
     }
 
-    public function edit($id)
+     /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit(Request $request,$id)
     {
-        //
+        $rol = roleuser($request); //se llama al helper en Helpers/role
+        $user=User::find(auth()->user()->id);
+        $user->status_login = 'activo';
+        $user->save();
+       
+        $correction= Correction_user::join('corrections', 'corrections.id', '=', 'correction_users.id_corrections')->where("correction_users.id",$id)->get();
+       $correction_id=$correction[0]->id;
+       $id_guias=$correction[0]->id_guias;
+
+        //$roles=Role::leftjoin('roles_user', 'roles_user.roles_id', '=', 'roles.id')->where('roles_user.user_id','=',$id )->select('roles.name')->get();
+ 
+    //  dd($correction); 
+     return view('corrections.edit',['id_guias'=>$id_guias,'rol'=>$rol,'correction'=>$correction,'correction_id'=>$correction_id]);
     }
-    
+
 
     /**
      * Update the specified resource in storage.

@@ -21,22 +21,31 @@ class activeUsers
     public function handle($request, Closure $next)
     {
         if(Auth::check()){
-            $expiresAt = Carbon::now()->addMinutes(3);
+
+            $expiresAt = Carbon::now()->addMinutes(5);
             Cache::put('user-is-online'. Auth::user()->id, true, $expiresAt);
-            
+         
             foreach(User::all() as $user)
              {
+
               if($user->isOnline())  {
+                $user=User::find($user->id);
+                 if($user->status_login=='inactivo_user'){
+                    $user->status_login = 'inactivo_user';
+                     $user->save();
+                 }else{
                    $user=User::find($user->id);
-              $user->status_login = 'activo';
-              $user->save();
+                  $user->status_login = 'activo';
+                  $user->save();
+                 }
+               
               }else{
                 $user=User::find($user->id);
               $user->status_login = 'inactivo';
               $user->save();
               }
              }
-
+          
             
         }
         return $next($request);

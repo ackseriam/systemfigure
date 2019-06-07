@@ -52,11 +52,13 @@ Route::get('guias/index/{a}', 'GuiasController@index');
 Route::get('guias/search/', 'GuiasController@search')->name('search_guias');
 Route::get('guias/search_0/', 'GuiasController@search_0');
 
+Route::get('corrections/editar/{a}', 'CorrectionsController@edit');
 Route::get('corrections/index/{a}', 'CorrectionsController@index');
 Route::get('corrections/create/{a}', 'CorrectionsController@create');
 Route::get('corrections/search/{a}', 'CorrectionsController@search');
 Route::get('corrections/index_vpn/{a}', 'CorrectionsController@index_vpn');
 Route::get('corrections/search_vpn/{a}', 'CorrectionsController@search_vpn');
+Route::get('corrections/multi/{a}', 'CorrectionsController@multi');
 //Route::get('corrections/search_vpn0', 'CorrectionsController@search_vpn0');
 
 Route::get('corrections/correc_user/{a}','CorrectionsController@correc_user')->name('correc_user');
@@ -75,3 +77,4 @@ Route::resource('/users','UsersController')->except(['create','store']);
 Route::put('/users/update_info/{a}','UsersController@update_info');
 
 Route::put('users/update_profile/{a}', 'UsersController@update_profile');
+Route::get('people/destroy/{a}', 'PeopleController@destroy');

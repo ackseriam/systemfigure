@@ -248,9 +248,9 @@ class GuiasController extends Controller
         
        
         $rol = roleuser($request); //se llama al helper en Helpers/role
-        $user=User::find(auth()->user()->id);
-    //    $user->status_login = 'activo';
-        $user->save();   
+         $user=User::find(auth()->user()->id);
+         $user->status_login = 'activo';
+         $user->save(); 
        
         
         $guias= Guias::find($id);

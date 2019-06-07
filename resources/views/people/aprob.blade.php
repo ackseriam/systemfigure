@@ -26,6 +26,10 @@
          <script src="{{ asset('js/app.js') }}" defer></script>
 <script src="{{asset('js/app.js')}}"></script>
 
+ @if(!empty($exito))
+       <link href="{{ asset('js/sweetalert/sweetalert2.css') }}" rel="stylesheet" />
+     @endif
+
     </head>
 
 @include('layouts.nav')
@@ -67,6 +71,7 @@
                                                     <th>{{$person->address}}</th>
                                                     
                                                   <th> <a href="/people/{{$person->id}}" class="btn btn-primary">Ver usuario</a> </th>
+                                                  <th> <a href="/people/destroy/{{$person->id}}" class="btn btn-danger">Rechazar </a> </th>
                                                </tr>
                                             </tbody>
                                               @endforeach
@@ -117,6 +122,30 @@
 
         <script src="{{ asset('js/app.min.js') }}"></script>
 
+        @if(!empty($exito))
+            <script src="{{ asset('js/sweetalert/sweetalert2.js') }}"></script>
+            <script src="{{ asset('js/sweetalert/sweetalert2.all.js') }}"></script>
+                                           <!-- Include this after the sweet alert js file -->
+            <!--    @include('sweet::alert')-->
+            <script>
+
+            Swal.fire({
+              title: 'Información eliminada con exito.',
+              html:
+                'Gracias por colaborar en la plataforma. ',
+              width: 600,
+              padding: '2em',
+              background: '#fff url()',
+              backdrop: `
+               rgba(27, 101, 176, 0.3)
+                url("/images/logo2.png")
+                center left
+                no-repeat
+              `
+            })
+            </script>
+            @endif
+
         <script src="{{ asset('js/vendor/jquery.dataTables.js') }}"></script>
         <script src="{{ asset('js/vendor/dataTables.bootstrap4.js') }}"></script>
         <script src="{{ asset('js/vendor/dataTables.responsive.min.js') }}"></script>
@@ -130,6 +159,8 @@
         <script src="{{ asset('js/vendor/dataTables.select.min.js') }}"></script>
 
            
+
+
         
         <!-- demo app -->
     <!--    <script src="{{ asset('js/pages/demo.datatable-init.js') }}"></script>

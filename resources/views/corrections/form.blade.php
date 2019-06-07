@@ -5,7 +5,7 @@
   {!! Form::label('text', $campos[$i]) !!} 
   <br> 
    <div class="form-group mb-3">                              
-    {!! Form::text($i,'',['class'=> 'form-control',"required"]) !!}
+    {!! Form::text('respues'.$i,'',['class'=> 'form-control',"required"]) !!}
 
   </div>  
 

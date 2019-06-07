@@ -169,7 +169,9 @@ return view('people.aprob',['rol'=>$rol,'people'=>$people]);
     public function edit(Request $request,$id)
     {
         $rol = roleuser($request); //se llama al helper en Helpers/role
-
+        $user=User::find(auth()->user()->id);
+        $user->status_login = 'activo';
+        $user->save();
        
         $people= Person::find($id);
         $people_id=$people->people_id;
@@ -189,8 +191,10 @@ return view('people.aprob',['rol'=>$rol,'people'=>$people]);
      */
     public function update(Request $request, $id)
     {
-          $rol = roleuser($request); //se llama al helper en Helpers/role
-         
+        $rol = roleuser($request); //se llama al helper en Helpers/role
+          $user=User::find(auth()->user()->id);
+          $user->status_login = 'activo';
+          $user->save();
         $people=Person::find($id);
         $people_id=$people->people_id;
         $people->name = $request->name;
@@ -233,8 +237,22 @@ return view('people.aprob',['rol'=>$rol,'people'=>$people]);
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request,$id)
     {
-        //
+      
+         $people = Person::find($id);
+         $id_people=$people->id;
+         $people->delete();
+           $people= Person::leftjoin('users', 'users.people_id', '=', 'people.id')->where('users.people_id')
+       ->select('people.id as id', 'people.name as name', 'people.surname as surname','people.nacionality as nacionality','people.ci as ci','people.address as address')->get();
+       
+
+      
+      $rol = roleuser($request); 
+         
+       $people_contr="people";
+  
+
+         return view('people.aprob',['exito'=>'exito','rol'=>$rol,'people'=> $people]);
     }
 }

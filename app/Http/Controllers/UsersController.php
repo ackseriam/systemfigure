@@ -250,7 +250,9 @@ class UsersController extends Controller
     public function update_info(Request $request,$id)
     {
         $rol = roleuser($request); //se llama al helper en Helpers/role
-         
+         $user=User::find(auth()->user()->id);
+          $user->status_login = 'activo';
+          $user->save();
           $usuario=User::find($id);
           $people_id=$usuario->people_id;
           $people=  Person::where('id',$people_id)->first();
@@ -293,6 +295,9 @@ class UsersController extends Controller
      */
     public function update(Request $request)
     {
+          $user=User::find(auth()->user()->id);
+          $user->status_login = 'activo';
+          $user->save();
         if($request->ajax()){
 
             $datos=$request->input('datos');
@@ -305,7 +310,7 @@ class UsersController extends Controller
      public function logout(){ 
 
       $user=User::find(auth()->user()->id);
-      $user->status_login = 'inactivo';
+      $user->status_login = 'inactivo_user';
 
         if($user->save()){
             Auth::logout();

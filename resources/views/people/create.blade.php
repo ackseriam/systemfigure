@@ -31,7 +31,7 @@
 
                         <div class="row mt-3">
                             <div class="col-12 text-center">
-                                <p class="text-muted">¿Ya tienes una cuenta? <a href="pages-login.html" class="text-muted ml-1"><b>Inciar sesión</b></a></p>
+                                <p class="text-muted">¿Ya tienes una cuenta? <a href="{{url('login')}}" class="text-muted ml-1"><b>Inciar sesión</b></a></p>
                             </div> <!-- end col-->
                         </div>
                         <!-- end row -->

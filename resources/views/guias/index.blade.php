@@ -115,12 +115,13 @@
 
      
 
-        <div class="rightbar-overlay"></div>
-  <script src="{{ asset('js/sweetalert/sweetalert2.js') }}"></script>
-    <script src="{{ asset('js/sweetalert/sweetalert2.all.js') }}"></script>
                                <!-- Include this after the sweet alert js file -->
 <!--    @include('sweet::alert')-->
 @if(!empty($error))
+
+        <div class="rightbar-overlay"></div>
+  <script src="{{ asset('js/sweetalert/sweetalert2.js') }}"></script>
+    <script src="{{ asset('js/sweetalert/sweetalert2.all.js') }}"></script>
 <script>
 
   Swal.fire({
