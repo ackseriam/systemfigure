@@ -90,7 +90,7 @@
 
                                                     <div class="table-responsive-sm">
                                                       <table class="table table-striped table-centered mb-0" onmousedown='return false;' onselectstart="return false;">
-                                                          <thead>{{$copiar}}
+                                                          <thead>
                                                               <tr>
                                                                   @foreach($names_campo as $campos)
                                                                   <th>{{$campos}}</th>

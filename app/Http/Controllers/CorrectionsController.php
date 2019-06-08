@@ -31,7 +31,7 @@ class CorrectionsController extends Controller
         $user->save();  
          if($level_b=='0')
        {
-        $guias = Guias::where(['level'=> $level_b, 'status'=>'activo'])->paginate(4);
+        $guias = Guias::where(['level'=> $level_b, 'status'=>'activo'])->orderBy("id", "DESC")->paginate(4);
        }else{
          $guias= Guias::where('level','!=','0')->where('level','!=','vpn0')->where('level','!=','vpn')->orderBy("id", "DESC")->paginate(4);
 

@@ -174,8 +174,19 @@ class GuiasController extends Controller
             $name=NULL;
         }
    
+        $number_campos=$request->number_campos;
+        $number_campos_img=$request->number_campos_img;
+        $total_campos=$number_campos+$number_campos_img;
+      
+          
+           for ($i=0; $i < $total_campos; $i++) { 
+                    $y=0;$z=1;
+                                        
+                    $co[]='1';
+                          
+                }
 
-        
+        $copia=implode(",", $co);
 
         $options =[
             'name' => $request->name,
@@ -183,15 +194,16 @@ class GuiasController extends Controller
             
             'status' => $request->status,
             'names_campo' => $request->names_campo,
-            'number_campos' => $request->number_campos,
+            'number_campos' => $number_campos,
             'names_campo_img' => $request->names_campo_img,
-            'number_campos_img' => $request->number_campos_img,
-
+            'number_campos_img' => $number_campos_img,
+            'copiado' => $copia,
             'level'=> $request->level,
-            
               'img'=> $name,
             
         ];
+        var_dump( $options);
+
         
          if(Guias::create($options)){
             return view('guias.create',['exito'=>'error_in','rol'=>$rol]);
