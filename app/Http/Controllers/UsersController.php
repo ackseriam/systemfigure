@@ -280,7 +280,7 @@ class UsersController extends Controller
         else
           $usuario->password=  $usuario->password; 
         if($usuario->save()){
-             return view('users.edit_info',['exito'=>'exito','rol'=>$rol,'role'=>$role,'people'=>$people, 'usuario'=> $usuario]);
+             return view('users.edit_info',['exito'=>'exito','people_id'=> $people_id,'rol'=>$rol,'role'=>$role,'people'=>$people, 'usuario'=> $usuario]);
         }  
 
     

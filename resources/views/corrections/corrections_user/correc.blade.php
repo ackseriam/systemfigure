@@ -3,7 +3,7 @@
 
  <body >
      <!-- Start Content-->
-                    <div class="container-fluid">
+                    <div class="container-fluid" >
                         
                         <!-- start page title -->
                         <div class="row">
@@ -11,9 +11,9 @@
                                 <div class="page-title-box">
                                     <div class="page-title-right" onmousedown='return false;' onselectstart="return false;">
                                         <ol class="breadcrumb m-0">
-                                            <li class="breadcrumb-item"><a href="javascript: void(0);">Tablero</a></li>
-                                            <li class="breadcrumb-item"><a href="javascript: void(0);">Corrección</a></li>
-                                            <li class="breadcrumb-item active">Buscar correccion</li>
+                                            <li class="breadcrumb-item"><a href="javascript: void(0);" onmousedown='return false;' onselectstart="return false;">Tablero</a></li>
+                                            <li class="breadcrumb-item"><a href="javascript: void(0);" onmousedown='return false;' onselectstart="return false;">Corrección</a></li>
+                                            <li class="breadcrumb-item active"onmousedown='return false;' onselectstart="return false;" >Buscar correccion</li>
                                         </ol>
                                     </div>
                                     <h4 class="page-title" onmousedown='return false;' onselectstart="return false;">Buscar correccion de la guia</h4>

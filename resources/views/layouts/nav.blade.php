@@ -134,18 +134,18 @@
                          <li class="side-nav-item">
                             <a href="javascript: void(0);" class="side-nav-link">
                                 <i class="dripicons-document"></i>
-                                <span>Enviar Correcciones </span>
+                                <span>Correcciones </span>
                                 <span class="menu-arrow"></span>
                             </a>
                             <ul class="side-nav-second-level" aria-expanded="false">
                                 <li>
-                                    <a href="{{ url('corrections/index/0') }}">Enviar correcciones lvl0</a>
+                                    <a href="{{ url('corrections/index/0') }}">Correcciones lvl0</a>
                                 </li>
                                 <li>
-                                    <a href="{{ url('corrections/index/1') }}">Enviar correcciones lvl</a>
+                                    <a href="{{ url('corrections/index/1') }}">Correcciones lvl</a>
                                 </li>
                             </ul>
-                        </li>
+                        </li><!--
                           <li class="side-nav-item">
                             <a href="javascript: void(0);" class="side-nav-link">
                                 <i class="dripicons-document"></i>
@@ -160,7 +160,7 @@
                                     <a href="{{ url('corrections/search/1') }}">Correcciones lvl</a>
                                 </li>
                             </ul>
-                        </li>
+                        </li>-->
                       
                        <li class="side-nav-title side-nav-item mt-1">Guias VPN</li>
                          <li class="side-nav-item">
@@ -212,14 +212,14 @@
                             </a>
                             <ul class="side-nav-second-level" aria-expanded="false">
                                 <li>
-                                    <a href="{{ url('corrections/index_vpn/vpn0') }}">Enviar correcciones lvl0</a>
+                                    <a href="{{ url('corrections/index_vpn/vpn0') }}">Correcciones lvl0</a>
                                 </li>
                                 <li>
-                                    <a href="{{ url('corrections/index_vpn/vpn') }}">Enviar correcciones lvl</a>
+                                    <a href="{{ url('corrections/index_vpn/vpn') }}">Correcciones lvl</a>
                                 </li>
                             </ul>
                         </li>
-
+                        <!--
                         <li class="side-nav-item">
                             <a href="javascript: void(0);" class="side-nav-link">
                                 <i class="dripicons-document"></i>
@@ -234,7 +234,7 @@
                                     <a href="{{ url('corrections/search_vpn/vpn') }}">Correcciones VPN lvl</a>
                                 </li>
                             </ul>
-                        </li>
+                        </li>-->
                           <li class="side-nav-title side-nav-item mt-1">Otros</li>
 
                         <li class="side-nav-item">
@@ -651,18 +651,19 @@
                          <li class="side-nav-item">
                             <a href="javascript: void(0);" class="side-nav-link">
                                 <i class="dripicons-document"></i>
-                                <span>Enviar Correcciones </span>
+                                <span>Correcciones </span>
                                 <span class="menu-arrow"></span>
                             </a>
                             <ul class="side-nav-second-level" aria-expanded="false">
                                 <li>
-                                    <a href="{{ url('corrections/index/0') }}">Enviar correcciones lvl0</a>
+                                    <a href="{{ url('corrections/index/0') }}">Correcciones lvl0</a>
                                 </li>
                                 <li>
-                                    <a href="{{ url('corrections/index/1') }}">Enviar correcciones lvl</a>
+                                    <a href="{{ url('corrections/index/1') }}">Correcciones lvl</a>
                                 </li>
                             </ul>
                         </li>
+                        <!--
                           <li class="side-nav-item">
                             <a href="javascript: void(0);" class="side-nav-link">
                                 <i class="dripicons-document"></i>
@@ -678,7 +679,7 @@
                                 </li>
                             </ul>
                         </li>
-                      
+                      -->
                        <li class="side-nav-title side-nav-item mt-1">Guias VPN</li>
                          <li class="side-nav-item">
                             <a href="javascript: void(0);" class="side-nav-link">
@@ -729,14 +730,14 @@
                             </a>
                             <ul class="side-nav-second-level" aria-expanded="false">
                                 <li>
-                                    <a href="{{ url('corrections/index_vpn/vpn0') }}">Enviar correcciones lvl0</a>
+                                    <a href="{{ url('corrections/index_vpn/vpn0') }}">Correcciones lvl0</a>
                                 </li>
                                 <li>
-                                    <a href="{{ url('corrections/index_vpn/vpn') }}">Enviar correcciones lvl</a>
+                                    <a href="{{ url('corrections/index_vpn/vpn') }}">Correcciones lvl</a>
                                 </li>
                             </ul>
                         </li>
-
+                        <!--
                         <li class="side-nav-item">
                             <a href="javascript: void(0);" class="side-nav-link">
                                 <i class="dripicons-document"></i>
@@ -751,7 +752,7 @@
                                     <a href="{{ url('corrections/search_vpn/vpn') }}">Correcciones VPN lvl</a>
                                 </li>
                             </ul>
-                        </li>
+                        </li>-->
                           <li class="side-nav-title side-nav-item mt-1">Otros</li>
 
                         <li class="side-nav-item">
@@ -1123,18 +1124,19 @@
                          <li class="side-nav-item">
                             <a href="javascript: void(0);" class="side-nav-link">
                                 <i class="dripicons-document"></i>
-                                <span>Enviar Correcciones </span>
+                                <span>Correcciones </span>
                                 <span class="menu-arrow"></span>
                             </a>
                             <ul class="side-nav-second-level" aria-expanded="false">
                                 <li>
-                                    <a href="{{ url('corrections/index/0') }}">Enviar correcciones lvl0</a>
+                                    <a href="{{ url('corrections/index/0') }}">Correcciones lvl0</a>
                                 </li>
                                 <li>
-                                    <a href="{{ url('corrections/index/1') }}">Enviar correcciones lvl</a>
+                                    <a href="{{ url('corrections/index/1') }}">Correcciones lvl</a>
                                 </li>
                             </ul>
                         </li>
+                        <!--
                           <li class="side-nav-item">
                             <a href="javascript: void(0);" class="side-nav-link">
                                 <i class="dripicons-document"></i>
@@ -1149,7 +1151,7 @@
                                     <a href="{{ url('corrections/search/1') }}">Correcciones lvl</a>
                                 </li>
                             </ul>
-                        </li>
+                        </li>-->
                       
                        <li class="side-nav-title side-nav-item mt-1">Guias VPN</li>
                          <li class="side-nav-item">
@@ -1201,14 +1203,14 @@
                             </a>
                             <ul class="side-nav-second-level" aria-expanded="false">
                                 <li>
-                                    <a href="{{ url('corrections/index_vpn/vpn0') }}">Enviar correcciones lvl0</a>
+                                    <a href="{{ url('corrections/index_vpn/vpn0') }}">Correcciones lvl0</a>
                                 </li>
                                 <li>
-                                    <a href="{{ url('corrections/index_vpn/vpn') }}">Enviar correcciones lvl</a>
+                                    <a href="{{ url('corrections/index_vpn/vpn') }}">Correcciones lvl</a>
                                 </li>
                             </ul>
                         </li>
-
+                        <!--
                         <li class="side-nav-item">
                             <a href="javascript: void(0);" class="side-nav-link">
                                 <i class="dripicons-document"></i>
@@ -1223,7 +1225,7 @@
                                     <a href="{{ url('corrections/search_vpn/vpn') }}">Correcciones VPN lvl</a>
                                 </li>
                             </ul>
-                        </li>
+                        </li>-->
                           <li class="side-nav-title side-nav-item mt-1">Otros</li>
 
                         <li class="side-nav-item">
@@ -1577,18 +1579,18 @@
                          <li class="side-nav-item">
                             <a href="javascript: void(0);" class="side-nav-link">
                                 <i class="dripicons-document"></i>
-                                <span>Enviar Correcciones </span>
+                                <span>Correcciones </span>
                                 <span class="menu-arrow"></span>
                             </a>
                             <ul class="side-nav-second-level" aria-expanded="false">
                                 <li>
-                                    <a href="{{ url('corrections/index/0') }}">Enviar correcciones lvl0</a>
+                                    <a href="{{ url('corrections/index/0') }}">Correcciones lvl0</a>
                                 </li>
                                 <li>
-                                    <a href="{{ url('corrections/index/1') }}">Enviar correcciones lvl</a>
+                                    <a href="{{ url('corrections/index/1') }}">Correcciones lvl</a>
                                 </li>
                             </ul>
-                        </li>
+                        </li><!--
                           <li class="side-nav-item">
                             <a href="javascript: void(0);" class="side-nav-link">
                                 <i class="dripicons-document"></i>
@@ -1603,7 +1605,7 @@
                                     <a href="{{ url('corrections/search/1') }}">Correcciones lvl</a>
                                 </li>
                             </ul>
-                        </li>
+                        </li>-->
                           <li class="side-nav-title side-nav-item mt-1">Otros</li>
 
                         <li class="side-nav-item">
@@ -1951,15 +1953,15 @@
                          <li class="side-nav-item">
                             <a href="javascript: void(0);" class="side-nav-link">
                                 <i class="dripicons-document"></i>
-                                <span>Enviar Correcciones </span>
+                                <span>Correcciones </span>
                                 <span class="menu-arrow"></span>
                             </a>
                             <ul class="side-nav-second-level" aria-expanded="false">
                                 <li>
-                                    <a href="{{ url('corrections/index/0') }}">Enviar correcciones lvl0</a>
+                                    <a href="{{ url('corrections/index/0') }}">Correcciones lvl0</a>
                                 </li>
                             </ul>
-                        </li>
+                        </li><!--
                           <li class="side-nav-item">
                             <a href="javascript: void(0);" class="side-nav-link">
                                 <i class="dripicons-document"></i>
@@ -1971,7 +1973,7 @@
                                     <a href="{{ url('corrections/search/0') }}">Correcciones lvl0</a>
                                 </li>
                             </ul>
-                        </li>
+                        </li>-->
                       
                        <li class="side-nav-title side-nav-item mt-1">Guias VPN</li>
                          <li class="side-nav-item">
@@ -2017,11 +2019,11 @@
                             </a>
                             <ul class="side-nav-second-level" aria-expanded="false">
                                 <li>
-                                    <a href="{{ url('corrections/index_vpn/vpn0') }}">Enviar correcciones lvl0</a>
+                                    <a href="{{ url('corrections/index_vpn/vpn0') }}">Correcciones lvl0</a>
                                 </li>
                             </ul>
                         </li>
-
+                        <!--
                         <li class="side-nav-item">
                             <a href="javascript: void(0);" class="side-nav-link">
                                 <i class="dripicons-document"></i>
@@ -2034,7 +2036,7 @@
                                 </li>
                             </ul>
                         </li>
-
+                        -->
                  <li class="side-nav-title side-nav-item mt-1">Otros </li>
                         <li class="side-nav-item">
                             <a href="javascript: void(0);" class="side-nav-link">
@@ -2388,18 +2390,18 @@
                          <li class="side-nav-item">
                             <a href="javascript: void(0);" class="side-nav-link">
                                 <i class="dripicons-document"></i>
-                                <span>Enviar Correcciones </span>
+                                <span>Correcciones </span>
                                 <span class="menu-arrow"></span>
                             </a>
                             <ul class="side-nav-second-level" aria-expanded="false">
                                 <li>
-                                    <a href="{{ url('corrections/index/0') }}">Enviar correcciones lvl0</a>
+                                    <a href="{{ url('corrections/index/0') }}">correcciones lvl0</a>
                                 </li>
                                 <li>
-                                    <a href="{{ url('corrections/index/1') }}">Enviar correcciones lvl</a>
+                                    <a href="{{ url('corrections/index/1') }}">Correcciones lvl</a>
                                 </li>
                             </ul>
-                        </li>
+                        </li><!--
                           <li class="side-nav-item">
                             <a href="javascript: void(0);" class="side-nav-link">
                                 <i class="dripicons-document"></i>
@@ -2414,7 +2416,7 @@
                                     <a href="{{ url('corrections/search/1') }}">Correcciones lvl</a>
                                 </li>
                             </ul>
-                        </li>
+                        </li>-->
                       
                        <li class="side-nav-title side-nav-item mt-1">Guias VPN</li>
                          <li class="side-nav-item">
@@ -2467,14 +2469,14 @@
                             </a>
                             <ul class="side-nav-second-level" aria-expanded="false">
                                 <li>
-                                    <a href="{{ url('corrections/index_vpn/vpn0') }}">Enviar correcciones lvl0</a>
+                                    <a href="{{ url('corrections/index_vpn/vpn0') }}">Correcciones lvl0</a>
                                 </li>
                                 <li>
-                                    <a href="{{ url('corrections/index_vpn/vpn') }}">Enviar correcciones lvl</a>
+                                    <a href="{{ url('corrections/index_vpn/vpn') }}">Correcciones lvl</a>
                                 </li>
                             </ul>
                         </li>
-
+                        <!--
                         <li class="side-nav-item">
                             <a href="javascript: void(0);" class="side-nav-link">
                                 <i class="dripicons-document"></i>
@@ -2490,7 +2492,7 @@
                                 </li>
                             </ul>
                         </li>
-
+                        -->
                  <li class="side-nav-title side-nav-item mt-1">Otros </li>
                         <li class="side-nav-item">
                             <a href="javascript: void(0);" class="side-nav-link">
@@ -2819,15 +2821,15 @@
                          <li class="side-nav-item">
                             <a href="javascript: void(0);" class="side-nav-link">
                                 <i class="dripicons-document"></i>
-                                <span>Enviar Correcciones </span>
+                                <span>Correcciones </span>
                                 <span class="menu-arrow"></span>
                             </a>
                             <ul class="side-nav-second-level" aria-expanded="false">
                                 <li>
-                                    <a href="{{ url('corrections/index/0') }}">Enviar correcciones lvl0</a>
+                                    <a href="{{ url('corrections/index/0') }}">Correcciones lvl0</a>
                                 </li>
                             </ul>
-                        </li>
+                        </li><!--
                           <li class="side-nav-item">
                             <a href="javascript: void(0);" class="side-nav-link">
                                 <i class="dripicons-document"></i>
@@ -2840,7 +2842,7 @@
                                 </li>
                             </ul>
                         </li>
-                        
+                        -->
                                
                          
                         <li class="side-nav-title side-nav-item mt-1">Otros </li>
