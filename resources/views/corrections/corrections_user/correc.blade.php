@@ -88,8 +88,8 @@
                                                 <div class="row">
                                                     <div class="col-lg-10">
 
-                                                    <div class="table-responsive-sm">
-                                                      <table class="table table-striped table-centered mb-0" onmousedown='return false;' onselectstart="return false;">
+                                                    <div class="table dt-responsive nowrap">
+                                                      <table class="table table-striped table-bordered table-centered mb-0" onmousedown='return false;' onselectstart="return false;">
                                                           <thead>
                                                               <tr>
                                                                   @foreach($names_campo as $campos)
