@@ -297,6 +297,7 @@ class CorrectionsController extends Controller
        $user->status_login = 'activo';
        $user->save(); 
        $guia= Guias::find($id);
+        $copiar=$guia->copiado;
        $correc=array();
        $correcciones= Correction::where('id_guias',$id)->get();
 
@@ -320,10 +321,10 @@ class CorrectionsController extends Controller
         }
           if(!empty( $correction_user)){
 
-    return view('corrections/corrections_user/correc',compact('correction_user'),['rol'=>$rol, 'id'=>$id,'number_guia'=>$number_guia,'names_campo'=>$names_campo, 'campos_img'=>$campos_img,'number_campos_img'=>  '0']);
+    return view('corrections/corrections_user/correc',compact('correction_user'),['rol'=>$rol,'copiar'=>$copiar, 'id'=>$id,'number_guia'=>$number_guia,'names_campo'=>$names_campo, 'campos_img'=>$campos_img,'number_campos_img'=>  '0']);
   }else{
     $correction_user = array('' );
-     return view('corrections/corrections_user/correc',['correction_user'=>$correction_user,'rol'=>$rol, 'id'=>$id,'number_guia'=>$number_guia,'names_campo'=>$names_campo, 'campos_img'=>$campos_img,'number_campos_img'=>  '0']);
+     return view('corrections/corrections_user/correc',['copiar'=>$copiar,'correction_user'=>$correction_user,'rol'=>$rol, 'id'=>$id,'number_guia'=>$number_guia,'names_campo'=>$names_campo, 'campos_img'=>$campos_img,'number_campos_img'=>  '0']);
   }
 
    }
@@ -355,6 +356,7 @@ class CorrectionsController extends Controller
       $respues = $request->get('text');
       $number_guia=$guia->number_campos;
       $number_campos_img=$guia->number_campos_img;
+      $copiar=$guia->copiado;
       $number_gui[]=$number_guia-1;
       $correcciones= Correction::where('id_guias',$id_guia)->get();
 
@@ -391,7 +393,7 @@ class CorrectionsController extends Controller
               }
 
                
-       return  view('corrections/corrections_user/correc',['user'=>$user,'rol'=>$rol,'names_campo'=>$names_campo,'campos_img'=> $campos_img,'number_guia'=>$number_guia,'id'=>$id_guia, 'correction_search2'=>$co_def_text, 'number_campos_img'=> $number_campos_img,'guia'=>$guia]);
+       return  view('corrections/corrections_user/correc',['copiar'=>$copiar,'user'=>$user,'rol'=>$rol,'names_campo'=>$names_campo,'campos_img'=> $campos_img,'number_guia'=>$number_guia,'id'=>$id_guia, 'correction_search2'=>$co_def_text, 'number_campos_img'=> $number_campos_img,'guia'=>$guia]);
          }else
            {
            return redirect("corrections/correc_user/".$id_guia);

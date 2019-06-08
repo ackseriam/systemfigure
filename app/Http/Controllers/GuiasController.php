@@ -235,6 +235,73 @@ class GuiasController extends Controller
         $guia=Guias::find($id);
         return view('guias.edit',['rol'=>$rol,'guia'=>$guia]);
     }
+        /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function copiado(Request $request,$id)
+    {
+         $rol = roleuser($request); //se llama al helper en Helpers/role
+        $user=User::find(auth()->user()->id);
+        $user->status_login = 'activo';
+        $user->save();  
+        $guia=Guias::find($id);
+        $guia->id=$id;
+        $level=  $guia->level;
+        $copiado=$request->copiado;
+        
+        
+
+        $column_cop=$copiado;
+        $columna=explode(',', $column_cop);
+        $counnt_colu=count($columna);
+        $number_campos=$guia->number_campos;
+        $number_campos_img=$guia->number_campos_img;
+        $total_campos=$number_campos+$number_campos_img;
+      
+          
+           for ($i=0; $i < $total_campos; $i++) { 
+                    $y=0;$z=1;
+                   if(!empty($columna[$i])){
+                        
+                           if($columna[$y]==$z)
+                           {
+                            $co[]='1';
+                           }else{
+                            $co[]='0';
+                           } 
+                            $y++;
+                        }else{
+                            $co[]='0'; 
+                        }
+                }
+       
+       $com= implode(',', $co);
+        $guia->copiado=$com;
+        
+         
+
+        if($guia->save()){
+       
+        if($level=='0'){
+          $guias=  Guias::where('level','!=','VPN')->where('level','!=','VPN0')->where('level','!=','1')->where('level','!=','2')->where('level','!=','3')->orderBy("id", "DESC")->paginate(4);
+          }elseif(($level==1)||($level==2)|| ($level==3)){
+            $guias=  Guias::where('level','!=','VPN')->where('level','!=','0')->where('level','!=','VPN0')->orderBy("id", "DESC")->paginate(4);
+          }elseif($level=='vpn') {
+             $guias=  Guias::where('level','!=','0')->where('level','!=','1')->where('level','!=','2')->where('level','!=','3')->where('level','!=','vpn0')->paginate(4);
+           
+          }elseif($level=='vpn0'){
+             $guias=  Guias::where('level','!=','0')->where('level','!=','1')->where('level','!=','2')->where('level','!=','3')->where('level','!=','vpn')->paginate(4);
+          }
+          return view('corrections.index',compact('guias'),['exito'=>'exito','rol'=>$rol,'level'=>$level,'correccion_user'=>'correccion_user']);
+        }
+        
+   //     dd($co);
+     
+
+    }
 
     /**
      * Update the specified resource in storage.

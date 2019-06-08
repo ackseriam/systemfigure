@@ -61,7 +61,7 @@
                                              @if(($rol=='admin')||($rol=='foun')||($rol=='editor')||($rol=='editor0'))   
                                              <label>Colocar el numero de la columna que desea copiar. O todas.(Seperarlo con comas)</label>
                                                          
-                                          {{ Form::open(['url' => 'corrections/copiado/'.$id.'/','method'=> 'GET', 'class' => '']) }}
+                                          {{ Form::open(['url' => 'guias/copiado/'.$id.'/','method'=> 'GET', 'class' => '']) }}
                                           <div class="form-row align-items-center">
 
                                                 <div class="col-auto">
@@ -90,7 +90,7 @@
 
                                                     <div class="table-responsive-sm">
                                                       <table class="table table-striped table-centered mb-0" onmousedown='return false;' onselectstart="return false;">
-                                                          <thead>
+                                                          <thead>{{$copiar}}
                                                               <tr>
                                                                   @foreach($names_campo as $campos)
                                                                   <th>{{$campos}}</th>
@@ -109,10 +109,18 @@
                                                                          @for($y=0; $y< 9; $y++)
                                                                          <?php  $respues='respues'.$y;?>
                                                                           @if($correction[$i]->$respues!=null)
+                                                                             <?php $ex= explode(',', $copiar); ?>
+                                                                              @if($ex[$y]=='1')
                                                                               <td>
                                                                                 <input type="text" name="" readonly="readonly" class="form-control" value="{{$correction[$i]->$respues}}" id="listen_{{$correction[$i]->$respues}}">  
                                                                            <button type="button" id="copyClip" data-clipboard-target="#listen_{{$correction[$i]->$respues}}" class="btn btn-primary"><i class=" mdi mdi-content-copy"></i></button>
                                                                               </td>
+                                                                              @else
+                                                                               <td>
+                                                                                <input type="text" name="" readonly="readonly" class="form-control" value="{{$correction[$i]->$respues}}">  
+                                                                         
+                                                                              </td>
+                                                                              @endif
 
                                                                          @endif
                                                                          @endfor
