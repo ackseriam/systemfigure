@@ -166,7 +166,7 @@ return [
         /*
          * Package Service Providers...
          */
-        UxWeb\SweetAlert\SweetAlertServiceProvider::class,
+     //   UxWeb\SweetAlert\SweetAlertServiceProvider::class,
         // Maatwebsite\Excel\ExcelServiceProvider::class,
         /*
          * Application Service Providers...
@@ -231,7 +231,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Form' => Collective\Html\FormFacade\View::class,
 		'Html' => Collective\Html\HtmlFacade\View::class,
-        'Alert' => UxWeb\SweetAlert\SweetAlert::class,
+      //  'Alert' => UxWeb\SweetAlert\SweetAlert::class,
      //  'Excel' => Maatwebsite\Excel\Facades\Excel::class,
 
     ],
