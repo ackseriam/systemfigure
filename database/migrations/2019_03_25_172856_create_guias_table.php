@@ -23,6 +23,7 @@ class CreateGuiasTable extends Migration
             $table->string('number_campos');
             $table->string('number_campos_img')->nullable();
             $table->string('names_campo_img')->nullable();
+            $table->string('copiado')->nullable();
             $table->string('level');
             $table->timestamps();
         });

@@ -3,21 +3,22 @@
     <div id="ap">
     
     <div class="form-group position-relative mb-3">
-       @for($i=0;  $i < $number_campos; $i++)
+       @for($i=0;  $i < $correction[0]->number_campos; $i++)
 			  {!! Form::label('text', $campos[$i]) !!} 
 			  <br> 
-			   <div class="form-group mb-3">                              
-			    {!! Form::text('respues'.$i,'',['class'=> 'form-control',"required"]) !!}
-
-			  </div>  
-
-        {!! Form::text('respues'.$i,$correction->respues.$i,['class'=> 'form-control', 'id'=>"validationTooltip01", "placeholder"=>"Datos de la respuesta", "required"]) !!}
-        <div class="valid-tooltip">
-            Muy bien
-        </div>
-        <div class="invalid-tooltip">
-           El campo no puede quedar vacio
-        </div>
+			    
+			 <?php $y=0; $respues='respues'.$i;?>
+               @if($correction[0]->$respues!=null)
+			        {!! Form::text($respues,$correction[0]->$respues,['class'=> 'form-control', 'id'=>"validationTooltip01", "placeholder"=>"Datos de la respuesta", "required"]) !!}
+			        <div class="valid-tooltip">
+			            Muy bien
+			        </div>
+			        <div class="invalid-tooltip">
+			           El campo no puede quedar vacio
+			        </div>
+			        <?php $y=0;?>
+			   @endif     
+        @endfor
     </div>
    </div>
      

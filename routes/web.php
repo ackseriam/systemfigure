@@ -53,6 +53,7 @@ Route::get('guias/search/', 'GuiasController@search')->name('search_guias');
 Route::get('guias/search_0/', 'GuiasController@search_0');
 
 Route::get('corrections/editar/{a}', 'CorrectionsController@edit');
+Route::put('corrections/update/{a}', 'CorrectionsController@update');
 Route::get('corrections/index/{a}', 'CorrectionsController@index');
 Route::get('corrections/create/{a}', 'CorrectionsController@create');
 Route::get('corrections/search/{a}', 'CorrectionsController@search');

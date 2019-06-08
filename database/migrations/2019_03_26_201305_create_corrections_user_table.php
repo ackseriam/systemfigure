@@ -15,6 +15,7 @@ class CreateCorrectionsUserTable extends Migration
     {
         Schema::create('correction_users', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('respues0')->nullable();
             $table->string('respues1')->nullable();
             $table->string('respues2')->nullable();
             $table->string('respues3')->nullable();
@@ -35,7 +36,7 @@ class CreateCorrectionsUserTable extends Migration
             $table->string('respues18')->nullable();
             $table->string('respues19')->nullable();
             $table->string('respues20')->nullable();
-            $table->string('tipos_campos');
+            $table->string('tipos_campos')->nullable();
 
             $table->integer('id_corrections')->unsigned()->nullable();
             $table->foreign('id_corrections')->references('id')->on('corrections')->onDelete('set null');

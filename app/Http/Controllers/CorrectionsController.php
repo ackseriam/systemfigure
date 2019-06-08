@@ -383,8 +383,13 @@ class CorrectionsController extends Controller
                   }
                 }
                }
-              
+              if(!empty($correction_search_text2)){
+
                 $co_def_text= array_unique($correction_search_text2);
+              }else{
+                 return redirect("corrections/correc_user/".$id_guia);
+              }
+
                
        return  view('corrections/corrections_user/correc',['user'=>$user,'rol'=>$rol,'names_campo'=>$names_campo,'campos_img'=> $campos_img,'number_guia'=>$number_guia,'id'=>$id_guia, 'correction_search2'=>$co_def_text, 'number_campos_img'=> $number_campos_img,'guia'=>$guia]);
          }else
@@ -409,14 +414,16 @@ class CorrectionsController extends Controller
         $user->status_login = 'activo';
         $user->save();
        
-        $correction= Correction_user::join('corrections', 'corrections.id', '=', 'correction_users.id_corrections')->where("correction_users.id",$id)->get();
-       $correction_id=$correction[0]->id;
+        $correction= Correction_user::join('corrections', 'corrections.id', '=', 'correction_users.id_corrections')->join('guias','guias.id','=','corrections.id_guias')->where("correction_users.id",$id)->get();
+       $correction_id=$id;
        $id_guias=$correction[0]->id_guias;
 
         //$roles=Role::leftjoin('roles_user', 'roles_user.roles_id', '=', 'roles.id')->where('roles_user.user_id','=',$id )->select('roles.name')->get();
  
-    //  dd($correction); 
-     return view('corrections.edit',['id_guias'=>$id_guias,'rol'=>$rol,'correction'=>$correction,'correction_id'=>$correction_id]);
+   //  dd($correction); 
+      $names_campo=explode(',', $correction[0]->names_campo);
+
+     return view('corrections.edit',['campos'=>$names_campo,'id_guias'=>$id_guias,'rol'=>$rol,'correction'=>$correction,'correction_id'=>$correction_id]);
     }
 
 
@@ -429,7 +436,34 @@ class CorrectionsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+          $rol = roleuser($request); //se llama al helper en Helpers/role
+          $user=User::find(auth()->user()->id);
+          $user->status_login = 'activo';
+          $user->save();
+          $correction_n= Correction_user::join('corrections', 'corrections.id', '=', 'correction_users.id_corrections')->join('guias','guias.id','=','corrections.id_guias')->where("correction_users.id",$id)->get();
+        
+            $number_campos=$correction_n[0]->number_campos;
+           for ($i=0; $i < 5; $i++) 
+            { 
+               $corre = Correction_user::find($id); 
+               $id=$corre->id;
+               $corre->id=$id;
+               $respues='respues'.$i;
+               $corre->$respues=$request->$respues;
+               $corre->tipos_campos=$corre->tipos_campos;
+               $corre->id_corrections=$corre->id_corrections;
+               $corre->save();
+                   
+             
+            }
+               $correction_n= Correction_user::join('corrections', 'corrections.id', '=', 'correction_users.id_corrections')->join('guias','guias.id','=','corrections.id_guias')->where("correction_users.id",$id)->get();
+               $id_guias=$correction_n[0]->id_guias;
+           
+          
+               $names_campo=explode(',', $correction_n[0]->names_campo);
+
+      return view('corrections.edit',['exito'=>'exito','campos'=>$names_campo,'id_guias'=>$id_guias,'rol'=>$rol,'correction'=>$correction_n,'correction_id'=>$id]);      
+ 
     }
 
     /**
