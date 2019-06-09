@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 use App\User;
 use App\Guias;
 use App\Correction_user;
-use Alert;
 use Illuminate\Support\Facades\Auth;
 use App\Correction;
 use Illuminate\Http\Request;

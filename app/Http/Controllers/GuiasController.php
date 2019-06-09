@@ -6,7 +6,7 @@ use App\Correction_user;
 use App\Correction;
 use App\Guias;
 use Illuminate\Http\Request;
-use Alert;
+
 
 class GuiasController extends Controller
 {
