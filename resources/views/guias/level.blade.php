@@ -1,4 +1,4 @@
-  <table id="basic-datatable" class="table dt-responsive nowrap" width="100%" onmousedown='return false;' onselectstart="return false;">
+  <table id="basic-datatable" class="table dt-responsive nowrap" width="100%">
         <thead>
             <tr>
                 <th>Nombre de la guia</th>
@@ -29,7 +29,13 @@
               
               <th>
                  @if(!empty($multi))
-               <a href="/guias/multi/{{$guia->id}}" class="btn btn-primary" title="Descargar mdi-square-edit-outline">   <i class="mdi mdi-download ml-1"></i></a>
+                    <label>Multi por defecto</label>
+               <a href="/guias/multi/{{$guia->id}}" class="btn btn-primary" title="Descargar mdi-square-edit-outline">   <i class="mdi mdi-download ml-1"></i></a><br><br>
+               <label>Ingresar columna para realizar multi</label>
+                     {{ Form::open(['url' => '/guias/multi/'.$guia->id.'/','method'=> 'GET', 'class' => '']) }}
+               <input type="text" name="multi" placeholder="Columna a realizar el multi" class="form-control" required><br>
+               <button class="btn btn-primary" type="submit">Énviar</button> 
+                    {{ Form::close()}}
                @else
                <a href="/guias/{{$guia->id}}" class="btn btn-primary" title="Ver guia"> <i class="mdi mdi-account-search-outline"></i></a> 
               
