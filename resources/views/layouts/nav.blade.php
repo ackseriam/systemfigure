@@ -255,9 +255,8 @@
                                     <a href="charts-brite.html"> Cambiar el estatus del comprador</a>
                                 </li>
                             </ul>
-                        </li>-->
-
-                        <li class="side-nav-item">
+                        </li>
+                    <li class="side-nav-item">
                             <a href="javascript: void(0);" class="side-nav-link">
                                 <i class="dripicons-list"></i>
                                 <span> Productos a la venta </span>
@@ -287,6 +286,9 @@
                                 </li>
                             </ul>
                         </li>
+                    -->
+
+                        <li class="side-nav-title side-nav-item mt-1">Otros</li>
                          <li class="side-nav-item">
                             <a href="javascript: void(0);" class="side-nav-link">
                                 <i class="dripicons-browser"></i>
@@ -774,9 +776,8 @@
                                     <a href="charts-brite.html"> Cambiar el estatus del comprador</a>
                                 </li>
                             </ul>
-                        </li>-->
-
-                        <li class="side-nav-item">
+                        </li>
+                         <li class="side-nav-item">
                             <a href="javascript: void(0);" class="side-nav-link">
                                 <i class="dripicons-list"></i>
                                 <span> Productos a la venta </span>
@@ -806,6 +807,10 @@
                                 </li>
                             </ul>
                         </li>
+                    -->
+
+                       
+                        <li class="side-nav-title side-nav-item mt-1">Otros</li>
                         <li class="side-nav-item">
                             <a href="javascript: void(0);" class="side-nav-link">
                                 <i class="dripicons-browser"></i>
