@@ -46,7 +46,8 @@ Route::get('users/search', 'UsersController@search')->name('search');
 Route::get('guias/search_vpn', 'GuiasController@search_vpn')->name('search_guias_vpn');
 Route::get('guias/search_vpn0', 'GuiasController@search_vpn0')->name('search_guias_vpn0');
 
-
+Route::get('guias/getImport', 'GuiasController@getImport');
+Route::post('guias/import', 'GuiasController@import')->name('import');
 Route::get('guias/copiado/{a}', 'GuiasController@copiado');
 Route::get('guias/index/{a}', 'GuiasController@index');
 Route::get('guias/search/', 'GuiasController@search')->name('search_guias');

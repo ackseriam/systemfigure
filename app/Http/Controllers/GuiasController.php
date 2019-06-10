@@ -6,8 +6,13 @@ use App\Correction_user;
 use App\Correction;
 use App\Guias;
 use Illuminate\Http\Request;
-
-
+use Illuminate\Support\Facades\Auth;
+use App\Imports\ImportUsers;
+use App\Http\Requests;
+//use Maatwebsite\Excel\Facades\Excel;
+use Excel;
+use Carbon\Carbon;
+use Input;
 class GuiasController extends Controller
 {
         public function __construct()
@@ -391,6 +396,7 @@ class GuiasController extends Controller
         //
     }
 
+
        public function multi_index(Request $request,$level)
     {
       $rol = roleuser($request); //se llama al helper en Helpers/role
@@ -411,6 +417,68 @@ class GuiasController extends Controller
      }
        
         return view('guias.index',['rol'=>$rol, 'level'=>$level, 'guias'=>$guias,'multi'=>'multi']);
+    }
+
+    public function getImport(Request $request)
+     {
+       $rol = roleuser($request); //se llama al helper en Helpers/role
+      $user=User::find(auth()->user()->id);
+      $user->status_login = 'activo';
+      $user->save();
+     return view('guias.import',['rol'=>$rol]);
+     }
+
+     public function import(Request $request)
+    {
+        // $name_guia = $request->get('name');
+         $name_campo = $request->get('names_campo');
+         $names_campo_img = $request->get('names_campo_img');
+          // var_dump($name);
+          $level = $request->get('level');
+          $names_campo=explode(',',  $name_campo);
+          $number_campos=count($names_campo);
+          //$number_campos_img=count($names_campo_img);
+           $file = $request->file('file');
+        
+            $names=  $file->getClientOriginalName(); 
+            $name=explode('.', $names);
+            $name= $name[0];
+
+          
+           for ($i=0; $i < $number_campos; $i++) { 
+                    $y=0;$z=1;
+       
+                            $co[]='1';
+                         
+                }
+       
+       $com= implode(',', $co);
+     //    var_dump($com);
+       $guias=Guias::create([
+     'name' =>  $name,
+     'status' =>'activo',
+     'names_campo' => $name_campo,
+     'number_campos' =>$number_campos,
+    // 'number_campos_img' =>$guias->number_campos_img,
+     'names_campo_img' =>$names_campo_img,
+     'copiado' => $com,
+     'level' =>$level,
+     ]);
+            $id_users=Auth::user()->id;
+         $options =[
+            'id_users' => $id_users,
+            'id_guias' =>  $guias->id,    
+        ];  
+    $corrections=Correction::create($options);     
+
+  
+
+      Excel::import(new ImportUsers, request()->file('file'));
+            
+        return back();
+
+   
+    
     }
 
 

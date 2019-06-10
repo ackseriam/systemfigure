@@ -235,6 +235,7 @@
                                 </li>
                             </ul>
                         </li>-->
+                        <!--
                           <li class="side-nav-title side-nav-item mt-1">Otros</li>
 
                         <li class="side-nav-item">
@@ -254,7 +255,7 @@
                                     <a href="charts-brite.html"> Cambiar el estatus del comprador</a>
                                 </li>
                             </ul>
-                        </li>
+                        </li>-->
 
                         <li class="side-nav-item">
                             <a href="javascript: void(0);" class="side-nav-link">
@@ -293,14 +294,14 @@
                                 <span class="menu-arrow"></span>
                             </a>
                             <ul class="side-nav-second-level" aria-expanded="false">
-                                <li>
+                               <!--<li>
                                     <a href="layouts-horizontal.html">Backup</a>
                                 </li>
                                 <li>
                                     <a href="layouts-light-sidenav.html">Restauración a la BD</a>
-                                </li>
+                                </li>-->
                                 <li>
-                                    <a href="layouts-collapsed.html">Importar data de guias drive</a>
+                                    <a href="{{url('guias/getImport') }}">Importar data de guias drive</a>
                                 </li>   
                             </ul>
                         </li>
@@ -753,6 +754,7 @@
                                 </li>
                             </ul>
                         </li>-->
+                          <!--
                           <li class="side-nav-title side-nav-item mt-1">Otros</li>
 
                         <li class="side-nav-item">
@@ -772,7 +774,7 @@
                                     <a href="charts-brite.html"> Cambiar el estatus del comprador</a>
                                 </li>
                             </ul>
-                        </li>
+                        </li>-->
 
                         <li class="side-nav-item">
                             <a href="javascript: void(0);" class="side-nav-link">
@@ -804,21 +806,21 @@
                                 </li>
                             </ul>
                         </li>
-                         <li class="side-nav-item">
+                        <li class="side-nav-item">
                             <a href="javascript: void(0);" class="side-nav-link">
                                 <i class="dripicons-browser"></i>
                                 <span> Acciones a la Base de datos</span>
                                 <span class="menu-arrow"></span>
                             </a>
                             <ul class="side-nav-second-level" aria-expanded="false">
-                                <li>
+                               <!--<li>
                                     <a href="layouts-horizontal.html">Backup</a>
                                 </li>
                                 <li>
                                     <a href="layouts-light-sidenav.html">Restauración a la BD</a>
-                                </li>
+                                </li>-->
                                 <li>
-                                    <a href="layouts-collapsed.html">Importar data de guias drive</a>
+                                    <a href="{{url('guias/getImport') }}">Importar data de guias drive</a>
                                 </li>   
                             </ul>
                         </li>
@@ -1226,6 +1228,7 @@
                                 </li>
                             </ul>
                         </li>-->
+                        <!--
                           <li class="side-nav-title side-nav-item mt-1">Otros</li>
 
                         <li class="side-nav-item">
@@ -1245,7 +1248,7 @@
                                     <a href="charts-brite.html"> Cambiar el estatus del comprador</a>
                                 </li>
                             </ul>
-                        </li>
+                        </li>-->
 
                         <li class="side-nav-item">
                             <a href="javascript: void(0);" class="side-nav-link">
@@ -1606,6 +1609,7 @@
                                 </li>
                             </ul>
                         </li>-->
+                        <!--
                           <li class="side-nav-title side-nav-item mt-1">Otros</li>
 
                         <li class="side-nav-item">
@@ -1625,7 +1629,7 @@
                                     <a href="charts-brite.html"> Cambiar el estatus del comprador</a>
                                 </li>
                             </ul>
-                        </li>
+                        </li>-->
 
                         <li class="side-nav-item">
                             <a href="javascript: void(0);" class="side-nav-link">
@@ -2037,6 +2041,7 @@
                             </ul>
                         </li>
                         -->
+                        <!--
                  <li class="side-nav-title side-nav-item mt-1">Otros </li>
                         <li class="side-nav-item">
                             <a href="javascript: void(0);" class="side-nav-link">
@@ -2055,7 +2060,7 @@
                                     <a href="charts-brite.html"> Cambiar el estatus del comprador</a>
                                 </li>
                             </ul>
-                        </li>
+                        </li>-->
 
                         <li class="side-nav-item">
                             <a href="javascript: void(0);" class="side-nav-link">
@@ -2493,6 +2498,7 @@
                             </ul>
                         </li>
                         -->
+                        <!--
                  <li class="side-nav-title side-nav-item mt-1">Otros </li>
                         <li class="side-nav-item">
                             <a href="javascript: void(0);" class="side-nav-link">
@@ -2511,7 +2517,7 @@
                                     <a href="charts-brite.html"> Cambiar el estatus del comprador</a>
                                 </li>
                             </ul>
-                        </li>
+                        </li>-->
 
                         <li class="side-nav-item">
                             <a href="javascript: void(0);" class="side-nav-link">
@@ -2844,7 +2850,7 @@
                         </li>
                         -->
                                
-                         
+                        <!--
                         <li class="side-nav-title side-nav-item mt-1">Otros </li>
                        
                         <li class="side-nav-item">
@@ -2861,7 +2867,7 @@
                                     <a href="charts-brite.html"> Compradores Lista negra</a>
                                 </li>
                             </ul>
-                        </li>
+                        </li>-->
 
                         <li class="side-nav-item">
                             <a href="javascript: void(0);" class="side-nav-link">

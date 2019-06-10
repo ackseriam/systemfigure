@@ -228,7 +228,7 @@ class CorrectionsController extends Controller
             
             }
        
-        }
+           }
                 
         for ($i=0; $i < $number_campos_img; $i++)
        { 
