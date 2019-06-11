@@ -6,6 +6,7 @@ use App\Correction_user;
 use App\Guias;
 use App\Correction;
 use Maatwebsite\Excel\Concerns\ToModel;
+use Illuminate\Support\Facades\Auth;
    
 class ImportUsers implements ToModel
 {
@@ -150,20 +151,27 @@ class ImportUsers implements ToModel
             
      
         $guias=Guias::all();
-   $guia=$guias->last();
-   $names_campo=$guia->names_campo;
-   $name_campo=explode(',', $names_campo);
-   $number_campos=count($name_campo);
+       $guia=$guias->last();
+
+       $id_users=Auth::user()->id;
+         $options =[
+            'id_users' => $id_users,
+            'id_guias' =>  $guia->id,    
+        ];  
+    $corrections=Correction::create($options);     
+       $names_campo=$guia->names_campo;
+       $name_campo=explode(',', $names_campo);
+       $number_campos=count($name_campo);
 
 
-   $correction_last= Correction::all();
-   $corre=$correction_last->last();
-   $id=$corre->id; 
-  
+       $correction_last= Correction::all();
+       $corre=$correction_last->last();
+       $id=$corre->id; 
+      
 
-   $correction->tipos_campos= $names_campo;
-   $correction->id_corrections= $id;
-    $correction->save();
+       $correction->tipos_campos= $names_campo;
+       $correction->id_corrections= $corrections->id;
+        $correction->save();
    
            
            /*

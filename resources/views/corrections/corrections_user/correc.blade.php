@@ -111,10 +111,54 @@
                                                                           @if($correction[$i]->$respues!=null)
                                                                              <?php $ex= explode(',', $copiar); ?>
                                                                               @if($ex[$y]=='1')
-                                                                              <td>
+
+                                                                              @if (strpos($correction[$i]->$respues, '.jpg'))
+                                                                                 <td>
+                                                                              <button class="btn btn-success" " data-toggle="modal" data-target="#img-width-modal"> Ver ímagen</button> 
+
+                                                                             <div id="img-width-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="success-header-modalLabel" aria-hidden="true">
+                                                                             <div class="modal-dialog modal-full-width">
+                                                                               <div class="modal-content">
+                                                                                   <div class="modal-header modal-colored-header bg-success">
+                                                                                          <h4 class="modal-title" id="primary-header-modalLabel">{{$guia->name}}</h4>
+                                                                                           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                                                                            </div>
+                                                                                            <div class="modal-body">
+                                                                                              <h5 class="mt-0">Fecha</h5>
+                                                                                              <p>Guia creada :{{$guia->created_at}}</p><br>
+                                                                                              <h5 class="mt-0">Detalle de la corrección:</h5>
+                                                                                              <br>
+                                                                                              
+                                                                                        <div class="row">
+                                                                                              <div class="col-lg-6">
+                                                                                                    <h5 class="mt-0"> Imagen:</h5>
+                                                                                                  
+                                                                                               </div> 
+                                                                                                 <div class="col-lg-6">
+                                                                                                         <img src="{{ asset('images_guias/')}}/{{$correction[$i]->$respues}}" class="img-fluid" style="max-width: 600px;" alt="No ese encontro imagen" />
+                                                                                                   
+                                                                                                   
+                                                                                                </div>
+                                                                                        </div>
+                                                     
+                                                                                       </p><br>
+                                                                                        </div>
+                                                                                        <div class="modal-footer">
+                                                                                            <button type="button" class="btn btn-light" data-dismiss="modal">Cerrar ventana</button>
+                                                                                           
+                                                                                        </div>
+
+                                                                                    </div><!-- /.modal-content -->
+                                                                                </div><!-- /.modal-dialog -->
+                                                                            </div><!-- /.modal -->
+                                                                              </td>
+                                                                            @else
+                                                                                <td>
                                                                                 <input type="text" name="" readonly="readonly" class="form-control" value="{{$correction[$i]->$respues}}" id="listen_{{$correction[$i]->$respues}}">  
                                                                            <button type="button" id="copyClip" data-clipboard-target="#listen_{{$correction[$i]->$respues}}" class="btn btn-primary"><i class=" mdi mdi-content-copy"></i></button>
                                                                               </td>
+
+                                                                              @endif
                                                                               @else
                                                                                <td>
                                                                                 <input type="text" name="" readonly="readonly" class="form-control" value="{{$correction[$i]->$respues}}">  
@@ -169,11 +213,15 @@
 
                                                   
                                                 </div>
-
                                               </div> <!-- end card body-->
+                                              
                                               @if(($rol=='admin')||($rol=='foun')||($rol=='editor'))
                                                 <div class="col-lg-2">   
-                                                   <a href="/corrections/multi/{{$id}}" class="btn btn-success" title="Descargar multi ">   <i class="mdi mdi-download ml-1"></i>Descargar multi</a>
+                                                   <label>Ingresar columna para realizar multi</label>
+                                                         {{ Form::open(['url' => '/guias/multi/'.$guia->id.'/','method'=> 'GET', 'class' => '']) }}
+                                                   <input type="text" name="multi" placeholder="Columna a realizar el multi" class="form-control" required><br>
+                                                   <button class="btn btn-success" type="submit">Descargar multi</button> 
+                                                        {{ Form::close()}}
                                                 </div>
                                                 @endif
                                           </div> <!-- end card -->

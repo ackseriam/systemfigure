@@ -207,7 +207,6 @@ class GuiasController extends Controller
               'img'=> $name,
             
         ];
-        var_dump( $options);
 
         
          if(Guias::create($options)){
@@ -464,12 +463,7 @@ class GuiasController extends Controller
      'copiado' => $com,
      'level' =>$level,
      ]);
-            $id_users=Auth::user()->id;
-         $options =[
-            'id_users' => $id_users,
-            'id_guias' =>  $guias->id,    
-        ];  
-    $corrections=Correction::create($options);     
+            
 
   
 

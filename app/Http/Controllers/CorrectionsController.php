@@ -192,12 +192,24 @@ class CorrectionsController extends Controller
        $guia= Guias::find($request->id_guias);
        $number_campos=$guia->number_campos;
        $campo_n=$guia->names_campo;
-      // $campo_nombre=explode(",", $campo_n);
+       $campo_nombre=explode(",", $campo_n);
        $number_campos_img= $guia->number_campos_img;
        $campos_img=$guia->names_campo_img;
+       $campo_nombre_img=explode(",", $campos_img);
        $number_campos_total=$number_campos+$number_campos_img;
-      
-       //$campos_img_nombre=explode(",",$campos_img);
+
+       for ($i=0; $i < $number_campos_total; $i++) { 
+         if(!empty($campo_nombre[$i]))
+          {
+            $tipos_campos[]='texto';
+          }else{
+              $tipos_campos[]='img';
+          }
+       }
+    
+       
+      $tipos_campos=implode(',', $tipos_campos);
+   
        $campos_def=$campo_n."".$campos_img;
      // dd($campos_def);
        $id_guias= $request->id_guias;
@@ -222,7 +234,7 @@ class CorrectionsController extends Controller
                   $correc = Correction_user::find($id);
                   $correc->id=$id; $respues='respues'.$i;
                   $correc->$respues=$_POST['respues'.$i];
-                  $correc->tipos_campos=$campo_n;
+                  $correc->tipos_campos=$tipos_campos;
                   $correc->id_corrections=$corrections->id;
                      $correc->save();
             
@@ -235,11 +247,12 @@ class CorrectionsController extends Controller
  
               $img = $request->file($i);
                 $name = time().$img->getClientOriginalName(); 
-                $img->move(public_path().'/images_guias/', $name);
+               
             
 
            if($i==0)
           {
+                    $img->move(public_path().'/images_guias/', $name);
                    $respuestas =[
                     'respues'.$i =>  $name];
 
@@ -252,20 +265,21 @@ class CorrectionsController extends Controller
                  $y++;
                  $corre->save();
                 
-                
-                 }elseif($i>0){$y=0;
+           
+                 }elseif($i>0)
+             {   $y=0;
+                    $img->move(public_path().'/images_guias/', $name);
                  $id= $corre->id;
                 
-                  $correc = Correction_user::find($id);
-                  $correc->id=$id; $y=$i+1;
-                  $respues='respues'.$y;
+                    $correc = Correction_user::find($id);
+                  $correc->id=$id; $respues='respues'.$i;
                   $correc->$respues=$name;
-                  $correc->tipos_campos=$campo_n;
+                  $correc->tipos_campos=$tipos_campos;
                   $correc->id_corrections=$corrections->id;
                   $correc->save();
-           
-            }
-       }
+          
+         }
+       }  
        $rol = roleuser($request); 
        $guia= Guias::find($guia->id);
        $campos=$guia->names_campo;
@@ -311,6 +325,9 @@ class CorrectionsController extends Controller
       $campos_img=explode(",",$guia->names_campo_img);
 
       $names_campo=explode(',', $guia->names_campo);
+          if(!empty($number_img_guia)){
+          $names_campo = array_collapse([$names_campo,$campos_img]);
+        }
        foreach ($correcciones as $correction) {
         $i=0; $y=0;
   
@@ -318,12 +335,14 @@ class CorrectionsController extends Controller
           ->get();
                                                                                           
         }
+
+
           if(!empty( $correction_user)){
 
-    return view('corrections/corrections_user/correc',compact('correction_user'),['rol'=>$rol,'copiar'=>$copiar, 'id'=>$id,'number_guia'=>$number_guia,'names_campo'=>$names_campo, 'campos_img'=>$campos_img,'number_campos_img'=>  '0']);
+    return view('corrections/corrections_user/correc',compact('correction_user'),['rol'=>$rol,'copiar'=>$copiar, 'id'=>$id,'number_guia'=>$number_guia,'names_campo'=>$names_campo, 'campos_img'=>$campos_img,'number_campos_img'=>  '0','guia'=>$guia]);
   }else{
     $correction_user = array('' );
-     return view('corrections/corrections_user/correc',['copiar'=>$copiar,'correction_user'=>$correction_user,'rol'=>$rol, 'id'=>$id,'number_guia'=>$number_guia,'names_campo'=>$names_campo, 'campos_img'=>$campos_img,'number_campos_img'=>  '0']);
+     return view('corrections/corrections_user/correc',['copiar'=>$copiar,'correction_user'=>$correction_user,'rol'=>$rol, 'id'=>$id,'number_guia'=>$number_guia,'names_campo'=>$names_campo, 'campos_img'=>$campos_img,'number_campos_img'=>  '0','guia'=>$guia]);
   }
 
    }
@@ -350,8 +369,13 @@ class CorrectionsController extends Controller
       $guia= Guias::find($id_guia);
    
       $names_campo=explode(',', $guia->names_campo);
-       $campos_img=explode(",",$guia->names_campo_img);
+      $campos_img=explode(",",$guia->names_campo_img);
 
+
+          
+          $names_campo = array_collapse([$names_campo,$campos_img]);
+        
+        
       $respues = $request->get('text');
       $number_guia=$guia->number_campos;
       $number_campos_img=$guia->number_campos_img;
@@ -390,9 +414,9 @@ class CorrectionsController extends Controller
               }else{
                  return redirect("corrections/correc_user/".$id_guia);
               }
-
-               
-       return  view('corrections/corrections_user/correc',['copiar'=>$copiar,'user'=>$user,'rol'=>$rol,'names_campo'=>$names_campo,'campos_img'=> $campos_img,'number_guia'=>$number_guia,'id'=>$id_guia, 'correction_search2'=>$co_def_text, 'number_campos_img'=> $number_campos_img,'guia'=>$guia]);
+          
+             
+      return  view('corrections/corrections_user/correc',['copiar'=>$copiar,'user'=>$user,'rol'=>$rol,'names_campo'=>$names_campo,'campos_img'=> $campos_img,'number_guia'=>$number_guia,'id'=>$id_guia, 'correction_search2'=>$co_def_text, 'number_campos_img'=> $number_campos_img,'guia'=>$guia]);
          }else
            {
            return redirect("corrections/correc_user/".$id_guia);
