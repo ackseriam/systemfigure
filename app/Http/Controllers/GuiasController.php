@@ -69,7 +69,7 @@ class GuiasController extends Controller
         ->status($status)
         ->level($level)
         ->paginate(4);
-       
+     
       //  var_dump($guias);
        return view('guias.search',compact('guias'),['rol'=>$rol]);
     }
@@ -84,10 +84,8 @@ class GuiasController extends Controller
             $img = $request->get('img');
             $status = $request->get('status');
             $level = $request->get('level'); 
-       
-
-         $guias= Guias::where('level','!=','VPN')->where('level','!=','VPN0')->where('level','!=','1')->where('level','!=','2')->where('level','!=','3')->orderBy("id", "DESC")
-            ->name($name)
+        $guias= Guias::where('level','!=','VPN')->where('level','!=','VPN0')->where('level','!=','VPN0')->where('level','!=','1')->where('level','!=','2')->where('level','!=','3')->orderBy("id", "DESC")
+             ->name($name)
             ->img($img)
             ->status($status)
             ->level($level)
@@ -315,8 +313,7 @@ class GuiasController extends Controller
 
         }
         
-   //     dd($co);
-     
+ 
 
     }
 
@@ -429,6 +426,8 @@ class GuiasController extends Controller
 
      public function import(Request $request)
     {
+                ini_set('max_execution_time', 600);
+
         // $name_guia = $request->get('name');
          $name_campo = $request->get('names_campo');
          $names_campo_img = $request->get('names_campo_img');

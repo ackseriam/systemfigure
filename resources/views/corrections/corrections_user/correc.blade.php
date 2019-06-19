@@ -1,12 +1,12 @@
 @include('layouts.head')
 @include('layouts.nav')
 
- <body >
+
      <!-- Start Content-->
                     <div class="container-fluid" >
                         
                         <!-- start page title -->
-                        <div class="row">
+                        <div class="row" onmousedown='return false;' onselectstart="return false;">
                             <div class="col-12">
                                 <div class="page-title-box">
                                     <div class="page-title-right" onmousedown='return false;' onselectstart="return false;">
@@ -102,17 +102,17 @@
                                                              
                                                           <tbody>
                                                               @if(!empty($correction_search2))
-                                                                  
+                                                                  <?php $var=array_unique($correction_search2); var_dump($var);  ?>
                                                                    @foreach($correction_search2 as $correction)
                                                                      <?php $i=0; ?>
                                                                       <tr>
                                                                          @for($y=0; $y< 9; $y++)
                                                                          <?php  $respues='respues'.$y;?>
-                                                                          @if($correction[$i]->$respues!=null)
+                                                                          @if($correction->$respues!=null)
                                                                              <?php $ex= explode(',', $copiar); ?>
                                                                               @if($ex[$y]=='1')
 
-                                                                              @if (strpos($correction[$i]->$respues, '.jpg'))
+                                                                              @if (strpos($correction->$respues, '.jpg'))
                                                                                  <td>
                                                                               <button class="btn btn-success" " data-toggle="modal" data-target="#img-width-modal"> Ver ímagen</button> 
 
@@ -135,7 +135,7 @@
                                                                                                   
                                                                                                </div> 
                                                                                                  <div class="col-lg-6">
-                                                                                                         <img src="{{ asset('images_guias/')}}/{{$correction[$i]->$respues}}" class="img-fluid" style="max-width: 600px;" alt="No ese encontro imagen" />
+                                                                                                         <img src="{{ asset('images_guias/')}}/{{$correction->$respues}}" class="img-fluid" style="max-width: 600px;" alt="No ese encontro imagen" />
                                                                                                    
                                                                                                    
                                                                                                 </div>
@@ -154,14 +154,14 @@
                                                                               </td>
                                                                             @else
                                                                                 <td>
-                                                                                <input type="text" name="" readonly="readonly" class="form-control" value="{{$correction[$i]->$respues}}" id="listen_{{$correction[$i]->$respues}}">  
-                                                                           <button type="button" id="copyClip" data-clipboard-target="#listen_{{$correction[$i]->$respues}}" class="btn btn-primary"><i class=" mdi mdi-content-copy"></i></button>
+                                                                                <input type="text" name="" readonly="readonly" class="form-control" value="{{$correction->$respues}}" id="listen_{{$correction->$respues}}">  
+                                                                           <button type="button" id="copyClip" data-clipboard-target="#listen_{{$correction->$respues}}" class="btn btn-primary"><i class=" mdi mdi-content-copy"></i></button>
                                                                               </td>
 
                                                                               @endif
                                                                               @else
                                                                                <td>
-                                                                                <input type="text" name="" readonly="readonly" class="form-control" value="{{$correction[$i]->$respues}}">  
+                                                                                <input type="text" name="" readonly="readonly" class="form-control" value="{{$correction->$respues}}">  
                                                                          
                                                                               </td>
                                                                               @endif
@@ -169,7 +169,7 @@
                                                                          @endif
                                                                          @endfor
                                                                          
-                                                                          <td>Responsable de la corrección: <p class="text-title"> {{$correction[$i]->username}}</p>
+                                                                          <td>Responsable de la corrección: <p class="text-title"> {{$correction->username}}</p>
                                                                         <div id="consul">
                                                                             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#full-width-modal">Ver mas detalles  </button>
 
@@ -199,17 +199,19 @@
                                                                     </div><!-- /.modal -->
                                                                    </td>
                                                                    @if(($rol=='admin')||($rol=='foun')||($rol=='editor')||($rol=='editor0'))
-                                                                   <td> Editar corrección:<br><a href="/corrections/editar/{{$correction[$i]->id}}" class="btn btn-success" data-toggle="modal" target="_blank">Editar  </a></td>@endif
+                                                                   <td> Editar corrección:<br><a href="/corrections/editar/{{$correction->id}}" class="btn btn-success" data-toggle="modal" target="_blank">Editar  </a></td>@endif
                                                                       </tr>    
                                                                       <?php $i++;?>
                                                                    @endforeach
                                                               @endif
 
                                                           </tbody>        
-                                                        </table>   
+                                                        </table>  
+                                                         @if(!empty($correction_search2))
+                                                         {{$correction_search2->render()}} 
+                                                         @endif
                                                   </div> <!-- end table-responsive-->
                                                 </div>
-
 
                                                   
                                                 </div>
@@ -235,7 +237,7 @@
  
             
            
- </body>
+ 
 <script>
   new Vue({
   el: '#consul',

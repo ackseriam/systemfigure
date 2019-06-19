@@ -10,10 +10,10 @@ class Correction_user extends Model
  
    public function scopeRespues($query, $respues)
     {
-      for ($i=0; $i<20; $i++) { 
+   // for ($i=0; $i<20; $i++) { 
       if($respues)
-        return $query->where('respues'.$i, 'LIKE', "%$respues%"); //el % al principio es para todo valor o caracter que comience o termine con el valor se relacione
-    }
+        return $query->where('respues0', 'LIKE', "%$respues%"); //el % al principio es para todo valor o caracter que comience o termine con el valor se relacione
+   //}
    # code...
  }
 }

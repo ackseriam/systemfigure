@@ -1,4 +1,41 @@
-                                  <?php
+    
+                                                 <?php     if(!empty($id_d))
+         {
+        
+             $cound_id= count($id_d);
+             var_dump($id_d);
+               foreach ($id_d as  $clave=>$valor) {
+                for ($i=0; $i <  $cound_id ; $i++) { 
+        
+                    $correction_search_text[]= Correction_user::join('corrections', 'corrections.id', '=', 'correction_users.id_corrections')->join('users','users.id','=','corrections.id_users')->join('people','people.id','=','users.people_id')->where("id_corrections",$id_d[$i] )->select('respues0','respues1','respues2','respues3','respues4','respues5','respues6','respues7','respues8','respues9','respues10','respues11','respues12','respues13','respues14','respues15','respues16','respues17','respues18','respues19','respues20','surname','tipos_campos','username','id_corrections','correction_users.id as id')
+                  ->respues($respues)
+
+                  ->paginate(4);
+                  
+                  $co=count($correction_search_text);
+                  if($co!=0)
+                  {   
+                    $correction_search_text2[]=$correction_search_text;
+                  }
+                }
+               }
+                $co_def_text= array_unique($correction_search_text);
+               
+              if(!empty($correction_search_text2)){
+
+                $co_def_text= array_unique($correction_search_text2);
+                //$co_pa=$co_def_text->paginate(4);
+
+              }else{
+                 return redirect("corrections/correc_user/".$id_guia);
+              }
+          
+           dd($co_def_text);
+     // return  view('corrections/corrections_user/correc',['copiar'=>$copiar,'user'=>$user,'rol'=>$rol,'names_campo'=>$names_campo,'campos_img'=> $campos_img,'number_guia'=>$number_guia,'id'=>$id_guia, 'correction_search2'=>$co_def_text, 'number_campos_img'=> $number_campos_img,'guia'=>$guia]);
+         }else
+           {
+           return redirect("corrections/correc_user/".$id_guia);
+           }
 
 namespace App\Http\Controllers;
 use App\User;

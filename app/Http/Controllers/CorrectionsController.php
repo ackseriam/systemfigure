@@ -35,7 +35,8 @@ class CorrectionsController extends Controller
          $guias= Guias::where('level','!=','0')->where('level','!=','vpn0')->where('level','!=','vpn')->orderBy("id", "DESC")->paginate(4);
 
        }
-        return view('corrections.index',compact('guias'),['rol'=>$rol, 'level'=>$level_b]);
+      // dd($guias);
+       return view('corrections.index',compact('guias'),['rol'=>$rol, 'level'=>$level_b]);
     }
 
     public function index_vpn( $level_b, Request $request)
@@ -79,12 +80,12 @@ class CorrectionsController extends Controller
        {
       
 
-         $guias= Guias::where(['level'=> $level_b, 'status'=>'activo'])
-        //->where("level", $level)
+         
+        $guias= Guias::where('level','!=','VPN')->where('level','!=','VPN0')->where('level','!=','VPN0')->where('level','!=','1')->where('level','!=','2')->where('level','!=','3')->orderBy("id", "DESC")
         ->name($name)
         ->img($img)
         ->status($status)
-        ->level($level)
+        ->level('0')
         ->paginate(4);
     }else{
 
@@ -383,40 +384,19 @@ class CorrectionsController extends Controller
       $number_gui[]=$number_guia-1;
       $correcciones= Correction::where('id_guias',$id_guia)->get();
 
-
-          foreach ($correcciones as $correction) 
-          {
-         $id_d[]=$correction->id;       
-         }
-         if(!empty($id_d))
-         {
-        
-             $cound_id= count($id_d);
-
-               foreach ($id_d as  $clave=>$valor) {
-                for ($i=0; $i <  $cound_id ; $i++) { 
-        
-                    $correction_search_text= Correction_user::join('corrections', 'corrections.id', '=', 'correction_users.id_corrections')->join('users','users.id','=','corrections.id_users')->join('people','people.id','=','users.people_id')->where("id_corrections",$id_d[$i] )->select('respues0','respues1','respues2','respues3','respues4','respues5','respues6','respues7','respues8','respues9','respues10','respues11','respues12','respues13','respues14','respues15','respues16','respues17','respues18','respues19','respues20','surname','tipos_campos','username','id_corrections','correction_users.id as id')
+          $correction_search_text= Correction_user::join('corrections', 'corrections.id', '=', 'correction_users.id_corrections')->join('users','users.id','=','corrections.id_users')->join('people','people.id','=','users.people_id')->select('respues0','respues1','respues2','respues3','respues4','respues5','respues6','respues7','respues8','respues9','respues10','respues11','respues12','respues13','respues14','respues15','respues16','respues17','respues18','respues19','respues20','surname','tipos_campos','username','id_corrections','correction_users.id as id')
                   ->respues($respues)
 
-                  ->get(); 
-                  
-                  $co=count($correction_search_text);
-                  if($co!=0)
-                  {
-                    $correction_search_text2[]=$correction_search_text;
-                  }
-                }
-               }
-              if(!empty($correction_search_text2)){
-
-                $co_def_text= array_unique($correction_search_text2);
-              }else{
-                 return redirect("corrections/correc_user/".$id_guia);
-              }
+                  ->paginate(4);
+                //  dd($correction_search_text);
+           $co_def_text= array_unique($correction_search_text);      
+       
+         if(!empty($correction_search_text))
+         {
+        
           
-             
-      return  view('corrections/corrections_user/correc',['copiar'=>$copiar,'user'=>$user,'rol'=>$rol,'names_campo'=>$names_campo,'campos_img'=> $campos_img,'number_guia'=>$number_guia,'id'=>$id_guia, 'correction_search2'=>$co_def_text, 'number_campos_img'=> $number_campos_img,'guia'=>$guia]);
+        //   dd($correction_search_text);
+        return  view('corrections/corrections_user/correc',['copiar'=>$copiar,'user'=>$user,'rol'=>$rol,'names_campo'=>$names_campo,'campos_img'=> $campos_img,'number_guia'=>$number_guia,'id'=>$id_guia, 'correction_search2'=>$correction_search_text, 'number_campos_img'=> $number_campos_img,'guia'=>$guia]);
          }else
            {
            return redirect("corrections/correc_user/".$id_guia);
