@@ -102,7 +102,7 @@
                                                              
                                                           <tbody>
                                                               @if(!empty($correction_search2))
-                                                                  <?php $var=array_unique($correction_search2); var_dump($var);  ?>
+                                                                                                                                                                                                                                    
                                                                    @foreach($correction_search2 as $correction)
                                                                      <?php $i=0; ?>
                                                                       <tr>
