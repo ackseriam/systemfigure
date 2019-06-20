@@ -199,7 +199,7 @@
                                                                     </div><!-- /.modal -->
                                                                    </td>
                                                                    @if(($rol=='admin')||($rol=='foun')||($rol=='editor')||($rol=='editor0'))
-                                                                   <td> Editar corrección:<br><a href="/corrections/editar/{{$correction->id}}" class="btn btn-success" data-toggle="modal" target="_blank">Editar  </a></td>@endif
+                                                                   <td> Editar corrección:<br><a href="/corrections/editar/{{$correction->id}}" class="btn btn-success" data-toggle="modal" target="_blank">Editar  </a></td><td>Eliminar corrección:<br><a href="/corrections/destroy/{{$correction->id}}" class="btn btn-danger" data-toggle="modal" target="_blank">Delete </a></td>@endif
                                                                       </tr>    
                                                                       <?php $i++;?>
                                                                    @endforeach
