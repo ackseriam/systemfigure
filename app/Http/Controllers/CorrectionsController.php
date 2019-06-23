@@ -529,8 +529,9 @@ class CorrectionsController extends Controller
           }
 
          }
-
+ return refresh();
  return view('home', ["exito"=>"exito","roles"=>$role,"role2"=>$role2,"users_ac"=>$users_ac,"users_inac"=>$users_inac,"rol" => $rol,"guias" => $guias, "guias_n" => $guias_n]);
+
     }
 
 

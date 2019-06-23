@@ -19,6 +19,7 @@
                                 </div>
                             </div>
                         </div>   
+
 						 	 <!-- Inline Form -->
                          <div class="row">
                             <div class="col-md-12 center">
@@ -70,7 +71,8 @@
                                                         <th>Imagen</th>
                                                         <th>Estado</th>
                                                         <th>Level</th>
-                                                        <th>Accion</th>
+                                                        <th>Correcciones</th>
+                                                        <th>Guia</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -87,11 +89,20 @@
                                                         @else
                                                          <td class="table-action">
                                                             <a href="/corrections/correc_user/{{$guia->id}}" class="action-icon" title="Ver correcciones" class=""> <i class="mdi mdi-account-search-outline btn btn-primary "></i></a>
-                                                        </td>
-                                                         <td class="table-action">
+                                                        
                                                             <a href="/corrections/create/{{$guia->id}}" class="action-icon" title="Enviar corrección" class=""> <i class="mdi mdi-plus btn btn-primary "></i></a>
                                                         </td>
+                                                        <td>
+                                                          <a href="/guias/{{$guia->id}}" class="btn btn-primary" title="Ver guia"> <i class="mdi mdi-account-search-outline"></i></a> 
                                                        
+                                                          </td>
+                                                        @if(($rol=='foun') || ($rol=='admin'))
+                                                        <td class="table-action">
+                                                       
+              
+                                                          <a href="/guias/edit/{{$guia->id}}" class="btn btn-success" title="Editar guia"><i class="mdi mdi-square-edit-outline"></i></a>
+                                                       </td>
+                                                       @endif
                                                         @endif
                                                     </tr>
                                                     @endforeach
