@@ -46,6 +46,7 @@
                                                 <div class="pl-lg-4">
                                                     <!-- Product title -->
                                                     <h3 class="mt-0">{{$people->name}} {{$people->surname}}  <a href="{{ url('people/edit') }}/{{$people->id}}" class="text-muted" title="Editar persona"><i class="mdi mdi-square-edit-outline ml-2"></i></a> </h3>
+                                                     <p class="mb-1">Link de Facebook:  <a href="{{$people->link}}" target="_blank">{{$people->link}}</a> </p>
                                                     <p class="mb-1">Fecha de registro: {{$people->created_at}} </p>
                                                     <p class="font-16">
                                                         <span class="text-warning mdi mdi-star"></span>

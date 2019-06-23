@@ -8,7 +8,7 @@ class Person extends Model
 {
     //
     
-    public $fillable = ['name','surname','email','img_url','img_ci','nacionality','ci','address']; //Todos los campos aqui
+    public $fillable = ['name','surname','email','link','img_url','img_ci','nacionality','ci','address']; //Todos los campos aqui
 
     public function url(){
 

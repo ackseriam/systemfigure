@@ -18,6 +18,7 @@ class CreatePeopleTable extends Migration
             $table->string('name');
             $table->string('surname');
             $table->string('email');
+            $table->string('link');
             $table->string('img_url')->nullable();
             $table->string('img_ci')->nullable();
             $table->string('nacionality');

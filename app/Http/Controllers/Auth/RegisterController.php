@@ -8,7 +8,7 @@ use App\Person;
 use App\Guias;
 use DB;
 use Mail;
-use App\Mail\ConfirmUser;
+use App\Mail\FigureEightTask;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -142,7 +142,7 @@ class RegisterController extends Controller
 
 
          if($user){
-            Mail::to($data['email'],$data['username'], Hash::make($data['password']))->send(new ConfirmUser($data));
+            Mail::to($data['email'],$data['username'], Hash::make($data['password']))->send(new FigureEightTask($data));
             if(!Mail::failures()){
               DB::commit();
                

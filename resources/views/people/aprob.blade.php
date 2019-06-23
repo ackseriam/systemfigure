@@ -55,6 +55,7 @@
                                                     <th>Apellido</th>
                                                     <th>Nacionalidad</th>
                                                     <th>Cedula</th>
+                                                    <th>Link de facebook</th>
                                                     <th>Dirección</th>
                                                     <th>Acción </th>
                                                 </tr>
@@ -63,11 +64,12 @@
                                         @foreach($people as $person )
                                             <tbody>
                                                 <tr>
-                                                    {{$person->id}}
+                                                    
                                                     <td>{{$person->name}}</td>
                                                     <th>{{$person->surname}}</th>
                                                     <th>{{$person->nacionality}}</th>
                                                     <th>{{$person->ci}}</th>
+                                                    <th><a href="{{$person->link}}" target="_blank">{{$person->link}}</a></th>
                                                     <th>{{$person->address}}</th>
                                                     
                                                   <th> <a href="/people/{{$person->id}}" class="btn btn-primary">Ver usuario</a> </th>

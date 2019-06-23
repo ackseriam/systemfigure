@@ -30,7 +30,7 @@ class PeopleController extends Controller
       $user->save(); 
 
        $people= Person::leftjoin('users', 'users.people_id', '=', 'people.id')->where('users.people_id')
-       ->select('people.id as id', 'people.name as name', 'people.surname as surname','people.nacionality as nacionality','people.ci as ci','people.address as address')->get();
+       ->select('people.id as id', 'people.name as name','people.link as link','people.surname as surname','people.nacionality as nacionality','people.ci as ci','people.address as address')->get();
        
 
       
@@ -90,6 +90,7 @@ return view('people.aprob',['rol'=>$rol,'people'=>$people]);
             'name' => $request->name,
             'surname' => $request->surname,
             'email' => $request->email,
+            'link' => $request->link,
             'img_url'=> $name,
             'img_ci'=> $name2,
             'nacionality' => $request->nacionality,
