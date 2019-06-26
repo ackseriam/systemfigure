@@ -42,7 +42,7 @@
    <br>
  <div class="form-group position-relative mb-3">
     <label for="validationTooltip02">Numero de campos</label>
-        <input type="text" class="form-control" id="validationTooltip02" placeholder="Numero de campos" value="{{$guia->number_campos}}" data-toggle="touchspin"  name="number_campos" required>
+        <input type="text" class="form-control" id="validationTooltip02" placeholder="Numero de campos" value="{{$guia->number_campos}}"   name="number_campos" required readonly>
         <div class="valid-tooltip">
         Muy bien
     </div>
@@ -55,7 +55,7 @@
 <div class="form-group position-relative mb-3"> 
      <label for="validationTooltip03">Nombre  de campos de texto</label>
     <div class="tags-default">
-      <input type="text" id="validationTooltip03" value="{{$guia->names_campo}}" name="names_campo" data-role="tagsinput" placeholder="Agregar campos" required />
+      <input type="text" id="validationTooltip03" value="{{$guia->names_campo}}" name="names_campo" class="form-control" placeholder="Agregar campos" required readonly />
   </div>
     <div class="valid-tooltip">
         Muy bien
@@ -97,68 +97,9 @@
   </div>
 
   @endif
-@if($guia->number_campos_img != null)
- <div class="form-group mb-3">  
-  <h3 class="header-title">Editar Campo de imagenes</h3>
-    <div class="form-group position-relative mb-3">
-        <label for="validationTooltip04">Numero de campos de las imagenes</label>
-              <input type="text" class="form-control" id="validationTooltip04" placeholder="Numero de campos" data-toggle="touchspin" value="{{$guia->number_campos_img}}"   name="number_campos_img" >
-              <div class="valid-tooltip">
-              Muy bien
-          </div>
-          <div class="invalid-tooltip">
-             El campo no puede quedar vacio
-          </div>
-       </div>
 
- </div>
 
-<div class="form-group position-relative mb-3"> 
-     <label for="validationTooltip05">Nombre  de campos de imagenes/label>
-    <div class="tags-default">
-      <input type="text" id="validationTooltip05" value="{{$guia->names_campo_img}}" name="names_campo" data-role="tagsinput" placeholder="Agregar campos" required />
-  </div>
-    <div class="valid-tooltip">
-        Muy bien
-    </div>
-    <div class="invalid-tooltip">
-       El campo no puede quedar vacio
-    </div>
-</div>
- @else
- <div class="form-group mb-3">        
-    <h4 class="header-title">Actualmente no existen campos de imagenes en esa guia.</h4>
-    <button type="button" class="btn btn-primary"  @click="isShowing ^= true">Presionar si existen imagenes</button>
-  </div>
 
-  <div v-show="isShowing">
-    
-      <div class="form-group position-relative mb-3">
-        <label for="validationTooltip06">Numero de campos de las imagenes</label>
-              <input type="text" class="form-control" id="validationTooltip06" placeholder="Numero de campos" data-toggle="touchspin"  name="number_campos_img" >
-              <div class="valid-tooltip">
-              Muy bien
-          </div>
-          <div class="invalid-tooltip">
-             El campo no puede quedar vacio
-          </div>
-     </div>
-     <div class="form-group position-relative mb-3"> 
-       <label for="validationTooltip07">Nombre  de campos de las imagenes</label>
-      <div class="tags-default">
-          <input type="text" id="validationTooltip07" name="names_campo_img" data-role="tagsinput" placeholder="Agregar campos"  />
-      </div>
-        <div class="valid-tooltip">
-            Muy bien
-        </div>
-        <div class="invalid-tooltip">
-           El campo no puede quedar vacio
-        </div>
-   </div>
-
-</div>
-
-@endif
   
 
    </div>

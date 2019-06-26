@@ -59,7 +59,6 @@
            <option value="editor0">Editor lvl0</option>
           <option value="task">Taskero de Level</option>
           <option value="task0">Taskero de Level0</option>
-          <option value="vpn0">Taskero VPN level 0</option>
           <option value="vpnlevel">Taskero VPN level</option>
           <option value="buyer">Comprador</option>
 
