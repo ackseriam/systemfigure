@@ -50,6 +50,23 @@ class GuiasController extends Controller
        
         return view('guias.index',['rol'=>$rol, 'level'=>$level, 'guias'=>$guias]);
     }
+     public function inactiva( Request $request, $level_b)
+    {
+        //$guias = Guias::all();
+       $rol = roleuser($request); //se llama al helper en Helpers/role
+        $user=User::find(auth()->user()->id);
+        $user->status_login = 'activo';
+        $user->save();  
+         if($level_b=='0')
+       {
+        $guias = Guias::where(['level'=> $level_b, 'status'=>'inactivo'])->orderBy("id", "DESC")->paginate(4);
+       }else{
+         $guias= Guias::where('level','!=','0')->where('level','!=','vpn0')->where('level','!=','vpn')->orderBy("id", "DESC")->paginate(4);
+
+       }
+      // dd($guias);
+       return view('guias.inactivo',compact('guias'),['rol'=>$rol, 'level'=>$level_b]);
+    }
 
      public function search(Request $request)
     {

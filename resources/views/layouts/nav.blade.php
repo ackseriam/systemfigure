@@ -109,10 +109,10 @@
                             </a>
                             <ul class="side-nav-second-level" aria-expanded="false">
                                 <li>
-                                    <a href="{{ url('corrections/index/0') }}">Guias inactivas  lvl0</a>
+                                    <a href="{{ url('guias/inactiva/0') }}">Guias inactivas  lvl0</a>
                                 </li>
                                 <li>
-                                    <a href="{{ url('corrections/index/1') }}">Guias inactivas  lvl</a>
+                                    <a href="{{ url('guias/inactiva/1') }}">Guias inactivas  lvl</a>
                                 </li>
                             </ul>
                         </li>
