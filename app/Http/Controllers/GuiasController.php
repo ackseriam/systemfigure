@@ -404,10 +404,37 @@ class GuiasController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+   public function destroy(Request $request,$id)
     {
-        //
-    }
+        
+       $guia = Guias::find($id);  
+       $guia->delete();
+       $level_b=$guia->level;
+      
+        $rol = roleuser($request); //se llama al helper en Helpers/role
+        $user=User::find(auth()->user()->id);
+        $user->status_login = 'activo';
+        $user->save();
+        $guias = Guias::where(['level'=> $level_b, 'status'=>'inactivo'])->orderBy("id", "DESC")->paginate(4);
+        return view('guias.inactivo',compact('guias'),['rol'=>$rol, 'level'=>$level_b,'exito'=>'exito']);
+      
+      }
+      public function active(Request $request,$id)
+      {
+          $rol = roleuser($request); //se llama al helper en Helpers/role
+         $user=User::find(auth()->user()->id);
+          $user->status_login = 'activo';
+          $user->save();
+          $guia=Guias::find($id); 
+          $level_b=$guia->level;
+          $guia->status='activo';
+          $guia->save();
+          
+             $guias = Guias::where(['level'=> $level_b, 'status'=>'inactivo'])->orderBy("id", "DESC")->paginate(4);
+        return view('guias.inactivo',compact('guias'),['rol'=>$rol, 'level'=>$level_b,'exito'=>'exito'],);   
+
+        }
+      
 
 
        public function multi_index(Request $request,$level)
@@ -490,6 +517,7 @@ class GuiasController extends Controller
    
     
     }
+       
 
 
         public function multi(Request $request, $id)

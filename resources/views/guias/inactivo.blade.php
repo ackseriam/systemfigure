@@ -83,14 +83,16 @@
                                                          <td>{{$guia->status}}</td>
                                                         <td>{{$guia->level}}</td>
                                                          <td>
-                                                          <a href="/guias/activar/{{$guia->id}}" class="btn btn-success" title="Activar guia">Activar <i class="mdi mdi-square-edit-outline"></i></a> 
+                                                          <a href="/guias/active/{{$guia->id}}" class="btn btn-success" title="Activar guia">Activar <i class="mdi mdi-square-edit-outline"></i></a> 
                                                           <a  id="delet"   class="btn btn-danger" title="Eliminar guia" >Eliminar Guia</a>
                                                           <a href="/guias/{{$guia->id}}" class="btn btn-primary" title="Ver guia"> <i class="mdi mdi-account-search-outline"></i></a> 
 					                                               				      <!-- item-->
 					                                  
-					                                    <form  name="storyForm" action="{{ url('/guias/destroy/')}}" method="POST" style="display: none;">
+					                                    <form  name="formac" action="/guias/destroy/{{$guia->id}}" method="POST" style="display: none;">
 					                                        @csrf
+					                                        <input type="hidden" name="status" value="inactive">
 					                                    </form>
+
 
 
 					                                  <script>
@@ -113,8 +115,8 @@
 					                                              
 					                                            }).then((result) => {
 					                                                if(result.value){
-					                                                    document.storyForm.action = '{{ url('/guias/destroy/')}}';
-					                                                    document.storyForm.submit();
+					                                                    document.formac.action = '/guias/destroy/{{$guia->id}}';
+					                                                    document.formac.submit();
 					                                                } else {
 					                                                    Swal.fire('Cancelado', 'Buena elección :)', 'error');
 					                                                }

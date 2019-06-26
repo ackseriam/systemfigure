@@ -74,6 +74,8 @@ Route::get('guias/multi_index/{a}', 'GuiasController@multi_index');
 Route::put('guias/registrar/{a}', 'GuiasController@store');
 Route::put('guias/update/{a}', 'GuiasController@update');
 Route::get('guias/inactiva/{a}', 'GuiasController@inactiva');
+Route::post('guias/destroy/{a}', 'GuiasController@destroy');
+Route::get('guias/active/{a}', 'GuiasController@active');
 Route::resource('guias','GuiasController');
 Route::resource('people','PeopleController');
 Route::resource('/users','UsersController')->except(['create','store']);

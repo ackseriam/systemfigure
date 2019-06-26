@@ -484,7 +484,8 @@ class CorrectionsController extends Controller
       
      $rol = roleuser($request); //se llama al helper en Helpers/role
         $user=User::find(auth()->user()->id);
-      $user->save();
+         $user->status_login = 'activo';
+          $user->save();
        $guias=  Guias::where('level','0')->where('status','activo')->get();
        $guias_n=  Guias::where('level','!=','0')->where('status','activo')->get();
        $role=array();
