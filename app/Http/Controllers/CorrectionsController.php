@@ -73,36 +73,25 @@ class CorrectionsController extends Controller
         $user->status_login = 'activo';
         $user->save();   
 
-        $name = $request->get('respues');
-        $img = $request->get('img');
-        $status = $request->get('status');
-        $level = $request->get('level');
-       if($level_b=='0')
-       {
-      
+        $name = $request->get('name');
 
-         
-        $guias= Guias::where('level','!=','VPN')->where('level','!=','VPN0')->where('level','!=','VPN0')->where('level','!=','1')->where('level','!=','2')->where('level','!=','3')->orderBy("id", "DESC")
+       if($level_b=='0')
+       {         
+        $guias= Guias::where('level','0')->where('status','activo')->orderBy("id", "ASC")
         ->name($name)
-        ->img($img)
-        ->status($status)
-        ->level('0')
-        ->paginate(4);
+        ->paginate(6);
     }else{
 
 
-         $guias= Guias::where('level','!=','0')->where('level','!=','vpn')->where('level','!=','vpn0')->orderBy("id", "DESC")
+         $guias= Guias::where('level','!=','0')->where('level','!=','vpn')->where('status','activo')->where('level','!=','vpn0')->orderBy("id", "ASC")
         //->where("level", $level)
         ->name($name)
-        ->img($img)
-        ->status($status)
-        ->level($level)
-        ->paginate(4);
+        ->paginate(6);
 
     }
         
        
-        return view('corrections.index',compact('guias'),['rol'=>$rol,'level'=>$level_b,'correccion_user'=>'correccion_user']);
+        return view('corrections.index',compact('guias'),['rol'=>$rol,'level'=>$level_b]);
     }
 
        public function search_vpn( $level_b, Request $request)
@@ -146,7 +135,7 @@ class CorrectionsController extends Controller
       }
         
        
-        return view('corrections.index',compact('guias'),['rol'=>$rol,'level'=>$level_b,'correccion_user'=>'correccion_user']);
+        return view('corrections.index',compact('guias'),['rol'=>$rol,'level'=>$level_b]);
     }
 
     /**
@@ -530,7 +519,7 @@ class CorrectionsController extends Controller
           }
 
          }
- return refresh();
+
  return view('home', ["exito"=>"exito","roles"=>$role,"role2"=>$role2,"users_ac"=>$users_ac,"users_inac"=>$users_inac,"rol" => $rol,"guias" => $guias, "guias_n" => $guias_n]);
 
     }
