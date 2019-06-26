@@ -307,7 +307,7 @@ class CorrectionsController extends Controller
 
       $text = $request->get('respues');
     
- 
+      $tiempo_envio=$guia->tiempo_envio;  
     
       $number_gui=$guia->number_campos;
       $number_guia=$number_gui-1;
@@ -330,10 +330,10 @@ class CorrectionsController extends Controller
 
           if(!empty( $correction_user)){
 
-    return view('corrections/corrections_user/correc',compact('correction_user'),['rol'=>$rol,'copiar'=>$copiar, 'id'=>$id,'number_guia'=>$number_guia,'names_campo'=>$names_campo, 'campos_img'=>$campos_img,'number_campos_img'=>  '0','guia'=>$guia]);
+    return view('corrections/corrections_user/correc',compact('correction_user'),['rol'=>$rol,'copiar'=>$copiar, 'id'=>$id,'number_guia'=>$number_guia,'names_campo'=>$names_campo, 'campos_img'=>$campos_img,'number_campos_img'=>  '0','guia'=>$guia,'time'=>$tiempo_envio]);
   }else{
     $correction_user = array('' );
-     return view('corrections/corrections_user/correc',['copiar'=>$copiar,'correction_user'=>$correction_user,'rol'=>$rol, 'id'=>$id,'number_guia'=>$number_guia,'names_campo'=>$names_campo, 'campos_img'=>$campos_img,'number_campos_img'=>  '0','guia'=>$guia]);
+     return view('corrections/corrections_user/correc',['copiar'=>$copiar,'correction_user'=>$correction_user,'rol'=>$rol, 'id'=>$id,'number_guia'=>$number_guia,'names_campo'=>$names_campo, 'campos_img'=>$campos_img,'number_campos_img'=>  '0','guia'=>$guia,'time'=>$tiempo_envio]);
   }
 
    }
@@ -364,9 +364,9 @@ class CorrectionsController extends Controller
 
 
           
-          $names_campo = array_collapse([$names_campo,$campos_img]);
+     $names_campo = array_collapse([$names_campo,$campos_img]);
         
-        
+      $tiempo_envio=$guia->tiempo_envio;  
       $respues = $request->get('text');
       $number_guia=$guia->number_campos;
       $number_campos_img=$guia->number_campos_img;
@@ -383,7 +383,7 @@ class CorrectionsController extends Controller
        $correction_search2=$correction_search_text;
           
         //   dd($correction_search_text);
-        return  view('corrections/corrections_user/correc',compact('correction_search2'),['copiar'=>$copiar,'user'=>$user,'rol'=>$rol,'names_campo'=>$names_campo,'campos_img'=> $campos_img,'number_guia'=>$number_guia,'id'=>$id_guia, 'number_campos_img'=> $number_campos_img,'guia'=>$guia]);
+        return  view('corrections/corrections_user/correc',compact('correction_search2'),['copiar'=>$copiar,'user'=>$user,'rol'=>$rol,'names_campo'=>$names_campo,'campos_img'=> $campos_img,'number_guia'=>$number_guia,'id'=>$id_guia, 'number_campos_img'=> $number_campos_img,'guia'=>$guia,'time'=>$tiempo_envio]);
          }else
            {
            return redirect("corrections/correc_user/".$id_guia);

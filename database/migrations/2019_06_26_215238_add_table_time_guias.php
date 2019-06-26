@@ -4,20 +4,20 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddTableImPeople extends Migration
+class AddTableTimeGuias extends Migration
 {
-    /**
+     /**
      * Run the migrations.
      *
      * @return void
      */
     public function up()
     {
-          Schema::table('people', function (Blueprint $table) {
-            $table->string('link')->after('email');
+        Schema::table('guias', function (Blueprint $table) {
+            $table->string('tiempo_envio')->after('level');
             
-        });   
-     }
+        });
+    }
 
     /**
      * Reverse the migrations.
@@ -26,8 +26,8 @@ class AddTableImPeople extends Migration
      */
     public function down()
     {
-       Schema::table('people', function (Blueprint $table){
-            $table->dropColumn('link');
+        Schema::table('guias', function (Blueprint $table){
+            $table->dropColumn('tiempo_envio');
         });
     }
 }

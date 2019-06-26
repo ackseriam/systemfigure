@@ -48,18 +48,35 @@
                                     </div>
                                </div>
                                {{ Form::close()}}
-                               <div class="row"><div class="col-lg-1"></div>
+                               
+                               <div class="row"><div class="col-lg-1"> </div>
                                       <div class="col-lg-4"> 
                                       <label>Puede agregar otra corrección presionando el siguiente botón:</label> 
                                       <div class="form-row align-items-center">
                                         <a href="{{ url('corrections/create') }}/{{$id}}" target="_blank" class="btn btn-primary">Agregar corrección</a>
                                       </div>
                                       </div>
-                                       
-                                      
-                                      <div class="col-lg-6">
+                                       <div class="col-lg-3"> 
+                                         <label>Tiempo de envio de la guia:</label> 
+                                           {{ Form::open(['url' => 'guias/time/'.$id.'/','method'=> 'GET', 'class' => '']) }}
+                                           <br>
+                                          <div class="form-row align-items-center" >
+
+                                                <div class="col-auto">
+                                                    {{Form::text('tiempo_envio', null, ['class'=> 'form-control mb-2', 'placeholder' => 'Tiempo de envio'])}}
+                                                 </div>
+
+                                                        
+                                                  <div class="col-auto">
+                                                    <button type="submit" class="btn btn-primary mb-2">Enviar</button>
+                                                </div>
+                                          </div>
+                                     </div>
+                                     {{ Form::close()}}
+                                      <div class="col-lg-3">
                                              @if(($rol=='admin')||($rol=='foun')||($rol=='editor')||($rol=='editor0'))   
                                              <label>Colocar el numero de la columna que desea copiar. O todas.(Seperarlo con comas)</label>
+
                                                          
                                           {{ Form::open(['url' => 'guias/copiado/'.$id.'/','method'=> 'GET', 'class' => '']) }}
                                           <div class="form-row align-items-center">
@@ -85,6 +102,9 @@
                                <div class="col-xl-12">
                                           <div class="card">
                                               <div class="card-body">
+                                                @if(!empty($time))
+                                                <h3 class="text text-success">Tiempo de envio:  {{$time}}</h3>
+                                                @endif
                                                 <div class="row">
                                                     <div class="col-lg-10">
 
@@ -136,8 +156,7 @@
                                                                                                </div> 
                                                                                                  <div class="col-lg-6">
                                                                                                          <img src="{{ asset('images_guias/')}}/{{$correction->$respues}}" class="img-fluid" style="max-width: 600px;" alt="No ese encontro imagen" />
-                                                                                                   
-                                                                                                   
+             
                                                                                                 </div>
                                                                                         </div>
                                                      

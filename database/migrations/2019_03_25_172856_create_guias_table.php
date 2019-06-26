@@ -25,6 +25,7 @@ class CreateGuiasTable extends Migration
             $table->string('names_campo_img')->nullable();
             $table->string('copiado')->nullable();
             $table->string('level');
+            $table->string('tiempo_envio')->nullable();
             $table->timestamps();
         });
     }

@@ -43,15 +43,7 @@
 									 		<div class="col-auto">
 									 	    	{{Form::text('name', null, ['class'=> 'form-control mb-2', 'placeholder' => 'Nombre de la guia'])}}
 									 	   </div>
-                                           <div class="col-auto">
-                                               
-                                           </div>
-									 	      <div class="col-auto">
-									 	    	{{Form::text('status', null, ['class'=> 'form-control mb-2', 'placeholder' => 'status'])}}
-									 	    </div>
-                                            <div class="col-auto">
-                                                {{Form::text('level', null, ['class'=> 'form-control mb-2', 'placeholder' => 'level'])}}
-                                            </div>
+                                          
 									 	    <div class="col-auto">
                                                     <button type="submit" class="btn btn-primary mb-2">Buscar</button>
                                                 </div>

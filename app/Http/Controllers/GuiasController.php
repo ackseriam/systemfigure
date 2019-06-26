@@ -121,15 +121,10 @@ class GuiasController extends Controller
         $user->save();  
          
         $name = $request->get('name');
-        $img = $request->get('img');
-        $status = $request->get('status');
-        $level = $request->get('level');
+      
 
-     $guias= Guias::where('level','!=','VPN')->where('level','!=','0')->where('level','!=','1')->where('level','!=','2')->where('level','!=','3')->orderBy("id", "DESC")
+        $guias= Guias::where('level','!=','VPN')->where('level','!=','0')->where('level','!=','1')->where('level','!=','2')->where('level','!=','3')->orderBy("id", "DESC")
         ->name($name)
-        ->img($img)
-        ->status($status)
-        ->level($level)
         ->paginate(4);
        
       //  var_dump($guias);
@@ -144,15 +139,9 @@ class GuiasController extends Controller
         $user->save();  
          
         $name = $request->get('name');
-        $img = $request->get('img');
-        $status = $request->get('status');
-        $level = $request->get('level');
-
+       
      $guias= Guias::where('level','!=','VPN0')->where('level','!=','0')->where('level','!=','1')->where('level','!=','2')->where('level','!=','3')->orderBy("id", "DESC")
         ->name($name)
-        ->img($img)
-        ->status($status)
-        ->level($level)
         ->paginate(4);
        
       //  var_dump($guias);
@@ -265,6 +254,21 @@ class GuiasController extends Controller
         $user->save();  
         $guia=Guias::find($id);
         return view('guias.edit',['rol'=>$rol,'guia'=>$guia]);
+    }
+
+     public function time(Request $request,$id)
+    {
+         $rol = roleuser($request); //se llama al helper en Helpers/role
+        $user=User::find(auth()->user()->id);
+        $user->status_login = 'activo';
+        $user->save();  
+        $guia=Guias::find($id);
+        $guia->tiempo_envio=$request->tiempo_envio;
+        $guia->save();
+
+        return redirect("corrections/correc_user/".$id);
+   //     return view('guias.edit',['rol'=>$rol,'guia'=>$guia]);
+   
     }
         /**
      * Show the form for editing the specified resource.
@@ -637,5 +641,6 @@ class GuiasController extends Controller
 
       }
     }
+
 
 }

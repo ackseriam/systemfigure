@@ -16,6 +16,7 @@ class PersonTableSeeder extends Seeder
        $person->surname ="Segovia";
        $person->email ="jusego1696@gmail.com";
        $person->nacionality ="Peru";
+       $person->link ="facebook.com";
        $person->ci ="1234";
        $person->address ="Peru";
         $person->save();
@@ -25,6 +26,7 @@ class PersonTableSeeder extends Seeder
        $person->surname ="Castillo";
        $person->email ="vompiermichael.98@gmail.com";
        $person->nacionality ="Venezuela";
+       $person->link ="facebook.com";
        $person->ci ="12345";
        $person->address ="Venezuel";
        $person->save();
@@ -35,6 +37,7 @@ class PersonTableSeeder extends Seeder
        $person->surname ="Alvino";
        $person->email ="josealvinokikelio@gmail.com";
        $person->nacionality ="Venezuela";
+       $person->link ="facebook.com";
        $person->ci ="23244522";
        $person->address ="Venezuela";
        $person->save();
@@ -44,6 +47,7 @@ class PersonTableSeeder extends Seeder
        $person->surname ="Gil";
        $person->email ="luzmarydelvalle70@gmail.com";
        $person->nacionality ="Venezuela";
+       $person->link ="facebook.com";
        $person->ci ="20323434";
        $person->address ="Venezuela";
        $person->save();
@@ -53,6 +57,7 @@ class PersonTableSeeder extends Seeder
        $person->surname ="Ascenzi";
        $person->email ="josue.ascenzi@gmail.com"; 
        $person->nacionality ="Mexico";
+       $person->link ="facebook.com";
        $person->ci ="20323456";
        $person->address ="Venezuela";
        $person->save();
@@ -62,6 +67,7 @@ class PersonTableSeeder extends Seeder
        $person->surname ="Holmes";
        $person->email ="luigifernando1111@gmail.com"; 
        $person->nacionality ="Venezuela";
+       $person->link ="facebook.com";
        $person->ci ="203234567";
        $person->address ="Mexico";
        $person->save();
