@@ -435,7 +435,7 @@ class GuiasController extends Controller
           $guia->save();
           
              $guias = Guias::where(['level'=> $level_b, 'status'=>'inactivo'])->orderBy("id", "DESC")->paginate(4);
-        return view('guias.inactivo',compact('guias'),['rol'=>$rol, 'level'=>$level_b,'exito'=>'exito'],);   
+        return view('guias.inactivo',compact('guias'),['rol'=>$rol, 'level'=>$level_b,'exito'=>'exito']);   
 
         }
       
