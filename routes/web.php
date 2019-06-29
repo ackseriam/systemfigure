@@ -61,7 +61,7 @@ Route::get('corrections/search/{a}', 'CorrectionsController@search');
 Route::get('corrections/index_vpn/{a}', 'CorrectionsController@index_vpn');
 Route::get('corrections/search_vpn/{a}', 'CorrectionsController@search_vpn');
 Route::get('corrections/multi/{a}', 'CorrectionsController@multi');
-Route::get('corrections/destroy/{a}', 'CorrectionsController@destroy');
+Route::post('corrections/destroy/{a}', 'CorrectionsController@destroy');
 //Route::get('corrections/search_vpn0', 'CorrectionsController@search_vpn0');
 
 Route::get('corrections/correc_user/{a}','CorrectionsController@correc_user')->name('correc_user');

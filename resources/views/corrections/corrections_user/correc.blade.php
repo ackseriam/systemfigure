@@ -96,7 +96,7 @@
                                  
                                </div>          
                                                                 
-                         </div>       
+                         </div>        
                                      
                                                 
                                <div class="col-xl-12">
@@ -106,7 +106,7 @@
                                                 <h3 class="text text-success">Tiempo de envio:  {{$time}}</h3>
                                                 @endif
                                                 <div class="row">
-                                                    <div class="col-lg-10">
+                                                    <div class="col-lg-12">
 
                                                     <div class="table dt-responsive nowrap">
                                                       <table  class="table table dt-responsive nowrap table-striped table-bordered table-centered mb-0" onmousedown='return false;' onselectstart="return false;">
@@ -173,8 +173,9 @@
                                                                               </td>
                                                                             @else
                                                                                 <td>
-                                                                                <input type="text" name="" readonly="readonly" class="form-control" value="{{$correction->$respues}}" id="listen_{{$correction->$respues}}">  
-                                                                           <button type="button" id="copyClip" data-clipboard-target="#listen_{{$correction->$respues}}" class="btn btn-primary"><i class=" mdi mdi-content-copy"></i></button>
+
+                                                                                <input type="text" name="" readonly="readonly" class="form-control" value="{{$correction->$respues}}" id="{{$correction->$respues}}">  
+                                                                           <button type="button" id="copyClip" data-clipboard-text="{{$correction->$respues}}" class="btn btn-primary"><i class=" mdi mdi-content-copy"></i></button>
                                                                               </td>
 
                                                                               @endif
@@ -188,9 +189,9 @@
                                                                          @endif
                                                                          @endfor
                                                                          
-                                                                          <td>Responsable de la corrección: <p class="text-title"> {{$correction->username}}</p>
+                                                                          <td>Usuario:<p class="text-title"> {{$correction->username}}</p>
                                                                         <div id="consul">
-                                                                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#full-width-modal">Ver mas detalles  </button>
+                                                                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#full-width-modal"><i class="mdi mdi-file-search-outline "></i> </button>
 
                                                                         </div>
                                                                           
@@ -218,7 +219,44 @@
                                                                     </div><!-- /.modal -->
                                                                    </td>
                                                                    @if(($rol=='admin')||($rol=='foun')||($rol=='editor')||($rol=='editor0'))
-                                                                   <td> Editar corrección:<br><a href="/corrections/editar/{{$correction->id}}" class="btn btn-success" data-toggle="modal" target="_blank">Editar  </a></td><td>Eliminar corrección:<br><a href="/corrections/destroy/{{$correction->id}}" class="btn btn-danger" data-toggle="modal" target="_blank">Delete </a></td>@endif
+                                                                   <td> <a href="/corrections/editar/{{$correction->id}}" title="Editar Corrección"  class="btn btn-success" data-toggle="modal" target="_blank"><i class=" mdi mdi-square-edit-outline "></i> </a><a id="delet" class="btn btn-danger"  title="Eliminar Corrección" data-toggle="modal" target="_blank"><i class="mdi mdi-delete "></i> </a></td>
+                                                                  <form  name="formac" action="/corrections/destroy/{{$correction->id}}" method="POST" style="display: none;">
+                                                                        @csrf
+                                                                        <input type="hidden" name="status" value="inactive">
+                                                                    </form>
+                                                                  <script>
+                                                                    
+                                                                        $('#delet').click(function(e){
+                                                                            e.preventDefault();
+                                                                          
+
+                                                                            Swal.fire({
+                                                                              type: 'info',
+                                                                              title: 'Eliminar corrección!! ...',
+                                                                              text: '¿Estas seguro de realizar estos cambios?. El resultado sera irreversible.',
+                                                                              footer: 'Elimando corrección',
+                                                                               showCloseButton: true,
+                                                                              showCancelButton: true,
+                                                                              focusConfirm: false,
+                                                                               confirmButtonText: 'Si, estoy seguro',
+                                                                               cancelButtonText: 'Cancelar',
+
+                                                                              
+                                                                            }).then((result) => {
+                                                                                if(result.value){
+                                                                                    document.formac.action = '/corrections/destroy/{{$correction->id}}';
+                                                                                    document.formac.submit();
+                                                                                } else {
+                                                                                    Swal.fire('Cancelado', 'Buena elección :)', 'error');
+                                                                                }
+                                                                            }); 
+                                                                        });
+
+
+                                                                        
+                                                                    </script>
+
+                                                                   @endif
                                                                       </tr>    
                                                                       <?php $i++;?>
                                                                    @endforeach
@@ -258,6 +296,7 @@
            
  
 <script>
+
   new Vue({
   el: '#consul',
   methods: {
