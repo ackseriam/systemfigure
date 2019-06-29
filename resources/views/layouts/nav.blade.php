@@ -117,24 +117,7 @@
                             </ul>
                         </li>
                         
-                          <li class="side-nav-item">
-                            <a href="javascript: void(0);" class="side-nav-link">
-                                <i class="dripicons-briefcase"></i>
-                                <span> Multis </span>
-                                <span class="menu-arrow"></span>
-                            </a>
-                            <ul class="side-nav-second-level" aria-expanded="false">
-                                <li>
-                                    <a href="{{ url('guias/multi_index/0') }}">Multis disponibles Tasks level 0</a>
-                                </li>
-                                <li>
-                                    <a href="{{ url('guias/multi_index/1') }}"> Multis disponibles Tasks Level</a>
-                                </li>
-                                <li>
-                                    <a href="ui-modals.html">Generacion de multis</a>
-                                </li>                           
-                            </ul>
-                        </li>
+                        
                          <li class="side-nav-item">
                             <a href="javascript: void(0);" class="side-nav-link">
                                 <i class="dripicons-document"></i>
@@ -148,32 +131,8 @@
                                 <li>
                                     <a href="{{ url('corrections/index/1') }}">Guias y correcciones  lvl</a>
                                 </li>
-                            </ul>
-                        </li>
-                      
-                       <li class="side-nav-title side-nav-item mt-1">Guias VPN</li>
-                  
-                          <li class="side-nav-item">
-                            <a href="javascript: void(0);" class="side-nav-link">
-                                <i class="dripicons-briefcase"></i>
-                                <span> Multis VPN</span>
-                                <span class="menu-arrow"></span>
-                            </a>
-                            <ul class="side-nav-second-level" aria-expanded="false">
-                                <li>
-                                    <a href="{{ url('guias/multi_index/VPN0') }}">Multis disponibles VPN lvl0</a>
-                                </li>
-                                <li>
-                                    <a href="{{ url('guias/multi_index/VPN') }}"> Multis disponibles VPN lvl</a>
-                                </li>
-                                <li>
-                                    <a href="ui-modals.html">Generacion de multis </a>
-                                </li>                           
-                            </ul>
-                        </li>
-
-                       
-                         <li class="side-nav-item">
+                               
+                           <li class="side-nav-item">
                             <a href="javascript: void(0);" class="side-nav-link">
                                 <i class="dripicons-document"></i>
                                 <span>Guias y correcciones VPN </span>
@@ -188,6 +147,11 @@
                                 </li>
                             </ul>
                         </li>
+                            </ul>
+                        </li>
+
+                       
+                       
                      
 
                         <li class="side-nav-title side-nav-item mt-1">Otros</li>
@@ -513,25 +477,8 @@
                         <li class="side-nav-title side-nav-item mt-1">Guias  </li>
                       
                         
-                          <li class="side-nav-item">
-                            <a href="javascript: void(0);" class="side-nav-link">
-                                <i class="dripicons-briefcase"></i>
-                                <span> Multis </span>
-                                <span class="menu-arrow"></span>
-                            </a>
-                            <ul class="side-nav-second-level" aria-expanded="false">
-                                <li>
-                                    <a href="{{ url('guias/multi_index/0') }}">Multis disponibles Tasks level 0</a>
-                                </li>
-                                <li>
-                                    <a href="{{ url('guias/multi_index/1') }}"> Multis disponibles Tasks Level</a>
-                                </li>
-                                <li>
-                                    <a href="ui-modals.html">Generacion de multis</a>
-                                </li>                           
-                            </ul>
-                        </li>
-                         <li class="side-nav-item">
+                        
+                           <li class="side-nav-item">
                             <a href="javascript: void(0);" class="side-nav-link">
                                 <i class="dripicons-document"></i>
                                 <span>Guias y correcciones  </span>
@@ -544,32 +491,8 @@
                                 <li>
                                     <a href="{{ url('corrections/index/1') }}">Guias y correcciones  lvl</a>
                                 </li>
-                            </ul>
-                        </li>
-                      
-                       <li class="side-nav-title side-nav-item mt-1">Guias VPN</li>
-                  
-                          <li class="side-nav-item">
-                            <a href="javascript: void(0);" class="side-nav-link">
-                                <i class="dripicons-briefcase"></i>
-                                <span> Multis VPN</span>
-                                <span class="menu-arrow"></span>
-                            </a>
-                            <ul class="side-nav-second-level" aria-expanded="false">
-                                <li>
-                                    <a href="{{ url('guias/multi_index/VPN0') }}">Multis disponibles VPN lvl0</a>
-                                </li>
-                                <li>
-                                    <a href="{{ url('guias/multi_index/VPN') }}"> Multis disponibles VPN lvl</a>
-                                </li>
-                                <li>
-                                    <a href="ui-modals.html">Generacion de multis </a>
-                                </li>                           
-                            </ul>
-                        </li>
-
-                       
-                         <li class="side-nav-item">
+                               
+                           <li class="side-nav-item">
                             <a href="javascript: void(0);" class="side-nav-link">
                                 <i class="dripicons-document"></i>
                                 <span>Guias y correcciones VPN </span>
@@ -584,6 +507,10 @@
                                 </li>
                             </ul>
                         </li>
+                            </ul>
+                        </li>
+                      
+                   
                      
 
                         <li class="side-nav-title side-nav-item mt-1">Otros</li>
@@ -854,24 +781,7 @@
                      <li class="side-nav-title side-nav-item mt-1">Guias  </li>
                       
                         
-                          <li class="side-nav-item">
-                            <a href="javascript: void(0);" class="side-nav-link">
-                                <i class="dripicons-briefcase"></i>
-                                <span> Multis </span>
-                                <span class="menu-arrow"></span>
-                            </a>
-                            <ul class="side-nav-second-level" aria-expanded="false">
-                                <li>
-                                    <a href="{{ url('guias/multi_index/0') }}">Multis disponibles Tasks level 0</a>
-                                </li>
-                                <li>
-                                    <a href="{{ url('guias/multi_index/1') }}"> Multis disponibles Tasks Level</a>
-                                </li>
-                                <li>
-                                    <a href="ui-modals.html">Generacion de multis</a>
-                                </li>                           
-                            </ul>
-                        </li>
+                        
                          <li class="side-nav-item">
                             <a href="javascript: void(0);" class="side-nav-link">
                                 <i class="dripicons-document"></i>
@@ -885,32 +795,8 @@
                                 <li>
                                     <a href="{{ url('corrections/index/1') }}">Guias y correcciones  lvl</a>
                                 </li>
-                            </ul>
-                        </li>
-                      
-                       <li class="side-nav-title side-nav-item mt-1">Guias VPN</li>
-                  
-                          <li class="side-nav-item">
-                            <a href="javascript: void(0);" class="side-nav-link">
-                                <i class="dripicons-briefcase"></i>
-                                <span> Multis VPN</span>
-                                <span class="menu-arrow"></span>
-                            </a>
-                            <ul class="side-nav-second-level" aria-expanded="false">
-                                <li>
-                                    <a href="{{ url('guias/multi_index/VPN0') }}">Multis disponibles VPN lvl0</a>
-                                </li>
-                                <li>
-                                    <a href="{{ url('guias/multi_index/VPN') }}"> Multis disponibles VPN lvl</a>
-                                </li>
-                                <li>
-                                    <a href="ui-modals.html">Generacion de multis </a>
-                                </li>                           
-                            </ul>
-                        </li>
-
-                       
-                         <li class="side-nav-item">
+                               
+                           <li class="side-nav-item">
                             <a href="javascript: void(0);" class="side-nav-link">
                                 <i class="dripicons-document"></i>
                                 <span>Guias y correcciones VPN </span>
@@ -925,6 +811,10 @@
                                 </li>
                             </ul>
                         </li>
+                            </ul>
+                        </li>
+                      
+                
                      
 
                     
@@ -1776,39 +1666,34 @@
                          <li class="side-nav-item">
                             <a href="javascript: void(0);" class="side-nav-link">
                                 <i class="dripicons-document"></i>
-                                <span>Guias y Correcciones </span>
+                                <span>Guias y correcciones  </span>
                                 <span class="menu-arrow"></span>
                             </a>
                             <ul class="side-nav-second-level" aria-expanded="false">
                                 <li>
-                                    <a href="{{ url('corrections/index/0') }}">Guias y correcciones lvl0</a>
+                                    <a href="{{ url('corrections/index/0') }}">Guias y correcciones  lvl0</a>
                                 </li>
                                 <li>
-                                    <a href="{{ url('corrections/index/1') }}">Guias y Correcciones lvl</a>
+                                    <a href="{{ url('corrections/index/1') }}">Guias y correcciones  lvl</a>
                                 </li>
-                            </ul>
-                        </li>
-                           
-                       <li class="side-nav-title side-nav-item mt-1">Guias VPN</li>
-                        
-                
-                       
-                         <li class="side-nav-item">
+                               
+                           <li class="side-nav-item">
                             <a href="javascript: void(0);" class="side-nav-link">
                                 <i class="dripicons-document"></i>
-                                <span>Guias y Correcciones VPN </span>
+                                <span>Guias y correcciones VPN </span>
                                 <span class="menu-arrow"></span>
                             </a>
                             <ul class="side-nav-second-level" aria-expanded="false">
                                 <li>
-                                    <a href="{{ url('corrections/index_vpn/vpn0') }}">Guias y Correcciones lvl0</a>
+                                    <a href="{{ url('corrections/index_vpn/vpn0') }}">Guias y correcciones lvl0</a>
                                 </li>
                                 <li>
                                     <a href="{{ url('corrections/index_vpn/vpn') }}">Guias y Correcciones lvl</a>
                                 </li>
                             </ul>
                         </li>
-                  
+                            </ul>
+                        </li>
 
                     <!-- Help Box -->
                     <div class="help-box text-white text-center">

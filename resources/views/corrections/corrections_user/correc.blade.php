@@ -109,7 +109,7 @@
                                                     <div class="col-lg-10">
 
                                                     <div class="table dt-responsive nowrap">
-                                                      <table class="table table-striped table-bordered table-centered mb-0" onmousedown='return false;' onselectstart="return false;">
+                                                      <table  class="table table dt-responsive nowrap table-striped table-bordered table-centered mb-0" onmousedown='return false;' onselectstart="return false;">
                                                           <thead>
                                                               <tr>
                                                                   @foreach($names_campo as $campos)
