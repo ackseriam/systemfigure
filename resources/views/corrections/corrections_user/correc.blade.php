@@ -219,7 +219,7 @@
                                                                     </div><!-- /.modal -->
                                                                    </td>
                                                                    @if(($rol=='admin')||($rol=='foun')||($rol=='editor')||($rol=='editor0'))
-                                                                   <td> <a href="/corrections/editar/{{$correction->id}}" title="Editar Corrección"  class="btn btn-success" data-toggle="modal" target="_blank"><i class=" mdi mdi-square-edit-outline "></i> </a><a id="delet" class="btn btn-danger"  title="Eliminar Corrección" data-toggle="modal" target="_blank"><i class="mdi mdi-delete "></i> </a></td>
+                                                                   <td> <a href="/corrections/editar/{{$correction->id}}" title="Editar Corrección"  class="btn btn-success" data-toggle="modal" target="_blank"><i class=" mdi mdi-square-edit-outline "></i> </a><a id="delet{{$y}}" class="btn btn-danger"  title="Eliminar Corrección" data-toggle="modal" target="_blank"><i class="mdi mdi-delete "></i> </a></td>
                                                                   <form  name="formac" action="/corrections/destroy/{{$correction->id}}" method="POST" style="display: none;">
                                                                         @csrf
                                                                         <input type="hidden" name="status" value="inactive">
