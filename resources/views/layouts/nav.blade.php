@@ -101,24 +101,7 @@
                             </ul>
                         </li>
                         <li class="side-nav-title side-nav-item mt-1">Guias  </li>
-                         <li class="side-nav-item">
-                            <a href="javascript: void(0);" class="side-nav-link">
-                                <i class="dripicons-document"></i>
-                                <span>Guias inactivas  </span>
-                                <span class="menu-arrow"></span>
-                            </a>
-                            <ul class="side-nav-second-level" aria-expanded="false">
-                                <li>
-                                    <a href="{{ url('guias/inactiva/0') }}">Guias inactivas  lvl0</a>
-                                </li>
-                                <li>
-                                    <a href="{{ url('guias/inactiva/1') }}">Guias inactivas  lvl</a>
-                                </li>
-                            </ul>
-                        </li>
-                        
-                        
-                         <li class="side-nav-item">
+                        <li class="side-nav-item">
                             <a href="javascript: void(0);" class="side-nav-link">
                                 <i class="dripicons-document"></i>
                                 <span>Guias y correcciones  </span>
@@ -136,6 +119,24 @@
                                         </li>
                                     
                                 </li>
+                         <li class="side-nav-item">
+                            <a href="javascript: void(0);" class="side-nav-link">
+                                <i class="dripicons-document"></i>
+                                <span>Guias inactivas  </span>
+                                <span class="menu-arrow"></span>
+                            </a>
+                            <ul class="side-nav-second-level" aria-expanded="false">
+                                <li>
+                                    <a href="{{ url('guias/inactiva/0') }}">Guias inactivas  lvl0</a>
+                                </li>
+                                <li>
+                                    <a href="{{ url('guias/inactiva/1') }}">Guias inactivas  lvl</a>
+                                </li>
+                            </ul>
+                        </li>
+                        
+                        
+                         
                             </ul>
                         </li>
 
