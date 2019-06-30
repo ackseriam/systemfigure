@@ -131,19 +131,11 @@
                                 <li>
                                     <a href="{{ url('corrections/index/1') }}">Guias y correcciones  lvl</a>
                                 </li>
-                               
-                           <li class="side-nav-item">
-                            <a href="javascript: void(0);" class="side-nav-link">
-                                <i class="dripicons-document"></i>
-                                <span>Guias y correcciones VPN </span>
-                                <span class="menu-arrow"></span>
-                            </a>
-                            <ul class="side-nav-second-level" aria-expanded="false">
-                                <li>
-                                    <a href="{{ url('corrections/index_vpn/vpn') }}">Guias y Correcciones VPN lvl</a>
+                                   <li>
+                                         <a href="{{ url('corrections/index_vpn/vpn') }}">Guias y Correcciones VPN lvl</a>
+                                        </li>
+                                    
                                 </li>
-                            </ul>
-                        </li>
                             </ul>
                         </li>
 
