@@ -140,10 +140,7 @@
                             </a>
                             <ul class="side-nav-second-level" aria-expanded="false">
                                 <li>
-                                    <a href="{{ url('corrections/index_vpn/vpn0') }}">Guias y correcciones lvl0</a>
-                                </li>
-                                <li>
-                                    <a href="{{ url('corrections/index_vpn/vpn') }}">Guias y Correcciones lvl</a>
+                                    <a href="{{ url('corrections/index_vpn/vpn') }}">Guias y Correcciones VPN lvl</a>
                                 </li>
                             </ul>
                         </li>
