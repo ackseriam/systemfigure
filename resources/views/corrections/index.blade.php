@@ -85,7 +85,7 @@
 								 	     </div>
 								 	</div>
 								 	  {{ Form::close()}}
-								 	    <div class="col-xl-12" onmousedown='return false;' onselectstart="return false;">
+								 	    <div class="col-xl-12" >
                                 <div class="card">
                                     <div class="card-body">
 
