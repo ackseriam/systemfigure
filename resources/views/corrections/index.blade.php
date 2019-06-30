@@ -1,4 +1,37 @@
-@include('layouts.head')
+@<!DOCTYPE html>
+<html lang="">
+
+    <head>
+        <meta charset="utf-8" />
+        <title>Figure Eight Task</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
+        <meta content="Coderthemes" name="author" />
+        <meta name="csrf-token" content="{{ csrf_token() }}">
+        <!-- App favicon -->
+        <link rel="shortcut icon" href="{{ asset('images/favicon.ico') }}">
+
+         <!-- third party css -->
+        <link href="{{ asset('css/vendor/dataTables.bootstrap4.css') }}" rel="stylesheet" type="text/css" />
+
+        <link href="{{ asset('css/vendor/responsive.bootstrap4.css') }}" rel="stylesheet" type="text/css" />
+        <link href="{{ asset('css/vendor/buttons.bootstrap4.css') }}" rel="stylesheet" type="text/css" />
+        <link href="{{ asset('css/vendor/select.bootstrap4.css') }}" rel="stylesheet" type="text/css" />
+        <!-- third party css end -->
+
+        <!-- App css -->
+        <link href="{{ asset('css/icons.min.css') }}" rel="stylesheet" type="text/css" />
+        <link href="{{ asset('css/app.min.css') }}" rel="stylesheet" type="text/css" />
+         <script src="{{ asset('js/app.js') }}" defer></script>
+<script src="{{asset('js/app.js')}}"></script>
+ <link href="{{ asset('js/sweetalert/sweetalert2.css') }}" rel="stylesheet" />
+
+
+  
+
+    </head>
+
 @include('layouts.nav')
  <body>
  	           <!-- Start Content-->
@@ -19,7 +52,6 @@
                                 </div>
                             </div>
                         </div>   
-
 						 	 <!-- Inline Form -->
                          <div class="row">
                             <div class="col-md-12 center">
@@ -57,10 +89,9 @@
                                 <div class="card">
                                     <div class="card-body">
 
-                                  
-                                        <div class="table-responsive-sm" >
-                                            <table class="table table-striped table-centered mb-0" >
-                                                <thead>
+                                      
+                                               <table id="basic-datatable" class="table dt-responsive nowrap" width="100%">    
+                                                  <thead>
                                                     <tr>
                                                         <th>Nombre</th>
                                                         <th>Imagen</th>
@@ -70,18 +101,17 @@
                                                         <th>Guia</th>
                                                     </tr>
                                                 </thead>
+                                                   
                                                 <tbody>
-                                                	@foreach($guias as $guia)
-                                                    <tr readonly>
+                                                 @foreach($guias as $guia)
+                                                    <tr>
                                                         <td>{{$guia->name}}</td>
                                                         <td><a href="javascript: void(0);" class="text-center d-block mb-4">
                                                         <img src="{{ asset('images_guias/')}}/{{$guia->img}}" class="img-fluid" style="max-width: 280px;" alt="No ese encontro imagen" /></a></td>
                                                          <td>{{$guia->status}}</td>
                                                         <td>{{$guia->level}}</td>
                                                         
-                                                        @if(!empty($correccion_user))
-
-                                                        @else
+                                                       
                                                          <td class="table-action">
                                                             <a href="/corrections/correc_user/{{$guia->id}}" class="action-icon" title="Ver correcciones" class=""> <i class="mdi mdi-account-search-outline btn btn-primary "></i></a>
                                                         
@@ -90,22 +120,23 @@
                                                         <td>
                                                           <a href="/guias/{{$guia->id}}" class="btn btn-primary" title="Ver guia"> <i class="mdi mdi-account-search-outline"></i></a> 
                                                        
-                                                          </td>
+                                                         
                                                         @if(($rol=='foun') || ($rol=='admin'))
-                                                        <td class="table-action">
+                                                      
                                                        
               
                                                           <a href="/guias/edit/{{$guia->id}}" class="btn btn-success" title="Editar guia"><i class="mdi mdi-square-edit-outline"></i></a>
-                                                       </td>
+                                                       
                                                        @endif
-                                                        @endif
+                                                       </td>
+                                                       
                                                     </tr>
                                                     @endforeach
                                                 </tbody>
+                                                
                                             </table>
                                             {{$guias->render()}}
-                                        </div> <!-- end table-responsive-->
-
+                                      
                                     </div> <!-- end card body-->
                                 </div> <!-- end card -->
                             </div><!-- end col-->
@@ -118,5 +149,34 @@
  	    
  	 			   
  </body>
+     <script src="{{ asset('js/app.min.js') }}"></script>
 
-@include('layouts.footer')
+        <script src="{{ asset('js/vendor/jquery.dataTables.js') }}"></script>
+        <script src="{{ asset('js/vendor/dataTables.bootstrap4.js') }}"></script>
+        <script src="{{ asset('js/vendor/dataTables.responsive.min.js') }}"></script>
+        <script src="{{ asset('js/vendor/responsive.bootstrap4.min.js') }}"></script>
+        <script src="{{ asset('js/vendor/dataTables.buttons.min.js') }}"></script>
+        <script src="{{ asset('js/vendor/buttons.bootstrap4.min.js') }}"></script>
+        <script src="{{ asset('js/vendor/buttons.html5.min.js') }}"></script>
+        <script src="{{ asset('js/vendor/buttons.flash.min.js') }}"></script>
+        <script src="{{ asset('js/vendor/buttons.print.min.js') }}"></script>
+        <script src="{{ asset('js/vendor/dataTables.keyTable.min.js') }}"></script>
+        <script src="{{ asset('js/vendor/dataTables.select.min.js') }}"></script>
+   
+
+           <!-- Include this after the sweet alert js file -->
+        <!-- demo app -->
+    <!--    <script src="{{ asset('js/pages/demo.datatable-init.js') }}"></script>
+-->
+
+          <script type="text/javascript">
+           
+    $("#basic-datatable").DataTable({keys:!0,language:{paginate:{
+        previous:"<i class='mdi mdi-chevron-left'>",
+        next:"<i class='mdi mdi-chevron-right'>"}}
+        ,drawCallback:function(){$(".dataTables_paginate > .pagination").addClass("pagination-rounded")}});
+
+          </script>
+    </body>
+</html>
+
