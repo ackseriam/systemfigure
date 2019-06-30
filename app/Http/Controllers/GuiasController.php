@@ -295,11 +295,11 @@ class GuiasController extends Controller
         $number_campos=$guia->number_campos;
         $number_campos_img=$guia->number_campos_img;
         $total_campos=$number_campos+$number_campos_img;
-      
-          
+        if($counnt_colu==1){
+              $y=0;$z=1;
            for ($i=0; $i < $total_campos; $i++) { 
-                    $y=0;$z=1;
-                   if(!empty($columna[$i])){
+                    
+                   if(!empty($columna[$y])){
                         
                            if($columna[$y]==$z)
                            {
@@ -307,30 +307,72 @@ class GuiasController extends Controller
                            }else{
                             $co[]='0';
                            } 
-                            $y++;
-                        }else{
-                            $co[]='0'; 
-                        }
+                           
+                        }  $z++;
                 }
+            }else{
+                  //todas
+                $y=0;$z=1;
+
+                     for ($i=0; $i < $total_campos; $i++) { 
+                    
+                   if(!empty($columna[$i])){
+                        
+                           if($columna[$i]==$z)
+                           {
+                            $co[]='1';
+                           }else{
+                            $co[]='0';
+                           } 
+                           
+                        }  $z++;
+                } 
+            }
+        
+             
        
        $com= implode(',', $co);
-        $guia->copiado=$com;
+   
+       $guia->copiado=$com;
         
          
 
         if($guia->save()){
        
-        if($level=='0'){
-          $guias=  Guias::where('level','!=','VPN')->where('level','!=','VPN0')->where('level','!=','1')->where('level','!=','2')->where('level','!=','3')->orderBy("id", "DESC")->paginate(4);
-          }elseif(($level==1)||($level==2)|| ($level==3)){
-            $guias=  Guias::where('level','!=','VPN')->where('level','!=','0')->where('level','!=','VPN0')->orderBy("id", "DESC")->paginate(4);
-          }elseif($level=='vpn') {
-             $guias=  Guias::where('level','!=','0')->where('level','!=','1')->where('level','!=','2')->where('level','!=','3')->where('level','!=','vpn0')->paginate(4);
-           
-          }elseif($level=='vpn0'){
-             $guias=  Guias::where('level','!=','0')->where('level','!=','1')->where('level','!=','2')->where('level','!=','3')->where('level','!=','vpn')->paginate(4);
+         $copiar=$guia->copiado;
+               $correc=array();
+               $correcciones= Correction::where('id_guias',$id)->get();
+
+              $text = $request->get('respues');
+            
+              $tiempo_envio=$guia->tiempo_envio;  
+            
+              $number_gui=$guia->number_campos;
+              $number_guia=$number_gui-1;
+              $number_img_guia=$guia->number_campos_img;
+              $number_campos_img=$number_img_guia-1;
+              $campos_img=explode(",",$guia->names_campo_img);
+
+              $names_campo=explode(',', $guia->names_campo);
+                  if(!empty($number_img_guia)){
+                  $names_campo = array_collapse([$names_campo,$campos_img]);
+                }
+               foreach ($correcciones as $correction) {
+                $i=0; $y=0;
+          
+                  $correction_user[]= Correction_user::where('id_corrections',$correction->id)
+                  ->get();
+                                                                                                  
+                }
+
+
+                  if(!empty( $correction_user)){
+
+            return view('corrections/corrections_user/correc',compact('correction_user'),['rol'=>$rol,'copiar'=>$copiar, 'id'=>$id,'number_guia'=>$number_guia,'names_campo'=>$names_campo, 'campos_img'=>$campos_img,'number_campos_img'=>  '0','guia'=>$guia,'time'=>$tiempo_envio]);
+          }else{
+            $correction_user = array('' );
+             return view('corrections/corrections_user/correc',['copiar'=>$copiar,'correction_user'=>$correction_user,'rol'=>$rol, 'id'=>$id,'number_guia'=>$number_guia,'names_campo'=>$names_campo, 'campos_img'=>$campos_img,'number_campos_img'=>  '0','guia'=>$guia,'time'=>$tiempo_envio]);
           }
-          return view('corrections.index',compact('guias'),['exito'=>'exito','rol'=>$rol,'level'=>$level]);
 
         }
         
