@@ -119,7 +119,9 @@
                                         </li>
                                     
                                 </li>
-                         <li class="side-nav-item">
+                            </ul>
+                        </li>
+                          <li class="side-nav-item">
                             <a href="javascript: void(0);" class="side-nav-link">
                                 <i class="dripicons-document"></i>
                                 <span>Guias inactivas  </span>
@@ -132,11 +134,6 @@
                                 <li>
                                     <a href="{{ url('guias/inactiva/1') }}">Guias inactivas  lvl</a>
                                 </li>
-                            </ul>
-                        </li>
-                        
-                        
-                         
                             </ul>
                         </li>
 
@@ -441,6 +438,7 @@
                         </li>
 
                            <li class="side-nav-title side-nav-item mt-1">Guias en general </li>
+                              <li class="side-nav-title side-nav-item mt-1">Guias en general </li>
                            <li class="side-nav-item">
                             <a href="javascript: void(0);" class="side-nav-link">
                                 <i class="mdi mdi-plus "></i>
@@ -455,10 +453,7 @@
                             </ul>
                         </li>
                         <li class="side-nav-title side-nav-item mt-1">Guias  </li>
-                      
-                        
-                        
-                           <li class="side-nav-item">
+                        <li class="side-nav-item">
                             <a href="javascript: void(0);" class="side-nav-link">
                                 <i class="dripicons-document"></i>
                                 <span>Guias y correcciones  </span>
@@ -471,22 +466,26 @@
                                 <li>
                                     <a href="{{ url('corrections/index/1') }}">Guias y correcciones  lvl</a>
                                 </li>
-                               
-                           <li class="side-nav-item">
+                                   <li>
+                                         <a href="{{ url('corrections/index_vpn/vpn') }}">Guias y Correcciones VPN lvl</a>
+                                        </li>
+                                    
+                                </li>
+                            </ul>
+                        </li>
+                          <li class="side-nav-item">
                             <a href="javascript: void(0);" class="side-nav-link">
                                 <i class="dripicons-document"></i>
-                                <span>Guias y correcciones VPN </span>
+                                <span>Guias inactivas  </span>
                                 <span class="menu-arrow"></span>
                             </a>
                             <ul class="side-nav-second-level" aria-expanded="false">
                                 <li>
-                                    <a href="{{ url('corrections/index_vpn/vpn0') }}">Guias y correcciones lvl0</a>
+                                    <a href="{{ url('guias/inactiva/0') }}">Guias inactivas  lvl0</a>
                                 </li>
                                 <li>
-                                    <a href="{{ url('corrections/index_vpn/vpn') }}">Guias y Correcciones lvl</a>
+                                    <a href="{{ url('guias/inactiva/1') }}">Guias inactivas  lvl</a>
                                 </li>
-                            </ul>
-                        </li>
                             </ul>
                         </li>
                       
@@ -758,11 +757,9 @@
                             </ul>
                         </li>
             
-                     <li class="side-nav-title side-nav-item mt-1">Guias  </li>
-                      
-                        
-                        
-                         <li class="side-nav-item">
+
+                       <li class="side-nav-title side-nav-item mt-1">Guias  </li>
+                        <li class="side-nav-item">
                             <a href="javascript: void(0);" class="side-nav-link">
                                 <i class="dripicons-document"></i>
                                 <span>Guias y correcciones  </span>
@@ -775,22 +772,11 @@
                                 <li>
                                     <a href="{{ url('corrections/index/1') }}">Guias y correcciones  lvl</a>
                                 </li>
-                               
-                           <li class="side-nav-item">
-                            <a href="javascript: void(0);" class="side-nav-link">
-                                <i class="dripicons-document"></i>
-                                <span>Guias y correcciones VPN </span>
-                                <span class="menu-arrow"></span>
-                            </a>
-                            <ul class="side-nav-second-level" aria-expanded="false">
-                                <li>
-                                    <a href="{{ url('corrections/index_vpn/vpn0') }}">Guias y correcciones lvl0</a>
+                                   <li>
+                                         <a href="{{ url('corrections/index_vpn/vpn') }}">Guias y Correcciones VPN lvl</a>
+                                        </li>
+                                    
                                 </li>
-                                <li>
-                                    <a href="{{ url('corrections/index_vpn/vpn') }}">Guias y Correcciones lvl</a>
-                                </li>
-                            </ul>
-                        </li>
                             </ul>
                         </li>
                       
@@ -1047,22 +1033,7 @@
                         </li>
             
                      <li class="side-nav-title side-nav-item mt-1">Guias  </li>
-                      
-                        
-                          <li class="side-nav-item">
-                            <a href="javascript: void(0);" class="side-nav-link">
-                                <i class="dripicons-briefcase"></i>
-                                <span> Multis </span>
-                                <span class="menu-arrow"></span>
-                            </a>
-                            <ul class="side-nav-second-level" aria-expanded="false">
-                                <li>
-                                    <a href="{{ url('guias/multi_index/0') }}">Multis disponibles Tasks level 0</a>
-                                </li>
-                                                        
-                            </ul>
-                        </li>
-                         <li class="side-nav-item">
+                        <li class="side-nav-item">
                             <a href="javascript: void(0);" class="side-nav-link">
                                 <i class="dripicons-document"></i>
                                 <span>Guias y correcciones  </span>
@@ -1075,41 +1046,13 @@
                                 <li>
                                     <a href="{{ url('corrections/index/1') }}">Guias y correcciones  lvl</a>
                                 </li>
-                            </ul>
-                        </li>
-                      
-                       <li class="side-nav-title side-nav-item mt-1">Guias VPN</li>
-                  
-                          <li class="side-nav-item">
-                            <a href="javascript: void(0);" class="side-nav-link">
-                                <i class="dripicons-briefcase"></i>
-                                <span> Multis VPN</span>
-                                <span class="menu-arrow"></span>
-                            </a>
-                            <ul class="side-nav-second-level" aria-expanded="false">
-                                <li>
-                                    <a href="{{ url('guias/multi_index/VPN0') }}">Multis disponibles VPN lvl0</a>
-                                </li>                    
-                            </ul>
-                        </li>
-
-                       
-                         <li class="side-nav-item">
-                            <a href="javascript: void(0);" class="side-nav-link">
-                                <i class="dripicons-document"></i>
-                                <span>Guias y correcciones VPN </span>
-                                <span class="menu-arrow"></span>
-                            </a>
-                            <ul class="side-nav-second-level" aria-expanded="false">
-                                <li>
-                                    <a href="{{ url('corrections/index_vpn/vpn0') }}">Guias y correcciones lvl0</a>
-                                </li>
-                                <li>
-                                    <a href="{{ url('corrections/index_vpn/vpn') }}">Guias y Correcciones lvl</a>
+                                   <li>
+                                         <a href="{{ url('corrections/index_vpn/vpn') }}">Guias y Correcciones VPN lvl</a>
+                                        </li>
+                                    
                                 </li>
                             </ul>
                         </li>
-                     
 
                     
                     <!-- end Help Box -->
@@ -1664,9 +1607,7 @@
                                 <span class="menu-arrow"></span>
                             </a>
                             <ul class="side-nav-second-level" aria-expanded="false">
-                                <li>
-                                    <a href="{{ url('corrections/index_vpn/vpn0') }}">Guias y correcciones lvl0</a>
-                                </li>
+                               
                                 <li>
                                     <a href="{{ url('corrections/index_vpn/vpn') }}">Guias y Correcciones lvl</a>
                                 </li>
