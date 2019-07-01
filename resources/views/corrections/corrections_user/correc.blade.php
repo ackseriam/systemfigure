@@ -126,9 +126,14 @@
                                                                    @foreach($correction_search2 as $correction)
                                                                      <?php $i=0; ?>
                                                                       <tr>
-                                                                         @for($y=0; $y< 9; $y++)
+                                                                         @for($y=0; $y< $number_guia; $y++)
                                                                          <?php  $respues='respues'.$y;?>
-                                                                          @if($correction->$respues!=null)
+                                                                          @if($correction->$respues==null)
+                                                                             <td>
+                                                                                <input type="text" name="" readonly="readonly" class="form-control" value="Campo vacio" id="{{$correction->$respues}}">  
+                                                                          
+                                                                              </td>
+                                                                          @else
                                                                              <?php $ex= explode(',', $copiar); ?>
                                                                               @if($ex[$y]=='1')
 
@@ -173,7 +178,6 @@
                                                                               </td>
                                                                             @else
                                                                                 <td>
-
                                                                                 <input type="text" name="" readonly="readonly" class="form-control" value="{{$correction->$respues}}" id="{{$correction->$respues}}">  
                                                                            <button type="button" id="copyClip" data-clipboard-text="{{$correction->$respues}}" class="btn btn-primary"><i class=" mdi mdi-content-copy"></i></button>
                                                                               </td>

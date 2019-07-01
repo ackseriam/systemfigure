@@ -179,7 +179,23 @@ class ImportUsers implements ToCollection
                 'id_corrections' =>  $corrections->id,
                 'respues0'=>$respues0,
                 'respues1'=>$respues1,
-
+                'respues2'=>$respues2,
+                'respues3'=>$respues3,
+                'respues4'=>$respues4,
+                'respues5'=>$respues5,
+                'respues6'=>$respues6,
+                'respues7'=>$respues7,
+                'respues8'=>$respues8,
+                'respues9'=>$respues9,
+                'respues10'=>$respues10,
+                'respues11'=>$respues11,
+                'respues12'=>$respues12,
+                'respues13'=>$respues14,
+                'respues15'=>$respues15,
+                'respues16'=>$respues16,
+                'respues17'=>$respues17,
+                'respues18'=>$respues18,
+                'respues19'=>$respues19,
             ]);
      //  $correction->tipos_campos= $names_campo;
     //  $correction->id_corrections= $corrections->id;
