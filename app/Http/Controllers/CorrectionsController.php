@@ -301,7 +301,7 @@ class CorrectionsController extends Controller
        $user->status_login = 'activo';
        $user->save(); 
        $guia= Guias::find($id);
-        $copiar=$guia->copiado;
+       $copiar=$guia->copiado;
        $correc=array();
        $correcciones= Correction::where('id_guias',$id)->get();
 
@@ -376,7 +376,7 @@ class CorrectionsController extends Controller
 
           $correction_search_text= Correction_user::orderBy("id", "DESC")->join('corrections', 'corrections.id', '=', 'correction_users.id_corrections')->join('users','users.id','=','corrections.id_users')->join('people','people.id','=','users.people_id')->where('corrections.id_guias',$id_guia)->select('respues0','respues1','respues2','respues3','respues4','respues5','respues6','respues7','respues8','respues9','respues10','respues11','respues12','respues13','respues14','respues15','respues16','respues17','respues18','respues19','respues20','surname','tipos_campos','username','id_corrections','correction_users.id as id')
                   ->respues($respues)
-                  ->paginate(3);
+                  ->paginate(15);
    
          if(!empty($correction_search_text))
          {
@@ -464,63 +464,60 @@ class CorrectionsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Request $request, $id)
+    public function destroy(Request $request,$id,$id_correc)
     {
-        $correction = Correction_user::find($id);
+        $correction = Correction_user::find($id_correc);
          $correction_user=$correction->id;
-         $correction->delete();
-  
+         $guia=Guias::find($id);
+         $guia->id=$id;
       
-     $rol = roleuser($request); //se llama al helper en Helpers/role
-        $user=User::find(auth()->user()->id);
+         $rol = roleuser($request); //se llama al helper en Helpers/role
+         $user=User::find(auth()->user()->id);
          $user->status_login = 'activo';
-          $user->save();
-       $guias=  Guias::where('level','0')->where('status','activo')->get();
-       $guias_n=  Guias::where('level','!=','0')->where('status','activo')->get();
-       $role=array();
+         $user->save();
+  
+         $correction->delete();
+         
+         
+       
+         $copiar=$guia->copiado;
+               $correc=array();
+               $correcciones= Correction::where('id_guias',$id)->get();
+
+              $text = $request->get('respues');
+            
+              $tiempo_envio=$guia->tiempo_envio;  
+            
+              $number_gui=$guia->number_campos;
+              $number_guia=$number_gui-1;
+              $number_img_guia=$guia->number_campos_img;
+              $number_campos_img=$number_img_guia-1;
+              $campos_img=explode(",",$guia->names_campo_img);
+
+              $names_campo=explode(',', $guia->names_campo);
+                  if(!empty($number_img_guia)){
+                  $names_campo = array_collapse([$names_campo,$campos_img]);
+                }
+               foreach ($correcciones as $correction) {
+                $i=0; $y=0;
+          
+                  $correction_user= Correction_user::where('id_corrections',$correction->id)
+                  ->get();
+                                                                                                  
+                }
 
 
+                  if(!empty( $correction_user)){
 
-         if(Auth::check()){
-             foreach(User::all() as $user)
-             {
-                 if($user->isOnline())  {
-                  if(($rol=="admin")||($rol=="foun")){
-                    $users_ac[]= User::join('people', 'users.people_id', '=', 'people.id')->where("users.id", $user->id)
-                        ->select('people.name as name','people.surname as surname','people.email as email','users.id as id')->get();
-                      }else{
-                        $users_ac[]= User::join('people', 'users.people_id', '=', 'people.id')->where("users.id", $user->id)
-                        ->select('people.name as name','people.surname as surname','users.id as id')->get();
-                      }
-                   
-
-                    $role[]= Role::join('roles_user', 'roles_user.roles_id', '=', 'roles.id')->where("roles_user.user_id", $user->id)
-                        ->select('roles.name','roles.description')->get();
-                   
-              }else{
-                 if(($rol=="admin")||($rol=="foun")){
-                    $users_inac= User::leftjoin('people', 'users.people_id', '=', 'people.id')->where("users.id", "!=",$user->id)->where('users.status_login','inactivo')
-                        ->select('people.name as name','people.surname as surname','people.email as email','users.id as id')->get();
-                      }else{
-                        $users_inac= User::leftjoin('people', 'users.people_id', '=', 'people.id')->where("users.id", "!=",$user->id)->where('users.status_login','inactivo')
-                        ->select('people.name as name','people.surname as surname','users.id as id')->get();
-                      }
-                    $role2[]= Role::join('roles_user', 'roles_user.roles_id', '=', 'roles.id')->where("roles_user.user_id", $user->id)
-                        ->select('roles.name','roles.description')->get();
-
-              }
-             }
-          foreach ( $users_ac as $user) {
-              $i=0;
-             
-               $role[]= Role::join('roles_user', 'roles_user.roles_id', '=', 'roles.id')->where("roles_user.user_id", $user[$i]->id)
-                        ->select('roles.name','roles.description')->get();
-              $i++;
+            return view('corrections/corrections_user/correc',compact('correction_user'),['exito'=>'exito','rol'=>$rol,'copiar'=>$copiar, 'id'=>$id,'number_guia'=>$number_guia,'names_campo'=>$names_campo, 'campos_img'=>$campos_img,'number_campos_img'=>  '0','guia'=>$guia,'time'=>$tiempo_envio]);
+          }else{
+            $correction_user = array('' );
+             return view('corrections/corrections_user/correc',['exito'=>'exito','copiar'=>$copiar,'correction_user'=>$correction_user,'rol'=>$rol, 'id'=>$id,'number_guia'=>$number_guia,'names_campo'=>$names_campo, 'campos_img'=>$campos_img,'number_campos_img'=>  '0','guia'=>$guia,'time'=>$tiempo_envio]);
           }
 
-         }
+      
 
- return view('home', ["exito"=>"exito","roles"=>$role,"role2"=>$role2,"users_ac"=>$users_ac,"users_inac"=>$users_inac,"rol" => $rol,"guias" => $guias, "guias_n" => $guias_n]);
+
 
     }
 

@@ -219,39 +219,34 @@
                                                                     </div><!-- /.modal -->
                                                                    </td>
                                                                    @if(($rol=='admin')||($rol=='foun')||($rol=='editor')||($rol=='editor0'))
-                                                                   <td> <a href="/corrections/editar/{{$correction->id}}" title="Editar Corrección"  class="btn btn-success" data-toggle="modal" target="_blank"><i class=" mdi mdi-square-edit-outline "></i> </a><a id="delet{{$y}}" class="btn btn-danger"  title="Eliminar Corrección" data-toggle="modal" target="_blank"><i class="mdi mdi-delete "></i> </a></td>
-                                                                  <form  name="formac" action="/corrections/destroy/{{$correction->id}}" method="POST" style="display: none;">
-                                                                        @csrf
-                                                                        <input type="hidden" name="status" value="inactive">
-                                                                    </form>
+                                                                   <td> <a href="/corrections/editar/{{$correction->id}}" title="Editar Corrección"  class="btn btn-success" data-toggle="modal" target="_blank"><i class=" mdi mdi-square-edit-outline "></i> </a><a id="{{$correction->id}}" class="btn btn-danger"  title="Eliminar Corrección" data-toggle="modal" target="_blank"><i class="mdi mdi-delete "></i> </a></td>
+                                                                 
                                                                   <script>
-                                                                    
-                                                                        $('#delet').click(function(e){
-                                                                            e.preventDefault();
+                                                                    $('#<?php echo $correction->id?>').click(function(e){
+                                                                        e.preventDefault();
+                                                                      
+
+                                                                        Swal.fire({
+                                                                          type: 'info',
+                                                                          title: 'Eliminar guia!! ...',
+                                                                          text: '¿Estas seguro de realizar estos cambios?. El resultado sera irreversible.',
+                                                                          footer: 'Elimando guia',
+                                                                           showCloseButton: true,
+                                                                          showCancelButton: true,
+                                                                          focusConfirm: false,
+                                                                           confirmButtonText: 'Si, estoy seguro',
+                                                                           cancelButtonText: 'Cancelar',
+
                                                                           
-
-                                                                            Swal.fire({
-                                                                              type: 'info',
-                                                                              title: 'Eliminar corrección!! ...',
-                                                                              text: '¿Estas seguro de realizar estos cambios?. El resultado sera irreversible.',
-                                                                              footer: 'Elimando corrección',
-                                                                               showCloseButton: true,
-                                                                              showCancelButton: true,
-                                                                              focusConfirm: false,
-                                                                               confirmButtonText: 'Si, estoy seguro',
-                                                                               cancelButtonText: 'Cancelar',
-
-                                                                              
-                                                                            }).then((result) => {
-                                                                                if(result.value){
-                                                                                    document.formac.action = '/corrections/destroy/{{$correction->id}}';
-                                                                                    document.formac.submit();
-                                                                                } else {
-                                                                                    Swal.fire('Cancelado', 'Buena elección :)', 'error');
-                                                                                }
-                                                                            }); 
-                                                                        });
-
+                                                                        }).then((result) => {
+                                                                            if(result.value){
+                                                                                window.location.href= '/corrections/destroy/{{$guia->id}}/{{$correction->id}}';
+                                                                              //  document.formac.submit();
+                                                                            } else {
+                                                                                Swal.fire('Cancelado', 'Buena elección :)', 'error');
+                                                                            }
+                                                                        }); 
+                                                                    });
 
                                                                         
                                                                     </script>
