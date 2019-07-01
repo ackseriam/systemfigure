@@ -8,7 +8,16 @@
 			  <br> 
 			    
 			 <?php $y=0; $respues='respues'.$i;?>
-               @if($correction[0]->$respues!=null)
+               @if($correction[0]->$respues==null)
+                 {!! Form::text($respues,$correction[0]->$respues,['class'=> 'form-control', 'id'=>"validationTooltip01", "placeholder"=>"Datos de la respuesta", "required"]) !!}
+              <div class="valid-tooltip">
+                  Muy bien
+              </div>
+              <div class="invalid-tooltip">
+                 El campo no puede quedar vacio
+              </div>
+               <?php $y=0;?>
+               @else
 			        {!! Form::text($respues,$correction[0]->$respues,['class'=> 'form-control', 'id'=>"validationTooltip01", "placeholder"=>"Datos de la respuesta", "required"]) !!}
 			        <div class="valid-tooltip">
 			            Muy bien
