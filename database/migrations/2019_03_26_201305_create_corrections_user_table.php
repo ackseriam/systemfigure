@@ -15,29 +15,29 @@ class CreateCorrectionsUserTable extends Migration
     {
         Schema::create('correction_users', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('respues0',200)->nullable();
+            $table->binary('respues0')->nullable();
 
-            $table->string('respues1',200)->nullable();
-            $table->string('respues2',200)->nullable();
-            $table->string('respues3',200)->nullable();
-            $table->string('respues4',200)->nullable();
-            $table->string('respues5',200)->nullable();
-            $table->string('respues6',200)->nullable();
-            $table->string('respues7',1000)->nullable();
-            $table->string('respues8',200)->nullable();
-            $table->string('respues9',200)->nullable();
-            $table->string('respues10',200)->nullable();
-            $table->string('respues11',200)->nullable();
-            $table->string('respues12',200)->nullable();
-            $table->string('respues13',200)->nullable();
-            $table->string('respues14',200)->nullable();
-            $table->string('respues15',200)->nullable();
-            $table->string('respues16',200)->nullable();
-            $table->string('respues17',200)->nullable();
-            $table->string('respues18',200)->nullable();
-            $table->string('respues19',200)->nullable();
-            $table->string('respues20',200)->nullable();
-            $table->string('tipos_campos')->nullable();
+            $table->binary('respues1')->nullable();
+            $table->binary('respues2')->nullable();
+            $table->binary('respues3')->nullable();
+            $table->binary('respues4')->nullable();
+            $table->binary('respues5')->nullable();
+            $table->binary('respues6')->nullable();
+            $table->binary('respues7')->nullable();
+            $table->binary('respues8')->nullable();
+            $table->binary('respues9')->nullable();
+            $table->binary('respues10')->nullable();
+            $table->binary('respues11')->nullable();
+            $table->binary('respues12')->nullable();
+            $table->binary('respues13')->nullable();
+            $table->binary('respues14')->nullable();
+            $table->binary('respues15')->nullable();
+            $table->binary('respues16')->nullable();
+            $table->binary('respues17')->nullable();
+            $table->binary('respues18')->nullable();
+            $table->binary('respues19')->nullable();
+            $table->binary('respues20')->nullable();
+            $table->binary('tipos_campos')->nullable();
 
             $table->integer('id_corrections')->unsigned()->nullable();
             $table->foreign('id_corrections')->references('id')->on('corrections')->onDelete('set null');
