@@ -23,36 +23,54 @@
                <!-- Inline Form -->
                          <div class="row">
                             <div class="col-md-12 center">
-                                <div class="card">
-                                    <div class="card-body">
+                               <div class="card">
+                                          <div class="card-body">   
+                              <div class="row">
+                                 <div class="col-lg-4"> 
                                         <div onmousedown='return false;' onselectstart="return false;">
                                             <h4 class="header-title">Ingresa los datos para la busqueda</h4>
 
-                                        <p class="text-muted mb-3">
-                                        </p>
-                                      <h6 class="font-13 mt-3">Datos de la correccion</h6>
+                                            <p class="text-muted mb-3">
+                                            </p>
+                                             <h6 class="font-13 mt-3">Datos de la correccion</h6>
                                         </div>
-                                        
-                                                 
-                                    {{ Form::open(['url' => 'corrections/show/'.$id.'/','method'=> 'GET', 'class' => '']) }}
-                                    <div class="form-row align-items-center">
+                                              
+                                                       
+                                          {{ Form::open(['url' => 'corrections/show/'.$id.'/','method'=> 'GET', 'class' => '']) }}
+                                          <div class="form-row align-items-center">
 
-                                          <div class="col-auto">
-                                              {{Form::text('text', null, ['class'=> 'form-control mb-2', 'placeholder' => 'Texto de la corrección'])}}
-                                           </div>
+                                                <div class="col-auto">
+                                                    {{Form::text('text', null, ['class'=> 'form-control mb-2', 'placeholder' => 'Texto de la corrección'])}}
+                                                 </div>
 
-                                                  
-                                            <div class="col-auto">
-                                              <button type="submit" class="btn btn-primary mb-2">Buscar</button>
+                                                        
+                                                  <div class="col-auto">
+                                                    <button type="submit" class="btn btn-primary mb-2">Buscar</button>
+                                                </div>
                                           </div>
-                                    </div>
-                               </div>
-                               {{ Form::close()}}
-                               
+
+                                       {{ Form::close()}}
+                                 </div>
+                                     <div class="col-lg-4"> 
+                                              <div onmousedown='return false;' onselectstart="return false;">
+                                                  <h4 class="header-title">Nombre de la guia </h4>
+
+                                              <p class="text-muted mb-3">
+                                              </p>
+                                            <h4 class="text text-info">{{$guia->name}}n</h4>
+                                         
+                                              </div>
+                                       </div>
+                                      <div class="col-lg-1"> 
+                                              @if(($rol=='admin')||($rol=='foun'))
+                                             <a href="/guias/edit/{{$guia->id}}" class="btn btn-info " title="Editar guia"><i class="mdi mdi-square-edit-outline"></i></a>
+                                            @endif
+                                      </div> 
+                             </div><br><br><br>
                                <div class="row"><div class="col-lg-1"> </div>
                                       <div class="col-lg-4"> 
                                       <label>Puede agregar otra corrección presionando el siguiente botón:</label> 
-                                      <div class="form-row align-items-center">
+                                      <div class="form-row align-items-center"><br><br>
                                         <a href="{{ url('corrections/create') }}/{{$id}}" target="_blank" class="btn btn-primary">Agregar corrección</a>
                                       </div>
                                       </div>
@@ -96,7 +114,9 @@
                                  
                                </div>          
                                                                 
-                         </div>        
+                            
+                           </div>
+                         </div>      
                                      
                                                 
                                <div class="col-xl-12">

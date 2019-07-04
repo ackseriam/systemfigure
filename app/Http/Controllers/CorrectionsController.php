@@ -330,10 +330,10 @@ class CorrectionsController extends Controller
 
           if(!empty( $correction_user)){
 
-    return view('corrections/corrections_user/correc',compact('correction_user'),['rol'=>$rol,'copiar'=>$copiar, 'id'=>$id,'number_guia'=>$number_guia,'names_campo'=>$names_campo, 'campos_img'=>$campos_img,'number_campos_img'=>  '0','guia'=>$guia,'time'=>$tiempo_envio]);
+    return view('corrections/corrections_user/correc',compact('correction_user'),['nombre_guia'=>$guia->name,'rol'=>$rol,'copiar'=>$copiar, 'id'=>$id,'number_guia'=>$number_guia,'names_campo'=>$names_campo, 'campos_img'=>$campos_img,'number_campos_img'=>  '0','guia'=>$guia,'time'=>$tiempo_envio]);
   }else{
     $correction_user = array('' );
-     return view('corrections/corrections_user/correc',['copiar'=>$copiar,'correction_user'=>$correction_user,'rol'=>$rol, 'id'=>$id,'number_guia'=>$number_guia,'names_campo'=>$names_campo, 'campos_img'=>$campos_img,'number_campos_img'=>  '0','guia'=>$guia,'time'=>$tiempo_envio]);
+     return view('corrections/corrections_user/correc',['nombre_guia'=>$guia->name,'copiar'=>$copiar,'correction_user'=>$correction_user,'rol'=>$rol, 'id'=>$id,'number_guia'=>$number_guia,'names_campo'=>$names_campo, 'campos_img'=>$campos_img,'number_campos_img'=>  '0','guia'=>$guia,'time'=>$tiempo_envio]);
   }
 
    }
@@ -377,18 +377,19 @@ class CorrectionsController extends Controller
           $correction_search_text= Correction_user::orderBy("id", "DESC")->join('corrections', 'corrections.id', '=', 'correction_users.id_corrections')->join('users','users.id','=','corrections.id_users')->join('people','people.id','=','users.people_id')->where('corrections.id_guias',$id_guia)->select('respues0','respues1','respues2','respues3','respues4','respues5','respues6','respues7','respues8','respues9','respues10','respues11','respues12','respues13','respues14','respues15','respues16','respues17','respues18','respues19','respues20','surname','tipos_campos','username','id_corrections','correction_users.id as id')
                   ->respues($respues)
                   ->paginate(10);
-   
+   /*
          if(!empty($correction_search_text))
          {
        $correction_search2=$correction_search_text;
           
         //   dd($correction_search_text);
-        return  view('corrections/corrections_user/correc',compact('correction_search2'),['copiar'=>$copiar,'user'=>$user,'rol'=>$rol,'names_campo'=>$names_campo,'campos_img'=> $campos_img,'number_guia'=>$number_guia,'id'=>$id_guia, 'number_campos_img'=> $number_campos_img,'guia'=>$guia,'time'=>$tiempo_envio]);
+        return  view('corrections/corrections_user/correc',compact('correction_search2'),['nombre_guia'=>$guia->name,'copiar'=>$copiar,'user'=>$user,'rol'=>$rol,'names_campo'=>$names_campo,'campos_img'=> $campos_img,'number_guia'=>$number_guia,'id'=>$id_guia, 'number_campos_img'=> $number_campos_img,'guia'=>$guia,'time'=>$tiempo_envio]);
          }else
            {
            return redirect("corrections/correc_user/".$id_guia);
            }
-                     
+    */
+    dd( $correction_search_text);                 
 
 
     }
