@@ -12,7 +12,9 @@ class Correction_user extends Model
     {
       for ($i=0; $i<20; $i++) { 
       if($respues)
-        return $query->where('respues'.$i, 'LIKE', "%$respues%"); //el % al principio es para todo valor o caracter que comience o termine con el valor se relacione
+      	$respuess='respues'.$i;
+     
+        return $query->where($respuess, 'LIKE', "%$respues%"); //el % al principio es para todo valor o caracter que comience o termine con el valor se relacione
     }
   }
 }
