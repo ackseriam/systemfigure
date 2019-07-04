@@ -581,11 +581,14 @@ class GuiasController extends Controller
       $count=count($correc);
 
      
-
+/*
       for ($i=0; $i < $count; $i++) { 
           //$id_correc[]=$correc[$i]->id;
          $correc_user[]= Correction_user::where('id_corrections',$correc[$i]->id)->get();
-      }
+      }*/
+         $correc_user= Correction_user::join('corrections', 'corrections.id', '=', 'correction_users.id_corrections')->join('users','users.id','=','corrections.id_users')->join('people','people.id','=','users.people_id')->where('corrections.id_guias',$id)->get();
+          
+
       if( !empty($correc_user))
       {
       //  dd($correc_user);
@@ -599,10 +602,10 @@ class GuiasController extends Controller
                    $i=0; 
                     for($y=0; $y< 9; $y++){
                       $respues='respues'.$y;
-                      $co=$key[$i]->$respues;   
+                      $co=$key->$respues;   
                        if($respues==$res)
                        {
-                        $multis[]=$key[$i]->$respues;
+                        $multis[]=$key->$respues;
                        }
                     }
                    
@@ -627,17 +630,17 @@ class GuiasController extends Controller
                 }
             }
             
-              
+           //  dd($multis); 
             
  
-    if(!empty($multis[0]))
+    if(!empty($multis))
    {
     $fileText = $multis;
     
  
     foreach ($fileText as $key ) {
         
-        $em=implode("\r\n",$fileText);
+        $em=implode("\r\n\n",$fileText);
       // $em = fwrite($fileText,"\n");
      //   $am=$em."<br>";
         }
