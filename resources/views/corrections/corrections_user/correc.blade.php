@@ -90,7 +90,7 @@
                                  </div>
                                      <div class="col-lg-4"> 
                                               <div onmousedown='return false;' onselectstart="return false;">
-                                                  <h4 class="header-title">Nombre de la guia </h4>
+                                                  <h4 class="header-title"  onmousedown='return false;' onselectstart="return false;">Nombre de la guia </h4>
 
                                               <p class="text-muted mb-3">
                                               </p>
@@ -162,7 +162,7 @@
                                                 @if(!empty($time))
                                                 <h3 class="text text-success">Tiempo de envio:  {{$time}}</h3>
                                                 @endif
-                                                <div class="row">
+                                                <div class="row"  onmousedown='return false;' onselectstart="return false;">
                                                     <div class="col-lg-12">
 
                                                     <div class="card-body">
@@ -326,8 +326,10 @@
 
                                                           </tbody>        
                                                         </table>  
-                                                         @if(!empty($correction_search2))
-                                                         {{$correction_search2->render()}} 
+                                                         @if(!empty($yes))
+                                                        
+                                                         @else
+                                                          {{$correction_search2->render()}} 
                                                          @endif
                                                   </div> <!-- end table-responsive-->
                                                 </div>
