@@ -45,7 +45,7 @@
                                     <div class="page-title-right" onmousedown='return false;' onselectstart="return false;">
                                         <ol class="breadcrumb m-0">
                                             <li class="breadcrumb-item"><a href="javascript: void(0);">Tablero</a></li>
-                                            <li class="breadcrumb-item"><a href="javascript: void(0);">Correcciones</a></li>
+                                            <li class="breadcrumb-item"><a href="javascript: void(0);">Correasadsacciones</a></li>
                                             <li class="breadcrumb-item active">Buscar correciones</li>
                                         </ol>
                                     </div>

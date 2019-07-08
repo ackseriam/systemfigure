@@ -319,21 +319,16 @@ class CorrectionsController extends Controller
           if(!empty($number_img_guia)){
           $names_campo = array_collapse([$names_campo,$campos_img]);
         }
-       foreach ($correcciones as $correction) {
-        $i=0; $y=0;
-  
-          $correction_user[]= Correction_user::where('id_corrections',$correction->id)
-          ->get();
-                                                                                          
-        }
+       $correction_search2= Correction_user::orderBy("id", "DESC")->join('corrections', 'corrections.id', '=', 'correction_users.id_corrections')->join('users','users.id','=','corrections.id_users')->join('people','people.id','=','users.people_id')->where('corrections.id_guias',$id)->select('respues0','respues1','respues2','respues3','respues4','respues5','respues6','respues7','respues8','respues9','respues10','respues11','respues12','respues13','respues14','respues15','respues16','respues17','respues18','respues19','respues20','surname','tipos_campos','username','id_corrections','correction_users.id as id')
+        ->paginate(10);
 
 
           if(!empty( $correction_user)){
 
-    return view('corrections/corrections_user/correc',compact('correction_user'),['nombre_guia'=>$guia->name,'rol'=>$rol,'copiar'=>$copiar, 'id'=>$id,'number_guia'=>$number_guia,'names_campo'=>$names_campo, 'campos_img'=>$campos_img,'number_campos_img'=>  '0','guia'=>$guia,'time'=>$tiempo_envio]);
+    return view('corrections/corrections_user/correc',compact('correction_search2'),['nombre_guia'=>$guia->name,'rol'=>$rol,'copiar'=>$copiar, 'id'=>$id,'number_guia'=>$number_guia,'names_campo'=>$names_campo, 'campos_img'=>$campos_img,'number_campos_img'=>  '0','guia'=>$guia,'time'=>$tiempo_envio]);
   }else{
     $correction_user = array('' );
-     return view('corrections/corrections_user/correc',['nombre_guia'=>$guia->name,'copiar'=>$copiar,'correction_user'=>$correction_user,'rol'=>$rol, 'id'=>$id,'number_guia'=>$number_guia,'names_campo'=>$names_campo, 'campos_img'=>$campos_img,'number_campos_img'=>  '0','guia'=>$guia,'time'=>$tiempo_envio]);
+     return view('corrections/corrections_user/correc',['nombre_guia'=>$guia->name,'copiar'=>$copiar,'correction_search2'=>$correction_search2,'rol'=>$rol, 'id'=>$id,'number_guia'=>$number_guia,'names_campo'=>$names_campo, 'campos_img'=>$campos_img,'number_campos_img'=>  '0','guia'=>$guia,'time'=>$tiempo_envio]);
   }
 
    }

@@ -11,7 +11,7 @@
         <!-- App favicon -->
       <!--  <link rel="shortcut icon" href="{{ asset('images/faviicon.ico') }}">-->
 
-        <link  rel="shortcut icon" href="{{ asset('images/faviicon.ico') }}">
+        <link  rel="shortcut icon" href="{{ asset('faviicon.ico') }}">
 
         <!-- third party css -->
         <link href="{{ asset('css/vendor/jquery-jvectormap-1.2.2.css') }} " rel="stylesheet" type="text/css" />

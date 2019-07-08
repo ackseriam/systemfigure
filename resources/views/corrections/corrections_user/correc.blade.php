@@ -1,5 +1,42 @@
-@include('layouts.head')
+<!DOCTYPE html>
+<html lang="">
+
+    <head>
+        <meta charset="utf-8" />
+        <title>Figure Eight Task</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
+        <meta content="Coderthemes" name="author" />
+        <meta name="csrf-token" content="{{ csrf_token() }}">
+        <!-- App favicon -->
+        <link rel="shortcut icon" href="{{  asset('images/faviicon.ico') }}">
+
+         <!-- third party css -->
+        <link href="{{ asset('css/vendor/dataTables.bootstrap4.css') }}" rel="stylesheet" type="text/css" />
+
+        <link href="{{ asset('css/vendor/responsive.bootstrap4.css') }}" rel="stylesheet" type="text/css" />
+        <link href="{{ asset('css/vendor/buttons.bootstrap4.css') }}" rel="stylesheet" type="text/css" />
+        <link href="{{ asset('css/vendor/select.bootstrap4.css') }}" rel="stylesheet" type="text/css" />
+        <!-- third party css end -->
+
+        <!-- App css -->
+        <link href="{{ asset('css/icons.min.css') }}" rel="stylesheet" type="text/css" />
+        <link href="{{ asset('css/app.min.css') }}" rel="stylesheet" type="text/css" />
+         <script src="{{ asset('js/app.js') }}" defer></script>
+<script src="{{asset('js/app.js')}}"></script>
+ <link href="{{ asset('js/sweetalert/sweetalert2.css') }}" rel="stylesheet" />
+
+<style type="text/css">
+  
+   
+</style>
+  
+
+    </head>
+
 @include('layouts.nav')
+ <body>
 
 
      <!-- Start Content-->
@@ -128,10 +165,11 @@
                                                 <div class="row">
                                                     <div class="col-lg-12">
 
-                                                    <div class="table dt-responsive nowrap">
-                                                      <table  class="table table dt-responsive nowrap table-striped table-bordered table-centered mb-0" onmousedown='return false;' onselectstart="return false;">
+                                                    <div class="card-body">
+
+                                                      <table id="basic-datatable" class="table table dt-responsive nowrap table-striped table-bordered table-centered mb-0" onmousedown='return false;' onselectstart="return false;">
                                                           <thead>
-                                                              <tr>
+                                                              <tr  > 
                                                                   @foreach($names_campo as $campos)
                                                                   <th>{{$campos}}</th>
 
@@ -145,13 +183,18 @@
                                                                                                                                                                                                                                     
                                                                    @foreach($correction_search2 as $correction)
                                                                      <?php $i=0; ?>
-                                                                      <tr>
+                                                                     @if($i==1)
+                                                                      <tr >
+                                                                        @else
+                                                                         <tr>
+                                                                        @endif
+                                                                       
                                                                          @for($y=0; $y< $number_guia; $y++)
                                                                          <?php  $respues='respues'.$y;?>
                                                                           @if($correction->$respues==null)
-                                                                             <td>
+                                                                             <td ><div class="size"> 
                                                                                 <input type="text" name="" readonly="readonly" class="form-control" value="Campo vacio" id="{{$correction->$respues}}">  
-                                                                          
+                                                                              </div>
                                                                               </td>
                                                                           @else
                                                                              <?php $ex= explode(',', $copiar); ?>
@@ -312,7 +355,38 @@
          
  
             
+      </body>
+     <script src="{{ asset('js/app.min.js') }}"></script>
+
+        <script src="{{ asset('js/vendor/jquery.dataTables.js') }}"></script>
+        <script src="{{ asset('js/vendor/dataTables.bootstrap4.js') }}"></script>
+        <script src="{{ asset('js/vendor/dataTables.responsive.min.js') }}"></script>
+        <script src="{{ asset('js/vendor/responsive.bootstrap4.min.js') }}"></script>
+        <script src="{{ asset('js/vendor/dataTables.buttons.min.js') }}"></script>
+        <script src="{{ asset('js/vendor/buttons.bootstrap4.min.js') }}"></script>
+        <script src="{{ asset('js/vendor/buttons.html5.min.js') }}"></script>
+        <script src="{{ asset('js/vendor/buttons.flash.min.js') }}"></script>
+        <script src="{{ asset('js/vendor/buttons.print.min.js') }}"></script>
+        <script src="{{ asset('js/vendor/dataTables.keyTable.min.js') }}"></script>
+        <script src="{{ asset('js/vendor/dataTables.select.min.js') }}"></script>
+   
+
+           <!-- Include this after the sweet alert js file -->
+        <!-- demo app -->
+    <!--    <script src="{{ asset('js/pages/demo.datatable-init.js') }}"></script>
+-->
+
+          <script type="text/javascript">
            
+    $("#basic-datatable").DataTable({keys:!0,language:{paginate:{
+        previous:"<i class='mdi mdi-chevron-left'>",
+        next:"<i class='mdi mdi-chevron-right'>"}}
+        ,drawCallback:function(){$(".dataTables_paginate > .pagination").addClass("pagination-rounded")}});
+
+          </script>
+
+
+      
  
 <script>
 
@@ -344,3 +418,5 @@
 })
 </script>
 @endif
+
+</html>
