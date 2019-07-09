@@ -165,9 +165,9 @@
                                                 <div class="row"  onmousedown='return false;' onselectstart="return false;">
                                                     <div class="col-lg-12">
 
-                                                    <div class="card-body">
+                                                    <div class="dt-responsive">
 
-                                                      <table id="basic-datatable" class="table table dt-responsive nowrap table-striped table-bordered table-centered mb-0" onmousedown='return false;' onselectstart="return false;">
+                                                      <table class="table table dt-responsive nowrap table-striped table-bordered table-centered mb-0" onmousedown='return false;' onselectstart="return false;">
                                                           <thead>
                                                               <tr  > 
                                                                   @foreach($names_campo as $campos)
@@ -241,7 +241,7 @@
                                                                               </td>
                                                                             @else
                                                                                 <td>
-                                                                                <input type="text" name="" readonly="readonly" class="form-control" value="{{$correction->$respues}}" id="{{$correction->$respues}}">  
+                                                                                <input type="hidden" name="" readonly="readonly" class="form-control" value="{{$correction->$respues}}" id="{{$correction->$respues}}"> {{$correction->$respues}}<br>
                                                                            <button type="button" id="copyClip" data-clipboard-text="{{$correction->$respues}}" class="btn btn-primary"><i class=" mdi mdi-content-copy"></i></button>
                                                                               </td>
 
