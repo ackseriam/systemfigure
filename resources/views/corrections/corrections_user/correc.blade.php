@@ -20,6 +20,7 @@
         <link href="{{ asset('css/vendor/select.bootstrap4.css') }}" rel="stylesheet" type="text/css" />
         <!-- third party css end -->
 
+
         <!-- App css -->
         <link href="{{ asset('css/icons.min.css') }}" rel="stylesheet" type="text/css" />
         <link href="{{ asset('css/app.min.css') }}" rel="stylesheet" type="text/css" />
@@ -135,6 +136,7 @@
                                                          
                                           {{ Form::open(['url' => 'guias/copiado/'.$id.'/','method'=> 'GET', 'class' => '']) }}
                                           <div class="form-row align-items-center">
+                                            <input type="hidden"  name="respues">
 
                                                 <div class="col-auto">
                                                     {{Form::text('copiado', null, ['class'=> 'form-control mb-2', 'placeholder' => 'Escribir el numero de la columna'])}}
@@ -174,7 +176,9 @@
                                                                   <th>{{$campos}}</th>
 
                                                                   @endforeach
-                                                              <th>Acción</th>     
+                                                                  @if(($rol=='admin')||($rol=='foun')||($rol=='editor')||($rol=='editor0'))
+                                                                      <th>Acción</th>   
+                                                                  @endif  
                                                               </tr>
                                                           </thead>
                                                              
@@ -192,9 +196,9 @@
                                                                          @for($y=0; $y< $number_guia; $y++)
                                                                          <?php  $respues='respues'.$y;?>
                                                                           @if($correction->$respues==null)
-                                                                             <td ><div class="size"> 
-                                                                                <input type="text" name="" readonly="readonly" class="form-control" value="Campo vacio" id="{{$correction->$respues}}">  
-                                                                              </div>
+                                                                             <td >
+                                                                                <input type="hidden" name="" readonly="readonly" class="form-control" value="{{$correction->$respues}}" id="{{$correction->$respues}}"> {{$correction->$respues}}<br>
+                                                                              
                                                                               </td>
                                                                           @else
                                                                              <?php $ex= explode(',', $copiar); ?>
@@ -240,7 +244,7 @@
                                                                             </div><!-- /.modal -->
                                                                               </td>
                                                                             @else
-                                                                                <td>
+                                                                                <td style="height: auto;">
                                                                                 <input type="hidden" name="" readonly="readonly" class="form-control" value="{{$correction->$respues}}" id="{{$correction->$respues}}"> {{$correction->$respues}}<br>
                                                                            <button type="button" id="copyClip" data-clipboard-text="{{$correction->$respues}}" class="btn btn-primary"><i class=" mdi mdi-content-copy"></i></button>
                                                                               </td>
@@ -248,7 +252,7 @@
                                                                               @endif
                                                                               @else
                                                                                <td>
-                                                                                <input type="text" name="" readonly="readonly" class="form-control" value="{{$correction->$respues}}">  
+                                                                                 <input type="hidden" name="" readonly="readonly" class="form-control" value="{{$correction->$respues}}" id="{{$correction->$respues}}"> {{$correction->$respues}}<br>
                                                                          
                                                                               </td>
                                                                               @endif
@@ -371,6 +375,7 @@
         <script src="{{ asset('js/vendor/buttons.print.min.js') }}"></script>
         <script src="{{ asset('js/vendor/dataTables.keyTable.min.js') }}"></script>
         <script src="{{ asset('js/vendor/dataTables.select.min.js') }}"></script>
+
    
 
            <!-- Include this after the sweet alert js file -->
