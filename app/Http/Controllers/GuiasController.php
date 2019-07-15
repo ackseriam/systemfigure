@@ -27,126 +27,7 @@ class GuiasController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index( Request $request, $level)
-    {
-        //$guias = Guias::all();
-        $rol = roleuser($request); //se llama al helper en Helpers/role
-          $user=User::find(auth()->user()->id);
-          $user->status_login = 'activo';
-          $user->save();
-          if($level=='0'){
-          $guias=  Guias::where('level','!=','VPN')->where('level','!=','VPN0')->where('level','!=','1')->where('level','!=','2')->where('level','!=','3')->orderBy("id", "DESC")->get();
-          }elseif(($level==1)||($level==2)|| ($level==3)){
-            $guias=  Guias::where('level','!=','VPN')->where('level','!=','0')->where('level','!=','VPN0')->orderBy("id", "DESC")->get();
-          }elseif($level=='vpn') {
-             $guias=  Guias::where('level','!=','0')->where('level','!=','1')->where('level','!=','2')->where('level','!=','3')->where('level','!=','vpn0')->get();
-           
-          }elseif($level=='vpn0'){
-             $guias=  Guias::where('level','!=','0')->where('level','!=','1')->where('level','!=','2')->where('level','!=','3')->where('level','!=','vpn')->get();
-          }
-        
-          
-        
-       
-        return view('guias.index',['rol'=>$rol, 'level'=>$level, 'guias'=>$guias]);
-    }
-     public function inactiva( Request $request, $level_b)
-    {
-        //$guias = Guias::all();
-       $rol = roleuser($request); //se llama al helper en Helpers/role
-        $user=User::find(auth()->user()->id);
-        $user->status_login = 'activo';
-        $user->save();  
-         if($level_b=='0')
-       {
-        $guias = Guias::where(['level'=> $level_b, 'status'=>'inactivo'])->orderBy("id", "DESC")->paginate(4);
-       }else{
-         $guias= Guias::where('level','!=','0')->where('level','!=','vpn0')->where('level','!=','vpn')->orderBy("id", "DESC")->paginate(4);
 
-       }
-      // dd($guias);
-       return view('guias.inactivo',compact('guias'),['rol'=>$rol, 'level'=>$level_b]);
-    }
-
-     public function search(Request $request)
-    {
-        $rol = roleuser($request); //se llama al helper en Helpers/role
-        $user=User::find(auth()->user()->id);
-        $user->status_login = 'activo';
-        $user->save();  
-         
-        $name = $request->get('name');
-        $img = $request->get('img');
-        $status = $request->get('status');
-        $level = $request->get('level');
-
-     $guias= Guias::where('level','!=','VPN')->where('level','!=','VPN0')->orderBy("id", "DESC")
-        ->name($name)
-        ->img($img)
-        ->status($status)
-        ->level($level)
-        ->paginate(4);
-     
-      //  var_dump($guias);
-       return view('guias.search',compact('guias'),['rol'=>$rol]);
-    }
-
-    public function search_0(Request $request)
-    {
-             $rol = roleuser($request); //se llama al helper en Helpers/role
-            $user=User::find(auth()->user()->id);
-            $user->status_login = 'activo';
-            $user->save();  
-            $name = $request->get('name');
-            $img = $request->get('img');
-            $status = $request->get('status');
-            $level = $request->get('level'); 
-        $guias= Guias::where('level','!=','VPN')->where('level','!=','VPN0')->where('level','!=','VPN0')->where('level','!=','1')->where('level','!=','2')->where('level','!=','3')->orderBy("id", "DESC")
-             ->name($name)
-            ->img($img)
-            ->status($status)
-            ->level($level)
-            ->paginate(4);
-
-        return view('guias.search',compact('guias'),['rol'=>$rol]);
-      
-    }
-
-   
-        public function search_vpn0(Request $request)
-    {
-        $rol = roleuser($request); //se llama al helper en Helpers/role
-        $user=User::find(auth()->user()->id);
-        $user->status_login = 'activo';
-        $user->save();  
-         
-        $name = $request->get('name');
-      
-
-        $guias= Guias::where('level','!=','VPN')->where('level','!=','0')->where('level','!=','1')->where('level','!=','2')->where('level','!=','3')->orderBy("id", "DESC")
-        ->name($name)
-        ->paginate(4);
-       
-      //  var_dump($guias);
-       return view('guias.search',compact('guias'),['rol'=>$rol,'vpn0'=>'vpn0']);
-    }
-    
-        public function search_vpn(Request $request)
-    {
-        $rol = roleuser($request); //se llama al helper en Helpers/role
-        $user=User::find(auth()->user()->id);
-        $user->status_login = 'activo';
-        $user->save();  
-         
-        $name = $request->get('name');
-       
-     $guias= Guias::where('level','!=','VPN0')->where('level','!=','0')->where('level','!=','1')->where('level','!=','2')->where('level','!=','3')->orderBy("id", "DESC")
-        ->name($name)
-        ->paginate(4);
-       
-      //  var_dump($guias);
-       return view('guias.search',compact('guias'),['rol'=>$rol]);
-    }
 
     /**
      * Show the form for creating a new resource.
@@ -156,10 +37,16 @@ class GuiasController extends Controller
     public function create(Request $request)
     {
         $rol = roleuser($request); //se llama al helper en Helpers/role
+          if(($rol=='admin')||($rol=='foun'))
+        {
+
         $user=User::find(auth()->user()->id);
         $user->status_login = 'activo';
         $user->save();  
          return view('guias.create',['rol'=>$rol]); 
+     }else{
+         return redirect('home');
+     }
     }
 
     /**
@@ -171,6 +58,9 @@ class GuiasController extends Controller
     public function store(Request $request)
     {
           $rol = roleuser($request);
+             if(($rol=='admin')||($rol=='foun'))
+        {
+
         $user=User::find(auth()->user()->id);
         $user->status_login = 'activo';
         $user->save();  
@@ -218,6 +108,10 @@ class GuiasController extends Controller
         }else{
             return view('guias.create',['error_in'=>'error_in','rol'=>$rol]);
         }
+       }else{
+          return redirect('home');
+       }
+
     }
 
     /**
@@ -249,12 +143,30 @@ class GuiasController extends Controller
     public function edit(Request $request,$id)
     {
          $rol = roleuser($request); //se llama al helper en Helpers/role
+
         $user=User::find(auth()->user()->id);
         $user->status_login = 'activo';
         $user->save();  
         $guia=Guias::find($id);
-        return view('guias.edit',['rol'=>$rol,'guia'=>$guia]);
-    }
+          $level=$guia->level;
+          if($level=='0'){
+          if(($rol=='admin')||($rol=='foun')||($rol=='editor')||($rol=='editor0'))
+           {
+             return view('guias.edit',['rol'=>$rol,'guia'=>$guia]);
+             }else{
+                  return redirect('home');
+              }
+        }else{
+             if(($rol=='admin')||($rol=='foun')||($rol=='editor'))
+            { 
+               return view('guias.edit',['rol'=>$rol,'guia'=>$guia]);
+            }else{
+              return redirect('home');
+          }
+        }
+       
+ }
+   
 
      public function time(Request $request,$id)
     {
@@ -264,9 +176,26 @@ class GuiasController extends Controller
         $user->save();  
         $guia=Guias::find($id);
         $guia->tiempo_envio=$request->tiempo_envio;
-        $guia->save();
+     
+         $level=$guia->level;
+          if($level=='0'){
+          if(($rol=='admin')||($rol=='foun')||($rol=='editor')||($rol=='editor0'))
+           {
+                  $guia->save();
+               return redirect("corrections/correc_user/".$id);
+             }else{
+                  return redirect('home');
+              }
+        }else{
+             if(($rol=='admin')||($rol=='foun')||($rol=='editor'))
+              {      $guia->save();
+                 return redirect("corrections/correc_user/".$id);
+            }else{
+              return redirect('home');
+          }
+        }
 
-        return redirect("corrections/correc_user/".$id);
+      
    //     return view('guias.edit',['rol'=>$rol,'guia'=>$guia]);
    
     }
@@ -369,10 +298,9 @@ class GuiasController extends Controller
 
                   if(!empty( $correction_search2)){
 
-            return view('corrections/corrections_user/correc',compact('correction_search2'),['exito'=>'exito','rol'=>$rol,'copiar'=>$copiar, 'id'=>$id,'number_guia'=>$number_guia,'names_campo'=>$names_campo, 'campos_img'=>$campos_img,'number_campos_img'=>  '0','guia'=>$guia,'time'=>$tiempo_envio]);
+            return view('corrections/corrections_user/correc',compact('correction_search2'),['level'=>$level,'exito'=>'exito','rol'=>$rol,'copiar'=>$copiar, 'id'=>$id,'number_guia'=>$number_guia,'names_campo'=>$names_campo, 'campos_img'=>$campos_img,'number_campos_img'=>  '0','guia'=>$guia,'time'=>$tiempo_envio]);
           }else{
-            $correction_user = array('' );
-             return view('corrections/corrections_user/correc',['exito'=>'exito','copiar'=>$copiar,'correction_user'=>$correction_user,'rol'=>$rol, 'id'=>$id,'number_guia'=>$number_guia,'names_campo'=>$names_campo, 'campos_img'=>$campos_img,'number_campos_img'=>  '0','guia'=>$guia,'time'=>$tiempo_envio]);
+             return redirect("corrections/correc_user/".$id);
           }
 
         }
@@ -690,3 +618,121 @@ class GuiasController extends Controller
 
 
 }
+
+    /*
+    public function index( Request $request, $level)
+    {
+        
+        $rol = roleuser($request); //se llama al helper en Helpers/role
+          $user=User::find(auth()->user()->id);
+          $user->status_login = 'activo';
+          $user->save();
+          if($level=='0'){
+          $guias=  Guias::where('level','!=','VPN')->where('level','!=','VPN0')->where('level','!=','1')->where('level','!=','2')->where('level','!=','3')->orderBy("id", "DESC")->get();
+          }elseif(($level==1)||($level==2)|| ($level==3)){
+            $guias=  Guias::where('level','!=','VPN')->where('level','!=','0')->where('level','!=','VPN0')->orderBy("id", "DESC")->get();
+          }elseif($level=='vpn') {
+             $guias=  Guias::where('level','!=','0')->where('level','!=','1')->where('level','!=','2')->where('level','!=','3')->where('level','!=','vpn0')->get();
+           
+          }elseif($level=='vpn0'){
+             $guias=  Guias::where('level','!=','0')->where('level','!=','1')->where('level','!=','2')->where('level','!=','3')->where('level','!=','vpn')->get();
+          }
+        return view('guias.index',['rol'=>$rol, 'level'=>$level, 'guias'=>$guias]);
+    }
+     public function inactiva( Request $request, $level_b)
+    {
+        //$guias = Guias::all();
+       $rol = roleuser($request); //se llama al helper en Helpers/role
+        $user=User::find(auth()->user()->id);
+        $user->status_login = 'activo';
+        $user->save();  
+         if($level_b=='0')
+       {
+        $guias = Guias::where(['level'=> $level_b, 'status'=>'inactivo'])->orderBy("id", "DESC")->paginate(4);
+       }else{
+         $guias= Guias::where('level','!=','0')->where('level','!=','vpn0')->where('level','!=','vpn')->orderBy("id", "DESC")->paginate(4);
+
+       }
+      // dd($guias);
+       return view('guias.inactivo',compact('guias'),['rol'=>$rol, 'level'=>$level_b]);
+    }
+
+     public function search(Request $request)
+    {
+        $rol = roleuser($request); //se llama al helper en Helpers/role
+        $user=User::find(auth()->user()->id);
+        $user->status_login = 'activo';
+        $user->save();  
+         
+        $name = $request->get('name');
+        $img = $request->get('img');
+        $status = $request->get('status');
+        $level = $request->get('level');
+
+     $guias= Guias::where('level','!=','VPN')->where('level','!=','VPN0')->orderBy("id", "DESC")
+        ->name($name)
+        ->img($img)
+        ->status($status)
+        ->level($level)
+        ->paginate(4);
+     
+      //  var_dump($guias);
+       return view('guias.search',compact('guias'),['rol'=>$rol]);
+    }
+
+    public function search_0(Request $request)
+    {
+             $rol = roleuser($request); //se llama al helper en Helpers/role
+            $user=User::find(auth()->user()->id);
+            $user->status_login = 'activo';
+            $user->save();  
+            $name = $request->get('name');
+            $img = $request->get('img');
+            $status = $request->get('status');
+            $level = $request->get('level'); 
+        $guias= Guias::where('level','!=','VPN')->where('level','!=','VPN0')->where('level','!=','VPN0')->where('level','!=','1')->where('level','!=','2')->where('level','!=','3')->orderBy("id", "DESC")
+             ->name($name)
+            ->img($img)
+            ->status($status)
+            ->level($level)
+            ->paginate(4);
+
+        return view('guias.search',compact('guias'),['rol'=>$rol]);
+      
+    }
+
+   
+        public function search_vpn0(Request $request)
+    {
+        $rol = roleuser($request); //se llama al helper en Helpers/role
+        $user=User::find(auth()->user()->id);
+        $user->status_login = 'activo';
+        $user->save();  
+         
+        $name = $request->get('name');
+      
+
+        $guias= Guias::where('level','!=','VPN')->where('level','!=','0')->where('level','!=','1')->where('level','!=','2')->where('level','!=','3')->orderBy("id", "DESC")
+        ->name($name)
+        ->paginate(4);
+       
+      //  var_dump($guias);
+       return view('guias.search',compact('guias'),['rol'=>$rol,'vpn0'=>'vpn0']);
+    }
+    
+        public function search_vpn(Request $request)
+    {
+        $rol = roleuser($request); //se llama al helper en Helpers/role
+        $user=User::find(auth()->user()->id);
+        $user->status_login = 'activo';
+        $user->save();  
+         
+        $name = $request->get('name');
+       
+     $guias= Guias::where('level','!=','VPN0')->where('level','!=','0')->where('level','!=','1')->where('level','!=','2')->where('level','!=','3')->orderBy("id", "DESC")
+        ->name($name)
+        ->paginate(4);
+       
+      //  var_dump($guias);
+       return view('guias.search',compact('guias'),['rol'=>$rol]);
+    }*/

@@ -1,7 +1,7 @@
         <!-- ========== Left Sidebar Start ========== -->
  
  @if ($rol === 'foun')                                                     
-            <div class="left-side-menu">
+            <div class="left-side-menu" onmousedown='return false;' onselectstart="return false;">
 
                 <div class="slimscroll-menu">
 
@@ -11,7 +11,7 @@
                             <img src="{{ asset('images/logo2.png') }}" alt="" height="60">
                         </span>
                         <span class="logo-sm">
-                            <img src="{{ asset('images/logo_sm.png') }}" alt="" height="16">
+                            <img src="{{ asset('images/logo2.png') }}" alt="" height="30">
                         </span>
                     </a>
 
@@ -184,7 +184,7 @@
             <!-- ============================================================== -->
 
             <div class="content-page">
-                <div class="content">
+                <div class="content" onmousedown='return false;' onselectstart="return false;">
 
                     <!-- Topbar Start -->
                     <div class="navbar-custom">
@@ -360,7 +360,7 @@
        
             </div>
             @elseif ($rol== 'admin')
-            <div class="left-side-menu">
+            <div class="left-side-menu" onmousedown='return false;' onselectstart="return false;">
 
                 <div class="slimscroll-menu">
 
@@ -370,7 +370,7 @@
                             <img src="{{ asset('images/logo2.png') }}" alt="" height="60">
                         </span>
                         <span class="logo-sm">
-                            <img src="{{ asset('images/logo_sm.png') }}" alt="" height="16">
+                            <img src="{{ asset('images/logo2.png') }}" alt="" height="30">
                         </span>
                     </a>
 
@@ -382,7 +382,7 @@
                         <li class="side-nav-item">
                             <a href="javascript: void(0);" class="side-nav-link">
                                 <i class="dripicons-meter"></i>
-                                <span class="badge badge-success float-right">2</span>
+                                <!--<span class="badge badge-success float-right">2</span>-->
                                 <span> tablero</span>
                             </a>
                             <ul class="side-nav-second-level" aria-expanded="false">
@@ -535,7 +535,7 @@
             <!-- ============================================================== -->
 
             <div class="content-page">
-                <div class="content">
+                <div class="content" onmousedown='return false;' onselectstart="return false;">
 
                     <!-- Topbar Start -->
                     <div class="navbar-custom">
@@ -707,17 +707,7 @@
                         <button class="button-menu-mobile open-left disable-btn">
                             <i class="mdi mdi-menu"></i>
                         </button>
-                        <div class="app-search">
-                            <form>
-                                <div class="input-group">
-                                    <input type="text" class="form-control" placeholder="Search...">
-                                    <span class="mdi mdi-magnify"></span>
-                                    <div class="input-group-append">
-                                        <button class="btn btn-primary" type="submit">Buscar</button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
+                       
                    
                     <!-- end Topbar -->
                </div>
@@ -725,7 +715,7 @@
             </div>
 
          @elseif ($rol== 'editor')
-            <div class="left-side-menu">
+            <div class="left-side-menu" onmousedown='return false;' onselectstart="return false;">
 
                 <div class="slimscroll-menu">
 
@@ -735,7 +725,7 @@
                             <img src="{{ asset('images/logo2.png') }}" alt="" height="60">
                         </span>
                         <span class="logo-sm">
-                            <img src="{{ asset('images/logo_sm.png') }}" alt="" height="16">
+                            <img src="{{ asset('images/logo2.png') }}" alt="" height="30">
                         </span>
                     </a>
 
@@ -747,7 +737,7 @@
                           <li class="side-nav-item">
                             <a href="javascript: void(0);" class="side-nav-link">
                                 <i class="dripicons-meter"></i>
-                                <span class="badge badge-success float-right">2</span>
+                                <!--<span class="badge badge-success float-right">2</span>-->
                                 <span> tablero</span>
                             </a>
                             <ul class="side-nav-second-level" aria-expanded="false">
@@ -774,7 +764,7 @@
                                 </li>
                                    <li>
                                          <a href="{{ url('corrections/index_vpn/vpn') }}">Guias y Correcciones VPN lvl</a>
-                                        </li>
+                                   </li>
                                     
                                 </li>
                             </ul>
@@ -800,7 +790,7 @@
             <!-- ============================================================== -->
 
             <div class="content-page">
-                <div class="content">
+                <div class="content" onmousedown='return false;' onselectstart="return false;">
 
                     <!-- Topbar Start -->
                     <div class="navbar-custom">
@@ -982,17 +972,7 @@
                         <button class="button-menu-mobile open-left disable-btn">
                             <i class="mdi mdi-menu"></i>
                         </button>
-                        <div class="app-search">
-                            <form>
-                                <div class="input-group">
-                                    <input type="text" class="form-control" placeholder="Search...">
-                                    <span class="mdi mdi-magnify"></span>
-                                    <div class="input-group-append">
-                                        <button class="btn btn-primary" type="submit">Buscar</button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
+                      
                    
                     <!-- end Topbar -->
                </div>
@@ -1000,7 +980,7 @@
             </div>
 
          @elseif ($rol== 'editor0')
-            <div class="left-side-menu">
+            <div class="left-side-menu" onmousedown='return false;' onselectstart="return false;">
 
                 <div class="slimscroll-menu">
 
@@ -1010,7 +990,7 @@
                             <img src="{{ asset('images/logo2.png') }}" alt="" height="60">
                         </span>
                         <span class="logo-sm">
-                            <img src="{{ asset('images/logo_sm.png') }}" alt="" height="16">
+                            <img src="{{ asset('images/logo2.png') }}" alt="" height="30">
                         </span>
                     </a>
 
@@ -1022,7 +1002,7 @@
                           <li class="side-nav-item">
                             <a href="javascript: void(0);" class="side-nav-link">
                                 <i class="dripicons-meter"></i>
-                                <span class="badge badge-success float-right">2</span>
+                               <!--<span class="badge badge-success float-right">2</span>-->
                                 <span> tablero</span>
                             </a>
                             <ul class="side-nav-second-level" aria-expanded="false">
@@ -1046,11 +1026,9 @@
                                 <li>
                                     <a href="{{ url('corrections/index/1') }}">Guias y correcciones  lvl</a>
                                 </li>
-                                   <li>
-                                         <a href="{{ url('corrections/index_vpn/vpn') }}">Guias y Correcciones VPN lvl</a>
-                                        </li>
+                                   
                                     
-                                </li>
+                        </li>
                             </ul>
                         </li>
 
@@ -1071,7 +1049,7 @@
             <!-- ============================================================== -->
 
             <div class="content-page">
-                <div class="content">
+                <div class="content" onmousedown='return false;' onselectstart="return false;">
 
                     <!-- Topbar Start -->
                     <div class="navbar-custom">
@@ -1173,7 +1151,7 @@
                                     </span>
                                     <span>
                                         <span class="account-user-name"> {{ Auth::user()->username }} </span>
-                                        <span class="account-position">Editor</span>
+                                        <span class="account-position">Editorlvl0</span>
                                     </span>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right dropdown-menu-animated topbar-dropdown-menu profile-dropdown">
@@ -1253,24 +1231,14 @@
                         <button class="button-menu-mobile open-left disable-btn">
                             <i class="mdi mdi-menu"></i>
                         </button>
-                        <div class="app-search">
-                            <form>
-                                <div class="input-group">
-                                    <input type="text" class="form-control" placeholder="Search...">
-                                    <span class="mdi mdi-magnify"></span>
-                                    <div class="input-group-append">
-                                        <button class="btn btn-primary" type="submit">Buscar</button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
+                      
                    
                     <!-- end Topbar -->
                </div>
        
             </div>
          @elseif ($rol== 'task')
-            <div class="left-side-menu">
+            <div class="left-side-menu" onmousedown='return false;' onselectstart="return false;">
 
                 <div class="slimscroll-menu">
 
@@ -1280,7 +1248,7 @@
                             <img src="{{ asset('images/logo2.png') }}" alt="" height="60">
                         </span>
                         <span class="logo-sm">
-                            <img src="{{ asset('images/logo_sm.png') }}" alt="" height="16">
+                           <img src="{{ asset('images/logo2.png') }}" alt="" height="30">
                         </span>
                     </a>
 
@@ -1292,7 +1260,7 @@
                         <li class="side-nav-item">
                             <a href="javascript: void(0);" class="side-nav-link">
                                 <i class="dripicons-meter"></i>
-                                <span class="badge badge-success float-right">2</span>
+                                <!--<span class="badge badge-success float-right">2</span>-->
                                 <span> tablero</span>
                             </a>
                             <ul class="side-nav-second-level" aria-expanded="false">
@@ -1351,7 +1319,7 @@
             <!-- ============================================================== -->
 
             <div class="content-page">
-                <div class="content">
+                <div class="content" onmousedown='return false;' onselectstart="return false;">
 
                     <!-- Topbar Start -->
                     <div class="navbar-custom">
@@ -1533,18 +1501,7 @@
                         <button class="button-menu-mobile open-left disable-btn">
                             <i class="mdi mdi-menu"></i>
                         </button>
-                        <div class="app-search">
-                            <form>
-                                <div class="input-group">
-                                    <input type="text" class="form-control" placeholder="Search...">
-                                    <span class="mdi mdi-magnify"></span>
-                                    <div class="input-group-append">
-                                        <button class="btn btn-primary" type="submit">Buscar</button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                   
+                      
                     <!-- end Topbar -->
                </div>
        
@@ -1552,7 +1509,7 @@
             
 
             @elseif ($rol== 'vpnlevel')
-            <div class="left-side-menu">
+            <div class="left-side-menu" onmousedown='return false;' onselectstart="return false;">
 
                 <div class="slimscroll-menu">
 
@@ -1562,7 +1519,7 @@
                             <img src="{{ asset('images/logo2.png') }}" alt="" height="60">
                         </span>
                         <span class="logo-sm">
-                            <img src="{{ asset('images/logo_sm.png') }}" alt="" height="16">
+                            <img src="{{ asset('images/logo2.png') }}" alt="" height="30">
                         </span>
                     </a>
 
@@ -1574,7 +1531,7 @@
                         <li class="side-nav-item">
                             <a href="javascript: void(0);" class="side-nav-link">
                                 <i class="dripicons-meter"></i>
-                                <span class="badge badge-success float-right">2</span>
+                                <!--<span class="badge badge-success float-right">2</span>-->
                                 <span> tablero</span>
                             </a>
                             <ul class="side-nav-second-level" aria-expanded="false">
@@ -1599,20 +1556,11 @@
                                 <li>
                                     <a href="{{ url('corrections/index/1') }}">Guias y correcciones  lvl</a>
                                 </li>
-                               
-                           <li class="side-nav-item">
-                            <a href="javascript: void(0);" class="side-nav-link">
-                                <i class="dripicons-document"></i>
-                                <span>Guias y correcciones VPN </span>
-                                <span class="menu-arrow"></span>
-                            </a>
-                            <ul class="side-nav-second-level" aria-expanded="false">
-                               
                                 <li>
-                                    <a href="{{ url('corrections/index_vpn/vpn') }}">Guias y Correcciones lvl</a>
+                                    <a href="{{ url('corrections/index_vpn/vpn') }}">Guias y Correcciones VPNlvl</a>
                                 </li>
-                            </ul>
-                        </li>
+                               
+                         
                             </ul>
                         </li>
 
@@ -1642,7 +1590,7 @@
             <!-- ============================================================== -->
 
             <div class="content-page">
-                <div class="content">
+                <div class="content" onmousedown='return false;' onselectstart="return false;">
 
                     <!-- Topbar Start -->
                     <div class="navbar-custom">
@@ -1821,17 +1769,7 @@
                         <button class="button-menu-mobile open-left disable-btn">
                             <i class="mdi mdi-menu"></i>
                         </button>
-                        <div class="app-search">
-                            <form>
-                                <div class="input-group">
-                                    <input type="text" class="form-control" placeholder="Search...">
-                                    <span class="mdi mdi-magnify"></span>
-                                    <div class="input-group-append">
-                                        <button class="btn btn-primary" type="submit">Buscar</button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
+                        
                    
                     <!-- end Topbar -->
                </div>
@@ -1839,7 +1777,7 @@
             </div>
 
           @elseif ($rol== 'task0')
-            <div class="left-side-menu">
+            <div class="left-side-menu" onmousedown='return false;' onselectstart="return false;">
 
                 <div class="slimscroll-menu">
 
@@ -1849,7 +1787,7 @@
                             <img src="{{ asset('images/logo2.png') }}" alt="" height="60">
                         </span>
                         <span class="logo-sm">
-                            <img src="{{ asset('images/logo_sm.png') }}" alt="" height="16">
+                              <img src="{{ asset('images/logo2.png') }}" alt="" height="30">
                         </span>
                     </a>
 
@@ -1861,7 +1799,7 @@
                         <li class="side-nav-item">
                             <a href="javascript: void(0);" class="side-nav-link">
                                 <i class="dripicons-meter"></i>
-                                <span class="badge badge-success float-right">2</span>
+                                <!--<span class="badge badge-success float-right">2</span>-->
                                 <span> tablero</span>
                             </a>
                             <ul class="side-nav-second-level" aria-expanded="false">
@@ -1915,7 +1853,7 @@
             <!-- ============================================================== -->
 
             <div class="content-page">
-                <div class="content">
+                <div class="content"  class="page-title" onmousedown='return false;' onselectstart="return false;">
 
                     <!-- Topbar Start -->
                     <div class="navbar-custom">
@@ -2037,19 +1975,6 @@
                                         <span>Configuración</span>
                                     </a>
 
-                                    <!-- 
-                                    <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                        <i class="mdi mdi-lifebuoy mr-1"></i>
-                                        <span>Soporte</span>
-                                    </a>-->
-            
-                                    <!-- 
-                                    <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                        <i class="mdi mdi-lock-outline mr-1"></i>
-                                        <span>Lock Screen</span>
-                                    </a>-->
-
-                                  <!-- item-->
                                    <a  id="a" class="dropdown-item notify-item">
                                         <i class="mdi mdi-logout mr-1"></i>
                                         {{ __('Logout') }}  
@@ -2094,17 +2019,7 @@
                         <button class="button-menu-mobile open-left disable-btn">
                             <i class="mdi mdi-menu"></i>
                         </button>
-                        <div class="app-search">
-                            <form>
-                                <div class="input-group">
-                                    <input type="text" class="form-control" placeholder="Search...">
-                                    <span class="mdi mdi-magnify"></span>
-                                    <div class="input-group-append">
-                                        <button class="btn btn-primary" type="submit">Buscar</button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
+                       
                    
                     <!-- end Topbar -->
                </div>
@@ -2122,8 +2037,8 @@
                             <img src="{{ asset('images/logo2.png') }}" alt="" height="60">
                         </span>
                         <span class="logo-sm">
-                            <img src="{{ asset('images/logo_sm.png') }}" alt="" height="16">
-                        </span>
+                                 <img src="{{ asset('images/logo2.png') }}" alt="" height="30">
+                         </span>
                     </a>
 
                     <!--- Sidemenu -->
@@ -2134,7 +2049,7 @@
                         <li class="side-nav-item">
                             <a href="javascript: void(0);" class="side-nav-link">
                                 <i class="dripicons-meter"></i>
-                                <span class="badge badge-success float-right">2</span>
+                                <!--<span class="badge badge-success float-right">2</span>--<
                                 <span> tablero</span>
                             </a>
                             <ul class="side-nav-second-level" aria-expanded="false">
@@ -2313,17 +2228,7 @@
                         <button class="button-menu-mobile open-left disable-btn">
                             <i class="mdi mdi-menu"></i>
                         </button>
-                        <div class="app-search">
-                            <form>
-                                <div class="input-group">
-                                    <input type="text" class="form-control" placeholder="Search...">
-                                    <span class="mdi mdi-magnify"></span>
-                                    <div class="input-group-append">
-                                        <button class="btn btn-primary" type="submit">Buscar</button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
+                       
                    
                     <!-- end Topbar -->
                </div>

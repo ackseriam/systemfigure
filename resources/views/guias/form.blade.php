@@ -25,7 +25,6 @@
 	        <option value="1">Level 1</option>
 	        <option value="2">Level 2</option>
 	        <option value="3">Level 3</option>
-          <option value="vpn0">VPN Lvl0 </option>
           <option value="vpn">VPN Lvl </option>
 	    </select> 
   </div>

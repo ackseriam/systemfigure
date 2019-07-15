@@ -25,6 +25,7 @@ class CorrectionsController extends Controller
      */
     public function index( $level_b, Request $request)
     {
+
         $rol = roleuser($request); //se llama al helper en Helpers/role
         $user=User::find(auth()->user()->id);
         $user->status_login = 'activo';
@@ -32,37 +33,49 @@ class CorrectionsController extends Controller
          if($level_b=='0')
        {
         $guias = Guias::where(['level'=> $level_b, 'status'=>'activo'])->orderBy("id", "DESC")->paginate(4);
+         return view('corrections.index',compact('guias'),['rol'=>$rol, 'level'=>$level_b]);
        }else{
+        if(($rol=='admin')||($rol=='foun')||($rol=='editor')||($rol=='vpnlevel')||($rol=='task')||($rol=='editor0'))
+         {
          $guias= Guias::where('level','!=','0')->where('level','!=','vpn0')->where('level','!=','vpn')->orderBy("id", "DESC")->paginate(4);
+          return view('corrections.index',compact('guias'),['rol'=>$rol, 'level'=>$level_b]);
+          }else{
+            return redirect('home');
+          }
 
        }
       // dd($guias);
-       return view('corrections.index',compact('guias'),['rol'=>$rol, 'level'=>$level_b]);
+      
     }
 
     public function index_vpn( $level_b, Request $request)
     {
         $rol = roleuser($request); //se llama al helper en Helpers/role
-        $user=User::find(auth()->user()->id);
-        $user->status_login = 'activo';
-        $user->save();  
-        $user=User::find(auth()->user()->id);
-        $user->status_login = 'activo';
-        $user->save();  
-      if($level_b=='vpn0')
-      {
-         $guias= Guias::where('level',$level_b)->paginate(4);
-      }elseif($level_b=='vpn'){
-         $guias= Guias::where('level',$level_b)->paginate(4);
-      }elseif(($level_b!="vpn0")|| ($level_b!="vpn")){
+        if(($rol=='admin')||($rol=='foun')||($rol=='editor')||($rol=='vpnlevel'))
+         {
+            $user=User::find(auth()->user()->id);
+            $user->status_login = 'activo';
+            $user->save();  
+            $user=User::find(auth()->user()->id);
+            $user->status_login = 'activo';
+            $user->save();  
+          if($level_b=='vpn0')
+          {
+             $guias= Guias::where('level',$level_b)->paginate(4);
+          }elseif($level_b=='vpn'){
+             $guias= Guias::where('level',$level_b)->paginate(4);
+          }elseif(($level_b!="vpn0")|| ($level_b!="vpn")){
 
-        $guias=  Guias::where('level','0')->where('status','activo')->orderBy("id", "DESC")->get();
-        $guias_n=  Guias::where('level','!=','0')->where('status','activo')->orderBy("id", "DESC")->get();
+            $guias=  Guias::where('level','0')->where('status','activo')->orderBy("id", "DESC")->get();
+            $guias_n=  Guias::where('level','!=','0')->where('status','activo')->orderBy("id", "DESC")->get();
 
-        return view('home', ["rol" => $rol,"guias" => $guias, "guias_n" => $guias_n]);
-      }
+            return view('home', ["rol" => $rol,"guias" => $guias, "guias_n" => $guias_n]);
+          }
 
-        return view('corrections.index',compact('guias'),['rol'=>$rol, 'level'=>$level_b]);
+            return view('corrections.index',compact('guias'),['rol'=>$rol, 'level'=>$level_b]);
+         }else{
+          return redirect('home');
+         }
     }
 
     public function search( $level_b, Request $request)
@@ -81,14 +94,18 @@ class CorrectionsController extends Controller
         ->name($name)
         ->paginate(6);
     }else{
-
+        if(($rol=='admin')||($rol=='foun')||($rol=='editor')||($rol=='vpnlevel')||($rol=='task')||($rol=='editor0'))
+         {
 
          $guias= Guias::where('level','!=','0')->where('level','!=','vpn')->where('status','activo')->where('level','!=','vpn0')->orderBy("id", "ASC")
         //->where("level", $level)
         ->name($name)
         ->paginate(6);
 
-    }
+        }else{
+           return redirect('home');
+        }
+      }
         
        
         return view('corrections.index',compact('guias'),['rol'=>$rol,'level'=>$level_b]);
@@ -97,45 +114,50 @@ class CorrectionsController extends Controller
        public function search_vpn( $level_b, Request $request)
     {
         $rol = roleuser($request); //se llama al helper en Helpers/role
-        $user=User::find(auth()->user()->id);
-        $user->status_login = 'activo';
-        $user->save();   
-        $name = $request->get('name');
-        $img = $request->get('img');
-        $status = $request->get('status');
-        $level = $request->get('level');
-       if($level_b=='vpn0')
-       {
-      
+        if(($rol=='admin')||($rol=='foun')||($rol=='editor')||($rol=='vpnlevel')||($rol=='task'))
+         {
+            $user=User::find(auth()->user()->id);
+            $user->status_login = 'activo';
+            $user->save();   
+            $name = $request->get('name');
+            $img = $request->get('img');
+            $status = $request->get('status');
+            $level = $request->get('level');
+           if($level_b=='vpn0')
+           {
+          
 
-         $guias= Guias::where('level','!=','0')->where('level','!=','1')->where('level','!=','2')->where('level','!=','3')->where('level','!=','vpn')->where('status','activo')->orderBy("id", "DESC")
-        //->where("level", $level)
-        ->name($name)
-        ->img($img)
-        ->status($status)
-        ->level($level)
-        ->paginate(4);
-    }elseif($level_b=='vpn'){
+             $guias= Guias::where('level','!=','0')->where('level','!=','1')->where('level','!=','2')->where('level','!=','3')->where('level','!=','vpn')->where('status','activo')->orderBy("id", "DESC")
+            //->where("level", $level)
+            ->name($name)
+            ->img($img)
+            ->status($status)
+            ->level($level)
+            ->paginate(4);
+        }elseif($level_b=='vpn'){
 
 
-         $guias= Guias::where('level','!=','0')->where('level','!=','1')->where('level','!=','2')->where('level','!=','3')->where('level','!=','vpn0')->where('status','activo')->orderBy("id", "DESC")
-        //->where("level", $level)
-        ->name($name)
-        ->img($img)
-        ->status($status)
-        ->level($level)
-        ->paginate(4);
+             $guias= Guias::where('level','!=','0')->where('level','!=','1')->where('level','!=','2')->where('level','!=','3')->where('level','!=','vpn0')->where('status','activo')->orderBy("id", "DESC")
+            //->where("level", $level)
+            ->name($name)
+            ->img($img)
+            ->status($status)
+            ->level($level)
+            ->paginate(4);
 
-    }elseif(($level_b!="vpn0")|| ($level_b!="vpn")){
+        }elseif(($level_b!="vpn0")|| ($level_b!="vpn")){
 
-        $guias=  Guias::where('level','0')->where('status','activo')->orderBy("id", "DESC")->get();
-        $guias_n=  Guias::where('level','!=','0')->where('status','activo')->orderBy("id", "DESC")->get();
+            $guias=  Guias::where('level','0')->where('status','activo')->orderBy("id", "DESC")->get();
+            $guias_n=  Guias::where('level','!=','0')->where('status','activo')->orderBy("id", "DESC")->get();
 
-        return view('home', ["rol" => $rol,"guias" => $guias, "guias_n" => $guias_n]);
-      }
-        
-       
-        return view('corrections.index',compact('guias'),['rol'=>$rol,'level'=>$level_b]);
+            return view('home', ["rol" => $rol,"guias" => $guias, "guias_n" => $guias_n]);
+          }
+            
+           
+            return view('corrections.index',compact('guias'),['rol'=>$rol,'level'=>$level_b]);
+        }else{
+          return redirect('home');
+        }
     }
 
     /**
@@ -147,11 +169,13 @@ class CorrectionsController extends Controller
     {
         
          $rol = roleuser($request); //se llama al helper en Helpers/role
+
          $user=User::find(auth()->user()->id);
          $user->status_login = 'activo';
          $user->save();  
          $guia= Guias::find($guia);
-        // var_dump($guia);
+         $level=$guia->level;
+           // var_dump($guia);
          $campos=$guia->names_campo;
          $number_campos=$guia->number_campos;
          //var_dump($campos);
@@ -160,10 +184,28 @@ class CorrectionsController extends Controller
          $number_campos_img= $guia->number_campos_img;
          $campos_img=$guia->names_campo_img;
          $campos_img=explode(",",  $campos_img);
+
+         if($level=='0'){
+          if(($rol=='admin')||($rol=='foun')||($rol=='editor')||($rol=='vpnlevel')||($rol=='task')||($rol=='task0')||($rol=='editor0'))
+           {
+             return view('corrections.create',['rol'=>$rol,'campos'=>$campo, 'number_campos'=>$number_campos,'id_guias'=>$guia->id,'campos_img'=>$campos_img, 'number_campos_img'=>$number_campos_img  ]); 
+           }else{
+            return redirect('home');
+           }
+         }else{
+          if(($rol=='admin')||($rol=='foun')||($rol=='editor')||($rol=='vpnlevel')||($rol=='task')||($rol=='editor')||($rol=='editor0'))
+            {
+             return view('corrections.create',['rol'=>$rol,'campos'=>$campo, 'number_campos'=>$number_campos,'id_guias'=>$guia->id,'campos_img'=>$campos_img, 'number_campos_img'=>$number_campos_img  ]); 
+           }else{
+            return redirect('home');
+           }
+
+         }
+      
         
      
         
-         return view('corrections.create',['rol'=>$rol,'campos'=>$campo, 'number_campos'=>$number_campos,'id_guias'=>$guia->id,'campos_img'=>$campos_img, 'number_campos_img'=>$number_campos_img  ]); 
+        
     }
 
     /**
@@ -301,7 +343,8 @@ class CorrectionsController extends Controller
        $user->status_login = 'activo';
        $user->save(); 
        $guia= Guias::find($id);
-       $copiar=$guia->copiado;
+
+         $copiar=$guia->copiado;
        $correc=array();
        $correcciones= Correction::where('id_guias',$id)->get();
 
@@ -322,15 +365,39 @@ class CorrectionsController extends Controller
        $correction_search2= Correction_user::orderBy("id", "DESC")->join('corrections', 'corrections.id', '=', 'correction_users.id_corrections')->join('users','users.id','=','corrections.id_users')->join('people','people.id','=','users.people_id')->where('corrections.id_guias',$id)->select('respues0','respues1','respues2','respues3','respues4','respues5','respues6','respues7','respues8','respues9','respues10','respues11','respues12','respues13','respues14','respues15','respues16','respues17','respues18','respues19','respues20','surname','tipos_campos','username','id_corrections','correction_users.id as id')
         ->limit(3)
         ->get(3);
+       $level=$guia->level;
+          if($level=='0'){
+          if(($rol=='admin')||($rol=='foun')||($rol=='editor')||($rol=='vpnlevel')||($rol=='task')||($rol=='task0')||($rol=='editor0'))
+           {
+              if(!empty( $correction_search2)){
 
+                return view('corrections/corrections_user/correc',compact('correction_search2'),['level'=>$level,'yes'=>'yes','nombre_guia'=>$guia->name,'rol'=>$rol,'copiar'=>$copiar, 'id'=>$id,'number_guia'=>$number_guia,'names_campo'=>$names_campo, 'campos_img'=>$campos_img,'number_campos_img'=>  '0','guia'=>$guia,'time'=>$tiempo_envio]);
+              }else{
+                $correction_user = array('' );
+                 return view('corrections/corrections_user/correc',['level'=>$level,'yes'=>'yes','nombre_guia'=>$guia->name,'copiar'=>$copiar,'correction_search2'=>$correction_search2,'rol'=>$rol, 'id'=>$id,'number_guia'=>$number_guia,'names_campo'=>$names_campo, 'campos_img'=>$campos_img,'number_campos_img'=>  '0','guia'=>$guia,'time'=>$tiempo_envio]);
+              }
+           }else{
+            return redirect('home');
+           }
+         }else{
+           if(($rol=='admin')||($rol=='foun')||($rol=='editor')||($rol=='vpnlevel')||($rol=='task')||($rol=='editor0'))
+            {
 
-          if(!empty( $correction_search2)){
+                    if(!empty( $correction_search2)){
 
-    return view('corrections/corrections_user/correc',compact('correction_search2'),['yes'=>'yes','nombre_guia'=>$guia->name,'rol'=>$rol,'copiar'=>$copiar, 'id'=>$id,'number_guia'=>$number_guia,'names_campo'=>$names_campo, 'campos_img'=>$campos_img,'number_campos_img'=>  '0','guia'=>$guia,'time'=>$tiempo_envio]);
-  }else{
-    $correction_user = array('' );
-     return view('corrections/corrections_user/correc',['yes'=>'yes','nombre_guia'=>$guia->name,'copiar'=>$copiar,'correction_search2'=>$correction_search2,'rol'=>$rol, 'id'=>$id,'number_guia'=>$number_guia,'names_campo'=>$names_campo, 'campos_img'=>$campos_img,'number_campos_img'=>  '0','guia'=>$guia,'time'=>$tiempo_envio]);
-  }
+                    return view('corrections/corrections_user/correc',compact('correction_search2'),['level'=>$level,'yes'=>'yes','nombre_guia'=>$guia->name,'rol'=>$rol,'copiar'=>$copiar, 'id'=>$id,'number_guia'=>$number_guia,'names_campo'=>$names_campo, 'campos_img'=>$campos_img,'number_campos_img'=>  '0','guia'=>$guia,'time'=>$tiempo_envio]);
+                  }else{
+                    $correction_user = array('' );
+                     return view('corrections/corrections_user/correc',['level'=>$level,'yes'=>'yes','nombre_guia'=>$guia->name,'copiar'=>$copiar,'correction_search2'=>$correction_search2,'rol'=>$rol, 'id'=>$id,'number_guia'=>$number_guia,'names_campo'=>$names_campo, 'campos_img'=>$campos_img,'number_campos_img'=>  '0','guia'=>$guia,'time'=>$tiempo_envio]);
+                  }
+            }else{
+            return redirect('home');
+           }
+
+         }
+     
+
+       
 
    }
   
@@ -349,6 +416,7 @@ class CorrectionsController extends Controller
  public function show($id_guia,Request $request)
     {
       $rol = roleuser($request); //se llama al helper en Helpers/role
+
       $user=User::find(auth()->user()->id);
       $user->status_login = 'activo';
       $user->save();
@@ -369,22 +437,47 @@ class CorrectionsController extends Controller
       $copiar=$guia->copiado;
       $number_gui[]=$number_guia-1;
       $correcciones= Correction::where('id_guias',$id_guia)->get();
+      $level=$guia->level;
 
           $correction_search_text= Correction_user::orderBy("id", "DESC")->join('corrections', 'corrections.id', '=', 'correction_users.id_corrections')->join('users','users.id','=','corrections.id_users')->join('people','people.id','=','users.people_id')->where('corrections.id_guias',$id_guia)->select('respues0','respues1','respues2','respues3','respues4','respues5','respues6','respues7','respues8','respues9','respues10','respues11','respues12','respues13','respues14','respues15','respues16','respues17','respues18','respues19','respues20','surname','tipos_campos','username','id_corrections','correction_users.id as id')
                   ->respues($respues)
                   ->paginate(10);
+       if($level=='0'){
+          if(($rol=='admin')||($rol=='foun')||($rol=='editor')||($rol=='vpnlevel')||($rol=='task')||($rol=='task0')||($rol=='editor0'))
+           {
    
          if(!empty($correction_search_text))
          {
        $correction_search2=$correction_search_text;
           
         //   dd($correction_search_text);
-        return  view('corrections/corrections_user/correc',compact('correction_search2'),['nombre_guia'=>$guia->name,'copiar'=>$copiar,'user'=>$user,'rol'=>$rol,'names_campo'=>$names_campo,'campos_img'=> $campos_img,'number_guia'=>$number_guia,'id'=>$id_guia, 'number_campos_img'=> $number_campos_img,'guia'=>$guia,'time'=>$tiempo_envio]);
+        return  view('corrections/corrections_user/correc',compact('correction_search2'),['level'=>$level,'nombre_guia'=>$guia->name,'copiar'=>$copiar,'user'=>$user,'rol'=>$rol,'names_campo'=>$names_campo,'campos_img'=> $campos_img,'number_guia'=>$number_guia,'id'=>$id_guia, 'number_campos_img'=> $number_campos_img,'guia'=>$guia,'time'=>$tiempo_envio]);
          }else
            {
            return redirect("corrections/correc_user/".$id_guia);
            }
-                     
+         }else{
+           return redirect('home');
+         }
+             
+        }else{
+          if(($rol=='admin')||($rol=='foun')||($rol=='editor')||($rol=='vpnlevel')||($rol=='task')||($rol=='editor0'))
+            {
+                  if(!empty($correction_search_text))
+                   {
+                 $correction_search2=$correction_search_text;
+                    
+                  //   dd($correction_search_text);
+                  return  view('corrections/corrections_user/correc',compact('correction_search2'),['level'=>$level,'nombre_guia'=>$guia->name,'copiar'=>$copiar,'user'=>$user,'rol'=>$rol,'names_campo'=>$names_campo,'campos_img'=> $campos_img,'number_guia'=>$number_guia,'id'=>$id_guia, 'number_campos_img'=> $number_campos_img,'guia'=>$guia,'time'=>$tiempo_envio]);
+                   }else
+                     {
+                     return redirect("corrections/correc_user/".$id_guia);
+                     }
+            }else{
+              return redirect('home');
+            }
+
+        }        
 
 
     }
@@ -406,12 +499,24 @@ class CorrectionsController extends Controller
        $correction_id=$id;
        $id_guias=$correction[0]->id_guias;
 
-        //$roles=Role::leftjoin('roles_user', 'roles_user.roles_id', '=', 'roles.id')->where('roles_user.user_id','=',$id )->select('roles.name')->get();
- 
-   //  dd($correction); 
+      $level=$correction[0]->level;
       $names_campo=explode(',', $correction[0]->names_campo);
+       if($level=='0'){
+          if(($rol=='admin')||($rol=='foun')||($rol=='editor')||($rol=='editor0'))
+           {
+             return view('corrections.edit',['campos'=>$names_campo,'id_guias'=>$id_guias,'rol'=>$rol,'correction'=>$correction,'correction_id'=>$correction_id]);
+              }else{
+              return redirect('home');
+            }
+          }else{
+             if(($rol=='admin')||($rol=='foun')||($rol=='editor'))
+           {
+             return view('corrections.edit',['campos'=>$names_campo,'id_guias'=>$id_guias,'rol'=>$rol,'correction'=>$correction,'correction_id'=>$correction_id]);
+              }else{
+              return redirect('home');
+            }
 
-     return view('corrections.edit',['campos'=>$names_campo,'id_guias'=>$id_guias,'rol'=>$rol,'correction'=>$correction,'correction_id'=>$correction_id]);
+          }
     }
 
 
@@ -463,7 +568,7 @@ class CorrectionsController extends Controller
     public function destroy(Request $request,$id,$id_correc)
     {
         $correction = Correction_user::find($id_correc);
-         $correction_user=$correction->id;
+          $correction_user=$correction->id;
          $guia=Guias::find($id);
          $guia->id=$id;
       
@@ -471,12 +576,17 @@ class CorrectionsController extends Controller
          $user=User::find(auth()->user()->id);
          $user->status_login = 'activo';
          $user->save();
-  
-         $correction->delete();
-         
-         
-       
-         $copiar=$guia->copiado;
+
+        
+
+
+               $level=$guia->level;
+
+             if($level=='0'){
+                if(($rol=='admin')||($rol=='foun')||($rol=='editor')||($rol=='editor0'))
+                 {
+                $correction->delete();
+               $copiar=$guia->copiado;
                $correc=array();
                $correcciones= Correction::where('id_guias',$id)->get();
 
@@ -498,18 +608,65 @@ class CorrectionsController extends Controller
                 $i=0; $y=0;
           
                   $correction_user= Correction_user::where('id_corrections',$correction->id)
-                  ->get();
+                  ->paginate(4);
                                                                                                   
                 }
+                        if(!empty( $correction_user)){
+                      $correction_search2=$correction_user;
+                    return view('corrections/corrections_user/correc',compact('correction_search2'),['level'=>$level,'exito'=>'exito','rol'=>$rol,'copiar'=>$copiar, 'id'=>$id,'number_guia'=>$number_guia,'names_campo'=>$names_campo, 'campos_img'=>$campos_img,'number_campos_img'=>  '0','guia'=>$guia,'time'=>$tiempo_envio]);
+                  }else{
+                    $correction_search2 = array('' );
+                     return view('corrections/corrections_user/correc',['level'=>$level,'exito'=>'exito','copiar'=>$copiar,'correction_search2'=>$correction_search2,'rol'=>$rol, 'id'=>$id,'number_guia'=>$number_guia,'names_campo'=>$names_campo, 'campos_img'=>$campos_img,'number_campos_img'=>  '0','guia'=>$guia,'time'=>$tiempo_envio]);
+                  }
+                 }else{
+                   return redirect('home');
+                 }
+               }else{
+                 if(($rol=='admin')||($rol=='foun')||($rol=='editor'))
+                 {
+                    $correction->delete();
+                     $copiar=$guia->copiado;
+               $correc=array();
+               $correcciones= Correction::where('id_guias',$id)->get();
 
+              $text = $request->get('respues');
+            
+              $tiempo_envio=$guia->tiempo_envio;  
+            
+              $number_gui=$guia->number_campos;
+              $number_guia=$number_gui-1;
+              $number_img_guia=$guia->number_campos_img;
+              $number_campos_img=$number_img_guia-1;
+              $campos_img=explode(",",$guia->names_campo_img);
 
-                  if(!empty( $correction_user)){
+              $names_campo=explode(',', $guia->names_campo);
+                  if(!empty($number_img_guia)){
+                  $names_campo = array_collapse([$names_campo,$campos_img]);
+                }
+               foreach ($correcciones as $correction) {
+                $i=0; $y=0;
+          
+                  $correction_user= Correction_user::where('id_corrections',$correction->id)
+                  ->paginate(4);
+                                                                                                  
+                }
+                        if(!empty( $correction_user)){
+                      $correction_search2=$correction_user;
+                    return view('corrections/corrections_user/correc',compact('correction_search2'),['level'=>$level,'exito'=>'exito','rol'=>$rol,'copiar'=>$copiar, 'id'=>$id,'number_guia'=>$number_guia,'names_campo'=>$names_campo, 'campos_img'=>$campos_img,'number_campos_img'=>  '0','guia'=>$guia,'time'=>$tiempo_envio]);
+                  }else{
 
-            return view('corrections/corrections_user/correc',compact('correction_user'),['exito'=>'exito','rol'=>$rol,'copiar'=>$copiar, 'id'=>$id,'number_guia'=>$number_guia,'names_campo'=>$names_campo, 'campos_img'=>$campos_img,'number_campos_img'=>  '0','guia'=>$guia,'time'=>$tiempo_envio]);
-          }else{
-            $correction_user = array('' );
-             return view('corrections/corrections_user/correc',['exito'=>'exito','copiar'=>$copiar,'correction_user'=>$correction_user,'rol'=>$rol, 'id'=>$id,'number_guia'=>$number_guia,'names_campo'=>$names_campo, 'campos_img'=>$campos_img,'number_campos_img'=>  '0','guia'=>$guia,'time'=>$tiempo_envio]);
-          }
+                    $correction_search2 = array('' );
+                     return view('corrections/corrections_user/correc',['level'=>$level,'exito'=>'exito','copiar'=>$copiar,'correction_search2'=>$correction_search2,'rol'=>$rol, 'id'=>$id,'number_guia'=>$number_guia,'names_campo'=>$names_campo, 'campos_img'=>$campos_img,'number_campos_img'=>  '0','guia'=>$guia,'time'=>$tiempo_envio]);
+                  }
+
+                 }else{
+                   return redirect('home');
+                 }
+
+               }
+  
+
+               
 
       
 
