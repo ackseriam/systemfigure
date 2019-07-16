@@ -59,7 +59,60 @@
   font-size: 16px;
   margin: 3px 1px;
   border-radius: 3px;
-}   </style>
+
+
+} 
+
+
+table {
+  border: 1px solid rgb(200, 200, 200);
+  border-collapse: collapse;
+  font-size: .9rem;
+  width: 100%;
+}
+
+tr {
+  text-align: center;
+}
+
+
+
+th {
+ 
+  border: 1px solid rgb(160, 160, 160);
+  color: rgb(255, 255, 255);
+  padding: .8rem;
+}
+
+td {
+  border: 1px solid rgb(160, 160, 160);
+  padding: .8rem;
+}
+
+
+
+.table-container {
+  margin: 0 0 1rem;
+  overflow: auto;
+  overflow-y: auto;
+  width: 100%;
+}
+
+
+/*  Estilos para que las barras de desplazamiento horizontal se vean en los dispositivos IOS */
+
+.table-container::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 14px;
+  height: 14px;
+}
+
+.table-container::-webkit-scrollbar-thumb {
+
+  border-radius: 8px;
+  border: 3px solid #fff;
+}
+  </style>
 
 
  <body class="enlarged" data-keep-enlarged="true">
@@ -77,7 +130,7 @@
      <!-- Start Content-->
                     <div class="container-fluid" >
 
-                      
+                    
                         <!-- start page title -->
                         <div class="row" onmousedown='return false;' onselectstart="return false;">
                             <div class="col-12">
@@ -248,7 +301,7 @@
                                                     <div class="col-lg-12">
 
                                                     <div class="dt-responsive">
-
+                                                    <div class="table-container">
                                                       <table class="table table dt-responsive nowrap table-striped table-bordered table-centered mb-0" onmousedown='return false;' onselectstart="return false;">
                                                           <thead>
                                                               <tr  > 
@@ -331,8 +384,8 @@
                                                                             </div><!-- /.modal -->
                                                                               </td>
                                                                             @else
-                                                                                <td style="height: auto;">
-                                                                                <input type="hidden" name="" readonly="readonly" class="form-control" value="{{$correction->$respues}}" id="{{$correction->$respues}}"> {{$correction->$respues}}<br>
+                                                                                <td style="height: auto;"><div class="scro">
+                                                                                <input type="hidden" name="" readonly="readonly" class="form-control" value="{{$correction->$respues}}" id="{{$correction->$respues}}"> {{$correction->$respues}}</div><br>
                                                                            <button type="button" id="copyClip" data-clipboard-text="{{$correction->$respues}}" class="btn btn-primary"><i class=" mdi mdi-content-copy"></i></button>
                                                                               </td>
 
@@ -457,7 +510,8 @@
                                                               @endif
 
                                                           </tbody>        
-                                                        </table>  
+                                                        </table> 
+                                                        </div>
                                                          @if(!empty($yes))
                                                         
                                                          @else
