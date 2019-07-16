@@ -77,7 +77,7 @@
      <!-- Start Content-->
                     <div class="container-fluid" >
 
-                        somos la mejor tienda online de ropa , Especialmente ropa para trabajo de Seguridad, obreros y de protección indivual
+                      
                         <!-- start page title -->
                         <div class="row" onmousedown='return false;' onselectstart="return false;">
                             <div class="col-12">
