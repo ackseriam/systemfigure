@@ -400,12 +400,14 @@ td {
                                                                          @endif
                                                                          @endif
                                                                          @endfor
-                                                                         
+                                                                         @if($level=='0')
+                                                                          @if(($rol=='admin')||($rol=='foun')||($rol=='editor')||($rol=='editor0'))
                                                                           <td>Usuario:<p class="text-title"> {{$correction->username}}</p>
                                                                         <div id="consul">
                                                                             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#full-width-modal"><i class="mdi mdi-file-search-outline "></i> </button>
 
                                                                         </div>
+
                                                                           
                                                                            <div id="full-width-modal" class="modal fade" tabindex="3" role="dialog" aria-labelledby="primary-header-modalLabel" aria-hidden="true">
                                                                              <div class="modal-dialog modal-full-width">
@@ -429,7 +431,40 @@ td {
                                                                             </div><!-- /.modal-content -->
                                                                         </div><!-- /.modal-dialog -->
                                                                     </div><!-- /.modal -->
-                                                                   </td>
+                                                                   </td> @endif
+                                                                    @else  @if(($rol=='admin')||($rol=='foun')||($rol=='editor'))
+                                                                      <td>Usuario:<p class="text-title"> {{$correction->username}}</p>
+                                                                        <div id="consul">
+                                                                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#full-width-modal"><i class="mdi mdi-file-search-outline "></i> </button>
+
+                                                                        </div>
+
+                                                                          
+                                                                           <div id="full-width-modal" class="modal fade" tabindex="3" role="dialog" aria-labelledby="primary-header-modalLabel" aria-hidden="true">
+                                                                             <div class="modal-dialog modal-full-width">
+                                                                            <div class="modal-content">
+                                                                              <div class="modal-header modal-colored-header bg-primary">
+                                                                              <h4 class="modal-title" id="primary-header-modalLabel">{{$guia->name}}</h4>
+                                                                               <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                                                                </div>
+                                                                                <div class="modal-body">
+                                                                                  <h5 class="mt-0">Fecha</h5>
+                                                                                  <p>Guia creada :{{$guia->created_at}}</p><br>
+                                                                                
+                                                                               
+                                                                                  <br>
+                                                                        </div>
+                                                                          <div class="modal-footer">
+                                                                              <button type="button" class="btn btn-light" data-dismiss="modal">Cerrar ventana</button>
+                                                                             
+                                                                          </div>
+
+                                                                            </div><!-- /.modal-content -->
+                                                                        </div><!-- /.modal-dialog -->
+                                                                    </div><!-- /.modal -->
+                                                                   </td>  
+                                                                    @endif
+                                                                    @endif
                                                                      @if($level=='0')
                                                                         @if(($rol=='admin')||($rol=='foun')||($rol=='editor')||($rol=='editor0'))   
                                                                               <td> <a href="/corrections/editar/{{$correction->id}}" title="Editar Corrección"  class="btn btn-success" data-toggle="modal" target="_blank"><i class=" mdi mdi-square-edit-outline "></i> </a><a id="{{$correction->id}}" class="btn btn-danger"  title="Eliminar Corrección" data-toggle="modal" target="_blank"><i class="mdi mdi-delete "></i> </a></td>
@@ -458,13 +493,9 @@ td {
                                                                                 Swal.fire('Cancelado', 'Buena elección :)', 'error');
                                                                             }
                                                                         }); 
-                                                                    });
-
-                                                                        
+                                                                    });  
                                                                     </script>
-                                                                    
-
-                                                                              @endif
+                                                                  @endif
 
                                                                        @else
                                                                           @if(($rol=='admin')||($rol=='foun')||($rol=='editor'))
