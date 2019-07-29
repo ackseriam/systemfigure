@@ -10,7 +10,7 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 class SessionTimeout {
     protected $session;
-    protected $timeout=300;//2147483640
+    protected $timeout=60;//2147483640
     public function __construct(Store $session){
         $this->session=$session;
     }
@@ -36,7 +36,7 @@ class SessionTimeout {
             {
             Auth::logout();
                 //return redirect('login')->with('error_in', 'error_in');
-                return redirect()->route('login', ['error_in' =>  'error_in']);
+                return redirect()->route('login', ['error_in' =>  'error_in','url' =>  url()->current() ]);
     
              //   abort(403, 'No ha tenido actividad en los ultimos minutos');
             }

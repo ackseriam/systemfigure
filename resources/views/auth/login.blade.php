@@ -107,6 +107,17 @@
                                                     @endif
                                                  </div>
                                            </div>
+                                            <div class="text-center w-75 m-auto">
+                                                 <div class="form-group row mb-0">
+                                                <div class="col-md-8 offset-md-1">
+                                                        <p class="text-muted mb-4">
+                                                        <a class="btn btn-link" href="{{ url('') }}">
+                                                            {{ __('Volver al inicio') }}
+                                                        </a>
+                                                        </p>
+                                                 </div>
+                                              </div>
+                                        </div>
 
                                         </form>
                                     </div> <!-- end card-body -->

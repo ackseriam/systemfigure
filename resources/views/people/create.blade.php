@@ -8,6 +8,7 @@
         <div class="account-pages mt-5 mb-5">
             <div class="container">
                 <div class="row justify-content-center">
+                                    
                     <div class="col-lg-6">
                         <div class="card">
                             <!-- Logo-->
@@ -15,7 +16,18 @@
                                 <a href="#">
                                     <span><img src="{{ asset('images/logo2.png') }}" alt="" width="200"></span>
                                 </a>
-                            </div>
+                            </div><br>
+                              <div class="text-center w-75 m-2">
+                                <div class="form-group row mb-0">
+                                        <div class="col-md-4 offset-md-0">
+                                                <p class="text-muted mb-1">
+                                                <a class="btn btn-primary" href="{{ url('') }}">
+                                                    {{ __('Volver al inicio') }}
+                                                </a>
+                                                </p>
+                                         </div>
+                                      </div>
+                                </div>
 
                             <div class="card-body p-4">
                                 
@@ -23,6 +35,7 @@
                                     <h4 class="text-dark-50 text-center mt-0 font-weight-bold">Registrar datos personales </h4>
                                     <p class="text-muted mb-4">Sus datos personales solo seran usados para uso exclusivamente de la plataforma para su seguridad y para la comunidad</p>
                                 </div>
+
 
                                 @include('people.form')
                             </div> <!-- end card-body -->

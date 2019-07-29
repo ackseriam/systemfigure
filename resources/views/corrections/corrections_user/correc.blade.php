@@ -304,17 +304,20 @@ td {
                                                     <div class="table-container">
                                                       <table class="table table dt-responsive nowrap table-striped table-bordered table-centered mb-0" onmousedown='return false;' onselectstart="return false;">
                                                           <thead>
-                                                              <tr  > 
-                                                                  @foreach($names_campo as $campos)
+                                                              <tr> 
+                                                                   <?php $names_campos=array_filter($names_campo); ?>
+                                                                  @foreach($names_campos as $campos)
                                                                   <th>{{$campos}}</th>
 
                                                                   @endforeach
                                                                   @if($level=='0')
                                                                       @if(($rol=='admin')||($rol=='foun')||($rol=='editor')||($rol=='editor0'))   
+                                                                          <th>Usuario</th>   
                                                                           <th>Acción</th>   
                                                                         @endif  
                                                                         @else
                                                                         @if(($rol=='admin')||($rol=='foun')||($rol=='editor'))
+                                                                          <th>Usuario</th>  
                                                                          <th>Acción</th>   
                                                                         @endif
                                                                     @endif

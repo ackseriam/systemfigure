@@ -33,7 +33,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+  //  protected $redirectTo = '/home';
 
     /**
      * Create a new controller instance.
@@ -47,7 +47,27 @@ class LoginController extends Controller
  * @param  \Illuminate\Http\Request  $request
  * @return \Illuminate\Http\Response
  */
+public function showLoginForm(Request $request)
+{
+    if ($request->has('url')) {
+        session()->put('url', $request->fullUrl('url'));
+    }
 
+    return view('auth.login');
+}
+/*
+public function redirectTo(Request $request)
+{
+    if ($request->fullUrl())
+        return session()->pull('url');
+
+    return $request->fullUrl('url');
+}
+*/
+    
+  
+
+  
 
 protected function sendLoginResponse(Request $request)
 {
@@ -82,7 +102,7 @@ protected function sendLoginResponse(Request $request)
                         if(Auth::check()) // se actualizar a la bd, si es exitoso
                         {
                             
-                          return redirect()->intended($this->redirectPath());
+                            return redirect()->intended($this->redirectPath());
                         }else{
                             echo "error";
                         }
@@ -109,10 +129,12 @@ protected function sendLoginResponse(Request $request)
                 }
             }
           
-     
-        
+   
    
 }
+
+
+
 
 protected function authenticated(Request $request, $user)
     {
