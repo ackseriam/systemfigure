@@ -44,7 +44,7 @@ class CorrectionsController extends Controller
           }
 
        }
-      // dd($guias);
+    
       
     }
 

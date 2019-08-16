@@ -405,7 +405,8 @@ td {
                                                                          @endfor
                                                                          @if($level=='0')
                                                                           @if(($rol=='admin')||($rol=='foun')||($rol=='editor')||($rol=='editor0'))
-                                                                          <td>Usuario:<p class="text-title"> {{$correction->username}}</p>
+                                                                          <td>Usuario:<p class="text-title"> 
+                                                                            {{$correction->username}}</p>
                                                                         <div id="consul">
                                                                             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#full-width-modal"><i class="mdi mdi-file-search-outline "></i> </button>
 
@@ -441,30 +442,25 @@ td {
                                                                             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#full-width-modal"><i class="mdi mdi-file-search-outline "></i> </button>
 
                                                                         </div>
-
-                                                                          
                                                                            <div id="full-width-modal" class="modal fade" tabindex="3" role="dialog" aria-labelledby="primary-header-modalLabel" aria-hidden="true">
                                                                              <div class="modal-dialog modal-full-width">
                                                                             <div class="modal-content">
-                                                                              <div class="modal-header modal-colored-header bg-primary">
-                                                                              <h4 class="modal-title" id="primary-header-modalLabel">{{$guia->name}}</h4>
-                                                                               <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                                                                      <div class="modal-header modal-colored-header bg-primary">
+                                                                                             <h4 class="modal-title" id="primary-header-modalLabel">{{$guia->name}}</h4>
+                                                                                           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                                                                        </div>
+                                                                                        <div class="modal-body">
+                                                                                          <h5 class="mt-0">Fecha</h5>
+                                                                                          <p>Guia creada :{{$guia->created_at}}</p><br>
+                                                                                          <br>
+                                                                                       </div>
+                                                                                <div class="modal-footer">
+                                                                                    <button type="button" class="btn btn-light" data-dismiss="modal">Cerrar ventana</button>
                                                                                 </div>
-                                                                                <div class="modal-body">
-                                                                                  <h5 class="mt-0">Fecha</h5>
-                                                                                  <p>Guia creada :{{$guia->created_at}}</p><br>
-                                                                                
-                                                                               
-                                                                                  <br>
-                                                                        </div>
-                                                                          <div class="modal-footer">
-                                                                              <button type="button" class="btn btn-light" data-dismiss="modal">Cerrar ventana</button>
-                                                                             
-                                                                          </div>
 
-                                                                            </div><!-- /.modal-content -->
-                                                                        </div><!-- /.modal-dialog -->
-                                                                    </div><!-- /.modal -->
+                                                                              </div><!-- /.modal-content -->
+                                                                          </div><!-- /.modal-dialog -->
+                                                                      </div><!-- /.modal -->
                                                                    </td>  
                                                                     @endif
                                                                     @endif

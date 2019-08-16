@@ -386,29 +386,43 @@ class GuiasController extends Controller
        }else{
          $guias= Guias::where('level','!=','0')->where('level','!=','vpn0')->where('level','!=','vpn')->orderBy("id", "DESC")->paginate(4);
        }
+       if($level_b=='vpn0')
+          {
+             $guias= Guias::where('level',$level_b)->paginate(4);
+          }elseif($level_b=='vpn'){
+             $guias= Guias::where('level',$level_b)->paginate(4);
+          }
+
       // dd($guias);
        return view('guias.inactivo',compact('guias'),['rol'=>$rol, 'level'=>$level_b]);
     }
-
     /**
      * Remove the specified resource from storage.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-   public function destroy(Request $request,$id)
+   public function destroy(Request $request,$id,$level)
     {
         
        $guia = Guias::find($id);  
        $guia->delete();
-       $level_b=$guia->level;
-      
+         if(($level=='0')||($level=="vpn0")|| ($level=="vpn"))
+       {
+        $guias = Guias::where(['level'=> $level, 'status'=>'inactivo'])->orderBy("id", "DESC")->paginate(4);  
+      }else{
+       $guias= Guias::where('level','!=','0')->where('level','!=','vpn0')->where('level','!=','vpn')->where('status','!=','inactivo')->orderBy("id", "DESC")->paginate(4);
+      }
+
+ 
+
         $rol = roleuser($request); //se llama al helper en Helpers/role
         $user=User::find(auth()->user()->id);
         $user->status_login = 'activo';
         $user->save();
-        $guias = Guias::where(['level'=> $level_b, 'status'=>'inactivo'])->orderBy("id", "DESC")->paginate(4);
-        return view('guias.inactivo',compact('guias'),['rol'=>$rol, 'level'=>$level_b,'exito'=>'exito']);
+
+    
+        return view('guias.inactivo',compact('guias'),['rol'=>$rol, 'level'=>$level,'exito'=>'exito']);
       
       }
       public function active(Request $request,$id)

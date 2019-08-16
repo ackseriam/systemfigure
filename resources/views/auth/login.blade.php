@@ -113,6 +113,8 @@
                                                         <p class="text-muted mb-4">
                                                         <a class="btn btn-primary" href="{{ url('') }}">
                                                             {{ __('Volver al inicio') }}
+
+                                                            
                                                         </a>
                                                         </p>
                                                  </div>

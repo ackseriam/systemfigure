@@ -134,13 +134,11 @@
                                 <li>
                                     <a href="{{ url('guias/inactiva/1') }}">Guias inactivas  lvl</a>
                                 </li>
+                                <li>
+                                    <a href="{{ url('guias/inactiva/vpn') }}">Guias inactivas  VPN</a>
+                                </li>
                             </ul>
-                        </li>
-
-                       
-                       
-                     
-
+                        </li>                       
                         <li class="side-nav-title side-nav-item mt-1">Otros</li>
                          <li class="side-nav-item">
                             <a href="javascript: void(0);" class="side-nav-link">
@@ -485,6 +483,9 @@
                                 </li>
                                 <li>
                                     <a href="{{ url('guias/inactiva/1') }}">Guias inactivas  lvl</a>
+                                </li>
+                                  <li>
+                                    <a href="{{ url('guias/inactiva/vpn') }}">Guias inactivas  VPN</a>
                                 </li>
                             </ul>
                         </li>

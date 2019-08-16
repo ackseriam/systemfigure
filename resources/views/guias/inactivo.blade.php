@@ -26,7 +26,7 @@
                                 <div class="card">
                                     <div class="card-body">
                                         <div onmousedown='return false;' onselectstart="return false;">
-                                        <h4 class="header-title">Ingresa los datos de la guia para enviar la correccion</h4>
+                                        <h4 class="header-title">Elegir la guia correcta, para su actuvación o eliminación de la plataforma</h4>
                                          <p class="text-muted mb-4">Buscar los datos de la guia para </p>
 
                                         <p class="text-muted mb-3">
@@ -37,7 +37,7 @@
 								 		{{ Form::open(['url'=> 'corrections/search/0', 'method'=> 'GET', 'class' => '']) }}
                                         @else
                                         {{ Form::open(['url'=> 'corrections/search/1', 'method'=> 'GET', 'class' => '']) }}
-                                        @endif
+                                        @endif<!--
 								 		<div class="form-row align-items-center">
 
 									 		<div class="col-auto">
@@ -47,7 +47,7 @@
 									 	    <div class="col-auto">
                                                     <button type="submit" class="btn btn-primary mb-2">Buscar</button>
                                                 </div>
-								 	     </div>
+								 	     </div>-->
 								 	</div>
 								 	  {{ Form::close()}}
 								 	    <div class="col-xl-12" onmousedown='return false;' onselectstart="return false;">
@@ -76,21 +76,12 @@
                                                         <td>{{$guia->level}}</td>
                                                          <td>
                                                           <a href="/guias/active/{{$guia->id}}" class="btn btn-success" title="Activar guia">Activar <i class="mdi mdi-square-edit-outline"></i></a> 
-                                                          <a  id="delet"   class="btn btn-danger" title="Eliminar guia" >Eliminar Guia</a>
-                                                          <a href="/guias/{{$guia->id}}" class="btn btn-primary" title="Ver guia"> <i class="mdi mdi-account-search-outline"></i></a> 
+                                                          <a   id="{{$guia->id}}"   class="btn btn-danger" title="Eliminar guia" >Eliminar Guia</a>
+                                                          <a href="/guias/{{$guia->id}}"  class="btn btn-primary" title="Ver guia"> <i class="mdi mdi-account-search-outline"></i></a> 
 					                                               				      <!-- item-->
-					                                  
-					                                    <form  name="formac" action="/guias/destroy/{{$guia->id}}" method="POST" style="display: none;">
-					                                        @csrf
-					                                        <input type="hidden" name="status" value="inactive">
-					                                    </form>
-
-
-
 					                                  <script>
-					                                  	
-					                                        $('#delet').click(function(e){
-					                                            e.preventDefault();
+					                                  	 $('#<?php echo $guia->id?>').click(function(e){
+                                                               e.preventDefault();
 					                                          
 
 					                                            Swal.fire({
@@ -107,8 +98,8 @@
 					                                              
 					                                            }).then((result) => {
 					                                                if(result.value){
-					                                                    document.formac.action = '/guias/destroy/{{$guia->id}}';
-					                                                    document.formac.submit();
+                                                                         window.location.href= '/guias/destroy/{{$guia->id}}/{{$guia->level}}';
+					                                                   
 					                                                } else {
 					                                                    Swal.fire('Cancelado', 'Buena elección :)', 'error');
 					                                                }
