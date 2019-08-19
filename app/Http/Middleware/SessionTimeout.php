@@ -36,8 +36,8 @@ class SessionTimeout {
             {
             Auth::logout();
                 //return redirect('login')->with('error_in', 'error_in');
-                return redirect()->route('login', ['error_in' =>  'error_in','url' =>  url()->current() ]);
-    
+              
+                  return redirect()->route('login', ['error_in' =>  'error_in','url' =>  url()->current() ]);
              //   abort(403, 'No ha tenido actividad en los ultimos minutos');
             }
        }    

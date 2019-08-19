@@ -25,7 +25,6 @@ class LoginController extends Controller
     |
     */
 
-
     use AuthenticatesUsers;
 
     /**
@@ -47,14 +46,37 @@ class LoginController extends Controller
  * @param  \Illuminate\Http\Request  $request
  * @return \Illuminate\Http\Response
  */
+  
+
 public function showLoginForm(Request $request)
 {
     if ($request->has('url')) {
         session()->put('url', $request->fullUrl('url'));
     }
+     foreach(User::all() as $user)
+                             {
+
+                              if($user->isOnline())  {
+                                $user=User::find($user->id);
+                                 if($user->status_login=='inactivo_user'){
+                                    $user->status_login = 'inactivo_user';
+                                     $user->save();
+                                 }else{
+                                   $user=User::find($user->id);
+                                  $user->status_login = 'activo';
+                                  $user->save();
+                                 }
+                               
+                              }else{
+                                $user=User::find($user->id);
+                              $user->status_login = 'inactivo';
+                              $user->save();
+                              }
+                             }
 
     return view('auth.login');
 }
+
 /*
 public function redirectTo(Request $request)
 {
@@ -71,7 +93,9 @@ public function redirectTo(Request $request)
 
 protected function sendLoginResponse(Request $request)
 {
-
+    $this->middleware('sessiontimeout');
+        $this->middleware('auth');
+        $this->middleware('users_ac');
 
            $status=Auth::User()->status_login;
            $status_user=Auth::User()->state;
@@ -80,6 +104,26 @@ protected function sendLoginResponse(Request $request)
                      return view('auth.login',['estado'=>'estado','status'=>$status_user]);
             }else{
            $rol = roleuser($request); 
+              foreach(User::all() as $user)
+                             {
+
+                              if($user->isOnline())  {
+                                $user=User::find($user->id);
+                                 if($user->status_login=='inactivo_user'){
+                                    $user->status_login = 'inactivo_user';
+                                     $user->save();
+                                 }else{
+                                   $user=User::find($user->id);
+                                  $user->status_login = 'activo';
+                                  $user->save();
+                                 }
+                               
+                              }else{
+                                $user=User::find($user->id);
+                              $user->status_login = 'inactivo';
+                              $user->save();
+                              }
+                             }
            if($rol!='foun')
            {
            
@@ -106,6 +150,8 @@ protected function sendLoginResponse(Request $request)
                         }else{
                             echo "error";
                         }
+
+
                     }
            }else{
 
