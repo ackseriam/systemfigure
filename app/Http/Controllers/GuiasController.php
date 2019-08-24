@@ -84,7 +84,6 @@ class GuiasController extends Controller
                     $co[]='1';
                           
                 }
-
         $copia=implode(",", $co);
 
         $options =[
