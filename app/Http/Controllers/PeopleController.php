@@ -81,8 +81,7 @@ class PeopleController extends Controller
      */
     public function store(Request $request)
     {
-      if(($rol=='admin')||($rol=='foun'))
-        {
+      
           if ($request->hasFile('image_url')) {
             $file = $request->file('image_url');
              $file2 = $request->file('img_ci');
@@ -113,9 +112,7 @@ class PeopleController extends Controller
             }else{
                 return view('people.create');
             }
-       }else{
-         return redirect('home');
-       }
+     
 
         
     }
