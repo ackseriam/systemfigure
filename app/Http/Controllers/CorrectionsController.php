@@ -359,6 +359,9 @@ class CorrectionsController extends Controller
       $campos_img=explode(",",$guia->names_campo_img);
 
       $names_campo=explode(',', $guia->names_campo);
+
+
+      
           if(!empty($number_img_guia)){
           $names_campo = array_collapse([$names_campo,$campos_img]);
         }
