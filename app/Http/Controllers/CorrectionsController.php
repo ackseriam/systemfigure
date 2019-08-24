@@ -386,6 +386,7 @@ class CorrectionsController extends Controller
            if(($rol=='admin')||($rol=='foun')||($rol=='editor')||($rol=='vpnlevel')||($rol=='task')||($rol=='editor0'))
             {
 
+
                     if(!empty( $correction_search2)){
 
                     return view('corrections/corrections_user/correc',compact('correction_search2'),['level'=>$level,'yes'=>'yes','nombre_guia'=>$guia->name,'rol'=>$rol,'copiar'=>$copiar, 'id'=>$id,'number_guia'=>$number_guia,'names_campo'=>$names_campo, 'campos_img'=>$campos_img,'number_campos_img'=>  '0','guia'=>$guia,'time'=>$tiempo_envio]);

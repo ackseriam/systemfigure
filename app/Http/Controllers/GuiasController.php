@@ -72,7 +72,7 @@ class GuiasController extends Controller
         }else{
             $name=NULL;
         }
-   
+  
         $number_campos=$request->number_campos;
         $number_campos_img=$request->number_campos_img;
         $total_campos=$number_campos+$number_campos_img;
