@@ -6,9 +6,9 @@
                 <div class="slimscroll-menu">
 
                     <!-- LOGO -->
-                    <a href="index.html" class="logo text-center">
+                    <a href="{{url('home')}}" class="logo text-center">
                         <span class="logo-lg">
-                            <img src="{{ asset('images/logo2.png') }}" alt="" height="60">
+                            <img src="{{ asset('images/logo2.png') }}"  alt="" height="60">
                         </span>
                         <span class="logo-sm">
                             <img src="{{ asset('images/logo2.png') }}" alt="" height="30">
@@ -363,7 +363,7 @@
                 <div class="slimscroll-menu">
 
                     <!-- LOGO -->
-                    <a href="index.html" class="logo text-center">
+                     <a href="{{url('home')}}" class="logo text-center">
                         <span class="logo-lg">
                             <img src="{{ asset('images/logo2.png') }}" alt="" height="60">
                         </span>
@@ -721,7 +721,7 @@
                 <div class="slimscroll-menu">
 
                     <!-- LOGO -->
-                    <a href="index.html" class="logo text-center">
+                    <a href="{{url('home')}}" class="logo text-center">
                         <span class="logo-lg">
                             <img src="{{ asset('images/logo2.png') }}" alt="" height="60">
                         </span>
@@ -986,7 +986,7 @@
                 <div class="slimscroll-menu">
 
                     <!-- LOGO -->
-                    <a href="index.html" class="logo text-center">
+                     <a href="{{url('home')}}" class="logo text-center">
                         <span class="logo-lg">
                             <img src="{{ asset('images/logo2.png') }}" alt="" height="60">
                         </span>
@@ -1244,7 +1244,7 @@
                 <div class="slimscroll-menu">
 
                     <!-- LOGO -->
-                    <a href="index.html" class="logo text-center">
+                    <a href="{{url('home')}}" class="logo text-center">
                         <span class="logo-lg">
                             <img src="{{ asset('images/logo2.png') }}" alt="" height="60">
                         </span>
@@ -1515,7 +1515,7 @@
                 <div class="slimscroll-menu">
 
                     <!-- LOGO -->
-                    <a href="index.html" class="logo text-center">
+                  <a href="{{url('home')}}" class="logo text-center">
                         <span class="logo-lg">
                             <img src="{{ asset('images/logo2.png') }}" alt="" height="60">
                         </span>
@@ -1783,7 +1783,7 @@
                 <div class="slimscroll-menu">
 
                     <!-- LOGO -->
-                    <a href="index.html" class="logo text-center">
+                     <a href="{{url('home')}}" class="logo text-center">
                         <span class="logo-lg">
                             <img src="{{ asset('images/logo2.png') }}" alt="" height="60">
                         </span>
@@ -2033,7 +2033,7 @@
                 <div class="slimscroll-menu">
 
                     <!-- LOGO -->
-                    <a href="index.html" class="logo text-center">
+                      <a href="{{url('home')}}" class="logo text-center">
                         <span class="logo-lg">
                             <img src="{{ asset('images/logo2.png') }}" alt="" height="60">
                         </span>
