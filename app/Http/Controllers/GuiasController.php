@@ -223,6 +223,8 @@ class GuiasController extends Controller
         $number_campos=$guia->number_campos;
         $number_campos_img=$guia->number_campos_img;
         $total_campos=$number_campos+$number_campos_img;
+      //  var_dump($total_campos);
+       // var_dump($columna);
         if($counnt_colu==1){
               $y=0;$z=1;
            for ($i=0; $i < $total_campos; $i++) { 
@@ -244,25 +246,28 @@ class GuiasController extends Controller
 
                      for ($i=0; $i < $total_campos; $i++) { 
                     
-                   if(!empty($columna[$i])){
+                   if(!empty($columna[$y])){
                         
-                           if($columna[$i]==$z)
+                           if($columna[$y]==$z)
                            {
                             $co[]='1';
                            }else{
                             $co[]='0';
                            } 
                            
-                        }  $z++;
+                        }else{
+                           $co[]='0';
+                        } $y++; $z++;
+                        //echo "exi";
                 } 
             }
         
-             
+        //     var_dump($co);
        
        $com= implode(',', $co);
    
        $guia->copiado=$com;
-        
+        //var_dump($com);
          
 
         if($guia->save()){
