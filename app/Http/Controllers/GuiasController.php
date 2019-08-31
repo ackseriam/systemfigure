@@ -392,9 +392,9 @@ class GuiasController extends Controller
        }
        if($level_b=='vpn0')
           {
-             $guias= Guias::where('level',$level_b)->paginate(4);
+             $guias= Guias::where('level',$level_b)->where('status','inactivo')->paginate(4);
           }elseif($level_b=='vpn'){
-             $guias= Guias::where('level',$level_b)->paginate(4);
+             $guias= Guias::where('level',$level_b)->where('status','inactivo')->paginate(4);
           }
 
       // dd($guias);

@@ -466,7 +466,7 @@
                                 </li>
                                    <li>
                                          <a href="{{ url('corrections/index_vpn/vpn') }}">Guias y Correcciones VPN lvl</a>
-                                        </li>
+                                   </li>
                                     
                                 </li>
                             </ul>
@@ -1027,7 +1027,9 @@
                                 <li>
                                     <a href="{{ url('corrections/index/1') }}">Guias y correcciones  lvl</a>
                                 </li>
-                                   
+                                  <li>
+                                         <a href="{{ url('corrections/index_vpn/vpn') }}">Guias y Correcciones VPN lvl</a>
+                                   </li>  
                                     
                         </li>
                             </ul>

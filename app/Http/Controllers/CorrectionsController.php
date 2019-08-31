@@ -51,7 +51,7 @@ class CorrectionsController extends Controller
     public function index_vpn( $level_b, Request $request)
     {
         $rol = roleuser($request); //se llama al helper en Helpers/role
-        if(($rol=='admin')||($rol=='foun')||($rol=='editor')||($rol=='vpnlevel'))
+        if(($rol=='admin')||($rol=='foun')||($rol=='editor')||($rol=='vpnlevel')||($rol=='editor0'))
          {
             $user=User::find(auth()->user()->id);
             $user->status_login = 'activo';
@@ -61,9 +61,9 @@ class CorrectionsController extends Controller
             $user->save();  
           if($level_b=='vpn0')
           {
-             $guias= Guias::where('level',$level_b)->paginate(4);
+             $guias= Guias::where('level',$level_b)->where('status','activo')->orderBy("id", "DESC")->paginate(4);
           }elseif($level_b=='vpn'){
-             $guias= Guias::where('level',$level_b)->paginate(4);
+             $guias= Guias::where('level',$level_b)->where('status','activo')->orderBy("id", "DESC")->paginate(4);
           }elseif(($level_b!="vpn0")|| ($level_b!="vpn")){
 
             $guias=  Guias::where('level','0')->where('status','activo')->orderBy("id", "DESC")->get();
