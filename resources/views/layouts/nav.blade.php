@@ -80,9 +80,9 @@
                                 <li>
                                     <a href="{{ url('people/aprobacion') }}">Lista de personas por aprobación @if($person!=0)<span class="badge badge-danger float-right">{{$person}}@endif </a>
                                 </li>
-                                <li>
+                               <!-- <li>
                                     <a href="{{ url('people/search') }}">Buscar persona</a>
-                                </li>   
+                                </li> -->  
                             </ul>
                         </li>
 
@@ -429,9 +429,9 @@
                                 <li>
                                     <a href="{{ url('people/aprobacion') }}">Lista de personas por aprobación</a>
                                 </li>
-                                <li>
+                                <!-- <li>
                                     <a href="{{ url('people/search') }}">Buscar persona</a>
-                                </li>   
+                                </li> --> 
                             </ul>
                         </li>
 

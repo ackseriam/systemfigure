@@ -282,12 +282,16 @@ llamando al metodo especificado en el controlador y se especifica el $product->i
 </div>
 <br>
 <div>
-    {!! Form::label('image_url','Subir foto de nota con la cedula') !!}
+     {!! Form::label('link','Indicaciones de como debe ser la fotografia y la imagen de la cedula:') !!} 
+    <!-- Top modal -->
+    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#multiple1">Info</button> <br><br>
+    {!! Form::label('image_url','Subir foto de nota con la cedula') !!}<br>
     {!! Form::file('image_url', $attributes = array(),['class'=> 'form-control',"required"]) !!}
+    
 </div>
 <br>
 <div>
-    {!! Form::label('img_ci','Subir imagen de la cedula') !!}
+    {!! Form::label('img_ci','Subir imagen de la cedula') !!}<br>
     {!! Form::file('img_ci', $attributes = array()) !!}
 </div>
 
@@ -309,6 +313,61 @@ llamando al metodo especificado en el controlador y se especifica el $product->i
 {!! Form::close() !!}
     <div class="card">
     <div class="card-body">
+        <!-- Modal -->
+        <div id="multiple1" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="multiple-oneModalLabel" aria-hidden="true">
+
+         
+   
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="multiple-oneModalLabel">Fotografia con la nota y cedula en mano</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    </div>
+                    <div class="modal-body">
+                          <i class="dripicons-information h1 text-info"></i>
+                        <h5 class="mt-0">Foto de la nota con la cedula y nota </h5>
+                        <p> Tome una fotografia con su rostro y una nota que diga FIGURE EIGHT TASK con la cedula legible tal y como se muestra en la imagen
+                        </p>
+                    </div>
+                     <a href="javascript: void(0);" class="text-center d-block mb-4">
+                      <img src="{{ asset('images/cedula_foto.png')}}" class="img-fluid" style="max-width: 200px;" alt="No existe imagen de guia" />
+                     </a>    
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-target="#multiple2" data-toggle="modal" data-dismiss="modal">Siguiente paso</button>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+
+        
+
+        <!-- Modal -->
+        <div id="multiple2" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="multiple-twoModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                       <h4 class="modal-title" id="multiple-oneModalLabel">Foto de la cedula de identidad</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    </div>
+                   <div class="modal-body">
+                          <i class="dripicons-information h1 text-info"></i>
+                        <h5 class="mt-0">Cedula de identidad</h5>
+                        <p>Suba la imagen de la cedula debidamente escaneada, tal como el ejemplo</p>
+                         <a href="javascript: void(0);" class="text-center d-block mb-4">
+                      <img src="{{ asset('images/cedula.jpg')}}" class="img-fluid" style="max-width: 450px;" alt="No existe imagen de guia" />
+                     </a> 
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+
+
+
+
         <!-- Modal -->
         <div id="multiple-one" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="multiple-oneModalLabel" aria-hidden="true">
 
@@ -335,6 +394,8 @@ llamando al metodo especificado en el controlador y se especifica el $product->i
                 </div><!-- /.modal-content -->
             </div><!-- /.modal-dialog -->
         </div><!-- /.modal -->
+
+
 
         <!-- Modal -->
         <div id="multiple-two" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="multiple-twoModalLabel" aria-hidden="true">

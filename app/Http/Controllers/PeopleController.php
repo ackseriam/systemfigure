@@ -45,23 +45,67 @@ class PeopleController extends Controller
 
     public function index(Request $request)
     {
-
-        $rol = roleuser($request); //se llama al helper en Helpers/role
-        if(($rol=='admin')||($rol=='foun'))
+    $rol = roleuser($request); //se llama al helper en Helpers/role
+      if(($rol=='admin')||($rol=='foun'))
         {
-            $user=User::find(auth()->user()->id);
+          
+        $rol = roleuser($request); //se llama al helper en Helpers/role
+        $user=User::find(auth()->user()->id);
         $user->status_login = 'activo';
-        $user->save(); 
-        $people = Person::all();
-        $rol = roleuser($request); 
-        $people_contr="people";
-  
-        return view('people.index',['rol'=>$rol,'people'=>$people]);
-    }else{
+        $user->save();  
+        
+        $name = $request->get('name');
+        $surname = $request->get('surname');
+        $nacionality = $request->get('nacionality');
+        $address = $request->get('address');
+        $ci = $request->get('ci');
+
+        $people= Person::orderBy("id", "DESC")
+        ->name($name)
+        ->surname($surname)
+        ->nacionality($nacionality)
+        ->address($address)
+        ->ci($ci)
+
+        ->paginate(4);
+        return view('people.search',compact('people'),['rol'=>$rol]);
+     }else{
         return redirect('home');
-    }
+     }
         
     }
+
+     public function search(Request $request)
+    {
+        $rol = roleuser($request); //se llama al helper en Helpers/role
+      if(($rol=='admin')||($rol=='foun'))
+        {
+          
+        $rol = roleuser($request); //se llama al helper en Helpers/role
+        $user=User::find(auth()->user()->id);
+        $user->status_login = 'activo';
+        $user->save();  
+        
+        $name = $request->get('name');
+        $surname = $request->get('surname');
+        $nacionality = $request->get('nacionality');
+        $address = $request->get('address');
+        $ci = $request->get('ci');
+
+        $people= Person::orderBy("id", "DESC")
+        ->name($name)
+        ->surname($surname)
+        ->nacionality($nacionality)
+        ->address($address)
+        ->ci($ci)
+
+        ->paginate(4);
+        return view('people.search',compact('people'),['rol'=>$rol]);
+     }else{
+        return redirect('home');
+     }
+    }
+    
 
     /**
      * Show the form for creating a new resource.
@@ -152,37 +196,7 @@ class PeopleController extends Controller
 
     }
 
-    public function search(Request $request)
-    {
-        $rol = roleuser($request); //se llama al helper en Helpers/role
-      if(($rol=='admin')||($rol=='foun'))
-        {
-          
-        $rol = roleuser($request); //se llama al helper en Helpers/role
-        $user=User::find(auth()->user()->id);
-        $user->status_login = 'activo';
-        $user->save();  
-        
-        $name = $request->get('name');
-        $surname = $request->get('surname');
-        $nacionality = $request->get('nacionality');
-        $address = $request->get('address');
-        $ci = $request->get('ci');
-
-        $people= Person::orderBy("id", "DESC")
-        ->name($name)
-        ->surname($surname)
-        ->nacionality($nacionality)
-        ->address($address)
-        ->ci($ci)
-
-        ->paginate(4);
-        return view('people.search',compact('people'),['rol'=>$rol]);
-     }else{
-        return redirect('home');
-     }
-    }
-    
+   
 
     /**
      * Show the form for editing the specified resource.

@@ -79,10 +79,7 @@
                                                         <td>{{$person->surname}}</td>
                                                         <td>{{$person->nacionality}}</td>
                                                         <td>{{$person->address}}</td>
-                                                        <td class="table-action">
-                                                            <a href="/people/edit/{{$person->id}}" class="action-icon" title="Editar"> <i class="mdi mdi-pencil"></i></a>
-                                                            <a href="/people/{{$person->id}}" class="action-icon" title="Buscar"> <i class="mdi mdi-account-search-outline"></i></a>
-                                                        </td>
+                                                        <th> <a href="/people/{{$person->id}}" class="btn btn-primary" title="Ver persona"><i class="mdi mdi-account-search-outline"></i></a> <a href="/people/edit/{{$person->id}}" class="btn btn-success" title="Editar Persona"><i class="mdi mdi-square-edit-outline"></i></a></th>
                                                     </tr>
                                                     @endforeach
                                                 </tbody>

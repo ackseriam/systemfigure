@@ -62,7 +62,7 @@
         <!-- end page -->
 
         <footer class="footer footer-alt">
-           2019 © Figure Taskeros
+           2019 © Figure Eight Task
         </footer>
 
         <!-- App js -->
