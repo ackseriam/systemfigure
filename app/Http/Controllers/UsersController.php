@@ -227,11 +227,14 @@ class UsersController extends Controller
             $user->status_login = 'activo';
             $user->save(); 
             $usuario= User::find($id);
+
             $people_id=$usuario->people_id;
             $people=  Person::where('id',$people_id)->first();
                 $role = Role::where('name',$rol)->first();
-
-           return view('users.edit_profile',['role'=>$role,'rol'=>$rol,'people'=>$people,'people_id'=>$people_id, 'usuario'=> $usuario]);
+         //   var_dump($usuario);
+            $img_profile=$usuario->img_profile;
+         //   var_dump($img_profile);
+           return view('users.edit_profile',['img_profile'=> $img_profile,'role'=>$role,'rol'=>$rol,'people'=>$people,'people_id'=>$people_id, 'usuario'=> $usuario]);
          
      }
 
@@ -261,8 +264,7 @@ class UsersController extends Controller
     public function update_profile(Request $request,$id)
     {
         $rol = roleuser($request); //se llama al helper en Helpers/role
-        if(($rol=='admin')||($rol=='foun'))
-        {
+       
         $user=User::find(auth()->user()->id);
         $user->status_login = 'activo';
         $user->save(); 
@@ -275,12 +277,25 @@ class UsersController extends Controller
         $usuario->password= Hash::make($request->password);  
         else
           $usuario->password=  $usuario->password; 
-        if($usuario->save()){
-            return view('users.edit_profile',['role'=>$role,'rol'=>$rol,'people'=>$people,'people_id'=>$people_id, 'usuario'=> $usuario]);
-        } 
+      
+            
+    
+        if ($request->hasFile('img')) {
+        $file = $request->file('img');
+       
+        $name = time().$file->getClientOriginalName(); 
+        $file->move(public_path().'/images/', $name);
+
+
+          $usuario->img_profile= $name;  
         }else{
-            return redirect('home');
+            $usuario->img_profile= $usuario->img_profile; 
+        }
+
+        if($usuario->save()){
+            return view('users.edit_profile',['img_profile'=>$usuario->img_profile,'role'=>$role,'rol'=>$rol,'people'=>$people,'people_id'=>$people_id, 'usuario'=> $usuario]);
         } 
+       
 
     
     }

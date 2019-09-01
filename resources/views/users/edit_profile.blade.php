@@ -29,7 +29,13 @@
                                         <div class="row">
                                             <div class="col-sm-8">
                                                 <div class="media">
+                                                
+                                                    @if(!empty($img_profile))
+                                                        <span class="float-left m-2 mr-4"><img src="{{ asset('images/')}}/{{$img_profile}}"
+                                                         style="height: 100px;" alt="" class="rounded-circle img-thumbnail"></span>
+                                                    @else
                                                     <span class="float-left m-2 mr-4"><img src="{{ asset('images/logo2.png') }}" style="height: 100px;" alt="" class="rounded-circle img-thumbnail"></span>
+                                                    @endif
                                                     <div class="media-body">
 
                                                         <h4 class="mt-1 mb-1 text-white">{{$people->name}} {{$people->surname}}</h4>
@@ -96,14 +102,6 @@
                  
                                       
              
-<script>
-    var vue = new Vue({
-  el:"#ap",
-  data: {
-    isShowing:false,
-  
-  },
-})
-</script>
+
 @include('layouts.footer')
 

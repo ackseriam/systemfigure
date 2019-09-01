@@ -36,6 +36,8 @@
 
 									 		<div class="col-auto">
 									 	    	{{Form::text('name', null, ['class'=> 'form-control mb-2', 'placeholder' => 'Nombre de la persona'])}}
+
+                                                <?php   ?>
 									 	   </div>
                                            <div class="col-auto">
                                                 {{Form::text('surname', null, ['class'=> 'form-control mb-2', 'placeholder' => 'Apellido de la persona'])}}

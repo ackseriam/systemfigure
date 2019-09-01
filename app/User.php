@@ -78,6 +78,7 @@ public function user_status(){
      * The attributes that are mass assignable.
      *
      * @var array
+     
      */
     protected $fillable = [
         'username', 'email', 'password', 'ip','mac', 'status_login','people_id','state'

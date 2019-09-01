@@ -95,9 +95,17 @@
 
                                                         <div class="timeline-item-info">
                                                               <div class="media">
-                                                                <img class="mr-3 rounded-circle" src="{{ asset('images/users/avatar-2.jpg')}}" width="40" alt="Generic placeholder image">
+                                                                 <?php $i=0; $j=0;?>  
+
+                                                                  @if(!empty($user[$i]->img_profile))
+                                                                 
+                                                                          <img class="mr-3 rounded-circle" src="{{ asset('images/')}}/{{$user[$i]->img_profile}}" width="40" alt="Generic placeholder image">
+                                                                    @else
+                                                                    <img class="mr-3 rounded-circle" src="{{ asset('images/logo2.png')}}" width="40" alt="Generic placeholder image">
+                                                                    @endif
+                                                               
                                                                 <div class="media-body">
-                                                                  <?php $i=0; $j=0;?>  
+                                                                 
                                                                     <h5 class="mt-0 mb-1">{{$user[$i]->name}} {{$user[$i]->surname}} 
                                                                           <?php
                                                                     $roles = DB::table('roles')
@@ -129,7 +137,13 @@
                                                              <i class="mdi mdi-airplane bg-primary-lighten text-primary timeline-icon"></i>
                                                         <div class="timeline-item-info">
                                                              <div class="media">
-                                                                <img class="mr-3 rounded-circle" src="{{ asset('images/users/avatar-2.jpg')}}" width="40" alt="Generic placeholder image">
+                                                                @if(!empty($useri->img_profile))
+                                                                 
+                                                                          <img class="mr-3 rounded-circle" src="{{ asset('images/')}}/{{$useri->img_profile}}" width="40" alt="Generic placeholder image">
+                                                                    @else
+                                                                    <img class="mr-3 rounded-circle" src="{{ asset('images/logo2.png')}}" width="40" alt="Generic placeholder image">
+                                                                    @endif
+                                                               
                                                                 <div class="media-body">
                                                                     
                                                                     <h5 class="mt-0 mb-1">{{$useri->name}} {{$useri->surname}}

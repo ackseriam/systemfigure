@@ -331,7 +331,7 @@ llamando al metodo especificado en el controlador y se especifica el $product->i
                         </p>
                     </div>
                      <a href="javascript: void(0);" class="text-center d-block mb-4">
-                      <img src="{{ asset('images/cedula_foto.png')}}" class="img-fluid" style="max-width: 200px;" alt="No existe imagen de guia" />
+                      <img src="{{ asset('images/cedula_foto.png')}}" class="img-fluid" style="max-width: 200                           px;" alt="No existe imagen de guia" />
                      </a>    
                     <div class="modal-footer">
                         <button type="button" class="btn btn-primary" data-target="#multiple2" data-toggle="modal" data-dismiss="modal">Siguiente paso</button>

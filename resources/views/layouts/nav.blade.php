@@ -279,9 +279,16 @@
                             <li class="dropdown notification-list">
                                 <a class="nav-link dropdown-toggle nav-user arrow-none mr-0" data-toggle="dropdown" href="#" role="button" aria-haspopup="false"
                                     aria-expanded="false">
+                                      @if(!empty(Auth::user()->img_profile))
+                                    <span class="account-user-avatar"> 
+                                        <img src="{{ asset('images/')}}/{{ Auth::user()->img_profile }}" alt="user-image" class="rounded-circle">                  
+                                    </span>
+                                    @else
                                     <span class="account-user-avatar"> 
                                         <img src="{{ asset('images/logo2.png') }}" alt="user-image" class="rounded-circle">
+
                                     </span>
+                                    @endif
                                     <span>
                                         <span class="account-user-name"> {{ Auth::user()->username }} </span>
                                         <span class="account-position">Fundador</span>
@@ -633,9 +640,16 @@
                             <li class="dropdown notification-list">
                                 <a class="nav-link dropdown-toggle nav-user arrow-none mr-0" data-toggle="dropdown" href="#" role="button" aria-haspopup="false"
                                     aria-expanded="false">
-                                   <span class="account-user-avatar"> 
-                                        <img src="{{ asset('images/logo2.png') }}" alt="user-image" class="rounded-circle">
+                                  @if(!empty(Auth::user()->img_profile))
+                                    <span class="account-user-avatar"> 
+                                        <img src="{{ asset('images/')}}/{{ Auth::user()->img_profile }}" alt="user-image" class="rounded-circle">                  
                                     </span>
+                                    @else
+                                    <span class="account-user-avatar"> 
+                                        <img src="{{ asset('images/logo2.png') }}" alt="user-image" class="rounded-circle">
+
+                                    </span>
+                                    @endif
                                     <span>
                                         <span class="account-user-name"> {{ Auth::user()->username }} </span>
                                         <span class="account-position">Administrador</span>
@@ -888,9 +902,16 @@
                             <li class="dropdown notification-list">
                                 <a class="nav-link dropdown-toggle nav-user arrow-none mr-0" data-toggle="dropdown" href="#" role="button" aria-haspopup="false"
                                     aria-expanded="false">
-                                   <span class="account-user-avatar"> 
-                                        <img src="{{ asset('images/logo2.png') }}" alt="user-image" class="rounded-circle">
+                                   @if(!empty(Auth::user()->img_profile))
+                                    <span class="account-user-avatar"> 
+                                        <img src="{{ asset('images/')}}/{{ Auth::user()->img_profile }}" alt="user-image" class="rounded-circle">                  
                                     </span>
+                                    @else
+                                    <span class="account-user-avatar"> 
+                                        <img src="{{ asset('images/logo2.png') }}" alt="user-image" class="rounded-circle">
+
+                                    </span>
+                                    @endif
                                     <span>
                                         <span class="account-user-name"> {{ Auth::user()->username }} </span>
                                         <span class="account-position">Editor</span>
@@ -1149,9 +1170,16 @@
                             <li class="dropdown notification-list">
                                 <a class="nav-link dropdown-toggle nav-user arrow-none mr-0" data-toggle="dropdown" href="#" role="button" aria-haspopup="false"
                                     aria-expanded="false">
-                                   <span class="account-user-avatar"> 
-                                        <img src="{{ asset('images/logo2.png') }}" alt="user-image" class="rounded-circle">
+                                  @if(!empty(Auth::user()->img_profile))
+                                    <span class="account-user-avatar"> 
+                                        <img src="{{ asset('images/')}}/{{ Auth::user()->img_profile }}" alt="user-image" class="rounded-circle">                  
                                     </span>
+                                    @else
+                                    <span class="account-user-avatar"> 
+                                        <img src="{{ asset('images/logo2.png') }}" alt="user-image" class="rounded-circle">
+
+                                    </span>
+                                    @endif
                                     <span>
                                         <span class="account-user-name"> {{ Auth::user()->username }} </span>
                                         <span class="account-position">Editorlvl0</span>
@@ -1419,9 +1447,16 @@
                             <li class="dropdown notification-list">
                                 <a class="nav-link dropdown-toggle nav-user arrow-none mr-0" data-toggle="dropdown" href="#" role="button" aria-haspopup="false"
                                     aria-expanded="false">
+                                   @if(!empty(Auth::user()->img_profile))
+                                    <span class="account-user-avatar"> 
+                                        <img src="{{ asset('images/')}}/{{ Auth::user()->img_profile }}" alt="user-image" class="rounded-circle">                  
+                                    </span>
+                                    @else
                                     <span class="account-user-avatar"> 
                                         <img src="{{ asset('images/logo2.png') }}" alt="user-image" class="rounded-circle">
+
                                     </span>
+                                    @endif
                                     <span>
                                         <span class="account-user-name"> {{ Auth::user()->username }} </span>
                                         <span class="account-position">Taskero level</span>
@@ -1690,9 +1725,16 @@
                             <li class="dropdown notification-list">
                                 <a class="nav-link dropdown-toggle nav-user arrow-none mr-0" data-toggle="dropdown" href="#" role="button" aria-haspopup="false"
                                     aria-expanded="false">
-                                    <span class="account-user-avatar"> 
-                                        <img src="{{ asset('images/logo2.png') }}" alt="user-image" class="rounded-circle">
-                                    </span>                                    <span>
+                                     @if(!empty(Auth::user()->img_profile))
+                                        <span class="account-user-avatar"> 
+                                            <img src="{{ asset('images/')}}/{{ Auth::user()->img_profile }}" alt="user-image" class="rounded-circle">                  
+                                        </span>
+                                        @else
+                                        <span class="account-user-avatar"> 
+                                            <img src="{{ asset('images/logo2.png') }}" alt="user-image" class="rounded-circle">
+
+                                        </span>
+                                        @endif                                  <span>
                                         <span class="account-user-name"> {{ Auth::user()->username }} </span>
                                         <span class="account-position">Taskero Level / VPN</span>
                                     </span>
@@ -1953,9 +1995,16 @@
                             <li class="dropdown notification-list">
                                 <a class="nav-link dropdown-toggle nav-user arrow-none mr-0" data-toggle="dropdown" href="#" role="button" aria-haspopup="false"
                                     aria-expanded="false">
+                                     @if(!empty(Auth::user()->img_profile))
+                                    <span class="account-user-avatar"> 
+                                        <img src="{{ asset('images/')}}/{{ Auth::user()->img_profile }}" alt="user-image" class="rounded-circle">                  
+                                    </span>
+                                    @else
                                     <span class="account-user-avatar"> 
                                         <img src="{{ asset('images/logo2.png') }}" alt="user-image" class="rounded-circle">
+
                                     </span>
+                                    @endif
                                     <span>
                                         <span class="account-user-name"> {{ Auth::user()->username }} </span>
                                         <span class="account-position">Taskero level 0</span>
@@ -2146,9 +2195,17 @@
                             <li class="dropdown notification-list">
                                 <a class="nav-link dropdown-toggle nav-user arrow-none mr-0" data-toggle="dropdown" href="#" role="button" aria-haspopup="false"
                                     aria-expanded="false">
-                                     <span class="account-user-avatar"> 
-                                        <img src="{{ asset('images/logo2.png') }}" alt="user-image" class="rounded-circle">
+                                    @if(!empty(Auth::user()->img_profile))
+                                    <span class="account-user-avatar"> 
+                                        <img src="{{ asset('images/')}}/{{ Auth::user()->img_profile }}" alt="user-image" class="rounded-circle">                  
                                     </span>
+                                    @else
+                                    <span class="account-user-avatar"> 
+                                        <img src="{{ asset('images/logo2.png') }}" alt="user-image" class="rounded-circle">
+
+                                    </span>
+                                    @endif
+                                    
                                     <span>
                                         <span class="account-user-name"> {{ Auth::user()->username }} </span>
                                         <span class="account-position">Comprador</span>

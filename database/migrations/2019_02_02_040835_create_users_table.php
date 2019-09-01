@@ -22,6 +22,7 @@ class CreateUsersTable extends Migration
             $table->string('ip');
             $table->string('mac');
             $table->string('state');
+            $table->string('img_profile')->nullable();
             $table->integer('people_id')->unsigned()->nullable();
             $table->foreign('people_id')->references('id')->on('people')->onDelete('set null');
             $table->rememberToken();
