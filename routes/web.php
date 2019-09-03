@@ -49,6 +49,9 @@ Route::get('guias/search_vpn0', 'GuiasController@search_vpn0')->name('search_gui
 
 Route::get('guias/getImport', 'GuiasController@getImport');
 Route::post('guias/import', 'GuiasController@import')->name('import');
+
+ 	
+
 Route::get('guias/copiado/{a}', 'GuiasController@copiado');
 Route::get('guias/index/{a}', 'GuiasController@index');
 Route::get('guias/search/', 'GuiasController@search')->name('search_guias');
@@ -86,3 +89,9 @@ Route::put('/users/update_info/{a}','UsersController@update_info');
 
 Route::put('users/update_profile/{a}', 'UsersController@update_profile');
 Route::get('people/destroy/{a}', 'PeopleController@destroy');
+
+	
+Route::get('export/{a}', 'ExceleController@index');
+
+//Route::get('export', 'ExcelController');
+//Route::get('export', 'ExcelController@export');

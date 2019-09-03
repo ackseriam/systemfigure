@@ -9,8 +9,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Imports\ImportUsers;
 use App\Http\Requests;
-//use Maatwebsite\Excel\Facades\Excel;
-use Excel;
+use Maatwebsite\Excel\Facades\Excel;
+
+//use Excel;
 use Carbon\Carbon;
 use Input;
 class GuiasController extends Controller
@@ -478,6 +479,8 @@ class GuiasController extends Controller
      return view('guias.import',['rol'=>$rol]);
      }
 
+
+
      public function import(Request $request)
     {
                 ini_set('max_execution_time', 600);
@@ -527,7 +530,9 @@ class GuiasController extends Controller
    
     
     }
-       
+
+
+
 
 
         public function multi(Request $request, $id)

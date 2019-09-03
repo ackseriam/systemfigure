@@ -555,25 +555,51 @@ td {
                                               
                                                @if($level=='0')
                                                @if(($rol=='admin')||($rol=='foun')||($rol=='editor')||($rol=='editor0'))  
-                                                    <div class="col-lg-2">   
-                                                       <label>Ingresar columna para realizar multi</label>
-                                                             {{ Form::open(['url' => '/guias/multi/'.$guia->id.'/','method'=> 'GET', 'class' => '']) }}
-                                                       <input type="text" name="multi" placeholder="Columna a realizar el multi" class="form-control" required><br>
-                                                       <button class="btn btn-success" type="submit">Descargar multi</button> 
-                                                            {{ Form::close()}}
+                                                    
+                                                    <div class="col-lg-6">   
+                                                     <div class="row">
+
+                                                           <div class="col-lg-3">
+                                                              <label>Ingresar columna para realizar multi</label>
+                                                                 {{ Form::open(['url' => '/guias/multi/'.$guia->id.'/','method'=> 'GET', 'class' => '']) }}
+                                                           <input type="text" name="multi" placeholder="Columna a realizar el multi" class="form-control" required><br>
+                                                           <button class="btn btn-success" type="submit">Descargar multi</button> 
+                                                                {{ Form::close()}}
+                                                           </div>
+                                                           @if(($rol=='admin')||($rol=='foun'))
+                                                            <div class="col-lg-3" >   
+                                                               <label>Exportar guia completa</label><br>
+                                                               <a href="/export/{{$guia->id}}" title="Exportar guia"  class="btn btn-primary" data-toggle="modal" target="_blank"><i class=" mdi mdi-square-edit-outline "></i> </a>
+                                                          </div>   
+                                                          @endif
+                                                     </div>
+
+                                                       
                                                     </div>
                                                 @endif
                                                 @else
                                                    @if(($rol=='admin')||($rol=='foun')||($rol=='editor'))
-                                                           <div class="col-lg-2">   
+                                                   <div class="col-lg-6">   
+                                                     <div class="row">
+                                                       <div class="col-lg-3">   
                                                            <label>Ingresar columna para realizar multi</label>
                                                                  {{ Form::open(['url' => '/guias/multi/'.$guia->id.'/','method'=> 'GET', 'class' => '']) }}
                                                            <input type="text" name="multi" placeholder="Columna a realizar el multi" class="form-control" required><br>
                                                            <button class="btn btn-success" type="submit">Descargar multi</button> 
                                                                 {{ Form::close()}}
                                                         </div>
+                                                          @if(($rol=='admin')||($rol=='foun'))
+                                                            <div class="col-lg-3" >   
+                                                               <label>Exportar guia completa</label><br>
+                                                               <a href="/export/{{$guia->id}}" title="Exportar guia"  class="btn btn-primary" data-toggle="modal" target="_blank"><i class=" mdi mdi-square-edit-outline "></i> </a>
+                                                          </div>   
+                                                          @endif
+                                                        </div>
+                                                      </div>
                                                 @endif
                                                 @endif
+                                                  
+                                                  
                                           </div> <!-- end card -->
                                       </div><!-- end col-->
                                   

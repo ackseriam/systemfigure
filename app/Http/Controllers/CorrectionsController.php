@@ -379,6 +379,7 @@ class CorrectionsController extends Controller
               }else{
                 $correction_user = array('' );
                  return view('corrections/corrections_user/correc',['level'=>$level,'yes'=>'yes','nombre_guia'=>$guia->name,'copiar'=>$copiar,'correction_search2'=>$correction_search2,'rol'=>$rol, 'id'=>$id,'number_guia'=>$number_guia,'names_campo'=>$names_campo, 'campos_img'=>$campos_img,'number_campos_img'=>  '0','guia'=>$guia,'time'=>$tiempo_envio]);
+              
               }
            }else{
             return redirect('home');
