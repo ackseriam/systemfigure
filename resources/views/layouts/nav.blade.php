@@ -149,7 +149,7 @@
                             <ul class="side-nav-second-level" aria-expanded="false">
                       
                                 <li>
-                                    <a href="{{url('register/edit') }}">Cambiar el status del registro</a>
+                                    <a href="{{url('registers/edit/1') }}">Cambiar el status del registro</a>
                                 </li>   
                             </ul>
                         </li>
@@ -514,6 +514,19 @@
                      
 
                         <li class="side-nav-title side-nav-item mt-1">Otros</li>
+                          <li class="side-nav-item">
+                            <a href="javascript: void(0);" class="side-nav-link">
+                                <i class="dripicons-browser"></i>
+                                <span> Acciones para el registro</span>
+                                <span class="menu-arrow"></span>
+                            </a>
+                            <ul class="side-nav-second-level" aria-expanded="false">
+                      
+                                <li>
+                                    <a href="{{url('registers/edit/1') }}">Cambiar el status del registro</a>
+                                </li>   
+                            </ul>
+                        </li>
                          <li class="side-nav-item">
                             <a href="javascript: void(0);" class="side-nav-link">
                                 <i class="dripicons-browser"></i>
