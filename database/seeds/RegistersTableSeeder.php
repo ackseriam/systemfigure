@@ -16,3 +16,4 @@ class RegistersTableSeeder extends Seeder
         $register->save();    
     }
 }
+	

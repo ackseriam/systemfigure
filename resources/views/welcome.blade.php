@@ -79,8 +79,10 @@
                                          <?php
                                 
                                             $registers = DB::table('registers')->get();
-                                            $register=$registers->last();                                 
+                                            $register=$registers->last();
+
                                     ?>
+                                 
                                     @if($register->status=="si")
                                          @if (Route::has('register'))
                                                         <a href="{{ route('people.create') }}">Registro de Personas</a>
@@ -88,6 +90,7 @@
                                                 @endauth
                                         @endif   
                                     @else
+                                  
                                     @endif    
                                     </div>
                             </ul>

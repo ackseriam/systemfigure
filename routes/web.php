@@ -93,5 +93,9 @@ Route::get('people/destroy/{a}', 'PeopleController@destroy');
 	
 Route::get('export/{a}', 'ExceleController@index');
 
+Route::resource('registers','RegistersController');
+Route::get('registers/edit/{a}', 'RegistersController@edit');
+Route::put('registers/update/{a}', 'RegistersController@update');
+
 //Route::get('export', 'ExcelController');
 //Route::get('export', 'ExcelController@export');

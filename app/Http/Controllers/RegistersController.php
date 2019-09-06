@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\User;
 use App\Register;
 use App\User;
 use Illuminate\Support\Facades\Auth;
@@ -55,7 +54,8 @@ class RegistersController extends Controller
      */
     public function show($id)
     {
-        //
+      
+
     }
 
     /**
@@ -64,9 +64,22 @@ class RegistersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($id, Request $request)
     {
-        //
+       $rol = roleuser($request); //se llama al helper en Helpers/role
+         if(($rol=='admin')||($rol=='foun'))
+        {
+            $user=User::find(auth()->user()->id);
+            $user->status_login = 'activo';
+            $user->save(); 
+        $user=User::find(auth()->user()->id);
+        $user->status_login = 'activo';
+        $user->save(); 
+         $register=Register::find($id);
+        return view('registers.register',['role'=>$rol,'rol'=>$rol,'register'=> $register]);
+        }else{
+        return redirect('home');
+       }
     }
 
     /**
@@ -82,14 +95,11 @@ class RegistersController extends Controller
        if(($rol=='admin')||($rol=='foun'))
         {
           $register=Register::find($id);
-          $register->status= 'si';
-          $register->save();
-        if($request->ajax()){
-
-            $datos=$request->input('datos');
-            $id= $datos['id'];
-          User::find($id)->update($request->all());
-             return;
+          $register->status= $request->status;
+          
+        if($register->save()){
+             return view('registers.register',['role'=>$rol,'rol'=>$rol,'register'=> $register,'exito'=>'exito']);
+         
 
         }
          }else{
