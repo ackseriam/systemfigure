@@ -76,12 +76,19 @@
                                             <a href="{{ url('/home') }}"><span class="text-muted mt-3">Home</span></a>
                                         @else
                                             <a href="{{ route('login') }}">Iniciar Sesion</a>
-
+                                         <?php
+                                
+                                            $registers = DB::table('registers')->get();
+                                            $register=$registers->last();                                 
+                                    ?>
+                                    @if($register->status=="si")
                                          @if (Route::has('register'))
                                                         <a href="{{ route('people.create') }}">Registro de Personas</a>
                                                     @endif
                                                 @endauth
-                                        @endif       
+                                        @endif   
+                                    @else
+                                    @endif    
                                     </div>
                             </ul>
                         </div>

@@ -42,6 +42,7 @@ class UsersController extends Controller
         ]);
     }
 
+
     public function index(Request $request)
     {
         $rol = roleuser($request); //se llama al helper en Helpers/role

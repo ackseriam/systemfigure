@@ -83,6 +83,7 @@ class RegisterController extends Controller
         en la siguiente linea se llama a la funcion authoraizeRole que esta en 
         el modelo User y 
          */
+        //Soe
         $request->user()->authoraizeRole(['admin','foun']);
        
        $id=  $request->input("a");
@@ -99,15 +100,18 @@ class RegisterController extends Controller
                0, $name);
         }
 
+       $Apellido = explode (" ",$name);
+       $Apellido = strtolower($Apellido[count($Apellido) -1]);
+       $Inicial = substr($name,0,1);
+       $final = substr($name,2,4);
+       $Nick = strtolower($Inicial.$Apellido.$final); 
+
         $usuario=substr($name,0,1).substr($name,strpos(" ",$name)+1,strlen($name))."_".generaCodigo(4);
         $password=generaCodigo(6);  
 
 
       // var_dump($password);
-       $Apellido = explode (" ",$name);
-       $Apellido = strtolower($Apellido[count($Apellido) -1]);
-       $Inicial = substr($name,0,1);
-       $Nick = strtolower($Inicial.$Apellido); 
+      
 
         //var_dump($Nick);
 
@@ -130,6 +134,7 @@ class RegisterController extends Controller
          $user->state ="activo";
          $user->people_id =   $data['person'];
          $user->status_login =  'activo';
+         $user->img_profile =  NULL;
          $user->save();
 
           $role = Role::where('name',$data['rol'])->select('id')->first();

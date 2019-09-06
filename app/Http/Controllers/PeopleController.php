@@ -5,8 +5,11 @@ namespace App\Http\Controllers;
 
 use App\User;
 use App\Person;
+use App\Register;
 use Illuminate\Http\Request;
 use App\Http\Resources\PeopleCollection;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 class PeopleController extends Controller
 {
      public function __construct()
@@ -16,6 +19,8 @@ class PeopleController extends Controller
       $this->middleware('auth', ['except'=> ['create','store']]);
       $this->middleware('users_ac');
     }
+
+
     /**
      * Display a listing of the resource.
      *
@@ -114,8 +119,19 @@ class PeopleController extends Controller
      */
     public function create()
     {
-    return view('people.create'); 
+      $register= Register::all();
+
+      $regis=$register->last();
+      if($regis->status=="si")
+      {
+        return view('people.create'); 
+    }else{
+        return view('welcome');  
     }
+      
+    }
+
+   
 
     /**
      * Store a newly created resource in storage.
@@ -125,9 +141,20 @@ class PeopleController extends Controller
      */
     public function store(Request $request)
     {
+        
+
+        $data = request()->validate([
+           
+            'email' => 'required|email|unique:people,email,',
+
+        ]);
       
-          if ($request->hasFile('image_url')) {
-            $file = $request->file('image_url');
+          if (($request->hasFile('image_url')) && ($request->hasFile('img_ci'))  ) {
+              $email=Person::where('email',$request->email)->get();
+            //  dd($email);
+           // if($email!='')
+            //{
+                 $file = $request->file('image_url');
              $file2 = $request->file('img_ci');
 
         
@@ -136,7 +163,16 @@ class PeopleController extends Controller
 
              $name2 = time().$file2->getClientOriginalName(); 
             $file2->move(public_path().'/images_user/', $name2);
+       
+
+           /* }else{
+                 return view('people.create',['error_image'=>'error_image']);  
+
+            }
+           */
                 
+        }else{
+          return view('people.create',['error_image'=>'error_image']);  
         }
 
             $options =[
@@ -151,12 +187,12 @@ class PeopleController extends Controller
                 'address' => $request->address
             ];
            
-            if(Person::create($options)){
+         if(Person::create($options)){
                 return view('people.create',['exito_register'=>'exito_register']);
             }else{
                 return view('people.create');
             }
-     
+        
 
         
     }

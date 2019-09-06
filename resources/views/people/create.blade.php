@@ -2,7 +2,6 @@
 
 @include('layouts.head')
 
-
     <body class="authentication-bg">
 
         <div class="account-pages mt-5 mb-5">

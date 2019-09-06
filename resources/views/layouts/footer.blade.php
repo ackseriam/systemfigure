@@ -160,11 +160,15 @@
 
                                               @if($user->isOnline())
                                               <div class="media">
-                                                <img class="mr-3 rounded-circle" src="{{ asset('images/users/avatar-2.jpg')}}" width="40" alt="Generic placeholder image">
+                                                 @if(!empty($user->img_profile))
+                                                                 
+                                                      <img class="mr-3 rounded-circle" src="{{ asset('images/')}}/{{$user->img_profile}}" width="40" alt="Generic placeholder image">
+                                                        @else
+                                                        <img class="mr-3 rounded-circle" src="{{ asset('images/logo2.png')}}" width="40" alt="Generic placeholder image">
+                                                @endif
                                                 <div class="media-body">
                                                     <h5 class="mt-0 mb-1">{{$user->username}}</h5>
-                                                    <span class="font-13">{{$user->email}}</span>
-                                                </div>
+                                                   <!--<span class="font-13">{{$user->email}}</span>-->                                                </div>
                                                 <i class="mdi mdi-checkbox-blank-circle text-success"></i>
                                             </div><br>
                                               
@@ -172,10 +176,15 @@
                                             
                                             @else
                                              <div class="media">
-                                                <img class="mr-3 rounded-circle" src="{{ asset('images/users/avatar-2.jpg')}}" width="40" alt="Generic placeholder image">
+                                                 @if(!empty($user->img_profile))
+                                                                 
+                                                      <img class="mr-3 rounded-circle" src="{{ asset('images/')}}/{{$user->img_profile}}" width="40" alt="Generic placeholder image">
+                                                        @else
+                                                        <img class="mr-3 rounded-circle" src="{{ asset('images/logo2.png')}}" width="40" alt="Generic placeholder image">
+                                                @endif
                                                 <div class="media-body">
                                                     <h5 class="mt-0 mb-1">{{$user->username}}</h5>
-                                                    <span class="font-13">{{$user->email}}</span>
+                                                    <!--<span class="font-13">{{$user->email}}</span>-->
                                                 </div>
                                                 <i class="mdi mdi-checkbox-blank-circle text-primary"></i>
                                             </div>
@@ -288,6 +297,18 @@ confirmButtonText:
   title: 'Ha ocurrido un error...',
   text: 'Hubo un inconveniente durante la inserción. Intentelo mas tarde !',
   footer: '<a href>Quieres ingresar una corrección?</a>'
+})
+</script>
+@endif
+
+@if(!empty($error_image))
+<script>
+
+  Swal.fire({
+  type: 'error',
+  title: 'Ha ocurrido un error...',
+  text: 'Imagen faltante en el registro!',
+  footer: '<a href>Ingrese las imagenes corractemente</a>'
 })
 </script>
 @endif

@@ -24,7 +24,14 @@ llamando al metodo especificado en el controlador y se especifica el $product->i
 </div>
 <div>
     {!! Form::label('email','Correo Electronico ') !!}
-    {!! Form::text('email','',['class'=> 'form-control',"required"]) !!}
+<!--    {!! Form::text('email','',['class'=> 'form-control',"required"]) !!}-->
+
+    <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" required>
+ @if ($errors->has('email'))
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $errors->first('email') }}</strong>
+                </span>
+            @endif
 </div><br>
 <div>
     {!! Form::label('link','Link de su perfil de Facebook. (Ingresa aqui para indicaciones:) ') !!}
@@ -292,7 +299,7 @@ llamando al metodo especificado en el controlador y se especifica el $product->i
 <br>
 <div>
     {!! Form::label('img_ci','Subir imagen de la cedula') !!}<br>
-    {!! Form::file('img_ci', $attributes = array()) !!}
+    {!! Form::file('img_ci', $attributes = array(),['class'=> 'form-control',"required"]) !!}
 </div>
 
 
