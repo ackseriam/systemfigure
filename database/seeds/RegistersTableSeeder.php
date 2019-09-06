@@ -13,5 +13,6 @@ class RegistersTableSeeder extends Seeder
     {
        $register= new Register();
        $register->status ="si";
-        $register->save();    }
+        $register->save();    
+    }
 }
