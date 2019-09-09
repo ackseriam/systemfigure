@@ -11,6 +11,7 @@ class User extends Authenticatable
  public function roles(){
     return $this->belongsToMany('App\Roles'); //aqui se relaciona este modelo con los roles con la relacion de muchos  a muchos es decir un usuario puede tener varios roles
 }
+
  public function authoraizeRole($roles)
     {
         /* 
@@ -109,6 +110,36 @@ public function user_status(){
     }
     public function isOnline(){
       return Cache::has('user-is-online'. $this->id);
+    }
+
+     public function scopeName($query, $name)
+    {
+      if($name)
+        return $query->where('name', 'LIKE', "%$name%"); //el % al principio es para todo valor o caracter que comience o termine con el valor se relacione
+    }
+
+    public function scopeSurname($query, $surname)
+    {
+      if($surname)
+        return $query->where('surname', 'LIKE', "%$surname%"); //el % al principio es para todo valor o caracter que comience o termine con el valor se relacione
+    }
+    
+    public function scopeNacionality($query, $nacionality)
+    {
+      if($nacionality)
+        return $query->where('nacionality', 'LIKE', "%$nacionality%");
+    }
+
+     public function scopeAddress($query, $address)
+    {
+      if($address)
+        return $query->where('address', 'LIKE', "%$address%");
+    }
+
+     public function scopeCi($query, $ci)
+    {
+      if($ci)
+        return $query->where('ci', 'LIKE', "%$ci%");
     }
 
      /**

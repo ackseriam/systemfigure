@@ -65,14 +65,25 @@ class PeopleController extends Controller
         $address = $request->get('address');
         $ci = $request->get('ci');
 
-        $people= Person::orderBy("id", "DESC")
+       $people= User::join('people', 'people.id', '=', 'users.people_id')
+          ->select('users.id as id', 'people.name as name',  'users.state as state','users.email as email','users.username as username', 'people.surname as surname as surname',  'people.nacionality as nacionality','people.surname as address','people.ci as ci')
+        ->name($name)
+        ->surname($surname)
+        ->nacionality($nacionality)
+        ->address($address)
+        ->ci($ci)
+          ->paginate(4);
+
+        /*$people= Person::orderBy("id", "DESC")
         ->name($name)
         ->surname($surname)
         ->nacionality($nacionality)
         ->address($address)
         ->ci($ci)
 
-        ->paginate(4);
+        ->paginate(4);*/
+
+
         return view('people.search',compact('people'),['rol'=>$rol]);
      }else{
         return redirect('home');
@@ -97,7 +108,7 @@ class PeopleController extends Controller
         $address = $request->get('address');
         $ci = $request->get('ci');
 
-        $people= Person::orderBy("id", "DESC")
+        $people= User::join('people', 'people.id', '=', 'users.people_id')->select('users.id as id', 'people.name as name',  'users.state as state','users.email as email','users.username as username', 'people.surname as surname as surname',  'people.nacionality as nacionality','people.surname as address','people.ci as ci')
         ->name($name)
         ->surname($surname)
         ->nacionality($nacionality)
@@ -151,10 +162,8 @@ class PeopleController extends Controller
       
           if (($request->hasFile('image_url')) && ($request->hasFile('img_ci'))  ) {
               $email=Person::where('email',$request->email)->get();
-            //  dd($email);
-           // if($email!='')
-            //{
-                 $file = $request->file('image_url');
+       
+             $file = $request->file('image_url');
              $file2 = $request->file('img_ci');
 
         
@@ -165,11 +174,7 @@ class PeopleController extends Controller
             $file2->move(public_path().'/images_user/', $name2);
        
 
-           /* }else{
-                 return view('people.create',['error_image'=>'error_image']);  
-
-            }
-           */
+         
                 
         }else{
           return view('people.create',['error_image'=>'error_image']);  

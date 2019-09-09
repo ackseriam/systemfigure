@@ -37,7 +37,7 @@ class CorrectionsController extends Controller
        }else{
         if(($rol=='admin')||($rol=='foun')||($rol=='editor')||($rol=='vpnlevel')||($rol=='task')||($rol=='editor0'))
          {
-         $guias= Guias::where('level','!=','0')->where('level','!=','vpn0')->where('level','!=','vpn')->orderBy("id", "DESC")->paginate(4);
+         $guias= Guias::where('level','!=','0')->where('status','activo')->where('level','!=','vpn0')->where('level','!=','vpn')->orderBy("id", "DESC")->paginate(4);
           return view('corrections.index',compact('guias'),['rol'=>$rol, 'level'=>$level_b]);
           }else{
             return redirect('home');

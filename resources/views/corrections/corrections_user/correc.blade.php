@@ -304,7 +304,10 @@ td {
                                                       <table class="table table dt-responsive nowrap table-striped table-bordered table-centered mb-0" onmousedown='return false;' onselectstart="return false;">
                                                           <thead>
                                                               <tr> 
-                                                                   <?php $names_campos=array_filter($names_campo); ?>
+                                                                   <?php $names_campos=array_filter($names_campo);
+                                                                   //filtro los enlaces normales
+                  
+                                                                   ?>
                                                                   @foreach($names_campos as $campos)
                                                                   <th>{{$campos}}</th>
 
@@ -345,16 +348,26 @@ td {
                                                                           @else
                                                                              <?php $ex= explode(',', $copiar); ?>
                                                                               @if($ex[$y]=='1')
+                                                                              <?php $cadena_resultante= preg_replace("/((http|https|www)[^\s]+)/", '<a href="$1">$0</a>', $correction->$respues);
+                                                                                //miro si hay enlaces con solamente www, si es así le añado el http://
+                                                                                $cadena_resultante2= preg_replace("/href=\"www/", 'href="http://www', $cadena_resultante);
 
-                                                                              @if (strpos($correction->$respues, '.jpg'))
+                                                                         
+                                                                                ?>
+
+                                                                              @if ( (strpos($cadena_resultante, 'http'))|| (strpos($cadena_resultante, 'wwww')))
                                                                                  <td>
-                                                                              <button class="btn btn-success" " data-toggle="modal" data-target="#img-width-modal"> Ver ímagen</button> 
+                                                                                       <a href="{{$correction->$respues}}" target="_blank">{{$correction->$respues}}</a>
+                                                                                       <br>
+                                                                              <button class="btn btn-success" " data-toggle="modal" data-target="#img-width-modal"> Ver</button> 
 
                                                                              <div id="img-width-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="success-header-modalLabel" aria-hidden="true">
                                                                              <div class="modal-dialog modal-full-width">
                                                                                <div class="modal-content">
                                                                                    <div class="modal-header modal-colored-header bg-success">
-                                                                                          <h4 class="modal-title" id="primary-header-modalLabel">{{$guia->name}}</h4>
+                                                                                          <h4 class="modal-title" id="primary-header-modalLabel">
+
+                                                                                            {{$guia->name}}</h4>
                                                                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                                                                                             </div>
                                                                                             <div class="modal-body">
@@ -364,14 +377,12 @@ td {
                                                                                               <br>
                                                                                               
                                                                                         <div class="row">
-                                                                                              <div class="col-lg-6">
+                                                                                              <div class="col-lg-12">
                                                                                                     <h5 class="mt-0"> Imagen:</h5>
+                                                                                                     <img src="{{$correction->$respues}}" class="img-fluid" style="max-width: 600px;" alt="No ese encontro imagen" />
                                                                                                   
                                                                                                </div> 
-                                                                                                 <div class="col-lg-6">
-                                                                                                         <img src="{{ asset('images_guias/')}}/{{$correction->$respues}}" class="img-fluid" style="max-width: 600px;" alt="No ese encontro imagen" />
-             
-                                                                                                </div>
+                                                                                                 
                                                                                         </div>
                                                      
                                                                                        </p><br>

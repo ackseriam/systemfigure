@@ -49,7 +49,7 @@
                                             <div class="slimscroll" style="max-height: 300px;">
                                                  
                                                 <div class="timeline-alt pb-0">
-                                                    @if(($rol=='admin')||($rol=='foun')||($rol=='editor')||($rol=='task')||($rol=='vpnlevel'))
+                                                    @if(($rol=='admin')||($rol=='foun')||($rol=='editor0')||($rol=='editor')||($rol=='task')||($rol=='vpnlevel'))
                                                      @foreach($guias_n as $guia_n )
                                                     <div class="timeline-item">
                                                         <i class="mdi mdi-upload bg-info-lighten text-primary timeline-icon"></i>
