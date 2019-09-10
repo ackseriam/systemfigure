@@ -24,9 +24,22 @@
                             <div class="col-md-12 center">
                                 <div class="card">
                                     <div class="card-body">
-
-                                        <h4 class="header-title">Ingresa los datos para la busqueda</h4>
-
+                                        @if($tabla=='inactivo')
+                                        <h4 class="header-title">Tabla usuarios inactivos en el sistema </h4>
+                                        <p class="text-muted font-14 mb-4">
+                                            En esta seccion estan listados todos los usuarios inactivos en el sistema 
+                                        </p>
+                                        @elseif($tabla=='bloqueado')
+                                         <h4 class="header-title">Tabla usuarios bloqueados en el sistema </h4>
+                                        <p class="text-muted font-14 mb-4">
+                                            En esta seccion estan listados todos los usuarios bloqueados en el sistema 
+                                        </p>
+                                        @else
+                                         <h4 class="header-title">Tabla de usuarios registrados en el sistema </h4>
+                                        <p class="text-muted font-14 mb-4">
+                                            En esta seccion estan listados todos los usuarios registrados en el sistema 
+                                        </p>
+                                        @endif
                                         <p class="text-muted mb-3">
                                         </p>
                             		  <h6 class="font-13 mt-3">Datos de usuario</h6>
@@ -40,9 +53,7 @@
 									 	    <div class="col-auto">
 									 	    	{{Form::text('email', null, ['class'=> 'form-control mb-2', 'placeholder' => 'Correo electronico'])}}
 									 	    </div>
-									 	      <div class="col-auto">
-									 	    	{{Form::text('state', null, ['class'=> 'form-control mb-2', 'placeholder' => 'Estado de usuario'])}}
-									 	    </div>
+									 	      
 									 	    <div class="col-auto">
                                                     <button type="submit" class="btn btn-primary mb-2">Buscar</button>
                                                 </div>
@@ -81,9 +92,17 @@
                                                     <td class="mt-8"><h3><span class="badge badge-success-lighten">{{$user->state}}</span></h3></td>
                                                     @endif
                                                         <td class="table-action">
-                                                            <a href="/users/edit/{{$user->id}}" class="action-icon" title="Editar"> <i class="mdi mdi-pencil"></i></a>
-                                                            <a href="/users/{{$user->id}}" class="action-icon" title="Buscar"> <i class="mdi mdi-account-search-outline"></i></a>
+
+                                                            @if(!empty($editar))
+                                                            <a href="/users/edit/{{$user->id}}" class="btn btn-success" title="Editar Usuario"><i class="mdi mdi-square-edit-outline"></i></a>
+                                                            @endif
+                                                              @if(!empty($editar_usuario))
+                                                            <a href="/users/edit_info/{{$user->id}}" class="btn btn-success" title="Editar Usuario"><i class="mdi mdi-square-edit-outline"></i></a>
+                                                            @endif
                                                         </td>
+                                                         <th> <a href="/users/{{$user->id}}" class="btn btn-primary" title="Ver usuario"> <i class="mdi mdi-account-search-outline"></i></a> 
+                                                           
+                                                           </th>
                                                     </tr>
                                                     @endforeach
                                                 </tbody>

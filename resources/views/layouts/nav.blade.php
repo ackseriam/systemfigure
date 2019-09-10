@@ -41,7 +41,8 @@
                             </a>
                             <ul class="side-nav-second-level" aria-expanded="false">
                                 <li>
-                                    <a href="{{ url('users') }}">Lista general de usuarios</a>
+
+                                    <a href="{{ url('users/search') }}">Lista general de usuarios</a>
                                 </li>
                                 <li>
                                     <a href="{{ url('users/index_edit') }}">Cambio de status de usuario</a>
@@ -52,9 +53,6 @@
                                 </li>
                                 <li>
                                     <a href="{{ url('users/inactivity') }}">Lista de usuarios Inactivos</a>
-                                </li>
-                                <li>
-                                    <a href="{{ url('users/search') }}">Buscar usuario</a>
                                 </li>
                             </ul>
                         </li>
@@ -416,9 +414,11 @@
                                 <span> Usuarios </span>
                                 <span class="menu-arrow"></span>
                             </a>
-                            <ul class="side-nav-second-level" aria-expanded="false">
+                            
+                             <ul class="side-nav-second-level" aria-expanded="false">
                                 <li>
-                                    <a href="{{ url('users') }}">Lista general de usuarios</a>
+                                    
+                                    <a href="{{ url('users/search') }}">Lista general de usuarios</a>
                                 </li>
                                 <li>
                                     <a href="{{ url('users/index_edit') }}">Cambio de status de usuario</a>
@@ -429,9 +429,6 @@
                                 </li>
                                 <li>
                                     <a href="{{ url('users/inactivity') }}">Lista de usuarios Inactivos</a>
-                                </li>
-                                <li>
-                                    <a href="{{ url('users/search') }}">Buscar usuario</a>
                                 </li>
                             </ul>
                         </li>

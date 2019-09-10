@@ -425,7 +425,8 @@ class UsersController extends Controller
             ->state($state)
 
             ->paginate(4);
-            return view('users.search',compact('users'),['rol'=>$rol, $tabla=>"activo";]);
+            $tabla="activo";
+            return view('users.search',compact('users'),['rol'=>$rol, 'tabla'=> $tabla,'editar_usuario'=>'editar_usuario']);
         }else{
             return redirect('home'); 
         }
