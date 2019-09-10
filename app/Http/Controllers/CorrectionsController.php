@@ -106,10 +106,9 @@ class CorrectionsController extends Controller
            return redirect('home');
         }
       }
-        
-       
         return view('corrections.index',compact('guias'),['rol'=>$rol,'level'=>$level_b]);
     }
+
 
        public function search_vpn( $level_b, Request $request)
     {

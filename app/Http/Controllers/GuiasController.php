@@ -389,7 +389,7 @@ class GuiasController extends Controller
        {
         $guias = Guias::where(['level'=> $level_b, 'status'=>'inactivo'])->orderBy("id", "DESC")->paginate(4);
        }else{
-         $guias= Guias::where('level','!=','0')->where('level','!=','vpn0')->where('level','!=','vpn')->orderBy("id", "DESC")->paginate(4);
+         $guias= Guias::where('level','!=','0')->where('level','!=','vpn0')->where('level','!=','vpn')->where('status','inactivo')->orderBy("id", "DESC")->paginate(4);
        }
        if($level_b=='vpn0')
           {
