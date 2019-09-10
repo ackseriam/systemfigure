@@ -419,13 +419,13 @@ class UsersController extends Controller
             $email = $request->get('email');
             $state = $request->get('state');
 
-            $users= User::orderBy("id", "DESC")
+            $users= User::orderBy("id", "DESC")->where('users.state','activo')
             ->username($username)
             ->email($email)
             ->state($state)
 
             ->paginate(4);
-            return view('users.search',compact('users'),['rol'=>$rol]);
+            return view('users.search',compact('users'),['rol'=>$rol, $tabla=>"activo";]);
         }else{
             return redirect('home'); 
         }
