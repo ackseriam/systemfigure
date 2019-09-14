@@ -103,77 +103,90 @@ protected function sendLoginResponse(Request $request)
             {       Auth::logout();
                      return view('auth.login',['estado'=>'estado','status'=>$status_user]);
             }else{
-           $rol = roleuser($request); 
-              foreach(User::all() as $user)
-                             {
+                         $rol = roleuser($request); 
+                            foreach(User::all() as $user)
+                                           {
 
-                              if($user->isOnline())  {
-                                $user=User::find($user->id);
-                                 if($user->status_login=='inactivo_user'){
-                                    $user->status_login = 'inactivo_user';
-                                     $user->save();
-                                 }else{
-                                   $user=User::find($user->id);
-                                  $user->status_login = 'activo';
-                                  $user->save();
-                                 }
-                               
-                              }else{
-                                $user=User::find($user->id);
-                              $user->status_login = 'inactivo';
-                              $user->save();
+                                            if($user->isOnline())  {
+                                              $user=User::find($user->id);
+                                               if($user->status_login=='inactivo_user'){
+                                                  $user->status_login = 'inactivo_user';
+                                                   $user->save();
+                                               }else{
+                                                 $user=User::find($user->id);
+                                                $user->status_login = 'activo';
+                                                $user->save();
+                                               }
+                                             
+                                            }else{
+                                              $user=User::find($user->id);
+                                            $user->status_login = 'inactivo';
+                                            $user->save();
+                                            }
+                                           }
+                         if($rol!='foun')
+                         {
+                         
+                              if($status=='activo') 
+                                 {
+                                  Auth::user()->status_login = 'inactivo';
+                                         Auth::user()->save();
+                                     $request->session()->regenerate();
+                                      $previous_session = Auth::User()->session_id;
+                                      if ($previous_session) {
+                                          Session::getHandler()->destroy($previous_session);
+                                      }
+                                       Auth::user()->session_id = Session::getId();
+                                      Auth::user()->save();
+                                      $this->clearLoginAttempts($request);
+                           
+                                        
+                                     
+                                      Auth::logout();
+                                      return $this->authenticated($request, $this->guard()->user());
+                                  }elseif(($status=='inactivo')||($status=='inactivo_user')){
+
+                                     $request->session()->regenerate();
+                                      $previous_session = Auth::User()->session_id;
+                                      if ($previous_session) {
+                                          Session::getHandler()->destroy($previous_session);
+                                      }
+                                       Auth::user()->session_id = Session::getId();
+                                      Auth::user()->save();
+                                      $this->clearLoginAttempts($request);
+                                    
+                                      if(Auth::check()) // se actualizar a la bd, si es exitoso
+                                      {
+                                          
+                                          return redirect()->intended($this->redirectPath());
+                                      }else{
+                                          echo "error";
+                                      }
+
+
+                                  }
+                         }else{
+
+                                     $request->session()->regenerate();
+                                      $previous_session = Auth::User()->session_id;
+                                      if ($previous_session) {
+                                          Session::getHandler()->destroy($previous_session);
+                                      }
+                                       Auth::user()->session_id = Session::getId();
+                                      
+                                      Auth::user()->save();
+                                      $this->clearLoginAttempts($request);
+                                    
+                                      if(Auth::check()) // se actualizar a la bd, si es exitoso
+                                      {
+                                          
+                                        return redirect()->intended($this->redirectPath());
+                                      }else{
+                                          echo "error";
+                                      }   
+
                               }
-                             }
-           if($rol!='foun')
-           {
-           
-                if($status=='activo') 
-                   {
-                        $this->clearLoginAttempts($request);  
-                        Auth::logout();
-                        return $this->authenticated($request, $this->guard()->user());
-                    }elseif(($status=='inactivo')||($status=='inactivo')){
-
-                       $request->session()->regenerate();
-                        $previous_session = Auth::User()->session_id;
-                        if ($previous_session) {
-                            Session::getHandler()->destroy($previous_session);
-                        }
-                         Auth::user()->session_id = Session::getId();
-                        Auth::user()->save();
-                        $this->clearLoginAttempts($request);
-                      
-                        if(Auth::check()) // se actualizar a la bd, si es exitoso
-                        {
-                            
-                            return redirect()->intended($this->redirectPath());
-                        }else{
-                            echo "error";
-                        }
-
-
-                    }
-           }else{
-
-                       $request->session()->regenerate();
-                        $previous_session = Auth::User()->session_id;
-                        if ($previous_session) {
-                            Session::getHandler()->destroy($previous_session);
-                        }
-                         Auth::user()->session_id = Session::getId();
-                        Auth::user()->save();
-                        $this->clearLoginAttempts($request);
-                      
-                        if(Auth::check()) // se actualizar a la bd, si es exitoso
-                        {
-                            
-                          return redirect()->intended($this->redirectPath());
-                        }else{
-                            echo "error";
-                        }   
-
-                }
-            }
+                  }
           
    
    
