@@ -27,7 +27,7 @@
                                                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                                     <span aria-hidden="true">&times;</span>
                                                 </button>
-                                                <strong>Sesion previa activa- </strong>  cerrar dicha sesion y vuelva a intentarlo o hable con el Administrador
+                                                <strong>Sesion previa activa- </strong> el sistema cerrara la sesión anterior, vuelva a intentarlo para ingresar correctamente al sistema
                                              </div>
                                         @endif
                                         @if(!empty($estado))
