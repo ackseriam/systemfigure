@@ -195,17 +195,17 @@
             <div class="content-page">
                 <div class="content" onmousedown='return false;' onselectstart="return false;">
 
-                    <!-- Topbar Start -->
+                   
                     <div class="navbar-custom">
                         <ul class="list-unstyled topbar-right-menu float-right mb-0">
-                            <li class="dropdown notification-list">
+                            <!--<li class="dropdown notification-list">
                                 <a class="nav-link dropdown-toggle arrow-none" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
                                     <i class="dripicons-bell noti-icon"></i>
                                     <span class="noti-icon-badge"></span>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right dropdown-menu-animated dropdown-lg">
 
-                                    <!-- item-->
+                                  
                                     <div class="dropdown-item noti-title">
                                         <h5 class="m-0">
                                             <span class="float-right">
@@ -217,7 +217,7 @@
                                     </div>
 
                                     <div class="slimscroll" style="max-height: 230px;">
-                                        <!-- item-->
+                                        
                                         <a href="javascript:void(0);" class="dropdown-item notify-item">
                                             <div class="notify-icon bg-primary">
                                                 <i class="mdi mdi-comment-account-outline"></i>
@@ -227,7 +227,7 @@
                                             </p>
                                         </a>
 
-                                        <!-- item-->
+                                      
                                         <a href="javascript:void(0);" class="dropdown-item notify-item">
                                             <div class="notify-icon bg-info">
                                                 <i class="mdi mdi-account-plus"></i>
@@ -237,7 +237,7 @@
                                             </p>
                                         </a>
 
-                                        <!-- item-->
+                                       
                                         <a href="javascript:void(0);" class="dropdown-item notify-item">
                                             <div class="notify-icon">
                                                 <img src="{{ asset('images/users/avatar-2.jpg') }}" class="img-fluid rounded-circle" alt="" /> </div>
@@ -247,7 +247,6 @@
                                             </p>
                                         </a>
 
-                                        <!-- item-->
                                         <a href="javascript:void(0);" class="dropdown-item notify-item">
                                             <div class="notify-icon bg-primary">
                                                 <i class="mdi mdi-comment-account-outline"></i>
@@ -257,7 +256,7 @@
                                             </p>
                                         </a>
 
-                                        <!-- item-->
+                                        
                                         <a href="javascript:void(0);" class="dropdown-item notify-item">
                                             <div class="notify-icon">
                                                 <img src="{{ asset('images/users/avatar-4.jpg') }}" class="img-fluid rounded-circle" alt="" /> </div>
@@ -267,7 +266,7 @@
                                             </p>
                                         </a>
 
-                                        <!-- item-->
+                                    
                                         <a href="javascript:void(0);" class="dropdown-item notify-item">
                                             <div class="notify-icon bg-info">
                                                 <i class="mdi mdi-heart"></i>
@@ -279,13 +278,13 @@
                                         </a>
                                     </div>
 
-                                    <!-- All-->
+                                    
                                     <a href="javascript:void(0);" class="dropdown-item text-center text-primary notify-item notify-all">
                                         Ver todo
                                     </a>
 
                                 </div>
-                            </li>
+                            </li>-->
 
                             <li class="dropdown notification-list">
                                 <a class="nav-link dropdown-toggle nav-user arrow-none mr-0" data-toggle="dropdown" href="#" role="button" aria-haspopup="false"
@@ -571,14 +570,14 @@
                     <!-- Topbar Start -->
                     <div class="navbar-custom">
                         <ul class="list-unstyled topbar-right-menu float-right mb-0">
-                            <li class="dropdown notification-list">
+                             <!--<li class="dropdown notification-list">
                                 <a class="nav-link dropdown-toggle arrow-none" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
                                     <i class="dripicons-bell noti-icon"></i>
                                     <span class="noti-icon-badge"></span>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right dropdown-menu-animated dropdown-lg">
 
-                                    <!-- item-->
+                                  
                                     <div class="dropdown-item noti-title">
                                         <h5 class="m-0">
                                             <span class="float-right">
@@ -590,7 +589,7 @@
                                     </div>
 
                                     <div class="slimscroll" style="max-height: 230px;">
-                                        <!-- item-->
+                                        
                                         <a href="javascript:void(0);" class="dropdown-item notify-item">
                                             <div class="notify-icon bg-primary">
                                                 <i class="mdi mdi-comment-account-outline"></i>
@@ -600,7 +599,7 @@
                                             </p>
                                         </a>
 
-                                        <!-- item-->
+                                      
                                         <a href="javascript:void(0);" class="dropdown-item notify-item">
                                             <div class="notify-icon bg-info">
                                                 <i class="mdi mdi-account-plus"></i>
@@ -610,17 +609,16 @@
                                             </p>
                                         </a>
 
-                                        <!-- item-->
+                                       
                                         <a href="javascript:void(0);" class="dropdown-item notify-item">
                                             <div class="notify-icon">
-                                                <img src="assets/images/users/avatar-2.jpg" class="img-fluid rounded-circle" alt="" /> </div>
+                                                <img src="{{ asset('images/users/avatar-2.jpg') }}" class="img-fluid rounded-circle" alt="" /> </div>
                                             <p class="notify-details">Cristina Pride</p>
                                             <p class="text-muted mb-0 user-msg">
                                                 <small>Hi, How are you? What about our next meeting</small>
                                             </p>
                                         </a>
 
-                                        <!-- item-->
                                         <a href="javascript:void(0);" class="dropdown-item notify-item">
                                             <div class="notify-icon bg-primary">
                                                 <i class="mdi mdi-comment-account-outline"></i>
@@ -630,7 +628,7 @@
                                             </p>
                                         </a>
 
-                                        <!-- item-->
+                                        
                                         <a href="javascript:void(0);" class="dropdown-item notify-item">
                                             <div class="notify-icon">
                                                 <img src="{{ asset('images/users/avatar-4.jpg') }}" class="img-fluid rounded-circle" alt="" /> </div>
@@ -640,7 +638,7 @@
                                             </p>
                                         </a>
 
-                                        <!-- item-->
+                                    
                                         <a href="javascript:void(0);" class="dropdown-item notify-item">
                                             <div class="notify-icon bg-info">
                                                 <i class="mdi mdi-heart"></i>
@@ -652,13 +650,13 @@
                                         </a>
                                     </div>
 
-                                    <!-- All-->
+                                    
                                     <a href="javascript:void(0);" class="dropdown-item text-center text-primary notify-item notify-all">
                                         Ver todo
                                     </a>
 
                                 </div>
-                            </li>
+                            </li>--> 
 
                             <li class="dropdown notification-list">
                                 <a class="nav-link dropdown-toggle nav-user arrow-none mr-0" data-toggle="dropdown" href="#" role="button" aria-haspopup="false"
@@ -833,14 +831,14 @@
                     <!-- Topbar Start -->
                     <div class="navbar-custom">
                         <ul class="list-unstyled topbar-right-menu float-right mb-0">
-                            <li class="dropdown notification-list">
+                              <!--<li class="dropdown notification-list">
                                 <a class="nav-link dropdown-toggle arrow-none" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
                                     <i class="dripicons-bell noti-icon"></i>
                                     <span class="noti-icon-badge"></span>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right dropdown-menu-animated dropdown-lg">
 
-                                    <!-- item-->
+                                  
                                     <div class="dropdown-item noti-title">
                                         <h5 class="m-0">
                                             <span class="float-right">
@@ -852,7 +850,7 @@
                                     </div>
 
                                     <div class="slimscroll" style="max-height: 230px;">
-                                        <!-- item-->
+                                        
                                         <a href="javascript:void(0);" class="dropdown-item notify-item">
                                             <div class="notify-icon bg-primary">
                                                 <i class="mdi mdi-comment-account-outline"></i>
@@ -862,7 +860,7 @@
                                             </p>
                                         </a>
 
-                                        <!-- item-->
+                                      
                                         <a href="javascript:void(0);" class="dropdown-item notify-item">
                                             <div class="notify-icon bg-info">
                                                 <i class="mdi mdi-account-plus"></i>
@@ -872,17 +870,16 @@
                                             </p>
                                         </a>
 
-                                        <!-- item-->
+                                       
                                         <a href="javascript:void(0);" class="dropdown-item notify-item">
                                             <div class="notify-icon">
-                                                <img src="assets/images/users/avatar-2.jpg" class="img-fluid rounded-circle" alt="" /> </div>
+                                                <img src="{{ asset('images/users/avatar-2.jpg') }}" class="img-fluid rounded-circle" alt="" /> </div>
                                             <p class="notify-details">Cristina Pride</p>
                                             <p class="text-muted mb-0 user-msg">
                                                 <small>Hi, How are you? What about our next meeting</small>
                                             </p>
                                         </a>
 
-                                        <!-- item-->
                                         <a href="javascript:void(0);" class="dropdown-item notify-item">
                                             <div class="notify-icon bg-primary">
                                                 <i class="mdi mdi-comment-account-outline"></i>
@@ -892,7 +889,7 @@
                                             </p>
                                         </a>
 
-                                        <!-- item-->
+                                        
                                         <a href="javascript:void(0);" class="dropdown-item notify-item">
                                             <div class="notify-icon">
                                                 <img src="{{ asset('images/users/avatar-4.jpg') }}" class="img-fluid rounded-circle" alt="" /> </div>
@@ -902,7 +899,7 @@
                                             </p>
                                         </a>
 
-                                        <!-- item-->
+                                    
                                         <a href="javascript:void(0);" class="dropdown-item notify-item">
                                             <div class="notify-icon bg-info">
                                                 <i class="mdi mdi-heart"></i>
@@ -914,13 +911,13 @@
                                         </a>
                                     </div>
 
-                                    <!-- All-->
+                                    
                                     <a href="javascript:void(0);" class="dropdown-item text-center text-primary notify-item notify-all">
                                         Ver todo
                                     </a>
 
                                 </div>
-                            </li>
+                            </li>-->
 
                             <li class="dropdown notification-list">
                                 <a class="nav-link dropdown-toggle nav-user arrow-none mr-0" data-toggle="dropdown" href="#" role="button" aria-haspopup="false"
@@ -1101,14 +1098,14 @@
                     <!-- Topbar Start -->
                     <div class="navbar-custom">
                         <ul class="list-unstyled topbar-right-menu float-right mb-0">
-                            <li class="dropdown notification-list">
+                              <!--<li class="dropdown notification-list">
                                 <a class="nav-link dropdown-toggle arrow-none" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
                                     <i class="dripicons-bell noti-icon"></i>
                                     <span class="noti-icon-badge"></span>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right dropdown-menu-animated dropdown-lg">
 
-                                    <!-- item-->
+                                  
                                     <div class="dropdown-item noti-title">
                                         <h5 class="m-0">
                                             <span class="float-right">
@@ -1120,7 +1117,7 @@
                                     </div>
 
                                     <div class="slimscroll" style="max-height: 230px;">
-                                        <!-- item-->
+                                        
                                         <a href="javascript:void(0);" class="dropdown-item notify-item">
                                             <div class="notify-icon bg-primary">
                                                 <i class="mdi mdi-comment-account-outline"></i>
@@ -1130,7 +1127,7 @@
                                             </p>
                                         </a>
 
-                                        <!-- item-->
+                                      
                                         <a href="javascript:void(0);" class="dropdown-item notify-item">
                                             <div class="notify-icon bg-info">
                                                 <i class="mdi mdi-account-plus"></i>
@@ -1140,17 +1137,16 @@
                                             </p>
                                         </a>
 
-                                        <!-- item-->
+                                       
                                         <a href="javascript:void(0);" class="dropdown-item notify-item">
                                             <div class="notify-icon">
-                                                <img src="assets/images/users/avatar-2.jpg" class="img-fluid rounded-circle" alt="" /> </div>
+                                                <img src="{{ asset('images/users/avatar-2.jpg') }}" class="img-fluid rounded-circle" alt="" /> </div>
                                             <p class="notify-details">Cristina Pride</p>
                                             <p class="text-muted mb-0 user-msg">
                                                 <small>Hi, How are you? What about our next meeting</small>
                                             </p>
                                         </a>
 
-                                        <!-- item-->
                                         <a href="javascript:void(0);" class="dropdown-item notify-item">
                                             <div class="notify-icon bg-primary">
                                                 <i class="mdi mdi-comment-account-outline"></i>
@@ -1160,7 +1156,7 @@
                                             </p>
                                         </a>
 
-                                        <!-- item-->
+                                        
                                         <a href="javascript:void(0);" class="dropdown-item notify-item">
                                             <div class="notify-icon">
                                                 <img src="{{ asset('images/users/avatar-4.jpg') }}" class="img-fluid rounded-circle" alt="" /> </div>
@@ -1170,7 +1166,7 @@
                                             </p>
                                         </a>
 
-                                        <!-- item-->
+                                    
                                         <a href="javascript:void(0);" class="dropdown-item notify-item">
                                             <div class="notify-icon bg-info">
                                                 <i class="mdi mdi-heart"></i>
@@ -1182,13 +1178,13 @@
                                         </a>
                                     </div>
 
-                                    <!-- All-->
+                                    
                                     <a href="javascript:void(0);" class="dropdown-item text-center text-primary notify-item notify-all">
                                         Ver todo
                                     </a>
 
                                 </div>
-                            </li>
+                            </li>-->
 
                             <li class="dropdown notification-list">
                                 <a class="nav-link dropdown-toggle nav-user arrow-none mr-0" data-toggle="dropdown" href="#" role="button" aria-haspopup="false"
@@ -1378,14 +1374,14 @@
                     <!-- Topbar Start -->
                     <div class="navbar-custom">
                         <ul class="list-unstyled topbar-right-menu float-right mb-0">
-                            <li class="dropdown notification-list">
+                              <!--<li class="dropdown notification-list">
                                 <a class="nav-link dropdown-toggle arrow-none" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
                                     <i class="dripicons-bell noti-icon"></i>
                                     <span class="noti-icon-badge"></span>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right dropdown-menu-animated dropdown-lg">
 
-                                    <!-- item-->
+                                  
                                     <div class="dropdown-item noti-title">
                                         <h5 class="m-0">
                                             <span class="float-right">
@@ -1397,7 +1393,7 @@
                                     </div>
 
                                     <div class="slimscroll" style="max-height: 230px;">
-                                        <!-- item-->
+                                        
                                         <a href="javascript:void(0);" class="dropdown-item notify-item">
                                             <div class="notify-icon bg-primary">
                                                 <i class="mdi mdi-comment-account-outline"></i>
@@ -1407,7 +1403,7 @@
                                             </p>
                                         </a>
 
-                                        <!-- item-->
+                                      
                                         <a href="javascript:void(0);" class="dropdown-item notify-item">
                                             <div class="notify-icon bg-info">
                                                 <i class="mdi mdi-account-plus"></i>
@@ -1417,17 +1413,16 @@
                                             </p>
                                         </a>
 
-                                        <!-- item-->
+                                       
                                         <a href="javascript:void(0);" class="dropdown-item notify-item">
                                             <div class="notify-icon">
-                                                <img src="assets/images/users/avatar-2.jpg" class="img-fluid rounded-circle" alt="" /> </div>
+                                                <img src="{{ asset('images/users/avatar-2.jpg') }}" class="img-fluid rounded-circle" alt="" /> </div>
                                             <p class="notify-details">Cristina Pride</p>
                                             <p class="text-muted mb-0 user-msg">
                                                 <small>Hi, How are you? What about our next meeting</small>
                                             </p>
                                         </a>
 
-                                        <!-- item-->
                                         <a href="javascript:void(0);" class="dropdown-item notify-item">
                                             <div class="notify-icon bg-primary">
                                                 <i class="mdi mdi-comment-account-outline"></i>
@@ -1437,7 +1432,7 @@
                                             </p>
                                         </a>
 
-                                        <!-- item-->
+                                        
                                         <a href="javascript:void(0);" class="dropdown-item notify-item">
                                             <div class="notify-icon">
                                                 <img src="{{ asset('images/users/avatar-4.jpg') }}" class="img-fluid rounded-circle" alt="" /> </div>
@@ -1447,7 +1442,7 @@
                                             </p>
                                         </a>
 
-                                        <!-- item-->
+                                    
                                         <a href="javascript:void(0);" class="dropdown-item notify-item">
                                             <div class="notify-icon bg-info">
                                                 <i class="mdi mdi-heart"></i>
@@ -1459,13 +1454,13 @@
                                         </a>
                                     </div>
 
-                                    <!-- All-->
+                                    
                                     <a href="javascript:void(0);" class="dropdown-item text-center text-primary notify-item notify-all">
                                         Ver todo
                                     </a>
 
                                 </div>
-                            </li>
+                            </li>-->
 
                             <li class="dropdown notification-list">
                                 <a class="nav-link dropdown-toggle nav-user arrow-none mr-0" data-toggle="dropdown" href="#" role="button" aria-haspopup="false"
@@ -1656,14 +1651,14 @@
                     <!-- Topbar Start -->
                     <div class="navbar-custom">
                         <ul class="list-unstyled topbar-right-menu float-right mb-0">
-                            <li class="dropdown notification-list">
+                              <!--<li class="dropdown notification-list">
                                 <a class="nav-link dropdown-toggle arrow-none" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
                                     <i class="dripicons-bell noti-icon"></i>
                                     <span class="noti-icon-badge"></span>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right dropdown-menu-animated dropdown-lg">
 
-                                    <!-- item-->
+                                  
                                     <div class="dropdown-item noti-title">
                                         <h5 class="m-0">
                                             <span class="float-right">
@@ -1675,7 +1670,7 @@
                                     </div>
 
                                     <div class="slimscroll" style="max-height: 230px;">
-                                        <!-- item-->
+                                        
                                         <a href="javascript:void(0);" class="dropdown-item notify-item">
                                             <div class="notify-icon bg-primary">
                                                 <i class="mdi mdi-comment-account-outline"></i>
@@ -1685,7 +1680,7 @@
                                             </p>
                                         </a>
 
-                                        <!-- item-->
+                                      
                                         <a href="javascript:void(0);" class="dropdown-item notify-item">
                                             <div class="notify-icon bg-info">
                                                 <i class="mdi mdi-account-plus"></i>
@@ -1695,17 +1690,16 @@
                                             </p>
                                         </a>
 
-                                        <!-- item-->
+                                       
                                         <a href="javascript:void(0);" class="dropdown-item notify-item">
                                             <div class="notify-icon">
-                                                <img src="assets/images/users/avatar-2.jpg" class="img-fluid rounded-circle" alt="" /> </div>
+                                                <img src="{{ asset('images/users/avatar-2.jpg') }}" class="img-fluid rounded-circle" alt="" /> </div>
                                             <p class="notify-details">Cristina Pride</p>
                                             <p class="text-muted mb-0 user-msg">
                                                 <small>Hi, How are you? What about our next meeting</small>
                                             </p>
                                         </a>
 
-                                        <!-- item-->
                                         <a href="javascript:void(0);" class="dropdown-item notify-item">
                                             <div class="notify-icon bg-primary">
                                                 <i class="mdi mdi-comment-account-outline"></i>
@@ -1715,7 +1709,7 @@
                                             </p>
                                         </a>
 
-                                        <!-- item-->
+                                        
                                         <a href="javascript:void(0);" class="dropdown-item notify-item">
                                             <div class="notify-icon">
                                                 <img src="{{ asset('images/users/avatar-4.jpg') }}" class="img-fluid rounded-circle" alt="" /> </div>
@@ -1725,7 +1719,7 @@
                                             </p>
                                         </a>
 
-                                        <!-- item-->
+                                    
                                         <a href="javascript:void(0);" class="dropdown-item notify-item">
                                             <div class="notify-icon bg-info">
                                                 <i class="mdi mdi-heart"></i>
@@ -1737,13 +1731,13 @@
                                         </a>
                                     </div>
 
-                                    <!-- All-->
+                                    
                                     <a href="javascript:void(0);" class="dropdown-item text-center text-primary notify-item notify-all">
                                         Ver todo
                                     </a>
 
                                 </div>
-                            </li>
+                            </li>-->
 
                             <li class="dropdown notification-list">
                                 <a class="nav-link dropdown-toggle nav-user arrow-none mr-0" data-toggle="dropdown" href="#" role="button" aria-haspopup="false"
@@ -1926,14 +1920,14 @@
                     <!-- Topbar Start -->
                     <div class="navbar-custom">
                         <ul class="list-unstyled topbar-right-menu float-right mb-0">
-                            <li class="dropdown notification-list">
+                             <!--<li class="dropdown notification-list">
                                 <a class="nav-link dropdown-toggle arrow-none" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
                                     <i class="dripicons-bell noti-icon"></i>
                                     <span class="noti-icon-badge"></span>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right dropdown-menu-animated dropdown-lg">
 
-                                    <!-- item-->
+                                  
                                     <div class="dropdown-item noti-title">
                                         <h5 class="m-0">
                                             <span class="float-right">
@@ -1945,7 +1939,7 @@
                                     </div>
 
                                     <div class="slimscroll" style="max-height: 230px;">
-                                        <!-- item-->
+                                        
                                         <a href="javascript:void(0);" class="dropdown-item notify-item">
                                             <div class="notify-icon bg-primary">
                                                 <i class="mdi mdi-comment-account-outline"></i>
@@ -1955,7 +1949,7 @@
                                             </p>
                                         </a>
 
-                                        <!-- item-->
+                                      
                                         <a href="javascript:void(0);" class="dropdown-item notify-item">
                                             <div class="notify-icon bg-info">
                                                 <i class="mdi mdi-account-plus"></i>
@@ -1965,17 +1959,16 @@
                                             </p>
                                         </a>
 
-                                        <!-- item-->
+                                       
                                         <a href="javascript:void(0);" class="dropdown-item notify-item">
                                             <div class="notify-icon">
-                                                <img src="assets/images/users/avatar-2.jpg" class="img-fluid rounded-circle" alt="" /> </div>
+                                                <img src="{{ asset('images/users/avatar-2.jpg') }}" class="img-fluid rounded-circle" alt="" /> </div>
                                             <p class="notify-details">Cristina Pride</p>
                                             <p class="text-muted mb-0 user-msg">
                                                 <small>Hi, How are you? What about our next meeting</small>
                                             </p>
                                         </a>
 
-                                        <!-- item-->
                                         <a href="javascript:void(0);" class="dropdown-item notify-item">
                                             <div class="notify-icon bg-primary">
                                                 <i class="mdi mdi-comment-account-outline"></i>
@@ -1985,7 +1978,7 @@
                                             </p>
                                         </a>
 
-                                        <!-- item-->
+                                        
                                         <a href="javascript:void(0);" class="dropdown-item notify-item">
                                             <div class="notify-icon">
                                                 <img src="{{ asset('images/users/avatar-4.jpg') }}" class="img-fluid rounded-circle" alt="" /> </div>
@@ -1995,7 +1988,7 @@
                                             </p>
                                         </a>
 
-                                        <!-- item-->
+                                    
                                         <a href="javascript:void(0);" class="dropdown-item notify-item">
                                             <div class="notify-icon bg-info">
                                                 <i class="mdi mdi-heart"></i>
@@ -2007,14 +2000,13 @@
                                         </a>
                                     </div>
 
-                                    <!-- All-->
+                                    
                                     <a href="javascript:void(0);" class="dropdown-item text-center text-primary notify-item notify-all">
                                         Ver todo
                                     </a>
 
                                 </div>
-                            </li>
-
+                            </li>-->
                             <li class="dropdown notification-list">
                                 <a class="nav-link dropdown-toggle nav-user arrow-none mr-0" data-toggle="dropdown" href="#" role="button" aria-haspopup="false"
                                     aria-expanded="false">
