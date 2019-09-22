@@ -103,6 +103,38 @@
                                                          <th> <a href="/users/{{$user->id}}" class="btn btn-primary" title="Ver usuario"> <i class="mdi mdi-account-search-outline"></i></a> 
                                                            
                                                            </th>
+                                                           <th> <!--
+                                                            <a href="/users/destroy/{{$user->id}}" title="Eliminar Usuario"  class="btn btn-danger" data-toggle="modal" target="_blank"><i class=" mdi mdi-square-edit-outline "></i> </a>-->
+
+                                                            <a id="{{$user->id}}" class="btn btn-danger"  title="Eliminar Usuario" data-toggle="modal" target="_blank"><i class="mdi mdi-delete "></i> </a>
+                                                              <script>
+                                                                    $('#<?php echo $user->id?>').click(function(e){
+                                                                        e.preventDefault();
+                                                                      
+
+                                                                        Swal.fire({
+                                                                          type: 'info',
+                                                                          title: 'Eliminar usuario!! ...',
+                                                                          text: '¿Estas seguro de realizar estos cambios?. El resultado sera irreversible.',
+                                                                          footer: 'Elimando guia',
+                                                                           showCloseButton: true,
+                                                                          showCancelButton: true,
+                                                                          focusConfirm: false,
+                                                                           confirmButtonText: 'Si, estoy seguro',
+                                                                           cancelButtonText: 'Cancelar',
+
+                                                                          
+                                                                        }).then((result) => {
+                                                                            if(result.value){
+                                                                                window.location.href= '/users/destroy/{{$user->id}}';
+                                                                              //  document.formac.submit();
+                                                                            } else {
+                                                                                Swal.fire('Cancelado', 'Buena elección :)', 'error');
+                                                                            }
+                                                                        }); 
+                                                                    });  
+                                                                    </script>
+                                                           </th>
                                                     </tr>
                                                     @endforeach
                                                 </tbody>

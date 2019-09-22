@@ -392,9 +392,40 @@ class UsersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($id, Request $request)
     {
-        //
+          $rol = roleuser($request); 
+           if(($rol=='admin')||($rol=='foun'))
+        {
+
+    
+            $usuario_eliminar=User::find($id);
+            $usuario_eliminar->delete();
+
+
+            $user=User::find(auth()->user()->id);
+            $user->status_login = 'activo';
+            $user->save(); 
+            $usuario= User::find(auth()->user()->id);
+            $people_id=$usuario->people_id;
+            $people=  Person::where('id',$people_id)->first();
+         
+            
+            $username = $request->get('username');
+            $email = $request->get('email');
+            $state = $request->get('state');
+
+            $users= User::orderBy("id", "DESC")->where('users.state','activo')
+            ->username($username)
+            ->email($email)
+            ->state($state)
+
+            ->paginate(4);
+            $tabla="activo";
+            return view('users.search',compact('users'),['rol'=>$rol, 'tabla'=> $tabla,'editar_usuario'=>'editar_usuario']);
+        }else{
+          return redirect('home');  
+        }
     }
      /**
      * Remove the specified resource from search.
