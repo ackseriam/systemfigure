@@ -45,6 +45,9 @@
 @else
 @lang('Regards'),<br>{{ config('app.name') }}
 @endif
+![Logo de Programación y más][logo]
+
+[logo]: https://programacionymas.com/images/mago/mago-200x200.png
 
 {{-- Subcopy --}}
 @isset($actionText)
