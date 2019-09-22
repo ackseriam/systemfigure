@@ -53,14 +53,20 @@
    <div class="form-group mb-3">        
       <h4 class="header-title">Rol</h4>
        <select class="form-control" name="rol"> 
+        @if($role!="Buyer")
+      
           <option value="{{$role}}">{{$role}}</option>
+          @else
+           <?php $roles="Editor especial" ?>
+          <option value="{{$role}}">{{$roles}}</option>
+         @endif 
           <option value="admin">Administrador</option>
           <option value="editor">Editor lvl</option>
            <option value="editor0">Editor lvl0</option>
           <option value="task">Taskero de Level</option>
           <option value="task0">Taskero de Level0</option>
           <option value="vpnlevel">Taskero VPN level</option>
-          <option value="buyer">Comprador</option>
+          <option value="buyer">Editor especial</option>
 
       </select>   
   </div>

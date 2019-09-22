@@ -35,7 +35,7 @@ class CorrectionsController extends Controller
         $guias = Guias::where(['level'=> $level_b, 'status'=>'activo'])->orderBy("id", "DESC")->paginate(4);
          return view('corrections.index',compact('guias'),['rol'=>$rol, 'level'=>$level_b]);
        }else{
-        if(($rol=='admin')||($rol=='foun')||($rol=='editor')||($rol=='vpnlevel')||($rol=='task')||($rol=='editor0'))
+        if(($rol=='admin')||($rol=='foun')||($rol=='editor')||($rol=='vpnlevel')||($rol=='task')||($rol=='editor0')||($rol=='buyer'))
          {
          $guias= Guias::where('level','!=','0')->where('status','activo')->where('level','!=','vpn0')->where('level','!=','vpn')->orderBy("id", "DESC")->paginate(4);
           return view('corrections.index',compact('guias'),['rol'=>$rol, 'level'=>$level_b]);
@@ -51,7 +51,7 @@ class CorrectionsController extends Controller
     public function index_vpn( $level_b, Request $request)
     {
         $rol = roleuser($request); //se llama al helper en Helpers/role
-        if(($rol=='admin')||($rol=='foun')||($rol=='editor')||($rol=='vpnlevel')||($rol=='editor0'))
+        if(($rol=='admin')||($rol=='foun')||($rol=='editor')||($rol=='vpnlevel')||($rol=='editor0')||($rol=='buyer'))
          {
             $user=User::find(auth()->user()->id);
             $user->status_login = 'activo';
@@ -94,7 +94,7 @@ class CorrectionsController extends Controller
         ->name($name)
         ->paginate(6);
     }else{
-        if(($rol=='admin')||($rol=='foun')||($rol=='editor')||($rol=='vpnlevel')||($rol=='task')||($rol=='editor0'))
+        if(($rol=='admin')||($rol=='foun')||($rol=='editor')||($rol=='vpnlevel')||($rol=='task')||($rol=='editor0')||($rol=='buyer'))
          {
 
          $guias= Guias::where('level','!=','0')->where('level','!=','vpn')->where('status','activo')->where('level','!=','vpn0')->orderBy("id", "ASC")
@@ -113,7 +113,7 @@ class CorrectionsController extends Controller
        public function search_vpn( $level_b, Request $request)
     {
         $rol = roleuser($request); //se llama al helper en Helpers/role
-        if(($rol=='admin')||($rol=='foun')||($rol=='editor')||($rol=='vpnlevel')||($rol=='task'))
+        if(($rol=='admin')||($rol=='foun')||($rol=='editor')||($rol=='vpnlevel')||($rol=='task')||($rol=='buyer'))
          {
             $user=User::find(auth()->user()->id);
             $user->status_login = 'activo';
@@ -185,14 +185,14 @@ class CorrectionsController extends Controller
          $campos_img=explode(",",  $campos_img);
 
          if($level=='0'){
-          if(($rol=='admin')||($rol=='foun')||($rol=='editor')||($rol=='vpnlevel')||($rol=='task')||($rol=='task0')||($rol=='editor0'))
+          if(($rol=='admin')||($rol=='foun')||($rol=='editor')||($rol=='vpnlevel')||($rol=='task')||($rol=='task0')||($rol=='editor0')||($rol=='buyer'))
            {
              return view('corrections.create',['rol'=>$rol,'campos'=>$campo, 'number_campos'=>$number_campos,'id_guias'=>$guia->id,'campos_img'=>$campos_img, 'number_campos_img'=>$number_campos_img  ]); 
            }else{
             return redirect('home');
            }
          }else{
-          if(($rol=='admin')||($rol=='foun')||($rol=='editor')||($rol=='vpnlevel')||($rol=='task')||($rol=='editor')||($rol=='editor0'))
+          if(($rol=='admin')||($rol=='foun')||($rol=='editor')||($rol=='vpnlevel')||($rol=='task')||($rol=='editor')||($rol=='editor0')||($rol=='buyer'))
             {
              return view('corrections.create',['rol'=>$rol,'campos'=>$campo, 'number_campos'=>$number_campos,'id_guias'=>$guia->id,'campos_img'=>$campos_img, 'number_campos_img'=>$number_campos_img  ]); 
            }else{
@@ -369,7 +369,7 @@ class CorrectionsController extends Controller
         ->get(3);
        $level=$guia->level;
           if($level=='0'){
-          if(($rol=='admin')||($rol=='foun')||($rol=='editor')||($rol=='vpnlevel')||($rol=='task')||($rol=='task0')||($rol=='editor0'))
+          if(($rol=='admin')||($rol=='foun')||($rol=='editor')||($rol=='vpnlevel')||($rol=='task')||($rol=='task0')||($rol=='editor0')||($rol=='buyer'))
            {
               
               if(!empty( $correction_search2)){
@@ -384,7 +384,7 @@ class CorrectionsController extends Controller
             return redirect('home');
            }
          }else{
-           if(($rol=='admin')||($rol=='foun')||($rol=='editor')||($rol=='vpnlevel')||($rol=='task')||($rol=='editor0'))
+           if(($rol=='admin')||($rol=='foun')||($rol=='editor')||($rol=='vpnlevel')||($rol=='task')||($rol=='editor0')||($rol=='buyer'))
             {
 
 
@@ -448,7 +448,7 @@ class CorrectionsController extends Controller
                   ->respues($respues)
                   ->paginate(10);
        if($level=='0'){
-          if(($rol=='admin')||($rol=='foun')||($rol=='editor')||($rol=='vpnlevel')||($rol=='task')||($rol=='task0')||($rol=='editor0'))
+          if(($rol=='admin')||($rol=='foun')||($rol=='editor')||($rol=='vpnlevel')||($rol=='task')||($rol=='task0')||($rol=='editor0')||($rol=='buyer'))
            {
    
          if(!empty($correction_search_text))
@@ -466,7 +466,7 @@ class CorrectionsController extends Controller
          }
              
         }else{
-          if(($rol=='admin')||($rol=='foun')||($rol=='editor')||($rol=='vpnlevel')||($rol=='task')||($rol=='editor0'))
+          if(($rol=='admin')||($rol=='foun')||($rol=='editor')||($rol=='vpnlevel')||($rol=='task')||($rol=='editor0')||($rol=='buyer'))
             {
                   if(!empty($correction_search_text))
                    {
@@ -507,14 +507,14 @@ class CorrectionsController extends Controller
       $level=$correction[0]->level;
       $names_campo=explode(',', $correction[0]->names_campo);
        if($level=='0'){
-          if(($rol=='admin')||($rol=='foun')||($rol=='editor')||($rol=='editor0'))
+          if(($rol=='admin')||($rol=='foun')||($rol=='editor')||($rol=='editor0')||($rol=='buyer'))
            {
              return view('corrections.edit',['campos'=>$names_campo,'id_guias'=>$id_guias,'rol'=>$rol,'correction'=>$correction,'correction_id'=>$correction_id]);
               }else{
               return redirect('home');
             }
           }else{
-             if(($rol=='admin')||($rol=='foun')||($rol=='editor'))
+             if(($rol=='admin')||($rol=='foun')||($rol=='editor')||($rol=='buyer'))
            {
              return view('corrections.edit',['campos'=>$names_campo,'id_guias'=>$id_guias,'rol'=>$rol,'correction'=>$correction,'correction_id'=>$correction_id]);
               }else{
@@ -588,7 +588,7 @@ class CorrectionsController extends Controller
                $level=$guia->level;
 
              if($level=='0'){
-                if(($rol=='admin')||($rol=='foun')||($rol=='editor')||($rol=='editor0'))
+                if(($rol=='admin')||($rol=='foun')||($rol=='editor')||($rol=='editor0')||($rol=='buyer'))
                  {
                 $correction->delete();
                $copiar=$guia->copiado;
@@ -627,7 +627,7 @@ class CorrectionsController extends Controller
                    return redirect('home');
                  }
                }else{
-                 if(($rol=='admin')||($rol=='foun')||($rol=='editor'))
+                 if(($rol=='admin')||($rol=='foun')||($rol=='editor')||($rol=='buyer'))
                  {
                     $correction->delete();
                      $copiar=$guia->copiado;

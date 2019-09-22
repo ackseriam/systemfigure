@@ -38,7 +38,7 @@ class GuiasController extends Controller
     public function create(Request $request)
     {
         $rol = roleuser($request); //se llama al helper en Helpers/role
-          if(($rol=='admin')||($rol=='foun'))
+          if(($rol=='admin')||($rol=='foun')||($rol=='buyer'))
         {
 
         $user=User::find(auth()->user()->id);
@@ -59,7 +59,7 @@ class GuiasController extends Controller
     public function store(Request $request)
     {
           $rol = roleuser($request);
-             if(($rol=='admin')||($rol=='foun'))
+              if(($rol=='admin')||($rol=='foun')||($rol=='buyer'))
         {
 
         $user=User::find(auth()->user()->id);
@@ -150,14 +150,14 @@ class GuiasController extends Controller
         $guia=Guias::find($id);
           $level=$guia->level;
           if($level=='0'){
-          if(($rol=='admin')||($rol=='foun')||($rol=='editor')||($rol=='editor0'))
+          if(($rol=='admin')||($rol=='foun')||($rol=='editor')||($rol=='editor0')||($rol=='buyer'))
            {
              return view('guias.edit',['rol'=>$rol,'guia'=>$guia]);
              }else{
                   return redirect('home');
               }
         }else{
-             if(($rol=='admin')||($rol=='foun')||($rol=='editor'))
+             if(($rol=='admin')||($rol=='foun')||($rol=='editor')||($rol=='buyer'))
             { 
                return view('guias.edit',['rol'=>$rol,'guia'=>$guia]);
             }else{
@@ -179,7 +179,7 @@ class GuiasController extends Controller
      
          $level=$guia->level;
           if($level=='0'){
-          if(($rol=='admin')||($rol=='foun')||($rol=='editor')||($rol=='editor0'))
+          if(($rol=='admin')||($rol=='foun')||($rol=='editor')||($rol=='editor0')||($rol=='buyer'))
            {
                   $guia->save();
                return redirect("corrections/correc_user/".$id);
@@ -412,7 +412,7 @@ class GuiasController extends Controller
         
        $guia = Guias::find($id);  
        $guia->delete();
-         if(($level=='0')||($level=="vpn0")|| ($level=="vpn"))
+         if(($level=='0')||($level=="vpn0")|| ($level=="vpn")||($rol=='buyer'))
        {
         $guias = Guias::where(['level'=> $level, 'status'=>'inactivo'])->orderBy("id", "DESC")->paginate(4);  
       }else{

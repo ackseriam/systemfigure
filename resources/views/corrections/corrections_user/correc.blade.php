@@ -188,7 +188,7 @@ td {
                                               </div>
                                        </div>
                                       <div class="col-lg-1" nmousedown='return false;' onselectstart="return false;"> 
-                                              @if(($rol=='admin')||($rol=='foun'))
+                                              @if(($rol=='admin')||($rol=='foun')||($rol=='buyer'))
                                              <a href="/guias/edit/{{$guia->id}}" class="btn btn-info " title="Editar guia"><i class="mdi mdi-square-edit-outline"></i></a>
                                             @endif
                                       </div> 
@@ -201,7 +201,7 @@ td {
                                       </div>
                                       </div>
                                        @if($level=='0')
-                                            @if(($rol=='admin')||($rol=='foun')||($rol=='editor')||($rol=='editor0'))   
+                                            @if(($rol=='admin')||($rol=='foun')||($rol=='editor')||($rol=='editor0')||($rol=='buyer'))   
                                                  <div class="col-lg-3"> 
                                                    <label onmousedown='return false;' onselectstart="return false;">Tiempo de envio de la guia:</label> 
                                                      {{ Form::open(['url' => 'guias/time/'.$id.'/','method'=> 'GET', 'class' => '']) }}
@@ -220,7 +220,7 @@ td {
                                                </div>
                                            @endif
                                             @else
-                                             @if(($rol=='admin')||($rol=='foun')||($rol=='editor'))                                             
+                                             @if(($rol=='admin')||($rol=='foun')||($rol=='editor')||($rol=='buyer'))                                             
                                              <div class="col-lg-3"> 
                                                    <label onmousedown='return false;' onselectstart="return false;">Tiempo de envio de la guia:</label> 
                                                      {{ Form::open(['url' => 'guias/time/'.$id.'/','method'=> 'GET', 'class' => '']) }}
@@ -242,7 +242,7 @@ td {
                                      {{ Form::close()}}
                                       <div class="col-lg-3">
                                           @if($level=='0')
-                                             @if(($rol=='admin')||($rol=='foun')||($rol=='editor')||($rol=='editor0'))   
+                                             @if(($rol=='admin')||($rol=='foun')||($rol=='editor')||($rol=='editor0')||($rol=='buyer'))   
                                              <label onmousedown='return false;' onselectstart="return false;">Colocar el numero de la columna que desea copiar. O todas.(Seperarlo con comas)</label>
                                                  {{ Form::open(['url' => 'guias/copiado/'.$id.'/','method'=> 'GET', 'class' => '']) }}
                                           <div class="form-row align-items-center">
@@ -261,7 +261,7 @@ td {
                                              @endif
                                             @else
                                             @if($level!='0')
-                                              @if(($rol=='admin')||($rol=='foun')||($rol=='editor')) 
+                                              @if(($rol=='admin')||($rol=='foun')||($rol=='editor')||($rol=='buyer')) 
                                                 <label onmousedown='return false;' onselectstart="return false;">Colocar el numero de la columna que desea copiar. O todas.(Seperarlo con comas)</label>
                                                    {{ Form::open(['url' => 'guias/copiado/'.$id.'/','method'=> 'GET', 'class' => '']) }}
                                           <div class="form-row align-items-center">
@@ -313,12 +313,12 @@ td {
 
                                                                   @endforeach
                                                                   @if($level=='0')
-                                                                      @if(($rol=='admin')||($rol=='foun')||($rol=='editor')||($rol=='editor0'))   
+                                                                      @if(($rol=='admin')||($rol=='foun')||($rol=='editor')||($rol=='editor0')||($rol=='buyer'))   
                                                                           <th>Usuario</th>   
                                                                           <th>Acción</th>   
                                                                         @endif  
                                                                         @else
-                                                                        @if(($rol=='admin')||($rol=='foun')||($rol=='editor'))
+                                                                        @if(($rol=='admin')||($rol=='foun')||($rol=='editor')||($rol=='buyer'))
                                                                           <th>Usuario</th>  
                                                                          <th>Acción</th>   
                                                                         @endif
@@ -414,7 +414,7 @@ td {
                                                                          @endif
                                                                          @endfor
                                                                          @if($level=='0')
-                                                                          @if(($rol=='admin')||($rol=='foun')||($rol=='editor')||($rol=='editor0'))
+                                                                          @if(($rol=='admin')||($rol=='foun')||($rol=='editor')||($rol=='editor0')||($rol=='buyer'))
                                                                           <td>Usuario:<p class="text-title"> 
                                                                             {{$correction->username}}</p>
                                                                         <div id="consul">
@@ -446,7 +446,7 @@ td {
                                                                         </div><!-- /.modal-dialog -->
                                                                     </div><!-- /.modal -->
                                                                    </td> @endif
-                                                                    @else  @if(($rol=='admin')||($rol=='foun')||($rol=='editor'))
+                                                                    @else  @if(($rol=='admin')||($rol=='foun')||($rol=='editor')||($rol=='buyer'))
                                                                       <td>Usuario:<p class="text-title"> {{$correction->username}}</p>
                                                                         <div id="consul">
                                                                             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#full-width-modal"><i class="mdi mdi-file-search-outline "></i> </button>
@@ -475,7 +475,7 @@ td {
                                                                     @endif
                                                                     @endif
                                                                      @if($level=='0')
-                                                                        @if(($rol=='admin')||($rol=='foun')||($rol=='editor')||($rol=='editor0'))   
+                                                                        @if(($rol=='admin')||($rol=='foun')||($rol=='editor')||($rol=='editor0')||($rol=='buyer'))   
                                                                               <td> <a href="/corrections/editar/{{$correction->id}}" title="Editar Corrección"  class="btn btn-success" data-toggle="modal" target="_blank"><i class=" mdi mdi-square-edit-outline "></i> </a><a id="{{$correction->id}}" class="btn btn-danger"  title="Eliminar Corrección" data-toggle="modal" target="_blank"><i class="mdi mdi-delete "></i> </a></td>
                                                                                 <script>
                                                                     $('#<?php echo $correction->id?>').click(function(e){
@@ -507,7 +507,7 @@ td {
                                                                   @endif
 
                                                                        @else
-                                                                          @if(($rol=='admin')||($rol=='foun')||($rol=='editor'))
+                                                                          @if(($rol=='admin')||($rol=='foun')||($rol=='editor')||($rol=='buyer'))
                                                                               <td> <a href="/corrections/editar/{{$correction->id}}" title="Editar Corrección"  class="btn btn-success" data-toggle="modal" target="_blank"><i class=" mdi mdi-square-edit-outline "></i> </a><a id="{{$correction->id}}" class="btn btn-danger"  title="Eliminar Corrección" data-toggle="modal" target="_blank"><i class="mdi mdi-delete "></i> </a></td>
                                                                                 <script>
                                                                                 $('#<?php echo $correction->id?>').click(function(e){
@@ -565,7 +565,7 @@ td {
                                               </div> <!-- end card body-->
                                               
                                                @if($level=='0')
-                                               @if(($rol=='admin')||($rol=='foun')||($rol=='editor')||($rol=='editor0'))  
+                                               @if(($rol=='admin')||($rol=='foun')||($rol=='editor')||($rol=='editor0')||($rol=='buyer'))  
                                                     
                                                     <div class="col-lg-6">   
                                                      <div class="row">
@@ -589,7 +589,7 @@ td {
                                                     </div>
                                                 @endif
                                                 @else
-                                                   @if(($rol=='admin')||($rol=='foun')||($rol=='editor'))
+                                                   @if(($rol=='admin')||($rol=='foun')||($rol=='editor')||($rol=='buyer'))
                                                    <div class="col-lg-6">   
                                                      <div class="row">
                                                        <div class="col-lg-3">   
