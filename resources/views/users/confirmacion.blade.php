@@ -1,6 +1,17 @@
-<img src="{{ asset('images/logofigure2.png') }}" alt="" height="100">
+@include('layouts.head')
+
+ <div class="row">
+    <div class="col-lg-4" ></div>
+    <div class="col-lg-4" >
+        <div class="text-center">
+           <img src="{{ asset('images/logofigure2.png') }}" alt="" height="300">
+       </div>
+   </div>
+   <div class="col-sm-4" ></div><br>
+</div>
+
 <p>Hola, {{$username}}</p><br>
-<p>La comunidad de {{ config('app.name') }} se complace en anunciarle que se acaba de aprobar su  usuario en la plataforma  </p>
+<p>La comunidad internacional Figure Eight Task se complace en anunciarle que se acaba de aprobar su usuario en la plataforma, sea bienvenido.  </p>
 <p>Datos para ingresar: <br>
 Usuario:{{$username}}<br>
 Email: {{$email}}<br>
