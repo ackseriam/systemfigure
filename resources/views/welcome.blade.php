@@ -264,19 +264,22 @@
          
          <br>
            <div  id="nosotros">
-             <div class="container">
-                    <div class="row ">
-                        <div class="col-12">
-                            <div class="text-center">
-                                    
-                                                              
-                                      <h1 class="mt-4 headline" >Comunidad internacional "Figure Eight Task" <img src="{{ asset('images/logofigure2.png') }}" alt="" height="100"></h1>
-                                
-                             </div>  
-                        </div>  
-                     </div> 
+               
 
-                </div>
+                        <div class="container">
+                            <div class="row ">
+                                <div class="col-12">
+                                      <section class="wow fadeInDown" data-wow-delay="1s">
+                                        <div class="text-center">                  
+                                                  <h1 class=" headline" >Comunidad internacional "Figure Eight Task" <img src="{{ asset('images/logofigure2.png') }}" alt="" height="100"></h1>
+                                            
+                                         </div> 
+                                     </section> 
+                                </div>  
+                             </div> 
+
+                        </div>
+            
                 <section class=" wow slideInLeft" data-wow-duration="4s">
                     <div class="container">
                           <div class="row justify-content ">
