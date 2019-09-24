@@ -142,11 +142,11 @@
                                 <div class="text-center">
                                    <img src="{{ asset('images/logofigure2.png') }}" alt="" height="100">
                                     <h1 class="">Figure Eight Task </h1>
-                                    <p class="text-muted mt-3"> Somos una comunidad especializada en las soluciones de las tareas suministradas por la plataforma FigureEight</p>
+                                    <h4 class="text-muted mt-3">Somos una comunidad dedicada a la asesoría e interacción de trabajo por internet , de distintas formas y paginas, <br>principalmente Figure Eight. Contamos con un servidor de discord de trabajo y compra/venta de divisas electrónicas de manera segura</h4>
 
-                                    <a href="https://www.instagram.com/f8task/"  target="_blank"  class="btn btn-success btn-sm mt-2"><i class="mdi mdi-email-outline mr-1"></i> </a>
+                                   
                                     <!--
-
+                                     <a href="https://www.instagram.com/f8task/"  target="_blank"  class="btn btn-success btn-sm mt-2"><i class="mdi mdi-email-outline mr-1"></i> </a>
                                     <a href="https://www.instagram.com/f8task/"   target="_blank"   class="btn btn-info btn-sm mt-2 ml-1"><i class="mdi mdi-twitter mr-1"></i> </a>-->
 
                                     <a href="https://www.facebook.com/f8task/"  target="_blank"   class="btn btn-primary btn-sm mt-2 ml-1"><i class=" mdi mdi-facebook  mr-1"></i></a>
@@ -159,23 +159,28 @@
                         </div><!-- end row -->
         
                         <div class="row pt-5">
-                            <div class="col-lg-5 offset-lg-1">
+                            <div class="col-lg-3 offset-lg-2">
                                 <!-- Question/Answer -->
                                 <div>
                                     <div class="faq-question-q-box">Q.</div>
                                     <h4 class="faq-question" data-wow-delay=".1s">¿Por que nosotros?</h4>
-                                    <p class="faq-answer mb-4">Somos los mejores en lo que hacemos, ofrecemos atención las 24 horas con nuestro equipo activo en todo momento.</p>
+                                     <p class="faq-answer mb-4">Trabajamos arduamente para generar desde casa,con distintas páginas brindándote la mejor asesoría,principalmente con f8.</p>
                                 </div>
         
                                 <!-- Question/Answer -->
                                 <div>
                                     <div class="faq-question-q-box">Q.</div>
                                     <h4 class="faq-question">Trabaja con nosotros</h4>
-                                    <p class="faq-answer mb-4">En nuestro servidor tendras acceso a nuestras guias y acceso a videos mostrando tips para hacer los diferentes task .</p>
+                                      <p class="faq-answer mb-4">En nuestro servidor de discord encontraras material  Disponible para realizar los diferentes task, videos, guías y herramientas para hacer más fácil el trabajo a la hora de tasquear.</p>
+
+                                  
                                 </div>
         
                                 </div>
-                            <div class="col-lg-5">
+                                 <div class="col-lg-2"> 
+                                    <img src="{{ asset('images/Logo_Octopya.png') }}" alt="" >
+                                 </div> 
+                            <div class="col-lg-3">
                                 <!-- Question/Answer -->
                                 
         
@@ -183,28 +188,29 @@
                                 <div>
                                     <div class="faq-question-q-box">Q.</div>
                                     <h4 class="faq-question">Se parte de nuestra comunidad</h4>
-                                    <p class="faq-answer mb-4">En nuestra comunidad estaras 100% asesorado para hacer los diferentes task en el momento indicado.</p>
+                                    <p class="faq-answer mb-4"> Contaras con ayuda, asesoría e interacción con los mejores taskeros.</p>
                                 </div>   
                                    <!-- Question/Answer -->
                                 <div>
                                     <div class="faq-question-q-box">Q.</div>
                                     <h4 class="faq-question">Taskeo las 24 horas</h4>
-                                    <p class="faq-answer mb-4">Lorem ipsum dolor sit amet, in mea nonumes dissentias dissentiunt, pro te solet oratio iriure. Cu sit consetetur moderatius intellegam, ius decore accusamus te. Ne primis suavitate disputando nam. Mutat convenirete.</p>
+                                    <p class="faq-answer mb-4">Trabajamos todo el día, todos los días ¡siempre activos! en nuestro servidor .</p>
                                 </div>                          
         
                             </div>
+                           
                             
 
                             <!--/col-md-5-->
                         </div>  
                         <!-- end row -->
-              <div class="container"  style="top: 20px;">
+              <div class="container-fluid"  style="top: 20px;">
                 <div class="row justify-content-center">
                     <div class="col-12">
 
                         <div class="text-center">
                               
-                            <div class="row mt-5">
+                            <div class="row pt-5">
                                 <div class="col-md-4">
                                     <div class="text-center mt-3 pl-1 pr-1">
                                           <i class="dripicons-clock bg-primary maintenance-icon text-white mb-2"></i>
@@ -237,74 +243,45 @@
 
             <!-- end container -->
                 <br><br>
-                <div  id="nosotros">
-                          <div class="container"  style="top: 100px;" >
-                    <div class="row justify-content-center">
+             
+            
+                    </div>
+         </div>
+         <br>
+           <div  id="nosotros">
+             <div class="container">
+                    <div class="row ">
                         <div class="col-12">
                             <div class="text-center">
-                                <h1 class="mt-4">Nosotros <img src="{{ asset('images/logofigure2.png') }}" alt="" height="100"></h1>
-                                <h3 class="mt-4">Comunidad Figure Eight task </h3>
-                              
-                               
-                                    <h4 class="text-muted">Somos una comunidad dedicada a la asesoría e interacción de trabajo por internet , de distintas formas y paginas, principalmente Figure Eight. Contamos con un servidor de discord de trabajo y compra/venta de divisas electrónicas de manera segura  .</h4>
-                                 
-                             </div>
-                             <br>
-                         </div>
-                         
-                        </div> <!-- end col -->
-                    </div>
-                    <!-- end row -->
-
-                    <!-- Start Content-->
-                    <div class="container-fluid">
-                      <div class="text-center">
-                              <img src="{{ asset('images/welcome.png') }}" alt="" height="500" width="1500">
-                          </div>
-                    </div>
-               </div>
-               <!--
-                <div  id="requisitos">
-                          <div class="container"  style="top: 100px;" >
-                    <div class="row justify-content-center">
-                        <div class="col-12">
-                            <div class="text-center">
-                                <h1 class="mt-4">Requisitos <img src="{{ asset('images/logofigure2.png') }}" alt="" height="100"></h1>
-                                <h3 class="mt-4">Requisitos de la comunidad Figure Eight task </h3>
-                              
-                               
-                                    <h4 class="text-muted">Para ingresar a nuestra comunidad de Figure Eight Task, se necesita los siguientes requisitos:</h4>
-                                 
-                             </div>
-                             <br>
-                         </div>
-                         
-                        </div>                     </div>
-                </div>-->
-
-                   <!--
-                 <div  id="programas">
-                          <div class="container"  style="top: 100px;" >
-                    <div class="row justify-content-center">
-                        <div class="col-12">
-                            <div class="text-center">
-                                <h1 class="mt-4">Nuestros programas <img src="{{ asset('images/logofigure2.png') }}" alt="" height="100"></h1>
-                                <h3 class="mt-4">Nuestros programas en nuestra comunidad </h3>
-                              
-                               
-                                    <h4 class="text-muted">Para ingresar a nuestra comunidad de Figure Eight Task, se necesita los siguientes requisitos:</h4>
-                                 
-                             </div>
-                             <br>
-                         </div>
-                         
-                        </div> <!-- end col -->
-                    </div>
-                </div>-->
+                                
+                                <h1 class="mt-4">Comunidad internacional "Figure Eight Task" <img src="{{ asset('images/logofigure2.png') }}" alt="" height="100"></h1>
+                             </div>  
+                        </div>  
+                     </div> 
 
                 </div>
-              
-     </div> <!-- container -->
+                <div class="container">
+                      <div class="row justify-content ">
+                              
+                            <div class="col-lg-3 "> 
+                                <img src="{{ asset('images/logofigure2.png') }}" alt="" >
+                            </div>
+                              <div class="col-lg-7">  
+                                    <h5 class="">Nacimos como un grupo de ayuda, en un inicio con 5 a 6 miembros trabajando activamente los task o tareas de Figure Eight (f8) y colaborando como equipo nos organizamos creando un método de trabajo grupal, en un principio como proyecto educativo, para poder ayudar a más personas a aprender sobre Figure Eight (f8), fuimos consolidándonos y creciendo como comunidad poco a poco con la recomendación de los propios usuarios al obtener muy buenos resultados y ganancias. 
+                                     <br><br>
+                                    Hoy somos una comunidad dedicada a la asesoría e interacción de trabajo por internet, de distintas formas y páginas, principalmente Figure Eight. Contamos con un servidor de discord de trabajo y compra/venta de divisas electrónicas de manera segura. Estamos activos 24/7 trabajando e investigando nuevas formas de ganar dinero por internet.
+                                    </h5>
+                             </div>
+                              <div class="col-lg-2"> 
+                                <img src="{{ asset('images/Logo_Octopya.png') }}" alt="" height="200" >
+                            </div> 
+                      
+                       </div> <!-- end col -->
+                </div>
+                    <!-- end row -->
+
+            
+               </div>
 
      
         <!-- end page -->
