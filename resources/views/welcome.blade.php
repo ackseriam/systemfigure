@@ -2,6 +2,9 @@
 @include('layouts.head')
         <style>
  
+             .wow:first-child {
+      visibility: hidden;
+    }
 
             .full-height {
                 height: 100vh;
@@ -44,7 +47,16 @@
             .m-b-md {
                 margin-bottom: 30px;
             }
+           
         </style>
+  <link rel="stylesheet" href="{{ asset('css/vendor/animate.css') }}">
+
+     <script src="https://unpkg.com/scrollreveal"></script>
+       <script src="{{ asset('js/vendor/wow.min.js') }}" ></script> 
+     <script>
+        ScrollReveal({ duration: 1000 })
+    </script>
+
         <body>
         <!-- Topbar Start -->
                     <div class="navbar-custom topnav-navbar">
@@ -133,152 +145,160 @@
             </div>
 
         <div class="flex-center position-ref ">
-          
+                        <!-- Start Content-->
+             <div class="container-fluid">
+                            <section class="wow fadeInDown">
 
-                    <!-- Start Content-->
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-sm-12" ><br>
-                                <div class="text-center">
-                                   <img src="{{ asset('images/logofigure2.png') }}" alt="" height="100">
-                                    <h1 class="">Figure Eight Task </h1>
-                                    <h4 class="text-muted mt-3">Somos una comunidad dedicada a la asesoría e interacción de trabajo por internet , de distintas formas y paginas, <br>principalmente Figure Eight. Contamos con un servidor de discord de trabajo y compra/venta de divisas electrónicas de manera segura</h4>
+                                <div class="row">
+                                    <div class="col-sm-12" ><br>
 
-                                   
-                                    <!--
-                                     <a href="https://www.instagram.com/f8task/"  target="_blank"  class="btn btn-success btn-sm mt-2"><i class="mdi mdi-email-outline mr-1"></i> </a>
-                                    <a href="https://www.instagram.com/f8task/"   target="_blank"   class="btn btn-info btn-sm mt-2 ml-1"><i class="mdi mdi-twitter mr-1"></i> </a>-->
-
-                                    <a href="https://www.facebook.com/f8task/"  target="_blank"   class="btn btn-primary btn-sm mt-2 ml-1"><i class=" mdi mdi-facebook  mr-1"></i></a>
+                                        <div class="text-center">
+                                           <img src="{{ asset('images/logofigure2.png') }}" alt="" height="100">
+                                            <h1 class=" tagline">Figure Eight Task </h1>
+                                            <h4 class="text-muted mt-3 widget">Somos una comunidad dedicada a la asesoría e interacción de trabajo por internet , de distintas formas y paginas, <br>principalmente Figure Eight. Contamos con un servidor de discord de trabajo y compra/venta de divisas electrónicas de manera segura</h4>
 
 
-                                    <a href="https://www.instagram.com/f8task/"  target="_blank"  class="btn btn-primary btn-sm mt-2 ml-1" ><i class="  mdi mdi-instagram   mr-1"></i></a>
-                                    <a href="https://www.youtube.com/channel/UC1Qzqg18r_VghlQjZiNk2MA/videos"  target="_blank"  class="btn btn-danger btn-sm mt-2 ml-1" ><i class="  mdi mdi-youtube mr-1"></i></a>
-                                </div>
-                            </div><!-- end col -->
-                        </div><!-- end row -->
-        
-                        <div class="row pt-5">
-                            <div class="col-lg-3 offset-lg-2">
-                                <!-- Question/Answer -->
-                                <div>
-                                    <div class="faq-question-q-box">Q.</div>
-                                    <h4 class="faq-question" data-wow-delay=".1s">¿Por que nosotros?</h4>
-                                     <p class="faq-answer mb-4">Trabajamos arduamente para generar desde casa,con distintas páginas brindándote la mejor asesoría,principalmente con f8.</p>
-                                </div>
-        
-                                <!-- Question/Answer -->
-                                <div>
-                                    <div class="faq-question-q-box">Q.</div>
-                                    <h4 class="faq-question">Trabaja con nosotros</h4>
-                                      <p class="faq-answer mb-4">En nuestro servidor de discord encontraras material  Disponible para realizar los diferentes task, videos, guías y herramientas para hacer más fácil el trabajo a la hora de tasquear.</p>
+                                            <a href="https://www.facebook.com/f8task/"  target="_blank"   class="btn btn-primary btn-sm mt-2 ml-1"><i class=" mdi mdi-facebook  mr-1"></i></a>
 
-                                  
-                                </div>
-        
-                                </div>
-                                 <div class="col-lg-2"> 
-                                    <img src="{{ asset('images/Logo_Octopya.png') }}" alt="" >
-                                 </div> 
-                            <div class="col-lg-3">
-                                <!-- Question/Answer -->
-                                
-        
-                                <!-- Question/Answer -->
-                                <div>
-                                    <div class="faq-question-q-box">Q.</div>
-                                    <h4 class="faq-question">Se parte de nuestra comunidad</h4>
-                                    <p class="faq-answer mb-4"> Contaras con ayuda, asesoría e interacción con los mejores taskeros.</p>
-                                </div>   
-                                   <!-- Question/Answer -->
-                                <div>
-                                    <div class="faq-question-q-box">Q.</div>
-                                    <h4 class="faq-question">Taskeo las 24 horas</h4>
-                                    <p class="faq-answer mb-4">Trabajamos todo el día, todos los días ¡siempre activos! en nuestro servidor .</p>
-                                </div>                          
-        
-                            </div>
-                           
+
+                                            <a href="https://www.instagram.com/f8task/"  target="_blank"  class="btn btn-primary btn-sm mt-2 ml-1" ><i class="  mdi mdi-instagram   mr-1"></i></a>
+                                            <a href="https://www.youtube.com/channel/UC1Qzqg18r_VghlQjZiNk2MA/videos"  target="_blank"  class="btn btn-danger btn-sm mt-2 ml-1" ><i class="  mdi mdi-youtube mr-1"></i></a>
+                                        </div>
+                                    </div><!-- end col -->
+                                </div><!-- end row -->
+
+                            </section>
                             
-
-                            <!--/col-md-5-->
-                        </div>  
-                        <!-- end row -->
-              <div class="container-fluid"  style="top: 20px;">
-                <div class="row justify-content-center">
-                    <div class="col-12">
-
-                        <div class="text-center">
-                              
-                            <div class="row pt-5">
-                                <div class="col-md-4">
-                                    <div class="text-center mt-3 pl-1 pr-1">
-                                          <i class="dripicons-clock bg-primary maintenance-icon text-white mb-2"></i>
-                                    
-                                        <h5 class="text-uppercase">Acceso las 24 horas</h5>
-                                      
+                              <section class="wow slideInRight" data-wow-delay="2s">
+                                    <div class="row pt-5 widget-list">
+                                <div class="col-lg-3 offset-lg-2">
+                                    <!-- Question/Answer -->
+                                    <div>
+                                        <div class="faq-question-q-box">Q.</div>
+                                        <h4 class="faq-question  widget" data-wow-delay=".1s">¿Por que nosotros?</h4>
+                                         <p class="faq-answer mb-4 widget">Trabajamos arduamente para generar desde casa,con distintas páginas brindándote la mejor asesoría,principalmente con f8.</p>
                                     </div>
-                                </div> <!-- end col-->
-                                <div class="col-md-4">
-                                    <div class="text-center mt-3 pl-1 pr-1">
-                                           <i class="dripicons-jewel bg-primary maintenance-icon text-white mb-2"></i>
-                                        <h5 class="text-uppercase">Comprometidos en lo que hacemos</h5>
-                                      
-                                    </div>
-                                </div> <!-- end col-->
-                                <div class="col-md-4">
-                                    <div class="text-center mt-3 pl-1 pr-1">
-                                        <i class="dripicons-jewel bg-primary maintenance-icon text-white mb-2"></i>
-                                        <h5 class="text-uppercase">Excelencia</h5>
-                                       
-                                    </div>
-                                </div> <!-- end col-->
-                            </div> <!-- end row-->
-                        </div> <!-- end /.text-center-->
-
-                    </div> <!-- end col -->
-                </div>
-                <!-- end row -->
-            </div>
-
-            <!-- end container -->
-                <br><br>
-             
             
-                    </div>
+                                    <!-- Question/Answer -->
+                                    <div>
+                                        <div class="faq-question-q-box">Q.</div>
+                                        <h4 class="faq-question widget">Trabaja con nosotros</h4>
+                                          <p class="faq-answer mb-4 widget">En nuestro servidor de discord encontraras material  Disponible para realizar los diferentes task, videos, guías y herramientas para hacer más fácil el trabajo a la hora de tasquear.</p>
+
+                                      
+                                    </div>
+            
+                                    </div>
+                                     <div class="col-lg-2"> 
+                                        <img src="{{ asset('images/Logo_Octopya.png') }}" alt="" >
+                                     </div> 
+                                <div class="col-lg-3">
+                                    <!-- Question/Answer -->
+                                    
+            
+                                    <!-- Question/Answer -->
+                                    <div>
+                                        <div class="faq-question-q-box">Q.</div>
+                                        <h4 class="faq-question  widget">Se parte de nuestra comunidad</h4>
+                                        <p class="faq-answer mb-4 widget"> Contaras con ayuda, asesoría e interacción con los mejores taskeros.</p>
+                                    </div>   
+                                       <!-- Question/Answer -->
+                                    <div>
+                                        <div class="faq-question-q-box">Q.</div>
+                                        <h4 class="faq-question widget">Taskeo las 24 horas</h4>
+                                        <p class="faq-answer mb-4 widget">Trabajamos todo el día, todos los días ¡siempre activos! en nuestro servidor .</p>
+                                    </div>                          
+            
+                                </div>
+                               
+                                
+
+                                <!--/col-md-5-->
+                            </div> 
+
+                              </section>
+
+                   <section class=" wow bounceInLeft" data-wow-offset="300">
+                          <div class="container-fluid"  style="top: 20px;">
+                            <div class="row ">
+                                <div class="col-12">
+
+                                    <div class="text-center">
+                                          
+                                        <div class="row ">
+                                            <div class="col-md-3  offset-lg-1">
+                                                <div class="text-center mt-3 pl-1 pr-1">
+                                                      <i class="dripicons-clock bg-primary maintenance-icon text-white mb-2"></i>
+                                                
+                                                    <h5 class="text-uppercase">Acceso las 24 horas</h5>
+                                                  
+                                                </div>
+                                            </div> <!-- end col-->
+                                            <div class="col-md-3">
+                                                <div class="text-center mt-3 pl-1  offset-lg-1">
+                                                       <i class="dripicons-jewel bg-primary maintenance-icon text-white mb-2"></i>
+                                                    <h5 class="text-uppercase">Comprometidos en lo que hacemos</h5>
+                                                  
+                                                </div>
+                                            </div> <!-- end col-->
+                                            <div class="col-md-4">
+                                                <div class="text-center mt-3 pl-1 ">
+                                                    <i class="dripicons-jewel bg-primary maintenance-icon text-white mb-2"></i>
+                                                    <h5 class="text-uppercase">Excelencia y organización</h5>
+                                                   
+                                                </div>
+                                            </div> <!-- end col-->
+                                        </div> <!-- end row-->
+                                    </div> <!-- end /.text-center-->
+
+                                </div> <!-- end col -->
+                            </div>
+                            <!-- end row -->
+                         </div>
+                        </section>
+
+                <!-- end container -->
+                    <br><br>
+             </div>
          </div>
+         
          <br>
            <div  id="nosotros">
              <div class="container">
                     <div class="row ">
                         <div class="col-12">
                             <div class="text-center">
+                                    
+                                                              
+                                      <h1 class="mt-4 headline" >Comunidad internacional "Figure Eight Task" <img src="{{ asset('images/logofigure2.png') }}" alt="" height="100"></h1>
                                 
-                                <h1 class="mt-4">Comunidad internacional "Figure Eight Task" <img src="{{ asset('images/logofigure2.png') }}" alt="" height="100"></h1>
                              </div>  
                         </div>  
                      </div> 
 
                 </div>
-                <div class="container">
-                      <div class="row justify-content ">
-                              
-                            <div class="col-lg-3 "> 
-                                <img src="{{ asset('images/logofigure2.png') }}" alt="" >
-                            </div>
-                              <div class="col-lg-7">  
-                                    <h5 class="">Nacimos como un grupo de ayuda, en un inicio con 5 a 6 miembros trabajando activamente los task o tareas de Figure Eight (f8) y colaborando como equipo nos organizamos creando un método de trabajo grupal, en un principio como proyecto educativo, para poder ayudar a más personas a aprender sobre Figure Eight (f8), fuimos consolidándonos y creciendo como comunidad poco a poco con la recomendación de los propios usuarios al obtener muy buenos resultados y ganancias. 
-                                     <br><br>
-                                    Hoy somos una comunidad dedicada a la asesoría e interacción de trabajo por internet, de distintas formas y páginas, principalmente Figure Eight. Contamos con un servidor de discord de trabajo y compra/venta de divisas electrónicas de manera segura. Estamos activos 24/7 trabajando e investigando nuevas formas de ganar dinero por internet.
-                                    </h5>
-                             </div>
-                              <div class="col-lg-2"> 
-                                <img src="{{ asset('images/Logo_Octopya.png') }}" alt="" height="200" >
-                            </div> 
-                      
-                       </div> <!-- end col -->
-                </div>
-                    <!-- end row -->
+                <section class=" wow slideInLeft" data-wow-duration="4s">
+                    <div class="container">
+                          <div class="row justify-content ">
+                                 <section class="wow pulse"  data-wow-iteration="infinite" data-wow-duration="1500ms"> 
+                                    <div class="col-lg-3 " > 
+                                        <img src="{{ asset('images/logofigure2.png') }}" alt="" >
+                                    </div>
+                               </section>
+                                  <div class="col-lg-7">  
+                                        <h5 class="punchline" >Nacimos como un grupo de ayuda, en un inicio con 5 a 6 miembros trabajando activamente los task o tareas de Figure Eight (f8) y colaborando como equipo nos organizamos creando un método de trabajo grupal, en un principio como proyecto educativo, para poder ayudar a más personas a aprender sobre Figure Eight (f8), fuimos consolidándonos y creciendo como comunidad poco a poco con la recomendación de los propios usuarios al obtener muy buenos resultados y ganancias. 
+                                         <br><br>
+                                        Hoy somos una comunidad dedicada a la asesoría e interacción de trabajo por internet, de distintas formas y páginas, principalmente Figure Eight. Contamos con un servidor de discord de trabajo y compra/venta de divisas electrónicas de manera segura. Estamos activos 24/7 trabajando e investigando nuevas formas de ganar dinero por internet.
+                                        </h5>
+                                 </div>
+                                  <div class="col-lg-2"> 
+                                    <img src="{{ asset('images/Logo_Octopya.png') }}" alt="" height="200" >
+                                </div> 
+                          
+                           </div> <!-- end col -->
+                    </div>
+                        <!-- end row -->
+                </section>
 
             
                </div>
@@ -286,6 +306,36 @@
      
         <!-- end page -->
     </body><br><br>
+
+    <script>
+       // ScrollReveal().reveal('.headline')
+        ScrollReveal().reveal('.tagline', { delay: 500 })
+        ScrollReveal().reveal('.punchline', { delay: 2000 })
+
+
+    </script>
+      <script>
+    ScrollReveal().reveal('.headline', { duration: 2000 });
+    ScrollReveal().reveal('.widget', { interval: 500 });
+  </script>
+   <script>
+    wow = new WOW(
+      {
+        animateClass: 'animated',
+        offset:       100,
+        callback:     function(box) {
+          console.log("WOW: animating <" + box.tagName.toLowerCase() + ">")
+        }
+      }
+    );
+    wow.init();
+    document.getElementById('moar').onclick = function() {
+      var section = document.createElement('section');
+      section.className = 'section--purple wow fadeInDown';
+      this.parentNode.insertBefore(section, this);
+    };
+  </script>
+
      <!-- Footer Start -->
                 <footer class="footer" onmousedown='return false;' onselectstart="return false;">
                     <div class="container-fluid">
@@ -303,6 +353,10 @@
                         </div>
                     </div>
                 </footer>
+
+    
+
+               
                 <!-- end Footer -->
 
 </html>
