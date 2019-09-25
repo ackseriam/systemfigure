@@ -71,24 +71,38 @@
                                     <img src="assets/images/logo_sm.png" alt="" height="16">
                                 </span>
                             </a>
-                                    <ul class="list-unstyled topbar-center-menu float-center mb-12">
-                                 <div class="app-search">
-                                <form>
-                                    <div class="input-group">
-                                        <p>LLamanos al +51 939 824 399</p>
-                                    </div>
-                                </form>
-                            </div>
-                                     
-                            
+                            <ul class="list-unstyled topbar-center-menu float-center mb-12">
+                                <br>
+                                <div class="row">
+                                      <div class="app-search">
+                                    <form>
+                                        <div class="input-group">
+                                            <p>LLamanos al +51 939 824 399</p>
+                                            <div class="text-center">
+                                                
+                                                 <img src="{{ asset('images/logofigure2_te.png') }}" alt="" style="right:  100px;" height="40">
+                                            </div>
+                                           
+
+                                        </div>
+                                    </form>
+                                </div>  
+                                </div>
+                               
+                                    
                             </ul>
+                              
                             <ul class="list-unstyled topbar-right-menu float-right mb-0">
-                                      @if (Route::has('login'))
-                                    <div class="top-right links">
+                             
+                                        
+
+                                     @if (Route::has('login'))
+                                    <div class="top-right ">
+
                                         @auth
-                                            <a href="{{ url('/home') }}"><span class="text-muted mt-3">Home</span></a>
+                                            <a href="{{ url('/home') }}"><span class="text-muted ">Home</span></a>
                                         @else
-                                            <a href="{{ route('login') }}">Iniciar Sesion</a>
+                                            <a href="{{ route('login') }}" class="btn btn-rounded  btn-lg  btn-secondary"  style="top:-30px"><h5>Iniciar Sesion</h5></a>
                                          <?php
                                 
                                             $registers = DB::table('registers')->get();
@@ -98,7 +112,7 @@
                                  
                                     @if($register->status=="si")
                                          @if (Route::has('register'))
-                                                        <a href="{{ route('people.create') }}">Registro de Personas</a>
+                                                        <a href="{{ route('people.create') }}" class=" btn btn-rounded  btn-dark"><h5>Registro de Personas</h5></a>
                                                     @endif
                                                 @endauth
                                         @endif   
@@ -154,69 +168,63 @@
 
                                         <div class="text-center">
                                            <img src="{{ asset('images/logofigure2.png') }}" alt="" height="100">
-                                            <h1 class=" tagline">Figure Eight Task </h1>
+                                             <div class="container">
+                                                <div class="row ">
+                                                    <div class="col-12">
+                                                          <section class="wow fadeInDown" data-wow-delay="1s">
+                                                            <div class="text-center">                  
+                                                                      <h1 class=" headline" >Comunidad internacional "Figure Eight Task"</h1>
+                                                                
+                                                             </div> 
+                                                         </section> 
+                                                    </div>  
+                                                 </div> 
+
+                                            </div>
                                             <h4 class="text-muted mt-3 widget">Somos una comunidad dedicada a la asesoría e interacción de trabajo por internet , de distintas formas y paginas, <br>principalmente Figure Eight. Contamos con un servidor de discord de trabajo y compra/venta de divisas electrónicas de manera segura</h4>
 
 
-                                            <a href="https://www.facebook.com/f8task/"  target="_blank"   class="btn btn-primary btn-sm mt-2 ml-1"><i class=" mdi mdi-facebook  mr-1"></i></a>
-
-
-                                            <a href="https://www.instagram.com/f8task/"  target="_blank"  class="btn btn-primary btn-sm mt-2 ml-1" ><i class="  mdi mdi-instagram   mr-1"></i></a>
-                                            <a href="https://www.youtube.com/channel/UC1Qzqg18r_VghlQjZiNk2MA/videos"  target="_blank"  class="btn btn-danger btn-sm mt-2 ml-1" ><i class="  mdi mdi-youtube mr-1"></i></a>
+                                         
                                         </div>
                                     </div><!-- end col -->
                                 </div><!-- end row -->
 
                             </section>
                             
-                              <section class="wow slideInRight" data-wow-delay="2s">
-                                    <div class="row pt-5 widget-list">
-                                <div class="col-lg-3 offset-lg-2">
-                                    <!-- Question/Answer -->
-                                    <div>
-                                        <div class="faq-question-q-box">Q.</div>
-                                        <h4 class="faq-question  widget" data-wow-delay=".1s">¿Por que nosotros?</h4>
-                                         <p class="faq-answer mb-4 widget">Trabajamos arduamente para generar desde casa,con distintas páginas brindándote la mejor asesoría,principalmente con f8.</p>
-                                    </div>
-            
-                                    <!-- Question/Answer -->
-                                    <div>
-                                        <div class="faq-question-q-box">Q.</div>
-                                        <h4 class="faq-question widget">Trabaja con nosotros</h4>
-                                          <p class="faq-answer mb-4 widget">En nuestro servidor de discord encontraras material  Disponible para realizar los diferentes task, videos, guías y herramientas para hacer más fácil el trabajo a la hora de tasquear.</p>
 
-                                      
-                                    </div>
-            
-                                    </div>
-                                     <div class="col-lg-2"> 
-                                        <img src="{{ asset('images/Logo_Octopya.png') }}" alt="" >
-                                     </div> 
-                                <div class="col-lg-3">
-                                    <!-- Question/Answer -->
-                                    
-            
-                                    <!-- Question/Answer -->
-                                    <div>
-                                        <div class="faq-question-q-box">Q.</div>
-                                        <h4 class="faq-question  widget">Se parte de nuestra comunidad</h4>
-                                        <p class="faq-answer mb-4 widget"> Contaras con ayuda, asesoría e interacción con los mejores taskeros.</p>
-                                    </div>   
-                                       <!-- Question/Answer -->
-                                    <div>
-                                        <div class="faq-question-q-box">Q.</div>
-                                        <h4 class="faq-question widget">Taskeo las 24 horas</h4>
-                                        <p class="faq-answer mb-4 widget">Trabajamos todo el día, todos los días ¡siempre activos! en nuestro servidor .</p>
-                                    </div>                          
-            
-                                </div>
-                               
-                                
+                <!-- end container -->
+                    <br><br>
+             </div>
+         </div>
+         
+         <br>
+           <div  id="nosotros">
+               
 
-                                <!--/col-md-5-->
-                            </div> 
-
-                              </section>
+                      
+            
+                <section class=" wow slideInLeft" data-wow-duration="4s">
+                    <div class="container">
+                          <div class="row justify-content ">
+                                 <section class="wow pulse"  data-wow-iteration="infinite" data-wow-duration="1500ms"> 
+                                    <div class="col-lg-3 " > 
+                                        <img src="{{ asset('images/logofigure2.png') }}" alt="" >
+                                    </div>
+                               </section>
+                                  <div class="col-lg-7">  
+                                        <h5 class="punchline" >Nacimos como un grupo de ayuda, en un inicio con 5 a 6 miembros trabajando activamente los task o tareas de Figure Eight (f8) y colaborando como equipo nos organizamos creando un método de trabajo grupal, en un principio como proyecto educativo, para poder ayudar a más personas a aprender sobre Figure Eight (f8), fuimos consolidándonos y creciendo como comunidad poco a poco con la recomendación de los propios usuarios al obtener muy buenos resultados y ganancias. 
+                                         <br><br>
+                                        Hoy somos una comunidad dedicada a la asesoría e interacción de trabajo por internet, de distintas formas y páginas, principalmente Figure Eight. Contamos con un servidor de discord de trabajo y compra/venta de divisas electrónicas de manera segura. Estamos activos 24/7 trabajando e investigando nuevas formas de ganar dinero por internet.
+                                        </h5>
+                                 </div>
+                                  <div class="col-lg-2"> 
+                                    <img src="{{ asset('images/Logo_Octopya.png') }}" alt="" height="200" >
+                                </div> 
+                          
+                           </div> <!-- end col -->
+                    </div>
+                        <!-- end row -->
+                </section>
 
                    <section class=" wow bounceInLeft" data-wow-offset="300">
                           <div class="container-fluid"  style="top: 20px;">
@@ -257,51 +265,55 @@
                          </div>
                         </section>
 
-                <!-- end container -->
-                    <br><br>
-             </div>
-         </div>
-         
-         <br>
-           <div  id="nosotros">
-               
+                              <section class="wow slideInRight" data-wow-delay="2s">
+                                                <div class="row pt-5 widget-list">
+                                            <div class="col-lg-3 offset-lg-2">
+                                                <!-- Question/Answer -->
+                                                <div>
+                                                    <div class="faq-question-q-box">Q.</div>
+                                                    <h4 class="faq-question  widget" data-wow-delay=".1s">¿Por que nosotros?</h4>
+                                                     <p class="faq-answer mb-4 widget">Trabajamos arduamente para generar desde casa,con distintas páginas brindándote la mejor asesoría,principalmente con f8.</p>
+                                                </div>
+                        
+                                                <!-- Question/Answer -->
+                                                <div>
+                                                    <div class="faq-question-q-box">Q.</div>
+                                                    <h4 class="faq-question widget">Trabaja con nosotros</h4>
+                                                      <p class="faq-answer mb-4 widget">En nuestro servidor de discord encontraras material  Disponible para realizar los diferentes task, videos, guías y herramientas para hacer más fácil el trabajo a la hora de tasquear.</p>
 
-                        <div class="container">
-                            <div class="row ">
-                                <div class="col-12">
-                                      <section class="wow fadeInDown" data-wow-delay="1s">
-                                        <div class="text-center">                  
-                                                  <h1 class=" headline" >Comunidad internacional "Figure Eight Task" <img src="{{ asset('images/logofigure2.png') }}" alt="" height="100"></h1>
+                                                  
+                                                </div>
+                        
+                                                </div>
+                                                 <div class="col-lg-2"> 
+                                                    <img src="{{ asset('images/Logo_Octopya.png') }}" alt="" >
+                                                 </div> 
+                                            <div class="col-lg-3">
+                                                <!-- Question/Answer -->
+                                                
+                        
+                                                <!-- Question/Answer -->
+                                                <div>
+                                                    <div class="faq-question-q-box">Q.</div>
+                                                    <h4 class="faq-question  widget">Se parte de nuestra comunidad</h4>
+                                                    <p class="faq-answer mb-4 widget"> Contaras con ayuda, asesoría e interacción con los mejores taskeros.</p>
+                                                </div>   
+                                                   <!-- Question/Answer -->
+                                                <div>
+                                                    <div class="faq-question-q-box">Q.</div>
+                                                    <h4 class="faq-question widget">Taskeo las 24 horas</h4>
+                                                    <p class="faq-answer mb-4 widget">Trabajamos todo el día, todos los días ¡siempre activos! en nuestro servidor .</p>
+                                                </div>                          
+                        
+                                            </div>
+                                           
                                             
-                                         </div> 
-                                     </section> 
-                                </div>  
-                             </div> 
 
-                        </div>
-            
-                <section class=" wow slideInLeft" data-wow-duration="4s">
-                    <div class="container">
-                          <div class="row justify-content ">
-                                 <section class="wow pulse"  data-wow-iteration="infinite" data-wow-duration="1500ms"> 
-                                    <div class="col-lg-3 " > 
-                                        <img src="{{ asset('images/logofigure2.png') }}" alt="" >
-                                    </div>
-                               </section>
-                                  <div class="col-lg-7">  
-                                        <h5 class="punchline" >Nacimos como un grupo de ayuda, en un inicio con 5 a 6 miembros trabajando activamente los task o tareas de Figure Eight (f8) y colaborando como equipo nos organizamos creando un método de trabajo grupal, en un principio como proyecto educativo, para poder ayudar a más personas a aprender sobre Figure Eight (f8), fuimos consolidándonos y creciendo como comunidad poco a poco con la recomendación de los propios usuarios al obtener muy buenos resultados y ganancias. 
-                                         <br><br>
-                                        Hoy somos una comunidad dedicada a la asesoría e interacción de trabajo por internet, de distintas formas y páginas, principalmente Figure Eight. Contamos con un servidor de discord de trabajo y compra/venta de divisas electrónicas de manera segura. Estamos activos 24/7 trabajando e investigando nuevas formas de ganar dinero por internet.
-                                        </h5>
-                                 </div>
-                                  <div class="col-lg-2"> 
-                                    <img src="{{ asset('images/Logo_Octopya.png') }}" alt="" height="200" >
-                                </div> 
-                          
-                           </div> <!-- end col -->
-                    </div>
-                        <!-- end row -->
-                </section>
+                                            <!--/col-md-5-->
+                                        </div> 
+
+                              </section>
+
 
             
                </div>
@@ -346,11 +358,19 @@
                             <div class="col-md-6">
                                 2018 - 2019 ©Figure Eight Task
                             </div>
+                           
+                           
                             <div class="col-md-6">
+
                                 <div class="text-md-right footer-links d-none d-md-block">
+                                     <a href="javascript: void(0);">Contactanos</a>
+                                       <a href="https://www.facebook.com/f8task/"  target="_blank"   class="btn btn-primary btn-sm mt-2 ml-1"><i class=" mdi mdi-facebook  mr-1"></i></a>
+                                    <a href="https://www.instagram.com/f8task/"  target="_blank"  class="btn btn-primary btn-sm mt-2 ml-1" ><i class="  mdi mdi-instagram   mr-1"></i></a>
+                                    <a href="https://www.youtube.com/channel/UC1Qzqg18r_VghlQjZiNk2MA/videos"  target="_blank"  class="btn btn-danger btn-sm mt-2 ml-1" ><i class="  mdi mdi-youtube mr-1"></i></a>
                                  <a href="javascript: void(0);">Acerca de nosotros</a>
                                     <a href="javascript: void(0);">Soporte</a>
-                                    <a href="javascript: void(0);">Contactanos</a>
+
+                                 
                                 </div>
                             </div>
                         </div>
