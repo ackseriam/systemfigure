@@ -26,6 +26,7 @@ return false;
 
 if(event.ctrlKey) {
 //Bloquear Ctrl
+alert("No se permite dicha acción");
 return false;
 }
 
@@ -33,6 +34,7 @@ return false;
 return true;
 
 }
+
       </script>
         <meta charset="utf-8" />
         <title>Figure Eight Task</title>
