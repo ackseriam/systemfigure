@@ -99,5 +99,7 @@ Route::resource('registers','RegistersController');
 Route::get('registers/edit/{a}', 'RegistersController@edit');
 Route::put('registers/update/{a}', 'RegistersController@update');
 
+Route::resource('/post', 'PostController');
+
 //Route::get('export', 'ExcelController');
 //Route::get('export', 'ExcelController@export');

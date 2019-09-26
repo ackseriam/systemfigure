@@ -97,7 +97,7 @@
                                         
 
                                      @if (Route::has('login'))
-                                    <div class="top-right ">
+                                    <div class="top-right links">
 
                                         @auth
                                             <a href="{{ url('/home') }}"><span class="text-muted ">Home</span></a>

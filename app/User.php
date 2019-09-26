@@ -152,4 +152,9 @@ public function user_status(){
     {
         $this->notify(new ResetPasswordNotification($token));
     }
+
+    public function posts(){
+
+      return $this->hasMany("App\Models\Post","user_id");
+    }
 }

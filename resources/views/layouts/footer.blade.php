@@ -6,17 +6,24 @@
                             <div class="col-md-6">
                                 2018 - 2019 ©Figure Eight Task
                             </div>
+                           
+                           
                             <div class="col-md-6">
+
                                 <div class="text-md-right footer-links d-none d-md-block">
+                                     <a href="javascript: void(0);">Contactanos</a>
+                                       <a href="https://www.facebook.com/f8task/"  target="_blank"   class="btn btn-primary btn-sm mt-2 ml-1"><i class=" mdi mdi-facebook  mr-1"></i></a>
+                                    <a href="https://www.instagram.com/f8task/"  target="_blank"  class="btn btn-primary btn-sm mt-2 ml-1" ><i class="  mdi mdi-instagram   mr-1"></i></a>
+                                    <a href="https://www.youtube.com/channel/UC1Qzqg18r_VghlQjZiNk2MA/videos"  target="_blank"  class="btn btn-danger btn-sm mt-2 ml-1" ><i class="  mdi mdi-youtube mr-1"></i></a>
                                  <a href="javascript: void(0);">Acerca de nosotros</a>
                                     <a href="javascript: void(0);">Soporte</a>
-                                    <a href="javascript: void(0);">Contactanos</a>
+
+                                 
                                 </div>
                             </div>
                         </div>
                     </div>
                 </footer>
-                <!-- end Footer -->
 
             </div>
             <div class="right-bar">

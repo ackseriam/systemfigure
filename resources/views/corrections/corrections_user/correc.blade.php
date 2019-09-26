@@ -2,6 +2,38 @@
 <html lang="">
 
     <head>
+      <script type="text/javascript">
+        document.onkeydown=function() { 
+if (window.event) {
+if((window.event.keyCode == 8) ||
+((window.event.keyCode >= 113) && (window.event.keyCode <= 123)))
+{
+//Bloquear Backspace
+//Bloquear Teclas Fxx (excepto F1)
+window.event.cancelBubble = true;
+window.event.keyCode = 8;
+window.event.returnValue = false;
+return false;
+}
+}
+
+if(event.altLeft) {
+if((window.event.keyCode == 37) || (window.event.keyCode == 39)) {
+//Bloquear Alt + Cursor Izq/Der.
+return false;
+}
+}
+
+if(event.ctrlKey) {
+//Bloquear Ctrl
+return false;
+}
+
+//alert(window.event.keyCode);
+return true;
+
+}
+      </script>
         <meta charset="utf-8" />
         <title>Figure Eight Task</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -567,18 +599,18 @@ td {
                                                @if($level=='0')
                                                @if(($rol=='admin')||($rol=='foun')||($rol=='editor')||($rol=='editor0')||($rol=='buyer'))  
                                                     
-                                                    <div class="col-lg-6">   
+                                                    <div class="col-lg-6" omousedown='return false;' onselectstart="return false;">   
                                                      <div class="row">
 
                                                            <div class="col-lg-3">
-                                                              <label>Ingresar columna para realizar multi</label>
+                                                              <label  onmousedown='return false;' onselectstart="return false;">Ingresar columna para realizar multi</label>
                                                                  {{ Form::open(['url' => '/guias/multi/'.$guia->id.'/','method'=> 'GET', 'class' => '']) }}
                                                            <input type="text" name="multi" placeholder="Columna a realizar el multi" class="form-control" required><br>
                                                            <button class="btn btn-success" type="submit">Descargar multi</button> 
                                                                 {{ Form::close()}}
                                                            </div>
                                                            @if(($rol=='admin')||($rol=='foun'))
-                                                            <div class="col-lg-3" >   
+                                                            <div class="col-lg-3" omousedown='return false;' onselectstart="return false;">   
                                                                <label>Exportar guia completa</label><br>
                                                                <a href="/export/{{$guia->id}}" title="Exportar guia"  class="btn btn-primary" data-toggle="modal" target="_blank"><i class=" mdi mdi-square-edit-outline "></i> </a>
                                                           </div>   
@@ -590,10 +622,10 @@ td {
                                                 @endif
                                                 @else
                                                    @if(($rol=='admin')||($rol=='foun')||($rol=='editor')||($rol=='buyer'))
-                                                   <div class="col-lg-6">   
+                                                   <div class="col-lg-6" onmousedown='return false;' onselectstart="return false;>   
                                                      <div class="row">
                                                        <div class="col-lg-3">   
-                                                           <label>Ingresar columna para realizar multi</label>
+                                                           <label >Ingresar columna para realizar multi</label>
                                                                  {{ Form::open(['url' => '/guias/multi/'.$guia->id.'/','method'=> 'GET', 'class' => '']) }}
                                                            <input type="text" name="multi" placeholder="Columna a realizar el multi" class="form-control" required><br>
                                                            <button class="btn btn-success" type="submit">Descargar multi</button> 
@@ -644,7 +676,7 @@ td {
 -->
 
           <script type="text/javascript">
-           
+           document.oncontextmenu = function(){return false}
     $("#basic-datatable").DataTable({keys:!0,language:{paginate:{
         previous:"<i class='mdi mdi-chevron-left'>",
         next:"<i class='mdi mdi-chevron-right'>"}}
