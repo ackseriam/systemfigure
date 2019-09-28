@@ -49,13 +49,6 @@
             }
            
         </style>
-  <link rel="stylesheet" href="{{ asset('css/vendor/animate.css') }}">
-
-     <script src="https://unpkg.com/scrollreveal"></script>
-       <script src="{{ asset('js/vendor/wow.min.js') }}" ></script> 
-     <script>
-        ScrollReveal({ duration: 1000 })
-    </script>
 
         <body>
         <!-- Topbar Start -->
@@ -141,14 +134,14 @@
                                             </a>
                                            
                                         </li>
-                                        <li class="nav-item dropdown">
-                                            <a class="nav-link dropdown-toggle arrow-none" href="#programas">
-                                                <i class="mdi mdi-google-pages mr-1"></i>Nuestros Programas
-                                            </a>
-                                        </li>
-                                        <li class="nav-item dropdown">
+                                       <li class="nav-item dropdown">
                                             <a class="nav-link dropdown-toggle arrow-none" href="#requisitos" >
                                                 <i class="mdi mdi-buffer mr-1"></i>Requisitos
+                                            </a>
+                                        </li>
+                                         <li class="nav-item dropdown">
+                                            <a class="nav-link dropdown-toggle arrow-none" href="{{route('post.index')}}">
+                                                <i class="mdi mdi-google-pages mr-1"></i>Blog
                                             </a>
                                         </li>
                                         
@@ -160,6 +153,17 @@
 
       
          <br>
+
+			@if ($errors->any())
+			    <div class="alert alert-danger alert-dismissible bg-danger text-white border-0 fade show ">
+			        <ul>
+			            @foreach ($errors->all() as $error)
+			                <li>{{ $error }}</li>
+			            @endforeach
+			        </ul>
+			    </div>
+			@endif
+
          <div class="row">
                     <div class="col-12">
                         <div class="card">
@@ -189,35 +193,7 @@
         <!-- end page -->
     </body><br><br>
 
-    <script>
-       // ScrollReveal().reveal('.headline')
-        ScrollReveal().reveal('.tagline', { delay: 500 })
-        ScrollReveal().reveal('.punchline', { delay: 2000 })
-
-
-    </script>
-      <script>
-    ScrollReveal().reveal('.headline', { duration: 2000 });
-    ScrollReveal().reveal('.widget', { interval: 500 });
-  </script>
-   <script>
-    wow = new WOW(
-      {
-        animateClass: 'animated',
-        offset:       100,
-        callback:     function(box) {
-          console.log("WOW: animating <" + box.tagName.toLowerCase() + ">")
-        }
-      }
-    );
-    wow.init();
-    document.getElementById('moar').onclick = function() {
-      var section = document.createElement('section');
-      section.className = 'section--purple wow fadeInDown';
-      this.parentNode.insertBefore(section, this);
-    };
-  </script>
-
+  
 
     
 
@@ -227,3 +203,6 @@
 @include('layouts.footer')
 
 </html>
+<!-- integrar editor:               https://www.kerneldev.com/2018/01/11/using-summernote-wysiwyg-editor-with-laravel/
+https://www.codewall.co.uk/install-summernote-with-laravel-tutorial/
+-->

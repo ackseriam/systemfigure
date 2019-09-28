@@ -4,8 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use Illuminate\Http\Request;
+use App\Http\Requests\PostFormRequest;
 use Illuminate\Support\Facades\Auth;
-
+use Validator;
 
 class PostController extends Controller
 {
@@ -14,7 +15,7 @@ class PostController extends Controller
     {
 
    
-      $this->middleware('auth', ['except'=> ['index']]); //para dar excepciones de metodos que no necesittan de incio de sesion
+      $this->middleware('auth', ['except'=> ['index','show']]); //para dar excepciones de metodos que no necesittan de incio de sesion
       $this->middleware('users_ac');
     }
 
@@ -23,11 +24,20 @@ class PostController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-     public function index()
+     public function index(Request $request)
      {
         
-        $posts= Post::all();
-        return view("post.index", compact("posts"));
+        $posts= Post::orderBy("id", "DESC")->paginate(5);
+        $post=Post::find(1);
+       // $comments= $post->comments;
+       // var_dump($comments);
+        if(Auth::check()){
+             $rol = roleuser($request);
+             return view("post.index", compact("posts"), compact("rol"));
+            }else{
+                 return view("post.index", compact("posts")); 
+            }
+      
     }
 
     /**
@@ -51,8 +61,9 @@ class PostController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(PostFormRequest $request)
     {
+
          $rol = roleuser($request); //se llama al helper en Helpers/role
           if(($rol=='admin')||($rol=='foun'))
 
@@ -61,6 +72,7 @@ class PostController extends Controller
         $options =[
             'title' => $request->title,
             'content' => $request->content,
+            'description' => $request->description,
             'user_id' => auth()->user()->id,
           
             
@@ -83,7 +95,7 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        //
+        return view('post.show',compact('post'));
     }
 
     /**

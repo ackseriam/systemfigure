@@ -246,8 +246,6 @@ class UsersController extends Controller
         $rol = roleuser($request); //se llama al helper en Helpers/role
         if(($rol=='admin')||($rol=='foun'))
         {
-
-       
         $usuario= User::find($id);
         $people_id=$usuario->people_id;
         $people=  Person::where('id',$people_id)->first();
@@ -331,12 +329,16 @@ class UsersController extends Controller
 
         $usuario->username = $request->username;
         $usuario->email = $request->email;
-        if($request->password!=NULL)  
-        $usuario->password= Hash::make($request->password);  
-        else
-          $usuario->password=  $usuario->password; 
+        if($request->password!=NULL)  {
+             $usuario->password= Hash::make($request->password);  
+         $usuario->status_login = 'inactivo_user';
+     } else {
+          $usuario->password=  $usuario->password;
+         }
+       
+       
         if($usuario->save()){
-             return view('users.edit_info',['exito'=>'exito','people_id'=> $people_id,'rol'=>$rol,'role'=>$role,'people'=>$people, 'usuario'=> $usuario]);
+             return view('home');
         }  
         }else{
             return redirect('home');

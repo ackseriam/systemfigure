@@ -141,14 +141,15 @@
                                             </a>
                                            
                                         </li>
-                                        <li class="nav-item dropdown">
-                                            <a class="nav-link dropdown-toggle arrow-none" href="#programas">
-                                                <i class="mdi mdi-google-pages mr-1"></i>Nuestros Programas
-                                            </a>
-                                        </li>
+                                       
                                         <li class="nav-item dropdown">
                                             <a class="nav-link dropdown-toggle arrow-none" href="#requisitos" >
                                                 <i class="mdi mdi-buffer mr-1"></i>Requisitos
+                                            </a>
+                                        </li>
+                                         <li class="nav-item dropdown">
+                                            <a class="nav-link dropdown-toggle arrow-none" href="{{route('post.index')}}">
+                                                <i class="mdi mdi-google-pages mr-1"></i>Blog
                                             </a>
                                         </li>
                                         

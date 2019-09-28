@@ -49,13 +49,7 @@
             }
            
         </style>
-  <link rel="stylesheet" href="{{ asset('css/vendor/animate.css') }}">
 
-     <script src="https://unpkg.com/scrollreveal"></script>
-       <script src="{{ asset('js/vendor/wow.min.js') }}" ></script> 
-     <script>
-        ScrollReveal({ duration: 1000 })
-    </script>
 
         <body>
         <!-- Topbar Start -->
@@ -141,16 +135,17 @@
                                             </a>
                                            
                                         </li>
-                                        <li class="nav-item dropdown">
-                                            <a class="nav-link dropdown-toggle arrow-none" href="#programas">
-                                                <i class="mdi mdi-google-pages mr-1"></i>Nuestros Programas
-                                            </a>
-                                        </li>
-                                        <li class="nav-item dropdown">
+                                         <li class="nav-item dropdown">
                                             <a class="nav-link dropdown-toggle arrow-none" href="#requisitos" >
                                                 <i class="mdi mdi-buffer mr-1"></i>Requisitos
                                             </a>
                                         </li>
+                                         <li class="nav-item dropdown">
+                                            <a class="nav-link dropdown-toggle arrow-none" href="{{route('post.index')}}">
+                                                <i class="mdi mdi-google-pages mr-1"></i>Blog
+                                            </a>
+                                        </li>
+                                        
                                         
                                     </ul>
                                 </div>
@@ -160,44 +155,91 @@
 
       
          <br>
-         @foreach($posts as $post)
-         <p> {{ $post->title}}</p>
-         @endforeach
+         <div class="container-fluid">
+          <!-- start page title -->
+                        <div class="row">
+                            <div class="col-12 text-center">
+                                <div class="page-title-box">
+                                    <span class="topnav-logo-lg">
+                                    <img src="{{ asset('images/logofigure2.png') }}" alt="" height="100">
+                                </span>
+                                    <h4 class="page-title">Blog de Figure Eight Task</h4>
 
-          
+                                </div>
+                            </div>
+                            @if(!empty($rol))
+                                 @if(($rol=='admin')||($rol=='foun'))
+                                    <div class="col-10"></div>
+                                     <div class="col-2">
+                                         <a class="btn btn-danger btn-rounded mb-3" href="{{route('post.create')}}">
+                                                <i class="mdi mdi-plus"></i> Crear Post nuevo
+                                            </a>
+                                           
+                                      </div>
+                                  @endif
+                              @endif
+                        </div>     
+                      @foreach($posts as $post)
+                      <div class="row">
+                        <div class="col-md-1"></div>
+                            <div class="col-md-10 col-md-4">
+                                <!-- project card -->
+                                <div class="card d-block">
+                                    <div class="card-body">
+                                      <?php $count_comment=count($post->comments);
+                                            $user=$post->user;
+                                            $name_user=$user->username;
+                                          ?>
+                                        <!-- project title-->
+                                        <h1 class="mt-0">
+                                            <a href="{{ route('post.show',['post'=>$post])}}" class="text-title">t{{ $post->title}}
+                                        </h1>
+                                        <div class="badge badge-secondary mb-3"><h3>Post informativo</h3></div>
 
-     
+                                        <h4 class="text-muted font-13 mb-3">{{$post->description}}<a href="{{ route('post.show',['post'=>$post])}}" class="font-weight-bold text-muted">...Ver mas</a>
+                                        </h4>
+
+                                        <!-- project detail-->
+                                        <p class="mb-1">
+                                            <span class="pr-2 text-nowrap mb-2 d-inline-block">
+                                                <i class="mdi mdi-format-list-bulleted-type text-muted"></i>
+                                                <b>21</b> Tasks
+                                            </span>
+                                            <span class="text-nowrap mb-2 d-inline-block">
+                                                <i class="mdi mdi-comment-multiple-outline text-muted"></i>
+                                                <b>{{$count_comment}}</b> comentarios
+                                            </span>
+                                        </p>
+                                        <div>
+                                            <a href="javascript:void(0);" data-toggle="tooltip" data-placement="top" title="" data-original-title="Mat Helme" class="d-inline-block">
+                                                <img src="{{ asset('images/')}}/{{$user->img_profile}}" class="rounded-circle avatar-xs" alt="friend">
+                                            </a>
+                                               Publicado por {{$name_user}} 
+                                               <div class="text-md-right mb-3">{{ \Carbon\Carbon::parse($post->created_at)->diffForHumans() }}</div>
+                                               
+                                            </a>
+                                        </div>
+                                    </div> <!-- end card-body-->
+                                  
+                                </div> <!-- end card-->
+                            </div> <!-- end col -->
+
+                        </div>
+                   
+
+                  @endforeach
+                  <div class="row">
+                     <div class="col-md-1"></div>
+                            <div class="col-md-10 col-md-4">
+                                 {{$posts->links()}}
+                             </div>
+
+                  </div>
+          </div>
         <!-- end page -->
     </body><br><br>
 
-    <script>
-       // ScrollReveal().reveal('.headline')
-        ScrollReveal().reveal('.tagline', { delay: 500 })
-        ScrollReveal().reveal('.punchline', { delay: 2000 })
-
-
-    </script>
-      <script>
-    ScrollReveal().reveal('.headline', { duration: 2000 });
-    ScrollReveal().reveal('.widget', { interval: 500 });
-  </script>
-   <script>
-    wow = new WOW(
-      {
-        animateClass: 'animated',
-        offset:       100,
-        callback:     function(box) {
-          console.log("WOW: animating <" + box.tagName.toLowerCase() + ">")
-        }
-      }
-    );
-    wow.init();
-    document.getElementById('moar').onclick = function() {
-      var section = document.createElement('section');
-      section.className = 'section--purple wow fadeInDown';
-      this.parentNode.insertBefore(section, this);
-    };
-  </script>
+  
 
      <!-- Footer Start -->
                 <footer class="footer" onmousedown='return false;' onselectstart="return false;">
@@ -224,10 +266,6 @@
                         </div>
                     </div>
                 </footer>
-
-    
-
-               
                 <!-- end Footer -->
 
 </html>
