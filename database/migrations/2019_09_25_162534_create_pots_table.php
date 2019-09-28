@@ -18,8 +18,10 @@ class CreatePotsTable extends Migration
             $table->string('title');
             $table->text('content');
             $table->unsignedInteger('user_id');
-            $table->string('img_post')->after('remember_token')->nullable();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->string('img_post')->nullable();
+            $table->string('description');
+           
             $table->timestamps();
         });
     }
