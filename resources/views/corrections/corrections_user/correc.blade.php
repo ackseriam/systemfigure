@@ -150,7 +150,7 @@ td {
 
  <body class="enlarged" data-keep-enlarged="true">
 
-  
+    <div id="cargar">
 
         <!-- Begin page -->
         <div class="wrapper">
@@ -653,7 +653,7 @@ td {
                             </div> <!-- end col -->
                         </div>
          
- 
+ </div>
             
       </body>
     
@@ -690,6 +690,12 @@ td {
       
  
 <script>
+
+
+$("#cargar").hide();
+  $(document).ready(function() {
+  $("#cargar").show();  
+});
 
   new Vue({
   el: '#consul',
