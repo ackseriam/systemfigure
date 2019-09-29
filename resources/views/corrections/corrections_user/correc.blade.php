@@ -150,8 +150,6 @@ td {
 
  <body class="enlarged" data-keep-enlarged="true">
 
-    <div id="cargar">
-
         <!-- Begin page -->
         <div class="wrapper">
        
@@ -323,7 +321,9 @@ td {
                            </div>
                          </div>      
                                      
-                                                
+                                     
+                          <div id="cargar">
+           
                                <div class="col-xl-12">
                                           <div class="card">
                                               <div class="card-body">
@@ -331,6 +331,7 @@ td {
                                                 <h3 class="text text-success">Tiempo de envio:  {{$time}}</h3>
                                                 @endif
                                                 <div class="row"  onmousedown='return false;' onselectstart="return false;">
+
                                                     <div class="col-lg-12">
 
                                                     <div class="dt-responsive">
@@ -647,13 +648,13 @@ td {
                                                   
                                           </div> <!-- end card -->
                                       </div><!-- end col-->
-                                  
+                                  </div>
                                     </div> <!-- end card-body -->
                                 </div> <!-- end card -->
                             </div> <!-- end col -->
                         </div>
          
- </div>
+ 
             
       </body>
     
@@ -694,7 +695,10 @@ td {
 
 $("#cargar").hide();
   $(document).ready(function() {
-  $("#cargar").show();  
+
+  setTimeout(function() {
+        $("#cargar").show();  
+    },1000);
 });
 
   new Vue({
