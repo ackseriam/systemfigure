@@ -1,7 +1,6 @@
 {!! Form::open(['url' => '/post/','class' => 'needs-validation', 'files' => true, "novalidate"]) !!}   
 
  @csrf
-
   <br> 
                         
     <div id="ap">

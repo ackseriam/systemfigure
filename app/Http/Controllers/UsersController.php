@@ -336,9 +336,10 @@ class UsersController extends Controller
           $usuario->password=  $usuario->password;
          }
        
-       
+      
+   
         if($usuario->save()){
-             return view('home');
+               return view('users.edit_info',['rol'=>$rol,'role'=>$role,'people'=>$people,'people_id'=>$people_id, 'usuario'=> $usuario,'exito'=>'exito']);
         }  
         }else{
             return redirect('home');

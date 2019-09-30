@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 use App\Http\Requests\PostFormRequest;
 use Illuminate\Support\Facades\Auth;
 use Validator;
@@ -28,7 +30,7 @@ class PostController extends Controller
      {
         
         $posts= Post::orderBy("id", "DESC")->paginate(5);
-        $post=Post::find(1);
+        
        // $comments= $post->comments;
        // var_dump($comments);
         if(Auth::check()){
@@ -93,9 +95,15 @@ class PostController extends Controller
      * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function show(Post $post)
+    public function show(Request $request,Post $post)
     {
-        return view('post.show',compact('post'));
+         if(Auth::check()){
+           $rol = roleuser($request);
+     
+          return view('post.show',compact('post'),compact('rol'));
+         }else{
+            return view('post.show',compact('post'));
+         }
     }
 
     /**
@@ -127,8 +135,19 @@ class PostController extends Controller
      * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Post $post)
+    public function destroy(Request $request,Post $post,$id)
     {
-        //
+          $rol = roleuser($request); //se llama al helper en Helpers/role
+          if(($rol=='admin')||($rol=='foun'))
+
+        {
+           $post = Post::find($id);
+         
+           $post->delete();
+         $posts= Post::orderBy("id", "DESC")->paginate(5);
+            return view('post.index',compact('posts'),['rol'=>$rol,'exito'=>'exito']);
+         }else{
+            return redirect('home');
+         }
     }
 }

@@ -63,7 +63,7 @@
                         <div class="container-fluid">
 
                             <!-- LOGO -->
-                            <a href="index.html" class="topnav-logo">
+                              <a href="{{url('/')}}" class="topnav-logo">
                                 <span class="topnav-logo-lg">
                                     <img src="{{ asset('images/logo2.png') }}" alt="" height="100">
                                 </span>
@@ -128,32 +128,32 @@
                             <nav class="navbar navbar-dark navbar-expand-lg topnav-menu">
         
                                 <div class="collapse navbar-collapse" id="topnav-menu-content">
-                                    <ul class="navbar-nav">
-                                        <li class="nav-item dropdown">
-                                            <a class="nav-link dropdown-toggle arrow-none" href="layouts-horizontal.html#" id="topnav-dashboards" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                <i class="mdi mdi-speedometer mr-1"></i>Inicio
-                                            </a>
-                                            
-                                        </li>
-                                        <li class="nav-item dropdown">
-                                            <a class="nav-link dropdown-toggle arrow-none " href="#nosotros">
-                                                <i class="mdi mdi-apps mr-1"></i>Nosotros 
-                                            </a>
-                                           
-                                        </li>
-                                       
-                                        <li class="nav-item dropdown">
-                                            <a class="nav-link dropdown-toggle arrow-none" href="#requisitos" >
-                                                <i class="mdi mdi-buffer mr-1"></i>Requisitos
-                                            </a>
-                                        </li>
-                                         <li class="nav-item dropdown">
-                                            <a class="nav-link dropdown-toggle arrow-none" href="{{route('post.index')}}">
-                                                <i class="mdi mdi-google-pages mr-1"></i>Blog
-                                            </a>
-                                        </li>
-                                        
-                                    </ul>
+                                        <ul class="navbar-nav">
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle arrow-none" href="{{url('/')}}" id="topnav-dashboards" >
+                                        <i class="mdi mdi-speedometer mr-1"></i>Inicio
+                                    </a>
+                                    
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle arrow-none " href="#nosotros">
+                                        <i class="mdi mdi-apps mr-1"></i>Nosotros 
+                                    </a>
+                                   
+                                </li>
+                                  <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle arrow-none" href="#requisitos" >
+                                        <i class="mdi mdi-buffer mr-1"></i>Requisitos
+                                    </a>
+                                </li>
+                                 <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle arrow-none" href="{{route('post.index')}}">
+                                        <i class="mdi mdi-google-pages mr-1"></i>Blog
+                                    </a>
+                                </li>
+                                
+                            </ul>
+                        </div>
                                 </div>
                             </nav>
                         </div>

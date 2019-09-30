@@ -57,7 +57,7 @@
                         <div class="container-fluid">
 
                             <!-- LOGO -->
-                            <a href="index.html" class="topnav-logo">
+                             <a href="{{url('/')}}" class="topnav-logo">
                                 <span class="topnav-logo-lg">
                                     <img src="{{ asset('images/logo2.png') }}" alt="" height="100">
                                 </span>
@@ -122,32 +122,32 @@
                             <nav class="navbar navbar-dark navbar-expand-lg topnav-menu">
         
                                 <div class="collapse navbar-collapse" id="topnav-menu-content">
-                                    <ul class="navbar-nav">
-                                        <li class="nav-item dropdown">
-                                            <a class="nav-link dropdown-toggle arrow-none" href="layouts-horizontal.html#" id="topnav-dashboards" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                <i class="mdi mdi-speedometer mr-1"></i>Inicio
-                                            </a>
-                                            
-                                        </li>
-                                        <li class="nav-item dropdown">
-                                            <a class="nav-link dropdown-toggle arrow-none " href="#nosotros">
-                                                <i class="mdi mdi-apps mr-1"></i>Nosotros 
-                                            </a>
-                                           
-                                        </li>
-                                         <li class="nav-item dropdown">
-                                            <a class="nav-link dropdown-toggle arrow-none" href="#requisitos" >
-                                                <i class="mdi mdi-buffer mr-1"></i>Requisitos
-                                            </a>
-                                        </li>
-                                         <li class="nav-item dropdown">
-                                            <a class="nav-link dropdown-toggle arrow-none" href="{{route('post.index')}}">
-                                                <i class="mdi mdi-google-pages mr-1"></i>Blog
-                                            </a>
-                                        </li>
-                                        
-                                        
-                                    </ul>
+                                       <ul class="navbar-nav">
+                                            <li class="nav-item dropdown">
+                                                <a class="nav-link dropdown-toggle arrow-none" href="{{url('/')}}" id="topnav-dashboards" >
+                                                    <i class="mdi mdi-speedometer mr-1"></i>Inicio
+                                                </a>
+                                                
+                                            </li>
+                                            <li class="nav-item dropdown">
+                                                <a class="nav-link dropdown-toggle arrow-none " href="#nosotros">
+                                                    <i class="mdi mdi-apps mr-1"></i>Nosotros 
+                                                </a>
+                                               
+                                            </li>
+                                              <li class="nav-item dropdown">
+                                                <a class="nav-link dropdown-toggle arrow-none" href="#requisitos" >
+                                                    <i class="mdi mdi-buffer mr-1"></i>Requisitos
+                                                </a>
+                                            </li>
+                                             <li class="nav-item dropdown">
+                                                <a class="nav-link dropdown-toggle arrow-none" href="{{route('post.index')}}">
+                                                    <i class="mdi mdi-google-pages mr-1"></i>Blog
+                                                </a>
+                                            </li>
+                                
+                                      </ul>
+                        </div>
                                 </div>
                             </nav>
                         </div>
@@ -186,13 +186,25 @@
                                 <!-- project card -->
                                 <div class="card d-block">
                                     <div class="card-body">
+                                         @if(!empty(Auth::user()))
+                                           @if(!empty($rol))
+                                                 @if(($rol=='admin')||($rol=='foun'))
+                                                        <div class="dropdown float-right">
+                                                             <a href="/post/edit/{{$post->id}}" class="btn btn-secondary" title="Editar post"><i class="mdi mdi-square-edit-outline"></i></a>
+                                                              <a href="/post/destroy/{{$post->id}}" class="btn btn-secondary" title="Eliminar post"><i class="mdi mdi-delete"></i></a>
+                                                            
+                                                        </div>
+                                                  @endif
+                                              @endif
+                                      
+                                        @endif
                                       <?php $count_comment=count($post->comments);
                                             $user=$post->user;
                                             $name_user=$user->username;
                                           ?>
                                         <!-- project title-->
                                         <h1 class="mt-0">
-                                            <a href="{{ route('post.show',['post'=>$post])}}" class="text-title">t{{ $post->title}}
+                                            <a href="{{ route('post.show',['post'=>$post])}}" class="text-title">{{ $post->title}}
                                         </h1>
                                         <div class="badge badge-secondary mb-3"><h3>Post informativo</h3></div>
 
@@ -201,10 +213,10 @@
 
                                         <!-- project detail-->
                                         <p class="mb-1">
-                                            <span class="pr-2 text-nowrap mb-2 d-inline-block">
+                                            <!--<span class="pr-2 text-nowrap mb-2 d-inline-block">
                                                 <i class="mdi mdi-format-list-bulleted-type text-muted"></i>
                                                 <b>21</b> Tasks
-                                            </span>
+                                            </span>-->
                                             <span class="text-nowrap mb-2 d-inline-block">
                                                 <i class="mdi mdi-comment-multiple-outline text-muted"></i>
                                                 <b>{{$count_comment}}</b> comentarios
@@ -241,31 +253,7 @@
 
   
 
-     <!-- Footer Start -->
-                <footer class="footer" onmousedown='return false;' onselectstart="return false;">
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-md-6">
-                                2018 - 2019 ©Figure Eight Task
-                            </div>
-                           
-                           
-                            <div class="col-md-6">
+   @include('layouts.footer')
 
-                                <div class="text-md-right footer-links d-none d-md-block">
-                                     <a href="javascript: void(0);">Contactanos</a>
-                                       <a href="https://www.facebook.com/f8task/"  target="_blank"   class="btn btn-primary btn-sm mt-2 ml-1"><i class=" mdi mdi-facebook  mr-1"></i></a>
-                                    <a href="https://www.instagram.com/f8task/"  target="_blank"  class="btn btn-primary btn-sm mt-2 ml-1" ><i class="  mdi mdi-instagram   mr-1"></i></a>
-                                    <a href="https://www.youtube.com/channel/UC1Qzqg18r_VghlQjZiNk2MA/videos"  target="_blank"  class="btn btn-danger btn-sm mt-2 ml-1" ><i class="  mdi mdi-youtube mr-1"></i></a>
-                                 <a href="javascript: void(0);">Acerca de nosotros</a>
-                                    <a href="javascript: void(0);">Soporte</a>
-
-                                 
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </footer>
-                <!-- end Footer -->
 
 </html>

@@ -99,7 +99,12 @@ Route::resource('registers','RegistersController');
 Route::get('registers/edit/{a}', 'RegistersController@edit');
 Route::put('registers/update/{a}', 'RegistersController@update');
 
+Route::get('post/destroy/{a}', 'PostController@destroy');
+Route::put('post/update/{a}', 'PostController@update');
 Route::resource('/post', 'PostController');
+Route::get('comments/destroy/{a}', 'CommentsController@destroy')->name('destroy_comments');
+
+Route::resource('/comments', 'CommentsController');
 
 //Route::get('export', 'ExcelController');
 //Route::get('export', 'ExcelController@export');
