@@ -56,7 +56,12 @@
      <script>
         ScrollReveal({ duration: 1000 })
     </script>
-
+<!-- animsition.css -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animsition/4.0.2/css/animsition.css">
+<!-- jQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<!-- animsition.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animsition/4.0.2/js/animsition.min.js"></script>
         <body>
         <!-- Topbar Start -->
                     <div class="navbar-custom topnav-navbar">
@@ -123,41 +128,45 @@
                             </ul>
                         </div>
                     </div>
-            <div class="topnav">
+                  <div class="">
+                     <div class="topnav">
                         <div class="container">
                             <nav class="navbar navbar-dark navbar-expand-lg topnav-menu">
         
                                 <div class="collapse navbar-collapse" id="topnav-menu-content">
-                                        <ul class="navbar-nav">
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle arrow-none" href="{{url('/')}}" id="topnav-dashboards" >
-                                        <i class="mdi mdi-speedometer mr-1"></i>Inicio
-                                    </a>
-                                    
-                                </li>
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle arrow-none " href="#nosotros">
-                                        <i class="mdi mdi-apps mr-1"></i>Nosotros 
-                                    </a>
-                                   
-                                </li>
-                                  <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle arrow-none" href="#requisitos" >
-                                        <i class="mdi mdi-buffer mr-1"></i>Requisitos
-                                    </a>
-                                </li>
-                                 <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle arrow-none" href="{{route('post.index')}}">
-                                        <i class="mdi mdi-google-pages mr-1"></i>Blog
-                                    </a>
-                                </li>
+                                   <ul class="navbar-nav">
+                                        <li class="nav-item dropdown">
+                                            <a class="nav-link dropdown-toggle arrow-none" href="{{url('/')}}" id="topnav-dashboards" >
+                                                <i class="mdi mdi-speedometer mr-1"></i>Inicio
+                                            </a>
+                                            
+                                        </li>
+                                        <li class="nav-item dropdown">
+                                            <a class="nav-link dropdown-toggle arrow-none animsition-link" href="{{route('nosotros')}}">
+                                                <i class="mdi mdi-apps mr-1"></i>Nosotros 
+                                            </a>
+                                           
+                                        </li>
+                                          <li class="nav-item dropdown">
+                                            <a class="nav-link dropdown-toggle arrow-none" href="#requisitos" >
+                                                <i class="mdi mdi-buffer mr-1"></i>Requisitos
+                                            </a>
+                                        </li>
+                                         <li class="nav-item dropdown">
+                                            <a class="nav-link dropdown-toggle arrow-none animsition-link" 
+                                          data-animsition-out-class="fade-out-right"
+                                          data-animsition-out-duration="2000" href="{{route('post.index')}}">
+                                                <i class="mdi mdi-google-pages mr-1"></i>Blog
+                                            </a>
+                                        </li>
                                 
-                            </ul>
-                        </div>
-                                </div>
-                            </nav>
-                        </div>
-            </div>
+                                    </ul>
+                                 </div>
+                              </nav>
+                            </div>
+                            
+                    </div>
+                </div>
 
         <div class="flex-center position-ref ">
                         <!-- Start Content-->
@@ -199,10 +208,7 @@
          </div>
          
          <br>
-           <div  id="nosotros">
-               
-
-                      
+         
             
                 <section class=" wow slideInLeft" data-wow-duration="4s">
                     <div class="container">
@@ -252,7 +258,7 @@
                                             </div> <!-- end col-->
                                             <div class="col-md-4">
                                                 <div class="text-center mt-3 pl-1 ">
-                                                    <i class="dripicons-jewel bg-primary maintenance-icon text-white mb-2"></i>
+                                                    <i class=" dripicons-thumbs-up  bg-primary maintenance-icon text-white mb-2"></i>
                                                     <h5 class="text-uppercase">Excelencia y organización</h5>
                                                    
                                                 </div>
@@ -273,7 +279,7 @@
                                                 <div>
                                                     <div class="faq-question-q-box">Q.</div>
                                                     <h4 class="faq-question  widget" data-wow-delay=".1s">¿Por que nosotros?</h4>
-                                                     <p class="faq-answer mb-4 widget">Trabajamos arduamente para generar desde casa,con distintas páginas brindándote la mejor asesoría,principalmente con f8.</p>
+                                                     <p class="faq-answer mb-4 widget">Trabajamos arduamente para generar desde casa,con distintas páginas brindándote la mejor asesoría, principalmente con f8.</p>
                                                 </div>
                         
                                                 <!-- Question/Answer -->
@@ -314,16 +320,38 @@
                                         </div> 
 
                               </section>
-
-
-            
-               </div>
+                              <br><br>
+                 
 
      
         <!-- end page -->
     </body><br><br>
 
     <script>
+        $(document).ready(function() {
+  $(".animsition").animsition({
+    inClass: 'fade-in-right',
+    outClass: 'fade-out-right',
+    inDuration: 1500,
+    outDuration: 800,
+    linkElement: '.animsition-link',
+    // e.g. linkElement: 'a:not([target="_blank"]):not([href^="#"])'
+    loading: true,
+    loadingParentElement: 'body', //animsition wrapper element
+    loadingClass: 'animsition-loading',
+    loadingInner: '', // e.g '<img src="loading.svg" />'
+    timeout: false,
+    timeoutCountdown: 5000,
+    onLoadEvent: true,
+    browser: [ 'animation-duration', '-webkit-animation-duration'],
+    // "browser" option allows you to disable the "animsition" in case the css property in the array is not supported by your browser.
+    // The default setting is to disable the "animsition" in a browser that does not support "animation-duration".
+    overlay : false,
+    overlayClass : 'animsition-overlay-slide',
+    overlayParentElement : 'body',
+    transition: function(url){ window.location.href = url; }
+  });
+});
        // ScrollReveal().reveal('.headline')
         ScrollReveal().reveal('.tagline', { delay: 500 })
         ScrollReveal().reveal('.punchline', { delay: 2000 })
