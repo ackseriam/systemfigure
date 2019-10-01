@@ -585,9 +585,8 @@
                                                                <div class="text-md-center mt-3 pl-1 ">
                                                                   <img src="{{ asset('images/staff_figure/Gregorio.png') }}" height="400" class="rounded-circle"  alt="" >
                                                                         <h3 class=" mt-3 text-md-center">Gregorio Rengel – Moderator, Editor.</h3>
-                                                                  <h5 class="text-md-center  punchline " >“Hola, Yo soy Gregorio Rengel, editor lvl0 de la comunidad Figure Eight, donde te brindamos apoyo, y te ayudamos en las tareas que estén disponible, brindando una seguridad extrema, aparte de una comunidad somos un grupo llamado familia, te invito a ser parte de esta comunidad.” <a href="https://www.facebook.com/michaeldavid.perdomocastillo.1"  target="_blank"   class="btn btn-primary btn-sm mt-2 ml-1"><i class=" mdi mdi-facebook  mr-1"></i></a>
-                                                                      <a href="https://twitter.com/Mikecastillo89"  target="_blank"   class="btn btn-info btn-sm mt-2 ml-1"><i class=" mdi mdi-twitter  mr-1"></i></a>
-                                                                    <a href="https://www.instagram.com/mikecastillo7/"  target="_blank"  class="btn btn-danger btn-sm mt-2 ml-1" ><i class="  mdi mdi-instagram   mr-1"></i></a>
+                                                                  <h5 class="text-md-center  punchline " >“Hola, Yo soy Gregorio Rengel, editor lvl0 de la comunidad Figure Eight, donde te brindamos apoyo, y te ayudamos en las tareas que estén disponible, brindando una seguridad extrema, aparte de una comunidad somos un grupo llamado familia, te invito a ser parte de esta comunidad.” <a href="https://www.facebook.com/gregorio.rengel.5"  target="_blank"   class="btn btn-primary btn-sm mt-2 ml-1"><i class=" mdi mdi-facebook  mr-1"></i></a>
+                                                                     
 
                                                                   </h5>
                                                               </div>
