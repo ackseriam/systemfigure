@@ -531,7 +531,7 @@
                                                           </div> <!-- end col-->
                                                            <div class="col-md-4">
                                                                <div class="text-md-center mt-3 pl-1 ">
-                                                                  <img src="{{ asset('images/staff_figure/emmanuel.jpeg') }}" height="400" class="rounded-circle"  alt="" >
+                                                                  <img src="{{ asset('images/staff_figure/emmanuell.jpeg') }}" height="400" class="rounded-circle"  alt="" >
                                                                         <h3 class=" mt-3 text-md-center">Enmanuel Villarreal – Moderator, Editor.</h3>
                                                                   <h5 class="text-md-center  punchline " >"Hola, soy Enmanuel, editor de la comunidad f8task, estoy aquí para ayudarte en lo que pueda ¡mucha suerte y trabaja duro!”<br>
                                                                 <a href="https://www.facebook.com/enmanuel.villarreal.31"  target="_blank"   class="btn btn-primary btn-sm mt-2 ml-1"><i class=" mdi mdi-facebook  mr-1"></i></a>
