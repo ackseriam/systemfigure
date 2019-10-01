@@ -2,40 +2,7 @@
 <html lang="">
 
     <head>
-      <script type="text/javascript">
-        document.onkeydown=function() { 
-if (window.event) {
-if((window.event.keyCode == 8) ||
-((window.event.keyCode >= 113) && (window.event.keyCode <= 123)))
-{
-//Bloquear Backspace
-//Bloquear Teclas Fxx (excepto F1)
-window.event.cancelBubble = true;
-window.event.keyCode = 8;
-window.event.returnValue = false;
-return false;
-}
-}
 
-if(event.altLeft) {
-if((window.event.keyCode == 37) || (window.event.keyCode == 39)) {
-//Bloquear Alt + Cursor Izq/Der.
-return false;
-}
-}
-
-if(event.ctrlKey) {
-//Bloquear Ctrl
-alert("No se permite dicha acción");
-return false;
-}
-
-//alert(window.event.keyCode);
-return true;
-
-}
-
-      </script>
         <meta charset="utf-8" />
         <title>Figure Eight Task</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -68,7 +35,76 @@ return true;
        <link href="{{ asset('js/sweetalert/sweetalert2.css') }}" rel="stylesheet" />
      @endif
 
-     
+       <script type="text/javascript">
+  
+
+
+ //Check if browser is IE
+ if (navigator.userAgent.search("MSIE") >= 0) {
+ // insert conditional IE code here
+ }
+ //Check if browser is Chrome
+ else if (navigator.userAgent.search("Chrome") >= 0) {
+ // insert conditional Chrome code here
+
+
+
+document.onkeydown=function() { 
+
+
+
+
+if((event.ctrlKey) && (window.event.keyCode == 67) ) {
+//Bloquear Ctrl
+alert('No se permite copiar texto');
+return false;
+}
+
+//alert(window.event.keyCode);
+return true;
+
+}
+ }
+ //Check if browser is Firefox 
+ else if (navigator.userAgent.search("Firefox") >= 0) {
+ // insert conditional Firefox Code here
+
+
+
+var isCtrl = false;
+document.onkeyup=function(e){
+
+if(e.which == 67) isCtrl=false;
+}
+document.onkeydown=function(e){
+if(e.which == 17) isCtrl=true;
+if(e.which == 67  &&  isCtrl == true ) {
+  console.log('nose permite');
+//Combinancion de teclas CTRL+P y bloquear su ejecucion en el navegador
+return false;
+
+}
+}
+ }
+ //Check if browser is Safari
+ else if (navigator.userAgent.search("Safari") >= 0 && navigator.userAgent.search("Chrome") < 0) {
+ // insert conditional Safari code here
+ }
+ //Check if browser is Opera
+ else if (navigator.userAgent.search("Opera") >= 0) {
+ // insert conditional Opera code here
+ }
+ 
+
+
+
+
+      </script>
+
+      <script type="text/javascript">
+//codigo javascript
+    
+</script>
 
     </head>
     <style type="text/css">

@@ -103,9 +103,16 @@ Route::get('post/destroy/{a}', 'PostController@destroy');
 Route::put('post/update/{a}', 'PostController@update');
 Route::resource('/post', 'PostController');
 Route::get('comments/destroy/{a}', 'CommentsController@destroy')->name('destroy_comments');
+
 Route::get('nosotros',function(){
 return view('nosotros.nosotros');
 })->name('nosotros');
+Route::resource('/comments', 'CommentsController');
+
+
+Route::get('requisitos',function(){
+return view('nosotros.requisitos');
+})->name('requisitos');
 Route::resource('/comments', 'CommentsController');
 
 //Route::get('export', 'ExcelController');

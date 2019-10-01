@@ -29,7 +29,7 @@ class PostController extends Controller
      public function index(Request $request)
      {
         
-        $posts= Post::orderBy("id", "DESC")->paginate(5);
+        $posts= Post::orderBy("id", "DESC")->paginate(4);
         
        // $comments= $post->comments;
        // var_dump($comments);
