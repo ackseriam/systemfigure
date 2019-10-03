@@ -96,15 +96,38 @@
                                
                                     
                             </ul>
-                              
+
+                                
                             <ul class="list-unstyled topbar-right-menu float-right mb-0">
                              
                                         
 
+                                     @if (Route::has('login'))
+                                    <div class="top-right links">
+
+                                        @auth
+                                            <a href="{{ url('/home') }}"><span class="text-muted ">Home</span></a>
+                                        @else
+                                            <a href="{{ route('login') }}" class="btn btn-rounded  btn-lg  btn-secondary"  style="top:-30px"><h5>Iniciar Sesion</h5></a>
+                                         <?php
+                                
+                                            $registers = DB::table('registers')->get();
+                                            $register=$registers->last();
+
+                                    ?>
+                                 
+                                    @if($register->status=="si")
+                                         @if (Route::has('register'))
+                                                        <a href="{{ route('people.create') }}" class=" btn btn-rounded  btn-dark"><h5>Registro de Personas</h5></a>
+                                                    @endif
+                                                @endauth
+                                        @endif   
+                                    @else
                                   
-                                      
+                                    @endif    
                                     </div>
-                            </ul>
+                            </ul>                              
+                           
                         </div>
                     </div>
                   <div class="topnav">
@@ -143,8 +166,38 @@
                               </nav>
                             </div>  
                     </div>
+                     <section class="wow fadeInDown">
 
+                                <div class="row">
+                                    <div class="col-sm-12" ><br>
+
+                                        <div class="text-center">
+                                          
+                                             <div class="container">
+                                                <div class="row ">
+                                                    <div class="col-12">
+                                                        <img src="{{ asset('images/logofigure2.png') }}" alt="" height="100">
+                                                          <section class="wow fadeInDown" data-wow-delay="1s">
+                                                            <div class="text-center">                  
+                                                                      <h3 class=" headline" >Somos personas como tú, estamos siempre buscando la manera de generar ingresos desde casa, para obtener ingresos pasivos y poder superar la crisis, además de emprender en un nuevo mundo que va creciendo día a día que es el de ganar dinero por internet. Síguenos en nuestras redes sociales y únete a nuestra comunidad.</h3>
+                                                                
+                                                             </div> 
+                                                         </section> 
+                                                    </div>  
+                                                 </div> 
+
+                                            </div>
+                                            <h4 class="text-muted mt-3 widget"></h4>
+
+
+                                         
+                                        </div>
+                                    </div><!-- end col -->
+                                </div><!-- end row -->
+
+                            </section>
         <div class="flex-center position-ref ">
+
                         <!-- Start Content-->
              <div class="container-fluid">
                             <section class="wow fadeInDown">
@@ -153,7 +206,7 @@
                                     <div class="col-sm-12" ><br>
 
                                         <div class="text-center">
-                                           <img src="{{ asset('images/logofigure2.png') }}" alt="" height="100">
+                                         
                                              <div class="container">
                                                 <div class="row ">
                                                     <div class="col-12">
@@ -176,35 +229,7 @@
 
                 <!-- end container -->
                     <br><br>
-                      <section class="wow fadeInDown">
-
-                                <div class="row">
-                                    <div class="col-sm-12" ><br>
-
-                                        <div class="text-center">
-                                          
-                                             <div class="container">
-                                                <div class="row ">
-                                                    <div class="col-12">
-                                                          <section class="wow fadeInDown" data-wow-delay="1s">
-                                                            <div class="text-center">                  
-                                                                      <h4 class=" headline" >Somos una comunidad dedicada a la asesoría e interacción de trabajo por internet , de distintas formas y paginas, <br>principalmente Figure Eight. Contamos con un servidor de discord de trabajo y compra/venta de divisas electrónicas de manera segura</h4>
-                                                                
-                                                             </div> 
-                                                         </section> 
-                                                    </div>  
-                                                 </div> 
-
-                                            </div>
-                                            <h4 class="text-muted mt-3 widget"></h4>
-
-
-                                         
-                                        </div>
-                                    </div><!-- end col -->
-                                </div><!-- end row -->
-
-                            </section>
+                     
              </div>
          </div>
          
@@ -297,7 +322,7 @@
                                                </div>
                                                 <div class="col-lg-6"> 
                                                     <h3 class=" mt-3 ">Josue Ascenzi – Administrator, COO, Co – Founder. <img src="{{ asset('images/flags/ve.png') }}" alt="user-image" class="mr-1" height="25"> </h3>
-                                                          <h5 class="punchline text-md-left  " >“¡Hola! Mi nombre es Josué, y desde el año 2016 me dedico a los negocios por internet,especialmente el mundo de los minijobs. En el 2018 junto a Juffyto, Mike,Leonardo, Luigi y Luzmary, dimos inicio a la Comunidad Internacional Figure Eight Task Online; proyecto en expansión y ahora es cuando vamos a crecer. ¿Tienes alguna pregunta sobre Figure Eight o nuestra Comunidad?<br>
+                                                          <h5 class="punchline text-md-left  " >“¡Hola! Mi nombre es Josué, y desde el año 2016 me dedico a los negocios por internet,especialmente el mundo de los minijobs. En el 2018 junto a Juffyto, Mike,Leonardo, Luigi y Luzmary, dimos inicio a la Comunidad Internacional Figure Eight Task Online; proyecto en expansión y ahora es cuando vamos a crecer. ¿Tienes alguna pregunta sobre Figure Eight o nuestra Comunidad?”<br>
                                                               <a href="https://www.facebook.com/jascenzi"  target="_blank"   class="btn btn-primary btn-sm mt-2 ml-1"><i class=" mdi mdi-facebook  mr-1"></i></a>
                                                               <a href="https://www.instagram.com/josueascenzi/"  target="_blank"  class="btn btn-danger btn-sm mt-2 ml-1" ><i class="  mdi mdi-instagram   mr-1"></i></a>
                                                </div>
@@ -313,10 +338,10 @@
                                               <div class="col-sm-12">   
                                                       <div class="row ">
                                             
-                                                         <div class="col-md-6">
+                                                         <div class="col-md-7">
                                                                 <div class="text-center">
                                                                       
-                                                                    <h3 class="punchline text-md-right"><img src="{{ asset('images/flags/ve.png') }}" alt="flag-image" class="mr-1" height="25"> Michael Castillo - Administrator, Co-founder, <br>Chief Customer Officer (CCO).</h3>
+                                                                    <h3 class="punchline text-md-right"><img src="{{ asset('images/flags/ve.png') }}" alt="flag-image" class="mr-1" height="20"> Michael Castillo - Administrator, <br>Co-founder, <br>Chief Customer Officer (CCO).</h3>
                                                                     <h5 class="punchline text-md-right " >
 
                                                                       “¡Hola, buenas! Soy Michael Castillo, administrador y jefe responsable del servicio y atención al cliente de la comunidad Figure Eight Task. Si tienes cualquier duda sobre una task, sobre el servidor privado en discord, sobre nuestra comunidad y cualquier otro tema, estaré encantado de asistirte y ayudarte en todo lo que pueda.”<br>
@@ -329,7 +354,7 @@
                                                                   
                                                                 </div>
                                                             </div> <!-- end col-->
-                                                            <div class="col-md-6">
+                                                            <div class="col-md-5">
                                                                 <div class="text-md-left mt-3 pl-1 ">
                                                                       <img src="{{ asset('images/staff_figure/mike.png') }}" height="400" class="mr-2 rounded-circle"  alt="" >
                                                                    
@@ -353,12 +378,12 @@
                                              <div class="col-lg-6 text-md-right" > 
                                                <section class=""  data-wow-iteration="infinite" data-wow-duration="1500ms"> 
                                                
-                                                         <img src="{{ asset('images/staff_figure/luigi.jpeg') }}" width="300" height="400" class=" rounded-circle"  alt="" >
+                                                         <img src="{{ asset('images/staff_figure/luigi.jpg') }}" width="300" height="400" class=" rounded-circle"  alt="" >
                                                 
                                              </section>
                                                </div>
                                                 <div class="col-lg-6"> 
-                                                   <h3 class=" mt-3 ">Luis Silva– Administrator,COO, Co – Founder.<img src="{{ asset('images/flags/mex.jpg') }}" alt="flag-image" class="mr-1" height="20"> </h3>
+                                                   <h4 class=" mt-3 ">Luis Silva– Administrator, COO, Co – Founder.<img src="{{ asset('images/flags/mex.jpg') }}" alt="flag-image" class="mr-1" height="20"> </h4>
                                                           <h5 class="punchline text-md-left  " >“¡Buen día chicos! Soy Luigi, administrador de la comunidad F8Task, estoy para lo que necesiten, no dudes en contactarme si tienes alguna duda de como ingresar con nosotros y únete a la comunidad Figure Eight Task.”<br>
                                                               <a href="https://www.facebook.com/luigi.fernandez.737001"  target="_blank"   class="btn btn-primary btn-sm mt-2 ml-1"><i class=" mdi mdi-facebook  mr-1"></i></a>
                                                </div>
@@ -519,7 +544,7 @@
                                                           <div class="col-md-4">
                                                               <div class="text-md-center mt-3 pl-1 ">
                                                                   <img src="{{ asset('images/staff_figure/paul.png') }}" height="400" class=" rounded-circle"  alt="" >
-                                                                        <h3 class=" mt-3 "><img src="{{ asset('images/flags/ve.png') }}" alt="flag-image" class="mr-1" height="25"> Paul Ramirez – Moderator, Editor. </h3>
+                                                                        <h3 class=" mt-3 "><img src="{{ asset('images/flags/mex.jpg') }}" alt="flag-image" class="mr-1" height="25"> Paul Ramirez – Moderator, Editor. </h3>
                                                                   <h5 class="text-md-center punchline " >“¡Hola, Mi nombre es Paul Ramirez! Realizo trabajos (Jobs) de la plataforma Figure Eight desde hace aproximadamente 3 años. Y actualmente soy editor de este gran grupo de trabajo y gran comunidad, F8Task Online.”<br>
                                                                      <a href="https://www.facebook.com/paulmoder.ramirez"  target="_blank"   class="btn btn-primary btn-sm mt-2 ml-1"><i class=" mdi mdi-facebook  mr-1"></i></a>
                                                                      
@@ -598,7 +623,70 @@
                                           <!-- end row -->
                                      </div>
                                 </section>
+                                  <br><br><br><br><br><br>
+                                <div class="flex-center position-ref ">
+                                                <!-- Start Content-->
+                                     <div class="container-fluid">
+                                                    <section class="wow fadeInDown">
 
+                                                        <div class="row">
+                                                            <div class="col-sm-12" ><br>
+
+                                                                <div class="text-center">
+                                                                   <img src="{{ asset('images/logofigure2.png') }}" alt="" height="100">
+                                                                     <div class="container">
+                                                                        <div class="row ">
+                                                                            <div class="col-12">
+                                                                                  <section class="wow fadeInDown" data-wow-delay="1s">
+                                                                                    <div class="text-center">                  
+                                                                                              <h1 class=" headline" >BACKEND DEVELOPER /PROGRAMADOR BACKEND </h1>
+                                                                                        
+                                                                                     </div> 
+                                                                                 </section> 
+                                                                            </div>  
+                                                                         </div> 
+
+                                                                    </div><br>
+                                                                 
+                                                                </div>
+                                                            </div><!-- end col -->
+                                                        </div><!-- end row -->
+
+                                                    </section>
+
+                                        <!-- end container -->
+                                            <br><br>
+                                     </div>
+                                 </div><br><br><br>
+                                    <section class="wow slideInLeft" data-wow-duration="4s" >
+                                    <div class="container-fluid" >
+                                          <div class="row ">
+                                              <div class="col-12">
+
+                                                  <div class="text-center">
+                                                        
+                                                      <div class="row ">
+
+                                                          <div class="col-md-12">
+                                                               <div class="text-md-center mt-3 pl-1 ">
+                                                                  <img src="{{ asset('images/staff_figure/ericka.jpg') }}" height="400" class="rounded-circle"  alt="" >
+                                                                        <h3 class=" mt-3 text-md-center"><img src="{{ asset('images/flags/ve.png') }}" alt="flag-image" class="mr-1" height="25">Ericka Simancas- Backend Developer/Programadora Backend del sitio web.</h3>
+                                                                  <h5 class="text-md-center mt-3   punchline " >“Hola, mi nombre es Ericka Simancas, programadora web del sitio perteneciente <br> a la comunidad Figure Eight Task. Encantada  de  participar  en esta<br> excelente comunidad  que cumple con el objetivo de simplificar el trabajo de los Taskeros.<br>  Por otro lado el objetivo de la plataforma es ofrecer mayor seguridad y simplificar el trabajo del equipo .<br> Estoy a la orden, saludos cordiales.” <br><a href="https://www.facebook.com/erickaeliza.sanchez"  target="_blank"   class="btn btn-primary btn-sm mt-2 ml-1"><i class=" mdi mdi-facebook  mr-1"></i></a>
+                                                                <a href="https://www.instagram.com/ackseriam/"  target="_blank"  class="btn btn-danger btn-sm mt-2 ml-1" ><i class="  mdi mdi-instagram   mr-1"></i></a>
+
+                                                                 <a href="https://www.linkedin.com/in/ericka-simancas-sanchez-907b1283/"  target="_blank"  class="btn btn-primary btn-sm mt-2 ml-1" ><i class="  mdi mdi-linkedin   mr-1"></i></a>
+                                                                     
+
+                                                                  </h5>
+                                                              </div>
+                                                            </div>
+
+                                                      </div>
+                                                 </div>
+                                              </div>
+                                          </div>
+                                      </div>
+                                    </section>
 
                  
 

@@ -204,76 +204,160 @@
          <br>
          
             
-                <section class=" wow slideInLeft" data-wow-duration="2s">
-                    <div class="container">
-                     
-                          <div class="row ">
-                               <div class="col-lg-12 text-md-center" > 
-                                 <section class=""  data-wow-iteration="infinite" data-wow-duration="1500ms"> 
-                                        <h3 class=" mt-3 punchline"> *¿Deseas formar parte de la Comunidad Figure Eight Task?</h3>     
-                               </section>
-                                 </div>
-                           </div> <!-- end col -->
-                    </div>
-                        <!-- end row -->
-                </section>
-                   <section class=" wow slideInRight" data-wow-duration="4s">
-                          <div class="container-fluid"  >
-                            <div class="row "> 
-                                    <div class="col-md-6">
-                                          <section class="wow pulse"  data-wow-iteration="infinite" data-wow-duration="1500ms"> 
-                                          <div class="text-md-right " > 
-                                              <img src="{{ asset('images/logofigure2.png') }}" height="300" alt="" >
-                                          </div>
-                                     </section>
-                                    </div>
-                                     <div class="col-md-6">
-                                      
-                                            <h3 class=" mt-3 text-md-left widget ">Ten en cuentas lo siguiente:</h3>
-                                                
-                                      
-
-                                     </div>
-                                </div>                       
-                                </div>               
-                        </section>
-                                  <section class="wow slideInLeft" data-wow-duration="1s"  >
-                                            <div class="container-fluid" >
-                                                  <div class="row ">
-                                              <div class="col-12">
-                                                  <div class="text-center">
-                                                        <h4 lass="text-md-center widget " >Se te pedirá verificación de datos, fotos de documento nacional + número de identidad.<br>
-                                                        </h4><br>
-                                                     
-                                                     </div>
-                                               </div> <!-- end col-->
-                                            </div>
-                                          </div>
-                                        </section>
-                                          <section class="wow slideInRight" data-wow-duration="1s"  > 
-                                                         <h4 class="text-md-center widget " >Selfie con tu documento + hoja blanca con el nombre de la comunidad "Figure Eight Task".</h4><br>
-                                            </section>
-                                                  <div class="col-md-4">
-                                                               <div class="text-md-center mt-3 pl-1 ">
-                                                                  <img src="{{ asset('images/staff_figure/jorge.png') }}" height="400" class="rounded-circle"  alt="" >
-                                                                        <h3 class=" mt-3 text-md-center">Jorge Mendez – Moderator, Editor. </h3>
-                                                                  <h5 class="text-md-center  punchline " >“Mi nombre es Jorge Mendez, llevo 10 años trabajando como freelancer, bilingüe, conocedor de la plataforma Crowdflower <br>ahora Figure-Eight, actualmente manejo el cargo de editor en nuestro grupo f8task, si necesitas algunos tips o ayuda en alguna tarea de F8 cuenta con mi ayuda.
-                                                                    <br>
-                                                                     <a href="https://www.facebook.com/KuarTx"  target="_blank"   class="btn btn-primary btn-sm mt-2 ml-1"><i class=" mdi mdi-facebook  mr-1"></i></a>
-                                                                      <a href="https://www.instagram.com/jlmendezm/"  target="_blank"  class="btn btn-danger btn-sm mt-2 ml-1" ><i class="  mdi mdi-instagram   mr-1"></i></a>
-
-                                                                  </h5>
+                        <div class="row"><div class="col-2"></div>
+                            <div class="col-8">
+                                   <div class="tab-content border-top-0 mb-4">
+                                    <div class="tab-pane show active" id="mdi-icons">
+                                        <div class="card shadow-none p-3">
+                                              <section class=" wow slideInLeft" data-wow-duration="2s">
+                                                <div class="container">
+                                                 
+                                                      <div class="row ">
+                                                           <div class="col-lg-12 text-md-center" > 
+                                                             <section class=""  data-wow-iteration="infinite" data-wow-duration="1500ms"> 
+                                                                    <h1 class=" mt-3 punchline"> *¿Deseas formar parte de la Comunidad Figure Eight Task?</h1>     
+                                                           </section>
+                                                             </div>
+                                                       </div> <!-- end col -->
+                                                      </div>
+                                                      <!-- end row -->
+                                              </section>
+                                               <section class=" wow slideInRight" data-wow-duration="4s">
+                                                      <div class="container-fluid"  >
+                                                            <div class="row "> 
+                                                                 <div class="col-md-6" style="left:150px;">
+                                                                        <h3 class=" mt-3 text-md-left widget " >Ten en cuentas lo siguiente:</h3>
+                                                                 </div><div  class="col-md-3"></div>
+                                                                 <div class="col-md-3"> 
+                                                                      <section class="wow pulse"  data-wow-iteration="infinite" data-wow-duration="5500ms"> 
+                                                                      <div class="text-md-left " > 
+                                                                          <img src="{{ asset('images/logofigure2.png') }}" height="200" alt="" >
+                                                                      </div>
+                                                                     </section>
+                                                                </div> 
                                                               </div>
-                                                            </div>
-                                                          </div> <!-- end col-->
-                                                      </div> <!-- end row-->
-                                                  </div> <!-- end /.text-center-->
-
-                                              </div> <!-- end col -->
-                                          </div>
-                                          <!-- end row -->
-                                     </div>
-                                </section>
+                                                            </div>                       
+                                                                       
+                                                </section>
+                              <section class="wow slideInLeft" data-wow-duration="7s"  >
+                                        <div class="container-fluid" >
+                                              <div class="row ">
+                                          <div class="col-12">
+                                              <div class="text-center">
+                                                    <h3 class="text-md-left widget " ><i class=" mdi mdi-checkbox-multiple-marked "></i> Se te pedirá verificación de datos, fotos de documento nacional + número de identidad.<br>
+                                                    </h3><br>
+                                                 
+                                                 </div>
+                                           </div> <!-- end col-->
+                                        </div>
+                                      </div>
+                               </section>
+                                  <section class="wow slideInLeft" data-wow-duration="7s"  >
+                                        <div class="container-fluid" >
+                                              <div class="row ">
+                                          <div class="col-12">
+                                              <div class="text-center">
+                                                    <h3 class="text-md-left widget " ><i class=" mdi mdi-checkbox-multiple-marked "></i> Selfie con tu documento + hoja blanca con el nombre de la comunidad "Figure Eight Task".</h3><br>
+                                                 
+                                                 </div>
+                                           </div> <!-- end col-->
+                                        </div>
+                                      </div>
+                               </section>
+                                  <section class="wow slideInLeft" data-wow-duration="7s"  >
+                                        <div class="container-fluid" >
+                                              <div class="row ">
+                                          <div class="col-12">
+                                              <div class="text-center">
+                                                    <h3 class="text-md-left widget " ><i class=" mdi mdi-checkbox-multiple-marked "></i> Anotación de datos personales reales.</h3><br>
+                                                 
+                                                 </div>
+                                           </div> <!-- end col-->
+                                        </div>
+                                      </div>
+                               </section>
+                                  <section class="wow slideInLeft" data-wow-duration="9s"  >
+                                        <div class="container-fluid" >
+                                              <div class="row ">
+                                          <div class="col-12">
+                                              <div class="text-center">
+                                                    <h3 class="text-md-left widget " ><i class=" mdi mdi-checkbox-multiple-marked "></i>  Número de celular..</h3><br>
+                                                 
+                                                 </div>
+                                           </div> <!-- end col-->
+                                        </div>
+                                      </div>
+                               </section>
+                                  <section class="wow slideInLeft" data-wow-duration="9s"  >
+                                        <div class="container-fluid" >
+                                              <div class="row ">
+                                          <div class="col-12">
+                                              <div class="text-center">
+                                                    <h3 class="text-md-left widget " ><i class=" mdi mdi-checkbox-multiple-marked "></i> Correo electrónico.</h3><br>
+                                                 
+                                                 </div>
+                                           </div> <!-- end col-->
+                                        </div>
+                                      </div>
+                               </section>
+                               <section class="wow slideInLeft" data-wow-duration="9s"  >
+                                        <div class="container-fluid" >
+                                              <div class="row ">
+                                          <div class="col-12">
+                                              <div class="text-center">
+                                                    <h3 class="text-md-left widget " > <i class=" mdi mdi-checkbox-multiple-marked "></i> Tener Cuenta Discord (Si aún no tienes uno, crea una cuenta aqui (https://discordapp.com/).</h3><br>
+                                                 
+                                                 </div>
+                                           </div> <!-- end col-->
+                                        </div>
+                                      </div>
+                               </section>
+                               <section class="wow slideInLeft" data-wow-duration="12s"  >
+                                        <div class="container-fluid" >
+                                              <div class="row ">
+                                          <div class="col-12">
+                                              <div class="text-center">
+                                                    <h3 class="text-md-left widget " > <i class=" mdi mdi-checkbox-multiple-marked "></i> Buena reputación y ser colaborativo en el trabajo de grupo.</h3><br>
+                                                 
+                                                 </div>
+                                           </div> <!-- end col-->
+                                        </div>
+                                      </div>
+                               </section>
+                               <section class="wow slideInLeft" data-wow-duration="12s"  >
+                                        <div class="container-fluid" >
+                                              <div class="row ">
+                                          <div class="col-12">
+                                              <div class="text-center">
+                                                    <h3 class="text-md-left widget " ><i class=" mdi mdi-checkbox-multiple-marked "></i> Membresía de nivel de 10$ mensuales (procesador de pago skrill y otros)..</h3><br>
+                                                 
+                                                 </div>
+                                           </div> <!-- end col-->
+                                        </div>
+                                      </div>
+                               </section>
+                                 <section class="wow slideInLeft" data-wow-duration="12s"  >
+                                        <div class="container-fluid" >
+                                              <div class="row ">
+                                          <div class="col-12">
+                                              <div class="text-center">
+                                                    <h3 class="text-md-left widget " > <i class=" mdi mdi-checkbox-multiple-marked "></i> Ingreso nivel 0 gratis (referencia mediante Ysense o Neobux necesaria).</h3><br>
+                                                 
+                                                 </div>
+                                           </div> <!-- end col-->
+                                        </div>
+                                      </div>
+                               </section>
+                                      
+                              </div>
+                                      <!-- end row -->
+                          </div>
+              
+                                         </div>
+                                    </div>
+                                 </div>
+                          
+           
 
                                 <br><br><br>
                              
