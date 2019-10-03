@@ -119,12 +119,33 @@
                                     
                             </ul>
                               
-                            <ul class="list-unstyled topbar-right-menu float-right mb-0">
+                             <ul class="list-unstyled topbar-right-menu float-right mb-0">
                              
                                         
 
+                                     @if (Route::has('login'))
+                                    <div class="top-right links">
+
+                                        @auth
+                                            <a href="{{ url('/home') }}"><span class="text-muted ">Home</span></a>
+                                        @else
+                                            <a href="{{ route('login') }}" class="btn btn-rounded  btn-lg  btn-secondary"  style="top:-30px"><h5>Iniciar Sesion</h5></a>
+                                         <?php
+                                
+                                            $registers = DB::table('registers')->get();
+                                            $register=$registers->last();
+
+                                    ?>
+                                 
+                                    @if($register->status=="si")
+                                         @if (Route::has('register'))
+                                                        <a href="{{ route('people.create') }}" class=" btn btn-rounded  btn-dark"><h5>Registro de Personas</h5></a>
+                                                    @endif
+                                                @endauth
+                                        @endif   
+                                    @else
                                   
-                                      
+                                    @endif    
                                     </div>
                             </ul>
                         </div>
@@ -148,7 +169,7 @@
                                            
                                         </li>
                                           <li class="nav-item dropdown">
-                                            <a class="nav-link dropdown-toggle arrow-none" href="#requisitos" >
+                                            <a class="nav-link dropdown-toggle arrow-none" href="{{route('requisitos')}}" >
                                                 <i class="mdi mdi-buffer mr-1"></i>Requisitos
                                             </a>
                                         </li>
@@ -215,7 +236,7 @@
                                                       <div class="row ">
                                                            <div class="col-lg-12 text-md-center" > 
                                                              <section class=""  data-wow-iteration="infinite" data-wow-duration="1500ms"> 
-                                                                    <h1 class=" mt-3 punchline"> *¿Deseas formar parte de la Comunidad Figure Eight Task?</h1>     
+                                                                    <h1 class=" mt-3 punchline">  <img src="{{ asset('images/small/money.svg') }}" height="50" alt="" > ¿Deseas formar parte de la Comunidad Figure Eight Task?  <img src="{{ asset('images/small/bolsa.svg') }}" height="50" alt="" ></h1>     
                                                            </section>
                                                              </div>
                                                        </div> <!-- end col -->
@@ -225,129 +246,43 @@
                                                <section class=" wow slideInRight" data-wow-duration="4s">
                                                       <div class="container-fluid"  >
                                                             <div class="row "> 
-                                                                 <div class="col-md-6" style="left:150px;">
-                                                                        <h3 class=" mt-3 text-md-left widget " >Ten en cuentas lo siguiente:</h3>
+                                                                 <div class="col-md-6" style="left:170px;">
+                                                                        <h3 class=" mt-3 text-md-left widget " ><img src="{{ asset('images/small/toch.svg') }}" height="30" alt="" > Ten en cuentas lo siguiente:</h3>
                                                                  </div><div  class="col-md-3"></div>
                                                                  <div class="col-md-3"> 
                                                                       <section class="wow pulse"  data-wow-iteration="infinite" data-wow-duration="5500ms"> 
                                                                       <div class="text-md-left " > 
-                                                                          <img src="{{ asset('images/logofigure2.png') }}" height="200" alt="" >
+                                                                          <img src="{{ asset('images/logofigure2.png') }}" height="150" alt="" >
                                                                       </div>
                                                                      </section>
                                                                 </div> 
                                                               </div>
                                                             </div>                       
                                                                        
-                                                </section>
+                                                </section><br><br><br>
                               <section class="wow slideInLeft" data-wow-duration="7s"  >
                                         <div class="container-fluid" >
                                               <div class="row ">
-                                          <div class="col-12">
+                                          <div class="col-12" style="top: 50px">
                                               <div class="text-center">
                                                     <h3 class="text-md-left widget " ><i class=" mdi mdi-checkbox-multiple-marked "></i> Se te pedirá verificación de datos, fotos de documento nacional + número de identidad.<br>
                                                     </h3><br>
-                                                 
+                                                     <h3 class="text-md-left widget " ><i class=" mdi mdi-checkbox-multiple-marked "></i> Selfie con tu documento + hoja blanca con el nombre de la comunidad "Figure Eight Task".</h3><br>
+                                                     <h3 class="text-md-left widget " ><i class=" mdi mdi-checkbox-multiple-marked "></i> Anotación de datos personales reales.</h3><br>
+                                                     <h3 class="text-md-left widget " ><i class=" mdi mdi-checkbox-multiple-marked "></i>  Número de celular..</h3><br>
+                                                     <h3 class="text-md-left widget " ><i class=" mdi mdi-checkbox-multiple-marked "></i> Correo electrónico.</h3><br>
+                                                     <h3 class="text-md-left widget " > <i class=" mdi mdi-checkbox-multiple-marked "></i> Tener Cuenta Discord (Si aún no tienes uno, crea una cuenta aqui (https://discordapp.com/).</h3><br>
+                                                      <h3 class="text-md-left widget " > <i class=" mdi mdi-checkbox-multiple-marked "></i> Buena reputación y ser colaborativo en el trabajo de grupo.</h3><br>
+                                                       <h3 class="text-md-left widget " ><i class=" mdi mdi-checkbox-multiple-marked "></i> Membresía de nivel de 10$ mensuales (procesador de pago skrill y otros)..</h3><br>
+                                                        <h3 class="text-md-left widget " > <i class=" mdi mdi-checkbox-multiple-marked "></i> Ingreso nivel 0 gratis (referencia mediante Ysense o Neobux necesaria).</h3><br><br>
                                                  </div>
                                            </div> <!-- end col-->
                                         </div>
                                       </div>
-                               </section>
-                                  <section class="wow slideInLeft" data-wow-duration="7s"  >
-                                        <div class="container-fluid" >
-                                              <div class="row ">
-                                          <div class="col-12">
-                                              <div class="text-center">
-                                                    <h3 class="text-md-left widget " ><i class=" mdi mdi-checkbox-multiple-marked "></i> Selfie con tu documento + hoja blanca con el nombre de la comunidad "Figure Eight Task".</h3><br>
-                                                 
-                                                 </div>
-                                           </div> <!-- end col-->
-                                        </div>
-                                      </div>
-                               </section>
-                                  <section class="wow slideInLeft" data-wow-duration="7s"  >
-                                        <div class="container-fluid" >
-                                              <div class="row ">
-                                          <div class="col-12">
-                                              <div class="text-center">
-                                                    <h3 class="text-md-left widget " ><i class=" mdi mdi-checkbox-multiple-marked "></i> Anotación de datos personales reales.</h3><br>
-                                                 
-                                                 </div>
-                                           </div> <!-- end col-->
-                                        </div>
-                                      </div>
-                               </section>
-                                  <section class="wow slideInLeft" data-wow-duration="9s"  >
-                                        <div class="container-fluid" >
-                                              <div class="row ">
-                                          <div class="col-12">
-                                              <div class="text-center">
-                                                    <h3 class="text-md-left widget " ><i class=" mdi mdi-checkbox-multiple-marked "></i>  Número de celular..</h3><br>
-                                                 
-                                                 </div>
-                                           </div> <!-- end col-->
-                                        </div>
-                                      </div>
-                               </section>
-                                  <section class="wow slideInLeft" data-wow-duration="9s"  >
-                                        <div class="container-fluid" >
-                                              <div class="row ">
-                                          <div class="col-12">
-                                              <div class="text-center">
-                                                    <h3 class="text-md-left widget " ><i class=" mdi mdi-checkbox-multiple-marked "></i> Correo electrónico.</h3><br>
-                                                 
-                                                 </div>
-                                           </div> <!-- end col-->
-                                        </div>
-                                      </div>
-                               </section>
-                               <section class="wow slideInLeft" data-wow-duration="9s"  >
-                                        <div class="container-fluid" >
-                                              <div class="row ">
-                                          <div class="col-12">
-                                              <div class="text-center">
-                                                    <h3 class="text-md-left widget " > <i class=" mdi mdi-checkbox-multiple-marked "></i> Tener Cuenta Discord (Si aún no tienes uno, crea una cuenta aqui (https://discordapp.com/).</h3><br>
-                                                 
-                                                 </div>
-                                           </div> <!-- end col-->
-                                        </div>
-                                      </div>
-                               </section>
-                               <section class="wow slideInLeft" data-wow-duration="12s"  >
-                                        <div class="container-fluid" >
-                                              <div class="row ">
-                                          <div class="col-12">
-                                              <div class="text-center">
-                                                    <h3 class="text-md-left widget " > <i class=" mdi mdi-checkbox-multiple-marked "></i> Buena reputación y ser colaborativo en el trabajo de grupo.</h3><br>
-                                                 
-                                                 </div>
-                                           </div> <!-- end col-->
-                                        </div>
-                                      </div>
-                               </section>
-                               <section class="wow slideInLeft" data-wow-duration="12s"  >
-                                        <div class="container-fluid" >
-                                              <div class="row ">
-                                          <div class="col-12">
-                                              <div class="text-center">
-                                                    <h3 class="text-md-left widget " ><i class=" mdi mdi-checkbox-multiple-marked "></i> Membresía de nivel de 10$ mensuales (procesador de pago skrill y otros)..</h3><br>
-                                                 
-                                                 </div>
-                                           </div> <!-- end col-->
-                                        </div>
-                                      </div>
-                               </section>
-                                 <section class="wow slideInLeft" data-wow-duration="12s"  >
-                                        <div class="container-fluid" >
-                                              <div class="row ">
-                                          <div class="col-12">
-                                              <div class="text-center">
-                                                    <h3 class="text-md-left widget " > <i class=" mdi mdi-checkbox-multiple-marked "></i> Ingreso nivel 0 gratis (referencia mediante Ysense o Neobux necesaria).</h3><br>
-                                                 
-                                                 </div>
-                                           </div> <!-- end col-->
-                                        </div>
-                                      </div>
-                               </section>
+                               </section><br><br>
+                               
+                             
+              
                                       
                               </div>
                                       <!-- end row -->
@@ -427,19 +362,18 @@
                             <div class="col-md-6">
                                 2018 - 2019 ©Figure Eight Task
                             </div>
-                           
-                           
-                            <div class="col-md-6">
+                           <div class="col-md-6">
 
-                                <div class="text-md-right footer-links d-none d-md-block">
+                               <div class="text-md-right footer-links d-none d-md-block">
                                      <a href="javascript: void(0);">Contactanos</a>
-                                       <a href="https://www.facebook.com/f8task/"  target="_blank"   class="btn btn-primary btn-sm mt-2 ml-1"><i class=" mdi mdi-facebook  mr-1"></i></a>
+                                      <a href="https://www.facebook.com/f8task/"  target="_blank"   class="btn btn-primary btn-sm mt-2 ml-1"><i class=" mdi mdi-facebook  mr-1"></i></a>
+                                     <a href="https://twitter.com/EightTask"  target="_blank"   class="btn btn-success btn-sm mt-2 ml-1"><i class=" mdi mdi-twitter  mr-1"></i></a>
                                     <a href="https://www.instagram.com/f8task/"  target="_blank"  class="btn btn-primary btn-sm mt-2 ml-1" ><i class="  mdi mdi-instagram   mr-1"></i></a>
                                     <a href="https://www.youtube.com/channel/UC1Qzqg18r_VghlQjZiNk2MA/videos"  target="_blank"  class="btn btn-danger btn-sm mt-2 ml-1" ><i class="  mdi mdi-youtube mr-1"></i></a>
+                                     <a href="https://www.linkedin.com/company/figureeighttask/"  target="_blank"   class="btn btn-primary btn-sm mt-2 ml-1"><i class=" mdi mdi-linkedin  mr-1"></i></a>
                                  <a href="javascript: void(0);">Acerca de nosotros</a>
                                     <a href="javascript: void(0);">Soporte</a>
 
-                                 
                                 </div>
                             </div>
                         </div>
