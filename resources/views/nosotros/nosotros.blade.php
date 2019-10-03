@@ -254,7 +254,7 @@
                                    
                                        <h5 class="punchline text-md-left" >“Hola ¿Qué tal? Yo soy Juffyto Segovia creador y fundador de la comunidad Figure Eight Task, te invito a ser parte de nuestra comunidad de trabajo, siempre estamos activos con nuevas opciones para generar ingresos extra por internet.” <br>
                                       <a href="https://www.facebook.com/JuffySegovia/"  target="_blank"   class="btn btn-primary btn-sm mt-2 ml-1"><i class=" mdi mdi-facebook  mr-1"></i></a>
-                                      <a href="https://twitter.com/Juffyto"  target="_blank"   class="btn btn-info btn-sm mt-2 ml-1"><i class=" mdi mdi-twitter  mr-1"></i></a>
+                                      <a href="https://twitter.com/Juffyto"  target="_blank"   class="btn btn-success btn-sm mt-2 ml-1"><i class=" mdi mdi-twitter  mr-1"></i></a>
                                     <a href="https://www.instagram.com/juffyto/"  target="_blank"  class="btn btn-danger btn-sm mt-2 ml-1" ><i class="  mdi mdi-instagram   mr-1"></i></a>
 
                                      <a href="https://www.linkedin.com/in/junior-segovia-chalco-974ab6194/"  target="_blank"  class="btn btn-primary btn-sm mt-2 ml-1" ><i class="  mdi mdi-linkedin   mr-1"></i></a>
@@ -285,7 +285,7 @@
                                                     <h5 class="punchline text-md-right " >“¡Me arriesgué y gane! Te toca a ti, te ofrecemos las mejores herramientas  para generar ganancias extras o hacer de éste tu trabajo con buenos  ingresos, ser tu propio jefe. Ven, ¿qué esperas? Únete y gana, sácale provecho,  24 horas activos para ti. Yo soy Luzmary Gil, administradora de esta comunidad”
                                                        <br>
                                                       <a href="https://www.facebook.com/luzmary.gil"  target="_blank"   class="btn btn-primary btn-sm mt-2 ml-1"><i class=" mdi mdi-facebook  mr-1"></i></a>
-                                                      <a href="https://twitter.com/GilLuzmary"  target="_blank"   class="btn btn-info btn-sm mt-2 ml-1"><i class=" mdi mdi-twitter  mr-1"></i></a>
+                                                      <a href="https://twitter.com/GilLuzmary"  target="_blank"   class="btn btn-success btn-sm mt-2 ml-1"><i class=" mdi mdi-twitter  mr-1"></i></a>
                                                     <a href="https://www.instagram.com/luzmarygil_/"  target="_blank"  class="btn btn-danger btn-sm mt-2 ml-1" ><i class="  mdi mdi-instagram   mr-1"></i></a>
                                                     </h5>
                                                    
@@ -346,7 +346,7 @@
 
                                                                       “¡Hola, buenas! Soy Michael Castillo, administrador y jefe responsable del servicio y atención al cliente de la comunidad Figure Eight Task. Si tienes cualquier duda sobre una task, sobre el servidor privado en discord, sobre nuestra comunidad y cualquier otro tema, estaré encantado de asistirte y ayudarte en todo lo que pueda.”<br>
                                                                        <a href="https://www.facebook.com/michaeldavid.perdomocastillo.1"  target="_blank"   class="btn btn-primary btn-sm mt-2 ml-1"><i class=" mdi mdi-facebook  mr-1"></i></a>
-                                                                      <a href="https://twitter.com/Mikecastillo89"  target="_blank"   class="btn btn-info btn-sm mt-2 ml-1"><i class=" mdi mdi-twitter  mr-1"></i></a>
+                                                                      <a href="https://twitter.com/Mikecastillo89"  target="_blank"   class="btn btn-success btn-sm mt-2 ml-1"><i class=" mdi mdi-twitter  mr-1"></i></a>
                                                                     <a href="https://www.instagram.com/mikecastillo7/"  target="_blank"  class="btn btn-danger btn-sm mt-2 ml-1" ><i class="  mdi mdi-instagram   mr-1"></i></a>
                                                                     </h5>
                                                                     <br>
@@ -536,7 +536,7 @@
                                                                   <h5 class="text-md-center punchline " >“Hola, soy Oscar Natera, me dedique 6 años a la  educación, aprendizaje, enseñanzas  y actualmente lo aplico en Figure Eight,  en cada tarea aprovechamos al máximo las herramientas que hoy te brindamos, por eso  te invito a ser parte de esta comunidad
                                                                     <br>
                                                                      <a href="https://www.facebook.com/michaeldavid.perdomocastillo.1"  target="_blank"   class="btn btn-primary btn-sm mt-2 ml-1"><i class=" mdi mdi-facebook  mr-1"></i></a>
-                                                                      <a href="https://twitter.com/oscarnatera9"  target="_blank"   class="btn btn-info btn-sm mt-2 ml-1"><i class=" mdi mdi-twitter  mr-1"></i></a>
+                                                                      <a href="https://twitter.com/oscarnatera9"  target="_blank"   class="btn btn-success btn-sm mt-2 ml-1"><i class=" mdi mdi-twitter  mr-1"></i></a>
                                                                   
                                                                   </h5>
                                                               </div>
@@ -671,7 +671,7 @@
                                                                <div class="text-md-center mt-3 pl-1 ">
                                                                   <img src="{{ asset('images/staff_figure/ericka.jpg') }}" height="400" class="rounded-circle"  alt="" >
                                                                         <h3 class=" mt-3 text-md-center"><img src="{{ asset('images/flags/ve.png') }}" alt="flag-image" class="mr-1" height="25">Ericka Simancas- Backend Developer/Programadora Backend del sitio web.</h3>
-                                                                  <h5 class="text-md-center mt-3   punchline " >“Hola, mi nombre es Ericka Simancas, programadora web del sitio perteneciente <br> a la comunidad Figure Eight Task. Encantada  de  participar  en esta<br> excelente comunidad  que cumple con el objetivo de simplificar el trabajo de los Taskeros.<br>  Por otro lado el objetivo de la plataforma es ofrecer mayor seguridad y simplificar el trabajo del equipo .<br> Estoy a la orden, saludos cordiales.” <br><a href="https://www.facebook.com/erickaeliza.sanchez"  target="_blank"   class="btn btn-primary btn-sm mt-2 ml-1"><i class=" mdi mdi-facebook  mr-1"></i></a>
+                                                                  <h5 class="text-md-center mt-3   punchline " >“Hola, mi nombre es Ericka Simancas, programadora web del sitio perteneciente <br> a la comunidad Figure Eight Task. Encantada  de  participar  en esta<br> excelente comunidad  que cumple con el objetivo de simplificar el trabajo de los Taskeros.                  <br>  Por otro lado el objetivo de la plataforma es ofrecer mayor seguridad y simplificar el trabajo del equipo .<br> Estoy a la orden, saludos cordiales.” <br><a href="https://www.facebook.com/erickaeliza.sanchez"  target="_blank"   class="btn btn-primary btn-sm mt-2 ml-1"><i class=" mdi mdi-facebook  mr-1"></i></a>
                                                                 <a href="https://www.instagram.com/ackseriam/"  target="_blank"  class="btn btn-danger btn-sm mt-2 ml-1" ><i class="  mdi mdi-instagram   mr-1"></i></a>
 
                                                                  <a href="https://www.linkedin.com/in/ericka-simancas-sanchez-907b1283/"  target="_blank"  class="btn btn-primary btn-sm mt-2 ml-1" ><i class="  mdi mdi-linkedin   mr-1"></i></a>
@@ -758,15 +758,16 @@
                            
                             <div class="col-md-6">
 
-                                <div class="text-md-right footer-links d-none d-md-block">
+                               <div class="text-md-right footer-links d-none d-md-block">
                                      <a href="javascript: void(0);">Contactanos</a>
-                                       <a href="https://www.facebook.com/f8task/"  target="_blank"   class="btn btn-primary btn-sm mt-2 ml-1"><i class=" mdi mdi-facebook  mr-1"></i></a>
+                                      <a href="https://www.facebook.com/f8task/"  target="_blank"   class="btn btn-primary btn-sm mt-2 ml-1"><i class=" mdi mdi-facebook  mr-1"></i></a>
+                                     <a href="https://twitter.com/EightTask"  target="_blank"   class="btn btn-success btn-sm mt-2 ml-1"><i class=" mdi mdi-twitter  mr-1"></i></a>
                                     <a href="https://www.instagram.com/f8task/"  target="_blank"  class="btn btn-primary btn-sm mt-2 ml-1" ><i class="  mdi mdi-instagram   mr-1"></i></a>
                                     <a href="https://www.youtube.com/channel/UC1Qzqg18r_VghlQjZiNk2MA/videos"  target="_blank"  class="btn btn-danger btn-sm mt-2 ml-1" ><i class="  mdi mdi-youtube mr-1"></i></a>
+                                     <a href="https://www.linkedin.com/company/figureeighttask/"  target="_blank"   class="btn btn-primary btn-sm mt-2 ml-1"><i class=" mdi mdi-linkedin  mr-1"></i></a>
                                  <a href="javascript: void(0);">Acerca de nosotros</a>
                                     <a href="javascript: void(0);">Soporte</a>
 
-                                 
                                 </div>
                             </div>
                         </div>
