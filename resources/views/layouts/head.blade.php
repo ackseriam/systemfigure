@@ -7,7 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
         <meta content="Somos una comunidad dedicada a la asesoría e interacción de trabajo por internet , de distintas formas y paginas, principalmente Figure Eight. Contamos con un servidor de discord de trabajo y compra/venta de divisas electrónicas de manera segura" name="description" />
-        <meta content="Figure Eight Task" name="author" />
+        <meta content="Coderthemes" name="author" />
         <!-- App favicon -->
       <!--  <link rel="shortcut icon" href="{{ asset('images/faviicon.ico') }}">-->
 
