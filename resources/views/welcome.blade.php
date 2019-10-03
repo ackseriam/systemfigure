@@ -149,8 +149,8 @@
                                         </li>
                                          <li class="nav-item dropdown">
                                             <a class="nav-link dropdown-toggle arrow-none" href="{{route('requisitos')}}" >
-                                                <i class="mdi mdi-buffer mr-1"></i>Requisitos
-                                            </a>
+                                                <i class="mdi mdi-buffer mr-1 "></i>Requisitos
+                                            </a> 
                                         </li>
                                          <li class="nav-item dropdown">
                                             <a class="nav-link dropdown-toggle arrow-none animsition-link" 
