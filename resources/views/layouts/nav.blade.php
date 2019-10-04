@@ -324,11 +324,7 @@
                                         <i class="mdi mdi-account-edit mr-1"></i>
                                         <span>Configuración</span>
                                     </a>
-                                       <!-- item-->
-                                    <a href="{{ url('post') }}" target="_blank" class="dropdown-item notify-item">
-                                        <i class="mdi mdi-account-edit mr-1"></i>
-                                        <span>Ver Blog del sitio</span>
-                                    </a>
+                                
                                     <!-- item-->
                                    <a  id="a" class="dropdown-item notify-item">
                                         <i class="mdi mdi-logout mr-1"></i>
@@ -666,6 +662,10 @@
 
                                 </div>
                             </li>--> 
+                               <li class="dropdown notification-list"><br>
+                                <a class="nav-link " target="_blank" href="{{route('post.index')}}" >Ver blog del sitio
+                                </a>
+                            </li>
 
                             <li class="dropdown notification-list">
                                 <a class="nav-link dropdown-toggle nav-user arrow-none mr-0" data-toggle="dropdown" href="#" role="button" aria-haspopup="false"
@@ -927,7 +927,10 @@
 
                                 </div>
                             </li>-->
-
+                             <li class="dropdown notification-list"><br>
+                                <a class="nav-link " target="_blank" href="{{route('post.index')}}" >Ver blog del sitio
+                                </a>
+                            </li>
                             <li class="dropdown notification-list">
                                 <a class="nav-link dropdown-toggle nav-user arrow-none mr-0" data-toggle="dropdown" href="#" role="button" aria-haspopup="false"
                                     aria-expanded="false">
@@ -1194,7 +1197,10 @@
 
                                 </div>
                             </li>-->
-
+                             <li class="dropdown notification-list"><br>
+                                <a class="nav-link " target="_blank" href="{{route('post.index')}}" >Ver blog del sitio
+                                </a>
+                            </li>
                             <li class="dropdown notification-list">
                                 <a class="nav-link dropdown-toggle nav-user arrow-none mr-0" data-toggle="dropdown" href="#" role="button" aria-haspopup="false"
                                     aria-expanded="false">
@@ -1470,7 +1476,10 @@
 
                                 </div>
                             </li>-->
-
+                             <li class="dropdown notification-list"><br>
+                                <a class="nav-link " target="_blank" href="{{route('post.index')}}" >Ver blog del sitio
+                                </a>
+                            </li>
                             <li class="dropdown notification-list">
                                 <a class="nav-link dropdown-toggle nav-user arrow-none mr-0" data-toggle="dropdown" href="#" role="button" aria-haspopup="false"
                                     aria-expanded="false">
@@ -1747,7 +1756,10 @@
 
                                 </div>
                             </li>-->
-
+                             <li class="dropdown notification-list"><br>
+                                <a class="nav-link " target="_blank" href="{{route('post.index')}}" >Ver blog del sitio
+                                </a>
+                            </li>
                             <li class="dropdown notification-list">
                                 <a class="nav-link dropdown-toggle nav-user arrow-none mr-0" data-toggle="dropdown" href="#" role="button" aria-haspopup="false"
                                     aria-expanded="false">
@@ -2016,6 +2028,10 @@
 
                                 </div>
                             </li>-->
+                             <li class="dropdown notification-list"><br>
+                                <a class="nav-link " target="_blank" href="{{route('post.index')}}" >Ver blog del sitio
+                                </a>
+                            </li>
                             <li class="dropdown notification-list">
                                 <a class="nav-link dropdown-toggle nav-user arrow-none mr-0" data-toggle="dropdown" href="#" role="button" aria-haspopup="false"
                                     aria-expanded="false">
@@ -2283,7 +2299,10 @@
 
                                 </div>
                             </li>-->
-
+                             <li class="dropdown notification-list"><br>
+                                <a class="nav-link " target="_blank" href="{{route('post.index')}}" >Ver blog del sitio
+                                </a>
+                            </li>
                             <li class="dropdown notification-list">
                                 <a class="nav-link dropdown-toggle nav-user arrow-none mr-0" data-toggle="dropdown" href="#" role="button" aria-haspopup="false"
                                     aria-expanded="false">
