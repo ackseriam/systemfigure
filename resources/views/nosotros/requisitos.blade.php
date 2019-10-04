@@ -243,7 +243,7 @@
                                                       </div>
                                                       <!-- end row -->
                                               </section>
-                                               <section class=" wow slideInRight" data-wow-duration="2s">
+                                               <section class=" wow slideInRight" data-wow-duration="1s">
                                                       <div class="container-fluid"  >
                                                             <div class="row "> 
                                                                  <div class="col-md-6" style="left:170px;">
@@ -260,7 +260,7 @@
                                                             </div>                       
                                                                        
                                                 </section><br><br><br>
-                              <section class="wow slideInLeft" data-wow-duration="2s"  >
+                              <section class="wow slideInLeft" data-wow-duration="1s"  >
                                         <div class="container-fluid" >
                                               <div class="row ">
                                                 <div class="col-12" style="top: 50px">

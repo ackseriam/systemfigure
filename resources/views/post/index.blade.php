@@ -191,7 +191,7 @@
                                            @if(!empty($rol))
                                                  @if(($rol=='admin')||($rol=='foun'))
                                                         <div class="dropdown float-right">
-                                                             <a href="/post/edit/{{$post->id}}" class="btn btn-secondary" title="Editar post"><i class="mdi mdi-square-edit-outline"></i></a>
+                                                           
                                                               <a href="/post/destroy/{{$post->id}}" class="btn btn-secondary" title="Eliminar post"><i class="mdi mdi-delete"></i></a>
                                                             
                                                         </div>

@@ -285,6 +285,10 @@
 
                                 </div>
                             </li>-->
+                              <li class="dropdown notification-list"><br>
+                                <a class="nav-link " target="_blank" href="{{route('post.index')}}" >Ver blog del sitio
+                                </a>
+                            </li>
 
                             <li class="dropdown notification-list">
                                 <a class="nav-link dropdown-toggle nav-user arrow-none mr-0" data-toggle="dropdown" href="#" role="button" aria-haspopup="false"
