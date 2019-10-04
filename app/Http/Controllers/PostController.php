@@ -131,7 +131,7 @@ class PostController extends Controller
      
         return view('post.show',['summernote'=>'summernote','post'=>$post,'rol'=>$rol]);
          }else{
-            return view('post.show',['summernote'=>'summernote','post'=>$post,'rol'=>$rol]);
+            return view('post.show',['summernote'=>'summernote','post'=>$post]);
          }
      
     }

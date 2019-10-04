@@ -217,7 +217,14 @@
                                                        
                                                         <li class="">
                                                             <div class="mb-2">
-                                                                <h5 class="mb-1">Click a editar, si requiere hacerlo</h5>
+                                                                  @if(!empty(Auth::user()))
+                                                                    @if(!empty($rol))
+                                                                         @if(($rol=='admin')||($rol=='foun'))
+                                                                              <h5 class="mb-1">Click a editar, si requiere hacerlo</h5>
+                                                                            @endif
+                                                                          @endif
+                                                                  
+                                                                    @endif
                                                                 
                                                                     <div id="editor2">
                                                                           {!! $post->content !!}
@@ -235,8 +242,15 @@
                                                             </div>
                                                         </li>
                                                     </ul> <!-- end list-->
-                                                 
-                                                     <button id="edit" class="btn btn-primary btn-sm"><i class="mdi mdi-pencil mr-1"></i> Edit</button>
+                                                 @if(!empty(Auth::user()))
+                                                           @if(!empty($rol))
+                                                                 @if(($rol=='admin')||($rol=='foun'))
+                                                                          <button id="edit" class="btn btn-primary btn-sm"><i class="mdi mdi-pencil mr-1"></i> Editar</button>                      
+                                                                 @endif
+                                                              @endif
+                                                      
+                                                        @endif
+                                                   
                                                                 
                                                     <p class="text-muted mb-2">
                                                        
@@ -299,7 +313,7 @@
                                                            
 
                                                              @else
-                                                               
+                                                                   <h4>Nombre:</h4>
                                                              {!! Form::text('name_desconocido','',['class'=> 'form-control', 'id'=>"validationTooltip02", "placeholder"=>"Nombre de usuario", "required", 'value'=>"{{old('name_desconocido')}}"]) !!}
                                                                <div class="valid-tooltip">
                                                                 Muy bien
@@ -308,7 +322,7 @@
                                                                El campo no puede quedar vacio
                                                             </div>
                                                              @endif
-                                                             <h4>Nombre:</h4>
+                                                         
                                                                 <div class="text-right">
                                                                     <div class="btn-group mb-2 ml-2">
                                                                         <input type="submit" value="Enviar" class="btn btn-primary">
