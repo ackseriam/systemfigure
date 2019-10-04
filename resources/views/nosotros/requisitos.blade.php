@@ -230,7 +230,7 @@
                                    <div class="tab-content border-top-0 mb-4">
                                     <div class="tab-pane show active" id="mdi-icons">
                                         <div class="card shadow-none p-3">
-                                              <section class=" wow slideInLeft" data-wow-duration="2s">
+                                              <section class=" wow slideInLeft" data-wow-duration="1s">
                                                 <div class="container">
                                                  
                                                       <div class="row ">
@@ -243,7 +243,7 @@
                                                       </div>
                                                       <!-- end row -->
                                               </section>
-                                               <section class=" wow slideInRight" data-wow-duration="4s">
+                                               <section class=" wow slideInRight" data-wow-duration="2s">
                                                       <div class="container-fluid"  >
                                                             <div class="row "> 
                                                                  <div class="col-md-6" style="left:170px;">
@@ -260,7 +260,7 @@
                                                             </div>                       
                                                                        
                                                 </section><br><br><br>
-                              <section class="wow slideInLeft" data-wow-duration="7s"  >
+                              <section class="wow slideInLeft" data-wow-duration="2s"  >
                                         <div class="container-fluid" >
                                               <div class="row ">
                                                 <div class="col-12" style="top: 50px">
@@ -269,9 +269,9 @@
                                                           </h3><br>
                                                            <h3 class="text-md-left widget " ><i class=" mdi mdi-checkbox-multiple-marked "></i> Selfie con tu documento + hoja blanca con el nombre de la comunidad "Figure Eight Task".</h3><br>
                                                            <h3 class="text-md-left widget " ><i class=" mdi mdi-checkbox-multiple-marked "></i> Anotación de datos personales reales.</h3><br>
-                                                           <h3 class="text-md-left widget " ><i class=" mdi mdi-checkbox-multiple-marked "></i>  Número de celular..</h3><br>
+                                                           <h3 class="text-md-left widget " ><i class=" mdi mdi-checkbox-multiple-marked "></i>  Número de celular.</h3><br>
                                                            <h3 class="text-md-left widget " ><i class=" mdi mdi-checkbox-multiple-marked "></i> Correo electrónico.</h3><br>
-                                                           <h3 class="text-md-left widget " > <i class=" mdi mdi-checkbox-multiple-marked "></i> Tener Cuenta Discord (Si aún no tienes uno, crea una cuenta aqui (https://discordapp.com/).</h3><br>
+                                                           <h3 class="text-md-left widget " > <i class=" mdi mdi-checkbox-multiple-marked "></i> Tener Cuenta Discord (Si aún no tienes uno, crea una cuenta aqui <a href="https://discordapp.com/" target="_blank">(https://discordapp.com/).</a></h3><br>
                                                             <h3 class="text-md-left widget " > <i class=" mdi mdi-checkbox-multiple-marked "></i> Buena reputación y ser colaborativo en el trabajo de grupo.</h3><br>
                                                              <h3 class="text-md-left widget " ><i class=" mdi mdi-checkbox-multiple-marked "></i> Membresía de nivel de 10$ mensuales (procesador de pago skrill y otros)..</h3><br>
                                                               <h3 class="text-md-left widget " > <i class=" mdi mdi-checkbox-multiple-marked "></i> Ingreso nivel 0 gratis (referencia mediante Ysense o Neobux necesaria).</h3><br><br>
@@ -305,7 +305,7 @@
                                                                  </div> <!-- end col -->
                                                               
                                                       </section>
-                                                      <section class="wow slideInLeft" data-wow-duration="7s"  >
+                                                      <section class="wow slideInLeft" data-wow-duration="2s"  >
                                                         <div class="container-fluid" >
                                                               <div class="row ">
                                                                 <div class="col-12" style="top: 50px">
@@ -404,8 +404,8 @@
                                     <a href="https://www.instagram.com/f8task/"  target="_blank"  class="btn btn-primary btn-sm mt-2 ml-1" ><i class="  mdi mdi-instagram   mr-1"></i></a>
                                     <a href="https://www.youtube.com/channel/UC1Qzqg18r_VghlQjZiNk2MA/videos"  target="_blank"  class="btn btn-danger btn-sm mt-2 ml-1" ><i class="  mdi mdi-youtube mr-1"></i></a>
                                      <a href="https://www.linkedin.com/company/figureeighttask/"  target="_blank"   class="btn btn-primary btn-sm mt-2 ml-1"><i class=" mdi mdi-linkedin  mr-1"></i></a>
-                                 <a href="javascript: void(0);">Acerca de nosotros</a>
-                                    <a href="javascript: void(0);">Soporte</a>
+                                 <a href="{{route('nosotros')}}">Acerca de nosotros</a>
+                        
 
                                 </div>
                             </div>

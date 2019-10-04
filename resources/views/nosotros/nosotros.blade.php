@@ -236,7 +236,7 @@
          <br>
          
             
-                <section class=" wow slideInLeft" data-wow-duration="4s">
+                <section class=" wow slideInLeft" data-wow-duration="2s">
                     <div class="container">
                        <div class="col-sm-12" >
                                 
@@ -307,7 +307,7 @@
                          </div>
                         </section>
                           <br><br><br>
-                               <section class=" wow slideInLeft" data-wow-duration="4s">
+                               <section class=" wow slideInLeft" data-wow-duration="2s">
                                   <div class="container">
                                      <div class="col-sm-12" >
                                               
@@ -342,7 +342,7 @@
                                                                 <div class="text-center">
                                                                       
                                                                     <h3 class="punchline text-md-right"><img src="{{ asset('images/flags/ve.png') }}" alt="flag-image" class="mr-1" height="20"> Michael Castillo - Administrator, <br>Co-founder, <br>Chief Customer Officer (CCO).</h3>
-                                                                    <h5 class="punchline text-md-right " >
+                                                                    <h5 class="widget text-md-right " >
 
                                                                       “¡Hola, buenas! Soy Michael Castillo, administrador y jefe responsable del servicio y atención al cliente de la comunidad Figure Eight Task. Si tienes cualquier duda sobre una task, sobre el servidor privado en discord, sobre nuestra comunidad y cualquier otro tema, estaré encantado de asistirte y ayudarte en todo lo que pueda.”<br>
                                                                        <a href="https://www.facebook.com/michaeldavid.perdomocastillo.1"  target="_blank"   class="btn btn-primary btn-sm mt-2 ml-1"><i class=" mdi mdi-facebook  mr-1"></i></a>
@@ -369,7 +369,7 @@
                                     
                               </section>
                               <br><br><br><br>
-                               <section class=" wow slideInLeft" data-wow-duration="4s">
+                               <section class=" wow slideInLeft" data-wow-duration="2s">
                                   <div class="container">
                                      <div class="col-sm-12" >
                                               
@@ -383,7 +383,7 @@
                                              </section>
                                                </div>
                                                 <div class="col-lg-6"> 
-                                                   <h4 class=" mt-3 ">Luis Silva– Administrator, COO, Co – Founder.<img src="{{ asset('images/flags/mex.jpg') }}" alt="flag-image" class="mr-1" height="20"> </h4>
+                                                   <h4 class=" mt-3 ">Luis Silva – Administrator, COO, Co – Founder.<img src="{{ asset('images/flags/mex.jpg') }}" alt="flag-image" class="mr-1" height="20"> </h4>
                                                           <h5 class="punchline text-md-left  " >“¡Buen día chicos! Soy Luigi, administrador de la comunidad F8Task, estoy para lo que necesiten, no dudes en contactarme si tienes alguna duda de como ingresar con nosotros y únete a la comunidad Figure Eight Task.”<br>
                                                               <a href="https://www.facebook.com/luigi.fernandez.737001"  target="_blank"   class="btn btn-primary btn-sm mt-2 ml-1"><i class=" mdi mdi-facebook  mr-1"></i></a>
                                                </div>
@@ -401,7 +401,7 @@
                                                          <div class="col-md-6">
                                                                 <div class="text-center">
                                                                       
-                                                                    <h3 class="punchline text-md-right"><img src="{{ asset('images/flags/ve.png') }}" alt="flag-image" class="mr-1" height="25"> Leonardo Alvino– Administrator, <br>COO, Co – Founder. </h3>
+                                                                    <h3 class="punchline text-md-right"><img src="{{ asset('images/flags/ve.png') }}" alt="flag-image" class="mr-1" height="25"> Leonardo Alvino – Administrator, <br>COO, Co – Founder. </h3>
                                                                     <h5 class="punchline text-md-right " >
 
                                                                      “Hola, Soy Leonardo Alvino. Mi objetivo es mejorar tu forma de taskear, supervisar que aprendas cada día más, ayudarte con herramientas para que, tu rendimiento al momento de generar divisas, sea rápido y agradable. Te ayudamos a derrotar la crisis.”
@@ -519,7 +519,7 @@
                                 </section>
 
                                 <br><br><br>
-                               <section class="wow slideInRight" data-wow-duration="4s" >
+                               <section class="wow slideInRight" data-wow-duration="1s" >
                                     <div class="container-fluid" >
                                           <div class="row ">
                                               <div class="col-12">
@@ -575,7 +575,7 @@
 
                             
                                <br><br><br>
-                               <section class="wow slideInLeft" data-wow-duration="4s" >
+                               <section class="wow slideInLeft" data-wow-duration="1s" >
                                     <div class="container-fluid" >
                                           <div class="row ">
                                               <div class="col-12">
@@ -608,7 +608,7 @@
                                                                <div class="text-md-center mt-3 pl-1 ">
                                                                   <img src="{{ asset('images/staff_figure/Gregorio.png') }}" height="400" class="rounded-circle"  alt="" >
                                                                         <h3 class=" mt-3 text-md-center"><img src="{{ asset('images/flags/ve.png') }}" alt="flag-image" class="mr-1" height="25"> Gregorio Rengel – Moderator, Editor.</h3>
-                                                                  <h5 class="text-md-center  punchline " >“¡Hola, bienvenido a la comunidad! Mi nombre es Adolfo, soy editor de guías nivel cero, también puedo ayudarte a entender paso a paso el uso y métodos de trabajo que te ofrece la comunidad Figure Eigth Task, entre ellos herramientas, tips, formas de trabajo, entre otras ventajas que te ofrece esta comunidad. ¡Gracias por preferirnos, un cordial saludo!” <br><a href="https://www.facebook.com/gregorio.rengel.5"  target="_blank"   class="btn btn-primary btn-sm mt-2 ml-1"><i class=" mdi mdi-facebook  mr-1"></i></a>
+                                                                  <h5 class="text-md-center  punchline " >“Hola, Yo soy Gregorio Rengel. Editor lvl0 de la comunidad Figure Eight, donde te brindamos apoyo y te ayudamos en las tareas que estén disponible, también te damos una seguridad satisfactoria, porque aparte de una comunidad somos un grupo llamado familia, te invito a ser parte de esta comunidad.” <br><a href="https://www.facebook.com/gregorio.rengel.5"  target="_blank"   class="btn btn-primary btn-sm mt-2 ml-1"><i class=" mdi mdi-facebook  mr-1"></i></a>
                                                                      
 
                                                                   </h5>
@@ -658,7 +658,7 @@
                                             <br><br>
                                      </div>
                                  </div><br><br><br>
-                                    <section class="wow slideInLeft" data-wow-duration="4s" >
+                                    <section class="wow slideInLeft" data-wow-duration="1s" >
                                     <div class="container-fluid" >
                                           <div class="row ">
                                               <div class="col-12">
@@ -670,7 +670,7 @@
                                                           <div class="col-md-12">
                                                                <div class="text-md-center mt-3 pl-1 ">
                                                                   <img src="{{ asset('images/staff_figure/ericka.jpg') }}" height="400" class="rounded-circle"  alt="" >
-                                                                        <h3 class=" mt-3 text-md-center"><img src="{{ asset('images/flags/ve.png') }}" alt="flag-image" class="mr-1" height="25">Ericka Simancas- Backend Developer/Programadora Backend del sitio web.</h3>
+                                                                        <h3 class=" mt-3 text-md-center"><img src="{{ asset('images/flags/ve.png') }}" alt="flag-image" class="mr-1" height="25">Ericka Simancas - Backend Developer/Programadora Backend del sitio web.</h3>
                                                                   <h5 class="text-md-center mt-3   punchline " >“Hola, mi nombre es Ericka Simancas, programadora web del sitio perteneciente <br> a la comunidad Figure Eight Task. Encantada  de  participar  en esta<br> excelente comunidad  que cumple con el objetivo de simplificar el trabajo de los Taskeros.                  <br>  Por otro lado el objetivo de la plataforma es ofrecer mayor seguridad y simplificar el trabajo del equipo .<br> Estoy a la orden, saludos cordiales.” <br><a href="https://www.facebook.com/erickaeliza.sanchez"  target="_blank"   class="btn btn-primary btn-sm mt-2 ml-1"><i class=" mdi mdi-facebook  mr-1"></i></a>
                                                                 <a href="https://www.instagram.com/ackseriam/"  target="_blank"  class="btn btn-danger btn-sm mt-2 ml-1" ><i class="  mdi mdi-instagram   mr-1"></i></a>
 
@@ -765,8 +765,8 @@
                                     <a href="https://www.instagram.com/f8task/"  target="_blank"  class="btn btn-primary btn-sm mt-2 ml-1" ><i class="  mdi mdi-instagram   mr-1"></i></a>
                                     <a href="https://www.youtube.com/channel/UC1Qzqg18r_VghlQjZiNk2MA/videos"  target="_blank"  class="btn btn-danger btn-sm mt-2 ml-1" ><i class="  mdi mdi-youtube mr-1"></i></a>
                                      <a href="https://www.linkedin.com/company/figureeighttask/"  target="_blank"   class="btn btn-primary btn-sm mt-2 ml-1"><i class=" mdi mdi-linkedin  mr-1"></i></a>
-                                 <a href="javascript: void(0);">Acerca de nosotros</a>
-                                    <a href="javascript: void(0);">Soporte</a>
+                                    <a href="{{route('nosotros')}}">Acerca de nosotros</a>
+                        
 
                                 </div>
                             </div>
