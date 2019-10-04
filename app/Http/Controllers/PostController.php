@@ -52,7 +52,7 @@ class PostController extends Controller
         $rol = roleuser($request); //se llama al helper en Helpers/role
            if(($rol=='admin')||($rol=='foun'))
         {
-            return view("post.create");
+            return view("post.create",['summernote'=>'summernote']);
         }
          
     }
@@ -70,10 +70,39 @@ class PostController extends Controller
           if(($rol=='admin')||($rol=='foun'))
 
         {
+                     $detail=$request->content;
+    libxml_use_internal_errors(true);
 
+         $dom = new \domdocument();
+        $dom->loadHTML(
+            mb_convert_encoding($detail, 'HTML-ENTITIES', 'UTF-8'),
+            LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD
+        );
+
+        $images = $dom->getElementsByTagName('img');
+
+        foreach ($images as $count => $image) {
+            $src = $image->getAttribute('src');
+
+            if (preg_match('/data:image/', $src)) {
+                preg_match('/data:image\/(?<mime>.*?)\;/', $src, $groups);
+                    list($type, $src) = explode(';', $src);
+                      list(, $src)      = explode(',', $scr);
+                $mimeType = $groups['mime'];
+
+                $path = '/images/images_post/' . uniqid('', true) . '.' . $mimeType;
+
+                $image->removeAttribute('src');
+                $image->setAttribute('src', asset($path));
+            }
+        }
+         $detail = $dom->saveHTML();
+        
+      
+      
         $options =[
             'title' => $request->title,
-            'content' => $request->content,
+            'content' => $detail,
             'description' => $request->description,
             'user_id' => auth()->user()->id,
           
@@ -82,9 +111,9 @@ class PostController extends Controller
 
         
          if(Post::create($options)){
-            return view('post.create',['exito'=>'error_in','rol'=>$rol]);
+            return view('post.create',['summernote'=>'summernote','exito'=>'error_in','rol'=>$rol]);
         }else{
-            return view('post.create',['error_in'=>'error_in','rol'=>$rol]);
+            return view('post.create',['summernote'=>'summernote','error_in'=>'error_in','rol'=>$rol]);
         }
        }
     }
@@ -100,10 +129,11 @@ class PostController extends Controller
          if(Auth::check()){
            $rol = roleuser($request);
      
-          return view('post.show',compact('post'),compact('rol'));
+        return view('post.show',['summernote'=>'summernote','post'=>$post,'rol'=>$rol]);
          }else{
-            return view('post.show',compact('post'));
+            return view('post.show',['summernote'=>'summernote','post'=>$post,'rol'=>$rol]);
          }
+     
     }
 
     /**
@@ -124,9 +154,53 @@ class PostController extends Controller
      * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Post $post)
+    public function update(Request $request, $id)
     {
-        //
+       
+        
+         $rol = roleuser($request); //se llama al helper en Helpers/role
+          if(($rol=='admin')||($rol=='foun'))
+
+        {
+       $detail=$request->content;
+    // and don' throw exceptions
+libxml_use_internal_errors(true);
+
+         $dom = new \domdocument();
+        $dom->loadHTML(
+            mb_convert_encoding($detail, 'HTML-ENTITIES', 'UTF-8'),
+            LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD
+        );
+
+        $images = $dom->getElementsByTagName('img');
+
+        foreach ($images as $count => $image) {
+            $src = $image->getAttribute('src');
+
+            if (preg_match('/data:image/', $src)) {
+                preg_match('/data:image\/(?<mime>.*?)\;/', $src, $groups);
+                    list($type, $src) = explode(';', $src);
+                      list(, $src)      = explode(',', $scr);
+                $mimeType = $groups['mime'];
+
+                $path = '/images/images_post/' . uniqid('', true) . '.' . $mimeType;
+
+                $image->removeAttribute('src');
+                $image->setAttribute('src', asset($path));
+            }
+        }
+
+        $detail = $dom->saveHTML();
+       
+         $post=Post::find($id);
+         $post->content=$detail;
+
+          if($post->save()){
+                 return view('post.show',['summernote'=>'summernote','post'=>$post,'rol'=>$rol,'exito'=>'exito']);
+            }else{
+                  return view('post.show',['summernote'=>'summernote','post'=>$post,'error_in'=>'error_in','rol'=>$rol]);
+            }
+       }
     }
 
     /**

@@ -1,5 +1,5 @@
-
 @include('layouts.head')
+
         <style>
  
              .wow:first-child {
@@ -186,8 +186,8 @@
             @endif
                         
                                     <div class="row">
-                                        <div class="col-md-2"></div>
-                                        <div class="col-md-8">
+                                    
+                                        <div class="col-md-12">
                                             <!-- project card -->
                                             <div class="card d-block">
                                                 <div class="card-body">
@@ -195,7 +195,7 @@
                                                            @if(!empty($rol))
                                                                  @if(($rol=='admin')||($rol=='foun'))
                                                                         <div class="dropdown float-right">
-                                                                             <a href="/post/edit/{{$post->id}}" class="btn btn-secondary" title="Editar post"><i class="mdi mdi-square-edit-outline"></i></a>
+                                                                            
                                                                               <a href="/post/destroy/{{$post->id}}" class="btn btn-secondary" title="Eliminar post"><i class="mdi mdi-delete"></i></a>
                                                                             
                                                                         </div>
@@ -208,12 +208,38 @@
                                                     <h3 class="mt-0">
                                                         {{$post->title}}
                                                     </h3>
-                                                    <div class="badge badge-secondary mb-3">Post informativo</div>
+
+                                                
+                                                    <div class="">Post informativo</div>
 
                                                     <h5>Contenido de Post:</h5>
-
+                                                       <ul class="">
+                                                       
+                                                        <li class="">
+                                                            <div class="mb-2">
+                                                                <h5 class="mb-1">Click a editar, si requiere hacerlo</h5>
+                                                                
+                                                                    <div id="editor2">
+                                                                          {!! $post->content !!}
+                                                                    </div>
+                                                                   <div id="editor1">
+                                                                        {!! Form::open(['url' => ['/post/update',$post->id]]) !!}
+                                                                            @method('PUT')  
+                                                                          <textarea name="content"  id="summernote-basic">{!! $post->content !!}</textarea> 
+                                                                           <button id="guardar" type="submit" class="btn btn-success btn-sm mt-2" ><i class="mdi mdi-content-save-outline mr-1"></i> Guardar</button>
+                                                                              {!! Form::close() !!}
+                                                                   </div> 
+                                                               
+                                                              
+                                                               
+                                                            </div>
+                                                        </li>
+                                                    </ul> <!-- end list-->
+                                                 
+                                                     <button id="edit" class="btn btn-primary btn-sm"><i class="mdi mdi-pencil mr-1"></i> Edit</button>
+                                                                
                                                     <p class="text-muted mb-2">
-                                                        {{$post->content}}.
+                                                       
                                                     </p>
 
                                                   
@@ -248,6 +274,8 @@
                                                 
                                             </div> <!-- end card-->
                                             
+                       
+
                                                       
                                                     <div class="card">
                                                         <div class="card-body">
@@ -312,7 +340,9 @@
                                                                     <div class="media-body">
 
                                                                         <h5 class="mt-0">{{$comment->name_desconocido}}</h5>
-                                                                        {{$comment->content}}       
+                                                                        {{$comment->content}}  
+
+                                                          
                                                                     </div>
                                                                      @if(!empty(Auth::user()))
                                                                        @if(!empty($rol))
@@ -343,7 +373,22 @@
         <!-- end page -->
     </body><br><br>
 
-  
+  <script type="text/javascript">
+        $(document).ready(function() {
+            $('#editor1').hide();
+            $('#guardar').hide();
+            $("#edit").click(function(){
+                $("#editor1").show();
+                  $('#guardar').show();
+                $("#editor2").hide();
+                 $("#edit").hide();
+
+            });
+            //initialize summernote
+           
+        });
+ 
+  </script>
 
 @include('layouts.footer')
 

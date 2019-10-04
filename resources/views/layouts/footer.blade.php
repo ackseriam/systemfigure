@@ -267,6 +267,19 @@ Swal.fire({
 </script>
 @endif
 
+@if(!empty($summernote))
+
+   <!-- Summernote js -->
+        <script src="{{ asset('js/vendor/summernote-bs4.min.js') }}"></script>
+        <!-- SimpleMDE js -->
+        <script src="{{ asset('js/vendor/simplemde.min.js') }}"></script>
+
+        <!-- Summernote demo -->
+        <script src="{{ asset('js/pages/demo.summernote.js') }}"></script>
+
+        <!-- SimpleMDE demo -->
+        <script src="{{ asset('js/pages/demo.simplemde.js') }}"></script>
+@endif
 
 @if(!empty($exito_register))
 <script src="{{ asset('js/sweetalert/sweetalert2.js') }}"></script>

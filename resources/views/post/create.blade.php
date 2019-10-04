@@ -1,10 +1,9 @@
 
 @include('layouts.head')
+
         <style>
  
-             .wow:first-child {
-      visibility: hidden;
-    }
+ 
 
             .full-height {
                 height: 100vh;

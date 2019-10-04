@@ -236,7 +236,7 @@
                                                       <div class="row ">
                                                            <div class="col-lg-12 text-md-center" > 
                                                              <section class=""  data-wow-iteration="infinite" data-wow-duration="1500ms"> 
-                                                                    <h1 class=" mt-3 punchline">  <img src="{{ asset('images/small/money.svg') }}" height="50" alt="" > ¿Deseas formar parte de la Comunidad Figure Eight Task?  <img src="{{ asset('images/small/bolsa.svg') }}" height="50" alt="" ></h1>     
+                                                                    <h1 class=" mt-3 punchline">  <img src="{{ asset('images/small/money.svg') }}" height="50" alt="" > *¿Deseas formar parte de la Comunidad Figure Eight Task?*  <img src="{{ asset('images/small/bolsa.svg') }}" height="50" alt="" ></h1>     
                                                            </section>
                                                              </div>
                                                        </div> <!-- end col -->
@@ -263,35 +263,68 @@
                               <section class="wow slideInLeft" data-wow-duration="7s"  >
                                         <div class="container-fluid" >
                                               <div class="row ">
-                                          <div class="col-12" style="top: 50px">
-                                              <div class="text-center">
-                                                    <h3 class="text-md-left widget " ><i class=" mdi mdi-checkbox-multiple-marked "></i> Se te pedirá verificación de datos, fotos de documento nacional + número de identidad.<br>
-                                                    </h3><br>
-                                                     <h3 class="text-md-left widget " ><i class=" mdi mdi-checkbox-multiple-marked "></i> Selfie con tu documento + hoja blanca con el nombre de la comunidad "Figure Eight Task".</h3><br>
-                                                     <h3 class="text-md-left widget " ><i class=" mdi mdi-checkbox-multiple-marked "></i> Anotación de datos personales reales.</h3><br>
-                                                     <h3 class="text-md-left widget " ><i class=" mdi mdi-checkbox-multiple-marked "></i>  Número de celular..</h3><br>
-                                                     <h3 class="text-md-left widget " ><i class=" mdi mdi-checkbox-multiple-marked "></i> Correo electrónico.</h3><br>
-                                                     <h3 class="text-md-left widget " > <i class=" mdi mdi-checkbox-multiple-marked "></i> Tener Cuenta Discord (Si aún no tienes uno, crea una cuenta aqui (https://discordapp.com/).</h3><br>
-                                                      <h3 class="text-md-left widget " > <i class=" mdi mdi-checkbox-multiple-marked "></i> Buena reputación y ser colaborativo en el trabajo de grupo.</h3><br>
-                                                       <h3 class="text-md-left widget " ><i class=" mdi mdi-checkbox-multiple-marked "></i> Membresía de nivel de 10$ mensuales (procesador de pago skrill y otros)..</h3><br>
-                                                        <h3 class="text-md-left widget " > <i class=" mdi mdi-checkbox-multiple-marked "></i> Ingreso nivel 0 gratis (referencia mediante Ysense o Neobux necesaria).</h3><br><br>
-                                                 </div>
-                                           </div> <!-- end col-->
+                                                <div class="col-12" style="top: 50px">
+                                                    <div class="text-center">
+                                                          <h3 class="text-md-left widget " ><i class=" mdi mdi-checkbox-multiple-marked "></i> Se te pedirá verificación de datos, fotos de documento nacional + número de identidad.<br>
+                                                          </h3><br>
+                                                           <h3 class="text-md-left widget " ><i class=" mdi mdi-checkbox-multiple-marked "></i> Selfie con tu documento + hoja blanca con el nombre de la comunidad "Figure Eight Task".</h3><br>
+                                                           <h3 class="text-md-left widget " ><i class=" mdi mdi-checkbox-multiple-marked "></i> Anotación de datos personales reales.</h3><br>
+                                                           <h3 class="text-md-left widget " ><i class=" mdi mdi-checkbox-multiple-marked "></i>  Número de celular..</h3><br>
+                                                           <h3 class="text-md-left widget " ><i class=" mdi mdi-checkbox-multiple-marked "></i> Correo electrónico.</h3><br>
+                                                           <h3 class="text-md-left widget " > <i class=" mdi mdi-checkbox-multiple-marked "></i> Tener Cuenta Discord (Si aún no tienes uno, crea una cuenta aqui (https://discordapp.com/).</h3><br>
+                                                            <h3 class="text-md-left widget " > <i class=" mdi mdi-checkbox-multiple-marked "></i> Buena reputación y ser colaborativo en el trabajo de grupo.</h3><br>
+                                                             <h3 class="text-md-left widget " ><i class=" mdi mdi-checkbox-multiple-marked "></i> Membresía de nivel de 10$ mensuales (procesador de pago skrill y otros)..</h3><br>
+                                                              <h3 class="text-md-left widget " > <i class=" mdi mdi-checkbox-multiple-marked "></i> Ingreso nivel 0 gratis (referencia mediante Ysense o Neobux necesaria).</h3><br><br>
+                                                       </div>
+                                                 </div> <!-- end col-->
                                         </div>
                                       </div>
                                </section><br><br>
-                               
-                             
-              
                                       
-                              </div>
-                                      <!-- end row -->
-                          </div>
+                                                </div>
+                                                        <!-- end row -->
+                                            </div>
               
                                          </div>
                                     </div>
                                  </div>
-                          
+                                 <div class="row"><div class="col-2"></div>
+                                    <div class="col-8">
+                                      <div class="tab-content border-top-0 mb-4">
+                                          <div class="tab-pane show active" id="mdi-icons">
+                                              <div class="card shadow-none p-3">
+                                                     <section class=" wow slideInLeft" data-wow-duration="2s">
+                                                          <div class="container">
+                                                           
+                                                                <div class="row ">
+                                                                     <div class="col-lg-12 text-md-center" > 
+                                                                       <section class=""  data-wow-iteration="infinite" data-wow-duration="1500ms"> 
+                                                                              <h1 class=" mt-3 punchline">  <img src="{{ asset('images/small/money.svg') }}" height="50" alt="" >*¿Deseas ser comprador en la Comunidad Figure Eight Task?*💰 <img src="{{ asset('images/small/bolsa.svg') }}" height="50" alt="" ></h1>     
+                                                                     </section>
+                                                                       </div>
+                                                                 </div> <!-- end col -->
+                                                              
+                                                      </section>
+                                                      <section class="wow slideInLeft" data-wow-duration="7s"  >
+                                                        <div class="container-fluid" >
+                                                              <div class="row ">
+                                                                <div class="col-12" style="top: 50px">
+                                                                    <div class="text-center">
+                                                                          <h3 class="text-md-left widget " ><i class=" mdi mdi-checkbox-multiple-marked "></i>  Comunícate con nosotros por nuestros medios de contacto.<br>
+                                                                          </h3><br>
+                                                                         <br><br>
+                                                                       </div>
+                                                                 </div> <!-- end col-->
+                                                        </div>
+                                                      </div>
+                                               </section><br><br>
+                               
+
+                                              </div>
+              
+                                         </div>
+                                    </div>
+                                 </div>
            
 
                                 <br><br><br>

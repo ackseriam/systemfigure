@@ -1,3 +1,5 @@
+
+
 {!! Form::open(['url' => '/post/','class' => 'needs-validation', 'files' => true, "novalidate"]) !!}   
 
  @csrf
@@ -29,7 +31,9 @@
 </div>
  <div class="form-group position-relative mb-3">
 		<label for="validationTooltip03">Contenido del post</label>
-    <textarea class="form-control" name="content" cols="30" rows="10"  id="validationTooltip03" placeholder="Contenido del post" data-toggle="touchspin"   required>{{old('content')}}</textarea>
+  
+     
+   <textarea name="content"  id="summernote-basic"></textarea>
 
         <div class="valid-tooltip">
         Muy bien

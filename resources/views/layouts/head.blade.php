@@ -23,6 +23,14 @@
 <script src="{{ asset('js/app.js') }}" defer></script>
 
 <script src="{{asset('js/app.js')}}"></script>
+ @if(!empty($summernote))
+
+          <!-- Summernote css -->
+        <link href="{{ asset('css/vendor/summernote-bs4.css') }}" rel="stylesheet" type="text/css" />
+        <!-- SimpleMDE css -->
+        <link href="{{ asset('css/vendor/simplemde.min.css') }}" rel="stylesheet" type="text/css" />
+     @endif
+
         <!-- App css -->
         <link href="{{ asset('css/icons.min.css') }}" rel="stylesheet" type="text/css" />
         <link href="{{ asset('css/app.min.css') }}" rel="stylesheet" type="text/css" />
@@ -35,6 +43,7 @@
        <link href="{{ asset('js/sweetalert/sweetalert2.css') }}" rel="stylesheet" />
      @endif
 
+     
      
 
     </head>
