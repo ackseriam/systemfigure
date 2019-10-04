@@ -167,7 +167,7 @@
                          <!-- start page title -->
                         <div class="row">
                            <div class="col-2"></div>
-                            <div class="col-8">
+                            <div class="col-12">
                                 <div class="page-title-box">
                                    
                                     <h4 class="page-title">Detalles del Post</h4>
