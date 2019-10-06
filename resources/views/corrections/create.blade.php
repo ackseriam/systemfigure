@@ -36,7 +36,7 @@
                                 <div class="col-lg-6">
                                       <!-- Logo-->
                                      <div class="text-center w-75 m-auto">
-                                        <h4 class="text-dark-50 text-center mt-0 font-weight-bold">Inertar correccion a la guia </h4>
+                                        <h4 class="text-dark-50 text-center mt-0 font-weight-bold">Insertar correccion a la guia </h4>
                                         <p class="text-muted mb-4">Asegurese de enviar los datos correctamente.</p>
                                     </div>
 

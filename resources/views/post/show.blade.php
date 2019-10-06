@@ -196,7 +196,7 @@
                                                                  @if(($rol=='admin')||($rol=='foun'))
                                                                         <div class="dropdown float-right">
                                                                             
-                                                                              <a href="/post/destroy/{{$post->id}}" class="btn btn-secondary" title="Eliminar post"><i class="mdi mdi-delete"></i></a>
+                                                                              <a href="{{route('post.destroy',['post'=>$post])}}", class="btn btn-secondary" title="Eliminar post"><i class="mdi mdi-delete"></i></a>
                                                                             
                                                                         </div>
                                                                   @endif

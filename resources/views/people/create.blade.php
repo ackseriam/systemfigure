@@ -12,7 +12,7 @@
                         <div class="card">
                             <!-- Logo-->
                             <div class="card-header pt-4 pb-4 text-center bg-primary">
-                                <a href="#">
+                                <a href="{{url('/')}}">
                                     <span><img src="{{ asset('images/logo2.png') }}" alt="" width="200"></span>
                                 </a>
                             </div><br>

@@ -11,13 +11,13 @@ llamando al metodo especificado en el controlador y se especifica el $product->i
 <!-- Esto es para lo del formulario con laravel collective-->
 
 <div>
-    {!! Form::label('name', 'Nombre ') !!}
+    {!! Form::label('name', 'Nombres ') !!}
   <!-- en el segunda comilla se coloca los datos para editar el formulari
    por ejemplo colocando $product->title-->
     {!! Form::text('name','',['class'=> 'form-control',"required"]) !!}
 </div>
 <div>
-   {!! Form::label('name', 'Apellido') !!}
+   {!! Form::label('name', 'Apellidos') !!}
   <!-- en el segunda comilla se coloca los datos para editar el formulari
    por ejemplo colocando $product->title-->
     {!! Form::text('surname','',['class'=> 'form-control',"required"]) !!}
@@ -284,21 +284,21 @@ llamando al metodo especificado en el controlador y se especifica el $product->i
 </div>
 
 <div>
-    {!! Form::label('ci','Cedula de identidad') !!}
+    {!! Form::label('ci','Numero de identidad') !!}
     {!! Form::text('ci','',['class'=> 'form-control',"required"]) !!}
 </div>
 <br>
 <div>
-     {!! Form::label('link','Indicaciones de como debe ser la fotografia y la imagen de la cedula:') !!} 
+     {!! Form::label('link','Indicaciones de como debe ser la fotografia y la imagen del documento de identidad:') !!} 
     <!-- Top modal -->
     <button type="button" class="btn btn-info" data-toggle="modal" data-target="#multiple1">Info</button> <br><br>
-    {!! Form::label('image_url','Subir foto de nota con la cedula') !!}<br>
+    {!! Form::label('image_url','Subir foto de nota con documento de identidad') !!}<br>
     {!! Form::file('image_url', $attributes = array(),['class'=> 'form-control',"required"]) !!}
     
 </div>
 <br>
 <div>
-    {!! Form::label('img_ci','Subir imagen de la cedula') !!}<br>
+    {!! Form::label('img_ci','Subir imagen del documento de identidad ') !!}<br>
     {!! Form::file('img_ci', $attributes = array(),['class'=> 'form-control',"required"]) !!}
 </div>
 
@@ -328,13 +328,13 @@ llamando al metodo especificado en el controlador y se especifica el $product->i
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h4 class="modal-title" id="multiple-oneModalLabel">Fotografia con la nota y cedula en mano</h4>
+                        <h4 class="modal-title" id="multiple-oneModalLabel">Fotografia con la nota y documento de identidad en mano</h4>
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                     </div>
                     <div class="modal-body">
                           <i class="dripicons-information h1 text-info"></i>
-                        <h5 class="mt-0">Foto de la nota con la cedula y nota </h5>
-                        <p> Tome una fotografia con su rostro y una nota que diga FIGURE EIGHT TASK con la cedula legible tal y como se muestra en la imagen
+                        <h5 class="mt-0">Foto de la nota con el documento de identidad  y nota </h5>
+                        <p> Tome una fotografia con su rostro y una nota que diga FIGURE EIGHT TASK con el documento de identidad legible tal y como se muestra en la imagen
                         </p>
                     </div>
                      <a href="javascript: void(0);" class="text-center d-block mb-4">
@@ -354,13 +354,13 @@ llamando al metodo especificado en el controlador y se especifica el $product->i
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                       <h4 class="modal-title" id="multiple-oneModalLabel">Foto de la cedula de identidad</h4>
+                       <h4 class="modal-title" id="multiple-oneModalLabel">Foto del documento de identidad</h4>
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                     </div>
                    <div class="modal-body">
                           <i class="dripicons-information h1 text-info"></i>
-                        <h5 class="mt-0">Cedula de identidad</h5>
-                        <p>Suba la imagen de la cedula debidamente escaneada, tal como el ejemplo</p>
+                        <h5 class="mt-0"> Documento de identidad</h5>
+                        <p>Suba la imagen del documento de identidad debidamente escaneada, tal como el ejemplo</p>
                          <a href="javascript: void(0);" class="text-center d-block mb-4">
                       <img src="{{ asset('images/cedula.jpg')}}" class="img-fluid" style="max-width: 450px;" alt="No existe imagen de guia" />
                      </a> 
