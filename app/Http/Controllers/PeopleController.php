@@ -66,7 +66,7 @@ class PeopleController extends Controller
         $ci = $request->get('ci');
 
        $people= User::join('people', 'people.id', '=', 'users.people_id')
-          ->select('users.id as id', 'people.name as name',  'users.state as state','users.email as email','users.username as username', 'people.surname as surname as surname',  'people.nacionality as nacionality','people.surname as address','people.ci as ci')->where('users.state', 'activo')
+          ->select('people.id as id', 'people.name as name',  'users.state as state','users.email as email','users.username as username', 'people.surname as surname as surname',  'people.nacionality as nacionality','people.surname as address','people.ci as ci')->where('users.state', 'activo')
         ->name($name)
         
         ->surname($surname)

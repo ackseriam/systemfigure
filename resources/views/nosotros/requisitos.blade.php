@@ -273,7 +273,7 @@
                                                            <h3 class="text-md-left widget " ><i class=" mdi mdi-checkbox-multiple-marked "></i> Correo electrónico.</h3><br>
                                                            <h3 class="text-md-left widget " > <i class=" mdi mdi-checkbox-multiple-marked "></i> Tener Cuenta Discord (Si aún no tienes uno, crea una cuenta aqui <a href="https://discordapp.com/" target="_blank">(https://discordapp.com/).</a></h3><br>
                                                             <h3 class="text-md-left widget " > <i class=" mdi mdi-checkbox-multiple-marked "></i> Buena reputación y ser colaborativo en el trabajo de grupo.</h3><br>
-                                                             <h3 class="text-md-left widget " ><i class=" mdi mdi-checkbox-multiple-marked "></i> Membresía de nivel de 10$ mensuales (procesador de pago skrill y otros)..</h3><br>
+                                                             <h3 class="text-md-left widget " ><i class=" mdi mdi-checkbox-multiple-marked "></i> Membresía de nivel de 10$ mensuales (procesador de pago skrill y otros).</h3><br>
                                                               <h3 class="text-md-left widget " > <i class=" mdi mdi-checkbox-multiple-marked "></i> Ingreso nivel 0 gratis (referencia mediante Ysense o Neobux necesaria).</h3><br>
                                                               <h3 class="text-md-left widget " > <i class=" mdi mdi-checkbox-multiple-marked "></i> Exclusividad con el grupo en ciertos aspectos.</h3><br><br>
                                                        </div>
