@@ -136,13 +136,13 @@
                                                                 <?php $i++; $j++;?>
                                                                 </div>
                                                                 <i class="mdi mdi-checkbox-blank-circle text-success"></i>
-                                                            </div><br>
+                                                            </div></div><br>
                                                         
                                                               @endforeach
 
                                                         
                                                         @else
-                                                            
+                                                         <div class="timeline-item-info">
                                                              <div class="media">
 
                                                                  @if(($rol=="admin")||($rol=="foun"))
