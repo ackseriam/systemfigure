@@ -375,15 +375,15 @@
                                               
                                             </div>
                                         <div class="row ">
-                                             <div class="col-lg-6 text-md-right" > 
+                                             <div class="col-lg-5 text-md-right" > 
                                                <section class=""  data-wow-iteration="infinite" data-wow-duration="1500ms"> 
                                                
                                                          <img src="{{ asset('images/staff_figure/luigi.jpg') }}" width="300" height="400" class=" rounded-circle"  alt="" >
                                                 
                                              </section>
                                                </div>
-                                                <div class="col-lg-6"> 
-                                                   <h4 class=" mt-3 ">Luis Silva – Administrator, COO, Co – Founder.<img src="{{ asset('images/flags/mex.jpg') }}" alt="flag-image" class="mr-1" height="20"> </h4>
+                                                <div class="col-lg-7"> 
+                                                   <h3 class=" mt-0 ">Luis Silva – Administrator, COO, Co – Founder.<img src="{{ asset('images/flags/mex.jpg') }}" alt="flag-image" class="mr-1" height="20"> </h3>
                                                           <h5 class="punchline text-md-left  " >“¡Buen día chicos! Soy Luigi, administrador de la comunidad F8Task, estoy para lo que necesiten, no dudes en contactarme si tienes alguna duda de como ingresar con nosotros y únete a la comunidad Figure Eight Task.”<br>
                                                               <a href="https://www.facebook.com/luigi.fernandez.737001"  target="_blank"   class="btn btn-primary btn-sm mt-2 ml-1"><i class=" mdi mdi-facebook  mr-1"></i></a>
                                                </div>
@@ -544,7 +544,7 @@
                                                           <div class="col-md-4">
                                                               <div class="text-md-center mt-3 pl-1 ">
                                                                   <img src="{{ asset('images/staff_figure/paul.png') }}" height="400" class=" rounded-circle"  alt="" >
-                                                                        <h3 class=" mt-3 "><img src="{{ asset('images/flags/mex.jpg') }}" alt="flag-image" class="mr-1" height="25"> Paul Ramirez – Moderator, Editor. </h3>
+                                                                        <h3 class=" mt-3 "><img src="{{ asset('images/flags/mex.jpg') }}" alt="flag-image" class="mr-1" height="25"> Paul Ramirez – Moderator, Editor.</h3>
                                                                   <h5 class="text-md-center punchline " >“¡Hola, mi nombre es Paul Ramirez! Realizo trabajos (Jobs) de la plataforma Figure Eight desde hace aproximadamente 3 años. Actualmente soy editor de este gran grupo de trabajo y comunidad, F8Task Online.”<br>
                                                                      <a href="https://www.facebook.com/paulmoder.ramirez"  target="_blank"   class="btn btn-primary btn-sm mt-2 ml-1"><i class=" mdi mdi-facebook  mr-1"></i></a>
                                                                      

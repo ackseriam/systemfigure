@@ -334,7 +334,8 @@ llamando al metodo especificado en el controlador y se especifica el $product->i
                     <div class="modal-body">
                           <i class="dripicons-information h1 text-info"></i>
                         <h5 class="mt-0">Foto de la nota con el documento de identidad  y nota </h5>
-                        <p> Tome una fotografia con su rostro y una nota que diga FIGURE EIGHT TASK con el documento de identidad legible tal y como se muestra en la imagen
+                        <p> Tome una fotografia con su rostro y una nota que diga FIGURE EIGHT TASK con el documento de identidad legible tal y como se muestra en la imagen.<br>
+                        <h3 class="text-danger">Nota:</h3> <h5>LA IMAGEN NO DEBE SER NO MAYOR A 2 Mb.</h5>
                         </p>
                     </div>
                      <a href="javascript: void(0);" class="text-center d-block mb-4">
@@ -361,6 +362,8 @@ llamando al metodo especificado en el controlador y se especifica el $product->i
                           <i class="dripicons-information h1 text-info"></i>
                         <h5 class="mt-0"> Documento de identidad</h5>
                         <p>Suba la imagen del documento de identidad debidamente escaneada, tal como el ejemplo</p>
+                         <h3 class="text-danger">Nota:</h3> <h5>LA IMAGEN NO DEBE SER NO MAYOR A 2 Mb.</h5>
+                        </p>
                          <a href="javascript: void(0);" class="text-center d-block mb-4">
                       <img src="{{ asset('images/cedula.jpg')}}" class="img-fluid" style="max-width: 450px;" alt="No existe imagen de guia" />
                      </a> 
