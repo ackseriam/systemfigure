@@ -63,7 +63,7 @@ class HomeController extends Controller
 
                     $role[]= Role::join('roles_user', 'roles_user.roles_id', '=', 'roles.id')->where("roles_user.user_id", $user->id)
                         ->select('roles.name','roles.description')->get();
-                   
+                   $role2="";
               }else{
                  if(($rol=="admin")||($rol=="foun")){
                     $users_inac= User::leftjoin('people', 'users.people_id', '=', 'people.id')->where("users.id", "!=",$user->id)->where('users.status_login','inactivo')

@@ -291,7 +291,7 @@ Swal.fire({
   title: 'Registro realizado con exito.',
   html:
     '<b>Gracias por elegirnos</b>,<br> ' +
-    '<h3>Atencion!</h3>.<p>Cuando el administrador confirme el usuario le llegara a su correo los datos para ingresar a la platadorma.</p> ',
+    '<h3>Atencion!</h3>.<p>Cuando el administrador confirme el usuario le llegara a su correo los datos para ingresar a la plataforma.</p> ',
 type: 'success',
 confirmButtonText:
     '<i class="fa fa-thumbs-up"></i> Muy bien!',
