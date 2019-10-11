@@ -322,7 +322,7 @@
                                                </div>
                                                 <div class="col-lg-6"> 
                                                     <h3 class=" mt-3 ">Josue Ascenzi – Administrator, COO, Co – Founder. <img src="{{ asset('images/flags/ve.png') }}" alt="user-image" class="mr-1" height="25"> </h3>
-                                                          <h5 class="punchline text-md-left  " >“¡Hola! Mi nombre es Josué, y desde el año 2016 me dedico a los negocios por internet,especialmente el mundo de los minijobs. En el 2018 junto a Juffyto, Mike,Leonardo, Luigi y Luzmary, dimos inicio a la Comunidad Internacional Figure Eight Task Online; proyecto en expansión y ahora es cuando vamos a crecer. ¿Tienes alguna pregunta sobre Figure Eight o nuestra Comunidad?”<br>
+                                                          <h5 class="punchline text-md-left  " >“¡Hola! Mi nombre es Josué, y desde el año 2015 me dedico a los negocios por internet, especialmente el mundo de los minijobs. En el 2018 junto a Juffyto, Mike, Leonardo, Luigi y Luzmary, dimos inicio a la Comunidad Internacional Figure Eight Task Online: proyecto en expansión, y ahora es cuando vamos a crecer. ¿Tienes alguna pregunta sobre Figure Eight o nuestra Comunidad? Contáctame. Ven, forma parte de nuestra Comunidad, y con gusto te daremos una cordial bienvenida.”<br>
                                                               <a href="https://www.facebook.com/jascenzi"  target="_blank"   class="btn btn-primary btn-sm mt-2 ml-1"><i class=" mdi mdi-facebook  mr-1"></i></a>
                                                               <a href="https://www.instagram.com/josueascenzi/"  target="_blank"  class="btn btn-danger btn-sm mt-2 ml-1" ><i class="  mdi mdi-instagram   mr-1"></i></a>
                                                </div>
@@ -404,7 +404,7 @@
                                                                     <h3 class="punchline text-md-right"><img src="{{ asset('images/flags/ve.png') }}" alt="flag-image" class="mr-1" height="25"> Leonardo Alvino – Administrator, <br>COO, Co – Founder. </h3>
                                                                     <h5 class="punchline text-md-right " >
 
-                                                                     “Hola, Soy Leonardo Alvino. Mi objetivo es mejorar tu forma de taskear, supervisar que aprendas cada día más, ayudarte con herramientas para que, tu rendimiento al momento de generar divisas, sea rápido y agradable. Te ayudamos a derrotar la crisis.”
+                                                                     “Hola, soy Leonardo Alvino. Mi objetivo es mejorar tu forma de taskear, supervisar que aprendas cada día más, ayudarte con herramientas para que, tu rendimiento al momento de generar divisas, sea rápido y agradable. Te ayudamos a derrotar la crisis.”
                                                                      <br>
                                                                        <a href="https://www.facebook.com/leonardo.alvino.3517"  target="_blank"   class="btn btn-primary btn-sm mt-2 ml-1"><i class=" mdi mdi-facebook  mr-1"></i></a>
                                                                        <a href="https://www.instagram.com/leonardoalvino1/"  target="_blank"  class="btn btn-danger btn-sm mt-2 ml-1" ><i class="  mdi mdi-instagram   mr-1"></i></a>
@@ -479,7 +479,7 @@
                                                                     
                                                                       <img src="{{ asset('images/staff_figure/abril.jpg') }}" height="400" class=" rounded-circle"  alt="" >
                                                                         <h3 class=" mt-3 "><img src="{{ asset('images/flags/ve.png') }}" alt="flag-image" class="mr-1" height="25"> Abril María Vivas – Moderator, Editor. </h3>
-                                                                  <h5 class="text-md-center punchline " >“Hola, soy Abril Vivas. Diseñador gráfico y miembro de la comunidad f8task desde 2018. Happy virus(?) comprometida a apoyarles en su desempeño en esta comunidad.”
+                                                                  <h5 class="text-md-center punchline " >“HHola, soy Abril Vivas, diseñador gráfico y miembro de la comunidad F8Task desde 2018. Happy virus, comprometida a apoyarles en su desempeño en esta comunidad.”
                                                                     <br>
                                                                       <a href="http://fb.com/amarivhime"  target="_blank"   class="btn btn-primary btn-sm mt-2 ml-1"><i class=" mdi mdi-facebook  mr-1"></i></a>
                                                                   </h5>
@@ -533,7 +533,7 @@
                                                                     
                                                                       <img src="{{ asset('images/staff_figure/oscar.png') }}" height="400" class=" rounded-circle"  alt="" >
                                                                         <h3 class=" mt-3 "><img src="{{ asset('images/flags/ve.png') }}" alt="flag-image" class="mr-1" height="25"> Oscar Natera – Moderator, Editor. </h3>
-                                                                  <h5 class="text-md-center punchline " >“Hola, soy Oscar Natera, me dedique 6 años a la  educación, aprendizaje, enseñanzas  y actualmente lo aplico en Figure Eight,  en cada tarea aprovechamos al máximo las herramientas que hoy te brindamos, por eso  te invito a ser parte de esta comunidad
+                                                                  <h5 class="text-md-center punchline " >“Hola, soy Oscar Natera, me dedique 6 años a la educación, aprendizaje, enseñanzas y actualmente lo aplico en Figure Eight, en cada tarea aprovechamos al máximo las herramientas que hoy te brindamos, por eso te invito a ser parte de esta comunidad.
                                                                     <br>
                                                                      <a href="https://www.facebook.com/michaeldavid.perdomocastillo.1"  target="_blank"   class="btn btn-primary btn-sm mt-2 ml-1"><i class=" mdi mdi-facebook  mr-1"></i></a>
                                                                       <a href="https://twitter.com/oscarnatera9"  target="_blank"   class="btn btn-success btn-sm mt-2 ml-1"><i class=" mdi mdi-twitter  mr-1"></i></a>
@@ -545,7 +545,7 @@
                                                               <div class="text-md-center mt-3 pl-1 ">
                                                                   <img src="{{ asset('images/staff_figure/paul.png') }}" height="400" class=" rounded-circle"  alt="" >
                                                                         <h3 class=" mt-3 "><img src="{{ asset('images/flags/mex.jpg') }}" alt="flag-image" class="mr-1" height="25"> Paul Ramirez – Moderator, Editor. </h3>
-                                                                  <h5 class="text-md-center punchline " >“¡Hola, Mi nombre es Paul Ramirez! Realizo trabajos (Jobs) de la plataforma Figure Eight desde hace aproximadamente 3 años. Y actualmente soy editor de este gran grupo de trabajo y gran comunidad, F8Task Online.”<br>
+                                                                  <h5 class="text-md-center punchline " >“¡Hola, mi nombre es Paul Ramirez! Realizo trabajos (Jobs) de la plataforma Figure Eight desde hace aproximadamente 3 años. Actualmente soy editor de este gran grupo de trabajo y comunidad, F8Task Online.”<br>
                                                                      <a href="https://www.facebook.com/paulmoder.ramirez"  target="_blank"   class="btn btn-primary btn-sm mt-2 ml-1"><i class=" mdi mdi-facebook  mr-1"></i></a>
                                                                      
 
@@ -556,7 +556,7 @@
                                                                <div class="text-md-center mt-3 pl-1 ">
                                                                   <img src="{{ asset('images/staff_figure/emmanuell.png') }}" height="400" class="rounded-circle"  alt="" >
                                                                         <h3 class=" mt-3 text-md-center"><img src="{{ asset('images/flags/ve.png') }}" alt="flag-image" class="mr-1" height="25"> Enmanuel Villarreal – Moderator, Editor.</h3>
-                                                                  <h5 class="text-md-center  punchline " >"Hola, soy Enmanuel. Editor de la comunidad f8task, estoy aquí para ayudarte en lo que pueda. ¡Mucha suerte y trabaja duro!”<br>
+                                                                  <h5 class="text-md-center  punchline " >"Hola, soy Enmanuel, editor de la comunidad F8Task, estoy aquí para ayudarte en lo que pueda. ¡Mucha suerte y trabaja duro!”<br>
                                                                 <a href="https://www.facebook.com/enmanuel.villarreal.31"  target="_blank"   class="btn btn-primary btn-sm mt-2 ml-1"><i class=" mdi mdi-facebook  mr-1"></i></a>
                                                                 
                                                                     <a href="https://www.instagram.com/enmanuel.villarreal.31/"  target="_blank"  class="btn btn-danger btn-sm mt-2 ml-1" ><i class="  mdi mdi-instagram   mr-1"></i></a>
@@ -608,7 +608,7 @@
                                                                <div class="text-md-center mt-3 pl-1 ">
                                                                   <img src="{{ asset('images/staff_figure/Gregorio.png') }}" height="400" class="rounded-circle"  alt="" >
                                                                         <h3 class=" mt-3 text-md-center"><img src="{{ asset('images/flags/ve.png') }}" alt="flag-image" class="mr-1" height="25"> Gregorio Rengel – Moderator, Editor.</h3>
-                                                                  <h5 class="text-md-center  punchline " >“Hola, Yo soy Gregorio Rengel. Editor lvl0 de la comunidad Figure Eight, donde te brindamos apoyo y te ayudamos en las tareas que estén disponible, también te damos una seguridad satisfactoria, porque aparte de una comunidad somos un grupo llamado familia, te invito a ser parte de esta comunidad.” <br><a href="https://www.facebook.com/gregorio.rengel.5"  target="_blank"   class="btn btn-primary btn-sm mt-2 ml-1"><i class=" mdi mdi-facebook  mr-1"></i></a>
+                                                                  <h5 class="text-md-center  punchline " >“Hola, yo soy Gregorio Rengel, editor lvl0 de la comunidad Figure Eight Task, donde te brindamos apoyo y te ayudamos en las tareas que estén disponible, también te damos una seguridad satisfactoria, porque aparte de una comunidad somos un grupo llamado familia, te invito a ser parte de esta comunidad.” <br><a href="https://www.facebook.com/gregorio.rengel.5"  target="_blank"   class="btn btn-primary btn-sm mt-2 ml-1"><i class=" mdi mdi-facebook  mr-1"></i></a>
                                                                      
 
                                                                   </h5>

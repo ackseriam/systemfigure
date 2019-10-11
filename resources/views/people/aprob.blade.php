@@ -12,6 +12,7 @@
         <!-- App favicon -->
        <link rel="shortcut icon" href="{{ asset('images/faviicon.ico') }}">
 
+
          <!-- third party css -->
         <link href="{{ asset('css/vendor/dataTables.bootstrap4.css') }}" rel="stylesheet" type="text/css" />
 
@@ -46,7 +47,8 @@
                                             En esta seccion estan listados todas las personas registradas en el sistema 
                                         </p>
 
-                                        <table id="basic-datatable" class="table dt-responsive nowrap" width="100%">
+                                        <div class="table-responsive-lg">
+                                            <table class="table table-striped table-centered mb-0">
                                           
 
                                             <thead>
@@ -72,14 +74,15 @@
                                                     <th><a href="{{$person->link}}" target="_blank">{{$person->link}}</a></th>
                                                     <th>{{$person->address}}</th>
                                                     
-                                                  <th> <a href="/people/{{$person->id}}" class="btn btn-primary">Ver usuario</a> </th>
-                                                  <th> <a href="/people/destroy/{{$person->id}}" class="btn btn-danger">Rechazar </a> </th>
+                                                  <th> <a href="/people/{{$person->id}}" class="btn btn-primary"><i class="mdi mdi-account-search-outline"></i></a> </th>
+                                                  <th> <a href="/people/destroy/{{$person->id}}" class="btn btn-danger"><i class="mdi mdi-delete "></i> </a> </th>
                                                </tr>
                                             </tbody>
                                               @endforeach
                                         </table>
 
                                     </div> <!-- end card body-->
+                                </div>
                                 </div> <!-- end card -->
                             </div><!-- end col-->
                         </div>

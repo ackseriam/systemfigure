@@ -164,7 +164,7 @@
                                     
                                               <i class="mdi mdi-airplane bg-primary-lighten text-primary timeline-icon"></i>
                                         <div class="timeline-item-info">
-
+                                          
                                               @if($user->isOnline())
                                               <div class="media">
                                                  @if(!empty($user->img_profile))

@@ -86,32 +86,41 @@
                                             <h4 class="header-title mb-2">Usuarios En linea  </h4>
 
                                             <div class="slimscroll" style="max-height: 600px;">
-                                                <div class="timeline-alt pb-0">
+                                                                                             
                                                      @if(Auth::check())
                                                     <div class="timeline-item">
                                                         
 
-                                                         @foreach($users_ac as $user)
-                                                              <i class="mdi mdi-airplane bg-success-lighten text-success timeline-icon"></i>
-
+                                                         @foreach($users_all as $user)
+                                                         @if($user->isOnline())
+                                                           
                                                         <div class="timeline-item-info">
                                                               <div class="media">
+                                                                @if(($rol=="admin")||($rol=="foun"))
+                                                                <?php $users_ac=App\user::join('people', 'users.people_id', '=', 'people.id')->where("users.id", $user->id)
+                                                                   ->select('people.name as name','people.surname as surname','people.email as email','users.id as id','users.img_profile as img_profile')->get()?>
+                                                                @else
+                                                                   <?php $users_ac=App\user::join('people', 'users.people_id', '=', 'people.id')->where("users.id", $user->id)
+                                                                     ->select('people.name as name','people.surname as surname','users.id as id','users.img_profile as img_profile')->get()?>
+                                                                @endif
+                                                                 @foreach($users_ac as $user_ac)
                                                                  <?php $i=0; $j=0;?>  
+                                                                      <i class="mdi mdi-airplane bg-success-lighten text-success timeline-icon"></i>
 
-                                                                  @if(!empty($user[$i]->img_profile))
+                                                                  @if(!empty($user_ac->img_profile))
                                                                  
-                                                                          <img class="mr-3 rounded-circle" src="{{ asset('images/')}}/{{$user[$i]->img_profile}}" width="40" alt="Generic placeholder image">
+                                                                          <img class="mr-3 rounded-circle" src="{{ asset('images/')}}/{{$user_ac->img_profile}}" width="40" alt="Generic placeholder image">
                                                                     @else
                                                                     <img class="mr-3 rounded-circle" src="{{ asset('images/logo2.png')}}" width="40" alt="Generic placeholder image">
                                                                     @endif
                                                                
                                                                 <div class="media-body">
                                                                  
-                                                                    <h5 class="mt-0 mb-1">{{$user[$i]->name}} {{$user[$i]->surname}} 
+                                                                    <h5 class="mt-0 mb-1">{{$user_ac->name}} {{$user_ac->surname}} 
                                                                           <?php
                                                                     $roles = DB::table('roles')
                                                                 ->leftjoin('roles_user', 'roles_user.roles_id', '=', 'roles.id')
-                                                                ->where('roles_user.user_id', $user[$i]->id)
+                                                                ->where('roles_user.user_id', $user_ac->id)
                                                                 ->select('roles.name','roles.description')
                                                                 ->get(1);
                                                                     $ultimo = last($roles);
@@ -120,38 +129,46 @@
 
                                                                     @if($role->name == 'foun') <span class="badge badge-danger">{{$role->description}}</span>@elseif($role->name == 'admin') <span class="badge badge-info">{{$role->description}}</span>@elseif($role->name == 'editor') <span class="badge badge-success">{{$role->description}}</span>@elseif($role->name == 'editor0') <span class="badge badge-success">{{$role->description}}</span>@elseif($role->name == 'task') <span class="badge badge-primary">{{$role->description}}</span>@elseif($role->name == 'task0') <span class="badge">{{$role->description}}</span>@endif 
                                                                      </h5>
-                                                                     @if(!empty($user[$i]->email))
-                                                                    <span class="font-13">{{$user[$i]->email}}</span>
+                                                                     @if(!empty($user_ac->email))
+                                                                    <span class="font-13">{{$user_ac->email}}</span>
                                                                     @else <span class="font-13">{{$role->description}}</span>
                                                                     @endif
                                                                 <?php $i++; $j++;?>
                                                                 </div>
                                                                 <i class="mdi mdi-checkbox-blank-circle text-success"></i>
                                                             </div><br>
-                                                         </div>  
-                                                                 @endforeach
+                                                        
+                                                              @endforeach
 
-                                                        </div>   
-                                                     <div class="timeline-item">
-                                                            @foreach($users_inac as $useri)
-
-                                                             <i class="mdi mdi-airplane bg-primary-lighten text-primary timeline-icon"></i>
-                                                        <div class="timeline-item-info">
+                                                        
+                                                        @else
+                                                            
                                                              <div class="media">
-                                                                @if(!empty($useri->img_profile))
-                                                                 
-                                                                          <img class="mr-3 rounded-circle" src="{{ asset('images/')}}/{{$useri->img_profile}}" width="40" alt="Generic placeholder image">
+
+                                                                 @if(($rol=="admin")||($rol=="foun"))
+                                                                <?php $users_inac=App\user::join('people', 'users.people_id', '=', 'people.id')->where("users.id", $user->id)
+                                                                   ->select('people.name as name','people.surname as surname','people.email as email','users.id as id','users.img_profile as img_profile')->get()?>
+                                                                @else
+                                                                   <?php $users_inac=App\user::join('people', 'users.people_id', '=', 'people.id')->where("users.id", $user->id)
+                                                                     ->select('people.name as name','people.surname as surname','users.id as id','users.img_profile as img_profile')->get()?>
+                                                                @endif
+                                                                 @foreach($users_inac as $user_inac)
+                                                                 <?php $i=0; $j=0;?>  
+                                                                      <i class="mdi mdi-airplane bg-primary-lighten text-primary timeline-icon"></i>
+                                                                  @if(!empty($users_inac->img_profile))
+                                                                  
+                                                                          <img class="mr-3 rounded-circle" src="{{ asset('images/')}}/{{$user->img_profile}}" width="40" alt="Generic placeholder image">
                                                                     @else
                                                                     <img class="mr-3 rounded-circle" src="{{ asset('images/logo2.png')}}" width="40" alt="Generic placeholder image">
                                                                     @endif
                                                                
                                                                 <div class="media-body">
                                                                     
-                                                                    <h5 class="mt-0 mb-1">{{$useri->name}} {{$useri->surname}}
+                                                                    <h5 class="mt-0 mb-1">{{$user_inac->name}} {{$user_inac->surname}}
                                                                      <?php
                                                                     $roles = DB::table('roles')
                                                                 ->join('roles_user', 'roles_user.roles_id', '=', 'roles.id')
-                                                                ->where('roles_user.user_id', $useri->id)
+                                                                ->where('roles_user.user_id', $user_inac->id)
                                                                 ->select('roles.name','roles.description')
                                                                 ->get(1);
                                                                  $ultimo = last($roles);
@@ -162,8 +179,8 @@
                                                                     
                                                                     @if($role->name == 'foun') <span class="badge badge-danger">{{$role->description}}</span>@elseif($role->name == 'admin') <span class="badge badge-info">{{$role->description}}</span>@elseif($role->name == 'editor') <span class="badge badge-success">{{$role->description}}</span>@elseif($role->name == 'editor0') <span class="badge badge-success">{{$role->description}}</span>@elseif($role->name == 'task') <span class="badge badge-primary">{{$role->description}}</span>@elseif($role->name == 'task0') <span class="badge">{{$role->description}}</span>@endif 
                                                                     </h5>
-                                                                    @if(!empty($useri->email))
-                                                                    <span class="font-13">{{$useri->email}}</span>
+                                                                    @if(!empty($user_inac->email))
+                                                                    <span class="font-13">{{$user_inac->email}}</span>
                                                                     @else <span class="font-13">{{$role->description}}</span>
                                                                     @endif
                                                                 
@@ -175,9 +192,9 @@
                                                                 <small class="text-muted">5 minutes ago</small>
 
                                                             </p>
-                                                          
+                                                          @endforeach
                                                         </div>   
-                                                            
+                                                      @endif
                                                          @endforeach
                                                      </div>
                                                     </div>
