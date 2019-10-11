@@ -63,7 +63,17 @@ class HomeController extends Controller
 
                     $role[]= Role::join('roles_user', 'roles_user.roles_id', '=', 'roles.id')->where("roles_user.user_id", $user->id)
                         ->select('roles.name','roles.description')->get();
-                   $role2="";
+                    foreach ( $users_ac as $user) {
+                        $i=0;
+                     
+                       $role[]= Role::join('roles_user', 'roles_user.roles_id', '=', 'roles.id')->where("roles_user.user_id", $user[$i]->id)
+                                ->select('roles.name','roles.description')->get();
+                      $i++;
+                  }
+
+                 }
+
+         return view('home', ["roles"=>$role,"users_ac"=>$users_ac,"users_inac"=>$users_inac,"rol" => $rol,"guias" => $guias, "guias_n" => $guias_n]);
               }else{
                  if(($rol=="admin")||($rol=="foun")){
                     $users_inac= User::leftjoin('people', 'users.people_id', '=', 'people.id')->where("users.id", "!=",$user->id)->where('users.status_login','inactivo')
@@ -75,19 +85,12 @@ class HomeController extends Controller
                     $role2[]= Role::join('roles_user', 'roles_user.roles_id', '=', 'roles.id')->where("roles_user.user_id", $user->id)
                         ->select('roles.name','roles.description')->get();
 
+                         return view('home', ["roles"=>$role,'role2'=>$role2,"users_ac"=>$users_ac,"users_inac"=>$users_inac,"rol" => $rol,"guias" => $guias, "guias_n" => $guias_n]);
+
               }
+
              }
-          foreach ( $users_ac as $user) {
-              $i=0;
-             
-               $role[]= Role::join('roles_user', 'roles_user.roles_id', '=', 'roles.id')->where("roles_user.user_id", $user[$i]->id)
-                        ->select('roles.name','roles.description')->get();
-              $i++;
-          }
-
-         }
-
- return view('home', ["roles"=>$role,"role2"=>$role2,"users_ac"=>$users_ac,"users_inac"=>$users_inac,"rol" => $rol,"guias" => $guias, "guias_n" => $guias_n]);
+       
 
     }
 }
