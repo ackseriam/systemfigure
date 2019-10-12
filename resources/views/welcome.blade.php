@@ -272,7 +272,7 @@
                         </section>
 
                               <section class="wow slideInRight" data-wow-delay="2s">
-                                                <div class="row pt-5 widget-list">
+                                         <div class="row pt-5 widget-list">
                                             <div class="col-lg-3 offset-lg-2">
                                                 <!-- Question/Answer -->
                                                 <div>
@@ -320,6 +320,71 @@
 
                               </section>
                               <br><br>
+
+                            
+                           
+                            <section class="wow fadeInDown">
+
+                                <div class="row">
+                                    <div class="col-sm-12" ><br>
+
+                                        <div class="text-center">
+                                           <img src="{{ asset('images/logofigure2.png') }}" alt="" height="100">
+                                             <div class="container">
+                                                <div class="row ">
+                                                    <div class="col-12">
+                                                          <section class="wow slideInRight" data-wow-delay="1s">
+                                                            <div class="text-center">                  
+                                                                      <h1 class=" headline" >Nuestro BLOG en Figure Eight Task</h1>
+                                                                
+                                                             </div> 
+                                                         </section> 
+                                                    </div>  
+                                                 </div> 
+                                            </div>
+                                        </div>
+                                    </div><!-- end col -->
+                                </div><!-- end row -->
+
+                            </section>
+                            <br><br>
+                            <?php   $posts=App\Models\Post::orderBy("id", "DESC")->paginate(6); ?>
+
+                              <section class="wow slideInRight" data-wow-delay="2s">
+
+                                   <div class=" container justify-content"  style=" top: 20px;">
+                                       <div class="row " >
+                                         
+                                                 @foreach($posts as $post )
+                                                    <div class="col-lg-4">                             
+                                                        <div class="card d-block">
+                                                              <img class="card-img-top" src="{{ asset('images/images_post/')}}/{{$post->img_post}}" alt="Imagen no disponible">
+                                                            <div class="card-body"><br>
+                                                               <h5 class="card-title">{{ $post->title}}</h5>
+                                                                  <p class="card-text">{{$post->description}}</p>
+                                                           </div>
+                                                         
+                                                            <div class="card-body">
+                                                                <a href="javascript: void(0);" class="btn btn-primary">Ver mas</a>
+                                                            </div> <!-- end card-body-->
+                                                             <p class="card-text">
+                                                                  <small class="text-muted">{{ \Carbon\Carbon::parse($post->created_at)->diffForHumans() }}</small>
+                                                              </p>
+                                                        </div> <!-- end card-->
+                                                    </div><!-- end col -->
+                                              @endforeach    
+                                            
+                                          
+                                        </div>  
+                                      </div>                                   
+                         </section>
+                              <br><br>
+
+                                   <div class=" container justify-content">
+                                     <div class="row " >
+                                         {{$posts->links()}}
+                                       </div>
+                                  </div>
                  
 
      

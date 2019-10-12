@@ -71,7 +71,7 @@ class PostController extends Controller
 
         {
                      $detail=$request->content;
-    libxml_use_internal_errors(true);
+        libxml_use_internal_errors(true);
 
          $dom = new \domdocument();
         $dom->loadHTML(
@@ -98,16 +98,22 @@ class PostController extends Controller
         }
          $detail = $dom->saveHTML();
         
-      
-      
+       if ($request->hasFile('img_post')) 
+       {
+            $file = $request->file('img_post');
+            $name = time().$file->getClientOriginalName(); 
+            $file->move(public_path().'/images/images_post/', $name);
+       }
         $options =[
             'title' => $request->title,
             'content' => $detail,
+            'img_post' => $name,
             'description' => $request->description,
             'user_id' => auth()->user()->id,
           
             
         ];
+
 
         
          if(Post::create($options)){

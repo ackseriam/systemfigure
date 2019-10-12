@@ -456,7 +456,7 @@
                                                             </p>
                                                           @endforeach
                                                         </div>   
-@endif
+                                                      @endif
                                                          @endforeach
                                                      </div>
                                                     </div>

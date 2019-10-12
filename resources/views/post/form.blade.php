@@ -16,6 +16,13 @@
            El campo no puede quedar vacio
         </div>
     </div>
+    <br>
+      <div class="form-group position-relative mb-3">
+       {!! Form::label('img_post','Imagen de muestra de post:') !!} 
+      <!-- Top modal -->
+      {!! Form::file('img_post', $attributes = array(),['class'=> 'form-control',"required"]) !!}
+    
+</div>
    
    <br>
    <div class="form-group position-relative mb-3">

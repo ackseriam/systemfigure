@@ -204,6 +204,7 @@
                                             $name_user=$user->username;
                                           ?>
                                         <!-- project title-->
+                                   
                                         <h1 class="mt-0">
                                             <a href="{{ route('post.show',['post'=>$post])}}" class="text-title">{{ $post->title}}
                                         </h1>
@@ -223,6 +224,8 @@
                                                 <b>{{$count_comment}}</b> comentarios
                                             </span>
                                         </p>
+                                             <a href="javascript: void(0);" class="text-center d-block mb-4">
+                                                        <img src="{{ asset('images/images_post/')}}/{{$post->img_post}}" class="img-fluid" style="width: 900px; height: 350px;" alt="No ese encontro imagen" /></a>
                                         <div>
                                             <a href="javascript:void(0);" data-toggle="tooltip" data-placement="top" title="" data-original-title="Mat Helme" class="d-inline-block">
                                                 <img src="{{ asset('images/')}}/{{$user->img_profile}}" class="rounded-circle avatar-xs" alt="friend">
