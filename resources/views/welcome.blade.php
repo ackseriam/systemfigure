@@ -365,7 +365,7 @@
                                                            </div>
                                                          
                                                             <div class="card-body">
-                                                                <a href="javascript: void(0);" class="btn btn-primary">Ver mas</a>
+                                                                <a href="{{ route('post.show',['post'=>$post])}}" class="btn btn-primary">Ver mas</a>
                                                             </div> <!-- end card-body-->
                                                              <p class="card-text">
                                                                   <small class="text-muted">{{ \Carbon\Carbon::parse($post->created_at)->diffForHumans() }}</small>

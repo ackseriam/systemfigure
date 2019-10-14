@@ -155,9 +155,9 @@
                                                                  @foreach($users_inac as $user_inac)
                                                                  <?php $i=0; $j=0;?>  
                                                                       <i class="mdi mdi-airplane bg-primary-lighten text-primary timeline-icon"></i>
-                                                                  @if(!empty($users_inac->img_profile))
+                                                                  @if(!empty($user_inac->img_profile))
                                                                   
-                                                                          <img class="mr-3 rounded-circle" src="{{ asset('images/')}}/{{$user->img_profile}}" width="40" alt="Generic placeholder image">
+                                                                          <img class="mr-3 rounded-circle" src="{{ asset('images/')}}/{{$user_inac->img_profile}}" width="40" alt="Generic placeholder image">
                                                                     @else
                                                                     <img class="mr-3 rounded-circle" src="{{ asset('images/logo2.png')}}" width="40" alt="Generic placeholder image">
                                                                     @endif
