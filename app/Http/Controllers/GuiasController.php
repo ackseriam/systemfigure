@@ -426,9 +426,8 @@ class GuiasController extends Controller
         $user->status_login = 'activo';
         $user->save();
 
-    
-        return view('guias.inactivo',compact('guias'),['rol'=>$rol, 'level'=>$level,'exito'=>'exito']);
-      
+ 
+      return \Redirect::route('inactiva', [$level])->with(['rol'=>$rol, 'level'=>$level,'exito'=>'exito']);
       }
       public function active(Request $request,$id)
       {

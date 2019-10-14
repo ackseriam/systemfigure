@@ -425,7 +425,8 @@ class UsersController extends Controller
 
             ->paginate(4);
             $tabla="activo";
-            return view('users.search',compact('users'),['rol'=>$rol, 'tabla'=> $tabla,'editar_usuario'=>'editar_usuario']);
+            //return view('users.search',compact('users'),['rol'=>$rol, 'tabla'=> $tabla,'editar_usuario'=>'editar_usuario']);
+             return \Redirect::route('search', [$users])->with(['rol'=>$rol, 'tabla'=> $tabla,'editar_usuario'=>'editar_usuario']);
         }else{
           return redirect('home');  
         }
