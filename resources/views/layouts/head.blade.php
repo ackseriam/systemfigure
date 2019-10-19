@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html lang="">
+<html lang="" oncontextmenu="return false" >
 
-    <head>
+    <head oncontextmenu="return false">
         <meta charset="utf-8" />
         <title>Figure Eight Task</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">

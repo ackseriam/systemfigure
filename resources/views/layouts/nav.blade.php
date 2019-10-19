@@ -1,7 +1,7 @@
         <!-- ========== Left Sidebar Start ========== -->
  
  @if ($rol === 'foun')                                                     
-            <div class="left-side-menu" onmousedown='return false;' onselectstart="return false;">
+            <div class="left-side-menu" oncontextmenu="return false" onmousedown='return false;'  onselectstart="return false;">
 
                 <div class="slimscroll-menu">
 
@@ -193,7 +193,7 @@
             <!-- ============================================================== -->
 
             <div class="content-page">
-                <div class="content" onmousedown='return false;' onselectstart="return false;">
+                <div class="content" onmousedown='return false;' oncontextmenu="return false" onselectstart="return false;">
 
                    
                     <div class="navbar-custom">
@@ -380,7 +380,7 @@
        
             </div>
             @elseif ($rol== 'admin')
-            <div class="left-side-menu" onmousedown='return false;' onselectstart="return false;">
+            <div class="left-side-menu" onmousedown='return false;'  oncontextmenu="return false"onselectstart="return false;">
 
                 <div class="slimscroll-menu">
 
@@ -570,7 +570,7 @@
             <!-- ============================================================== -->
 
             <div class="content-page">
-                <div class="content" onmousedown='return false;' onselectstart="return false;">
+                <div class="content" onmousedown='return false;' oncontextmenu="return false"onselectstart="return false;">
 
                     <!-- Topbar Start -->
                     <div class="navbar-custom">

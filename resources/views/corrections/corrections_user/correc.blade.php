@@ -35,7 +35,121 @@
        <link href="{{ asset('js/sweetalert/sweetalert2.css') }}" rel="stylesheet" />
      @endif
 
-       <script type="text/javascript">
+
+
+<script type="text/javascript">
+var cont = 0;
+function contador(){
+
+   document.oncontextmenu = function() {
+  return false;
+}
+ var form = document.getElementById('form');
+
+ var srcifr = form.getAttribute("onmousedown");
+ console.log(form);
+ var valor="return true;";
+  form.setAttribute("onmousedown", valor);
+return form;
+
+// FIREFOX Evitar seleccion de texto 
+if (window.sidebar){ 
+document.onmousedown=function(e){ 
+var obj=e.target; 
+if (obj.tagName.toUpperCase() == "INPUT" || obj.tagName.toUpperCase() == "TEXTAREA" || obj.tagName.toUpperCase() == "PASSWORD") 
+return true; 
+/*else if (obj.tagName=="BUTTON"){ 
+return true; 
+}*/ 
+else 
+return false; 
+} 
+} 
+document.onmousedown = function() {
+  return false;
+}
+
+ document.ondragstart= function() {
+  return false;
+}
+  //alert('actualizado');
+  console.log('actua');
+
+ document.body.ondragstart= function() {
+  return false;
+}
+document.body.oncontextmenu=function() {
+  return false;
+}
+
+document.body.onmousedown=function() {
+  return false;
+
+}
+
+
+
+
+document.onclick=function() {
+  return false;
+}
+
+document.body.onclick=function() {
+  return false;
+}
+
+document.onmouseup=function() {
+  return false;
+}
+document.body.onmouseup=function() {
+  return false;
+}
+document.body.onbeforecopy=function() {
+  return false;
+}
+document.onbeforecut=function() {
+  return false;
+}
+document.body.onbeforecut=function() {
+  return false;
+}
+document.oncopy=function() {
+  return false;
+}
+document.body.oncopy=function() {
+  return false;
+}
+
+
+ 
+}
+
+
+setInterval('contador()',1000);
+
+
+
+/*
+function valida() {  
+  var form = document.getElementById('form');
+
+ form = 'true';
+
+
+
+ console.log(form);
+}*/
+
+
+
+
+/*form.onmousedown=function() {
+  return true;
+}*/
+
+</script>
+
+<script type="text/javascript">
   
 
 
@@ -94,6 +208,8 @@ return false;
  else if (navigator.userAgent.search("Opera") >= 0) {
  // insert conditional Opera code here
  }
+
+ window.oncontextmenu = function() { return false; }
  
 
 
@@ -199,17 +315,17 @@ td {
 
                     
                         <!-- start page title -->
-                        <div class="row" onmousedown='return false;' onselectstart="return false;">
+                        <div class="row" oncontextmenu="return false" onmousedown='return false;' onselectstart="return false;">
                             <div class="col-12">
                                 <div class="page-title-box">
-                                    <div class="page-title-right" onmousedown='return false;' onselectstart="return false;">
+                                    <div class="page-title-right"  oncontextmenu="return false" onmousedown='return false;' onselectstart="return false;">
                                         <ol class="breadcrumb m-0">
-                                            <li class="breadcrumb-item"><a href="javascript: void(0);" onmousedown='return false;' onselectstart="return false;">Tablero</a></li>
-                                            <li class="breadcrumb-item"><a href="javascript: void(0);" onmousedown='return false;' onselectstart="return false;">Corrección</a></li>
-                                            <li class="breadcrumb-item active"onmousedown='return false;' onselectstart="return false;" >Buscar correccion</li>
+                                            <li class="breadcrumb-item"><a href="javascript: void(0);" onmousedown='return false;' oncontextmenu="return false" onselectstart="return false;">Tablero</a></li>
+                                            <li class="breadcrumb-item"><a href="javascript: void(0);" onmousedown='return false;' oncontextmenu="return false" onselectstart="return false;">Corrección</a></li>
+                                            <li class="breadcrumb-item active"oncontextmenu="return false" onmousedown='return false;' onselectstart="return false;" >Buscar correccion</li>
                                         </ol>
                                     </div>
-                                    <h4 class="page-title" onmousedown='return false;' onselectstart="return false;">Buscar correccion de la guia</h4>
+                                    <h4 class="page-title" oncontextmenu="return false" onmousedown='return false;' onselectstart="return false;">Buscar correccion de la guia</h4>
                                 </div>
                             </div>
                         </div>  
@@ -221,7 +337,7 @@ td {
                                           <div class="card-body">   
                               <div class="row">
                                  <div class="col-lg-4"> 
-                                        <div onmousedown='return false;' onselectstart="return false;">
+                                        <div ">
                                             <h4 class="header-title">Ingresa los datos para la busqueda</h4>
 
                                             <p class="text-muted mb-3">
@@ -232,10 +348,14 @@ td {
                                                        
                                           {{ Form::open(['url' => 'corrections/show/'.$id.'/','method'=> 'GET', 'class' => '']) }}
                                           <div class="form-row align-items-center">
-
-                                                <div class="col-auto">
-                                                    {{Form::text('text', null, ['class'=> 'form-control mb-2', 'placeholder' => 'Texto de la corrección'])}}
+                                              <div>
+                                                <div class="col-auto"> <!-- id="form"  onmousedown="return contador();" -->
+                                                   
+                                                       {{Form::text('text', null, ['class'=> 'form-control mb-2', 'id'=>'form','onmousedown'=>'return contador();','placeholder' => 'Texto de la corrección'])}}
+                                                   
+                                                   
                                                  </div>
+                                               </div>
 
                                                         
                                                   <div class="col-auto">
@@ -246,7 +366,7 @@ td {
                                        {{ Form::close()}}
                                  </div>
                                      <div class="col-lg-4"> 
-                                              <div onmousedown='return false;' onselectstart="return false;">
+                                              <div onmousedown='return false;'oncontextmenu="return false" onselectstart="return false;">
                                                   <h4 class="header-title"  onmousedown='return false;' onselectstart="return false;">Nombre de la guia </h4>
 
                                               <p class="text-muted mb-3">
@@ -255,15 +375,15 @@ td {
                                          
                                               </div>
                                        </div>
-                                      <div class="col-lg-1" nmousedown='return false;' onselectstart="return false;"> 
+                                      <div class="col-lg-1" oncontextmenu="return false"onmousedown='return false;' onselectstart="return false;"> 
                                               @if(($rol=='admin')||($rol=='foun')||($rol=='buyer'))
                                              <a href="/guias/edit/{{$guia->id}}" class="btn btn-info " title="Editar guia"><i class="mdi mdi-square-edit-outline"></i></a>
                                             @endif
                                       </div> 
-                             </div>  <div onmousedown='return false;' onselectstart="return false;"><br ><br><br></div>
+                             </div>  <div onmousedown='return false;'oncontextmenu="return false"  onselectstart="return false;"><br ><br><br></div>
                                <div class="row" ><div class="col-lg-1" onmousedown='return false;' onselectstart="return false;"> </div>
-                                      <div class="col-lg-4" onmousedown='return false;' onselectstart="return false;"> 
-                                      <label onmousedown='return false;' onselectstart="return false;">Puede agregar otra corrección presionando el siguiente botón:</label> 
+                                      <div class="col-lg-4" onmousedown='return false;' oncontextmenu="return false" onselectstart="return false;"> 
+                                      <label onmousedown='return false;' oncontextmenu="return false" onselectstart="return false;">Puede agregar otra corrección presionando el siguiente botón:</label> 
                                       <div class="form-row align-items-center"><br><br>
                                         <a href="{{ url('corrections/create') }}/{{$id}}" target="_blank" class="btn btn-primary">Agregar corrección</a>
                                       </div>
@@ -271,7 +391,7 @@ td {
                                        @if($level=='0')
                                             @if(($rol=='admin')||($rol=='foun')||($rol=='editor')||($rol=='editor0')||($rol=='buyer'))   
                                                  <div class="col-lg-3"> 
-                                                   <label onmousedown='return false;' onselectstart="return false;">Tiempo de envio de la guia:</label> 
+                                                   <label onmousedown='return false;' oncontextmenu="return false" onselectstart="return false;">Tiempo de envio de la guia:</label> 
                                                      {{ Form::open(['url' => 'guias/time/'.$id.'/','method'=> 'GET', 'class' => '']) }}
                                                      <br>
                                                     <div class="form-row align-items-center" >
@@ -290,7 +410,7 @@ td {
                                             @else
                                              @if(($rol=='admin')||($rol=='foun')||($rol=='editor')||($rol=='buyer'))                                             
                                              <div class="col-lg-3"> 
-                                                   <label onmousedown='return false;' onselectstart="return false;">Tiempo de envio de la guia:</label> 
+                                                   <label onmousedown='return false;'oncontextmenu="return false" onselectstart="return false;">Tiempo de envio de la guia:</label> 
                                                      {{ Form::open(['url' => 'guias/time/'.$id.'/','method'=> 'GET', 'class' => '']) }}
                                                      <br>
                                                     <div class="form-row align-items-center" >
@@ -311,7 +431,7 @@ td {
                                       <div class="col-lg-3">
                                           @if($level=='0')
                                              @if(($rol=='admin')||($rol=='foun')||($rol=='editor')||($rol=='editor0')||($rol=='buyer'))   
-                                             <label onmousedown='return false;' onselectstart="return false;">Colocar el numero de la columna que desea copiar. O todas.(Seperarlo con comas)</label>
+                                             <label onmousedown='return false;'oncontextmenu="return false" onselectstart="return false;">Colocar el numero de la columna que desea copiar. O todas.(Seperarlo con comas)</label>
                                                  {{ Form::open(['url' => 'guias/copiado/'.$id.'/','method'=> 'GET', 'class' => '']) }}
                                           <div class="form-row align-items-center">
                                             <input type="hidden"  name="respues">
@@ -330,7 +450,7 @@ td {
                                             @else
                                             @if($level!='0')
                                               @if(($rol=='admin')||($rol=='foun')||($rol=='editor')||($rol=='buyer')) 
-                                                <label onmousedown='return false;' onselectstart="return false;">Colocar el numero de la columna que desea copiar. O todas.(Seperarlo con comas)</label>
+                                                <label onmousedown='return false;' oncontextmenu="return false" onselectstart="return false;">Colocar el numero de la columna que desea copiar. O todas.(Seperarlo con comas)</label>
                                                    {{ Form::open(['url' => 'guias/copiado/'.$id.'/','method'=> 'GET', 'class' => '']) }}
                                           <div class="form-row align-items-center">
                                             <input type="hidden"  name="respues">
@@ -366,7 +486,7 @@ td {
                                                 @if(!empty($time))
                                                 <h3 class="text text-success">Tiempo de envio:  {{$time}}</h3>
                                                 @endif
-                                                <div class="row"  onmousedown='return false;' onselectstart="return false;">
+                                                <div class="row" oncontextmenu="return false"  onmousedown='return false;' onselectstart="return false;">
 
                                                     <div class="col-lg-12">
 

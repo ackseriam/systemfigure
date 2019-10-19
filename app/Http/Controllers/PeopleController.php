@@ -109,7 +109,7 @@ class PeopleController extends Controller
         $address = $request->get('address');
         $ci = $request->get('ci');
 
-        $people= User::join('people', 'people.id', '=', 'users.people_id')->select('users.id as id', 'people.name as name',  'users.state as state','users.email as email','users.username as username', 'people.surname as surname as surname',  'people.nacionality as nacionality','people.surname as address','people.ci as ci')->where('users.state', 'activo')
+        $people= User::join('people', 'people.id', '=', 'users.people_id')->select('users.id as id','people.id as id_person', 'people.name as name',  'users.state as state','users.email as email','users.username as username', 'people.surname as surname as surname',  'people.nacionality as nacionality','people.surname as address','people.ci as ci')->where('users.state', 'activo')
         ->name($name)
         ->surname($surname)
         ->nacionality($nacionality)
@@ -309,7 +309,7 @@ class PeopleController extends Controller
           if($request->img_ci!=NULL)  
             $people->img_ci= $name2;  
             else
-              $people->img_ci=  $people->ci;
+              $people->img_ci=  $people->img_ci;
 
             if($people->save()){
                  return view('people.edit',['exito'=>'exito','rol'=>$rol,'people'=>$people,'people_id'=>$people_id]);

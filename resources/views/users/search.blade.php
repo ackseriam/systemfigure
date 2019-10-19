@@ -79,8 +79,13 @@
                                                     
                                                 	@foreach($users as $user)
                                                     <tr>
+
                                                         <td class="table-user">
-                                                            <img src="assets/images/users/avatar-2.jpg" alt="table-user" class="mr-2 rounded-circle" />
+                                                            @if(!empty($user->img_profile))
+                                                             <img src="{{ asset('images/')}}/{{ $user->img_profile }}" alt="user-image" class="rounded-circle">    
+                                                            @else
+                                                              <img src="{{ asset('images/logo2.png') }}" alt="user-image" class="rounded-circle">
+                                                            @endif
                                                             {{$user->username}}
                                                         </td>
                                                         <td>{{$user->email}}</td>

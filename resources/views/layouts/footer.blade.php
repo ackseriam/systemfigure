@@ -1,6 +1,6 @@
 
                 <!-- Footer Start -->
-                <footer class="footer" onmousedown='return false;' onselectstart="return false;">
+                <footer class="footer" oncontextmenu="return false" onmousedown='return false;' onselectstart="return false;">
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-md-6">
@@ -241,7 +241,6 @@
 <script src="{{ asset('js/pages/demo.dashboard.js') }}"></script>
 <!-- end demo js-->
 
-
 @if(!empty($exito))
 <script src="{{ asset('js/sweetalert/sweetalert2.js') }}"></script>
 <script src="{{ asset('js/sweetalert/sweetalert2.all.js') }}"></script>
@@ -285,7 +284,10 @@ Swal.fire({
 <script src="{{ asset('js/sweetalert/sweetalert2.all.js') }}"></script>
                                <!-- Include this after the sweet alert js file -->
 <!--    @include('sweet::alert')-->
+
 <script>
+
+ 
 
 Swal.fire({
   title: 'Registro realizado con exito.',
