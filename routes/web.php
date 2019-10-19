@@ -55,6 +55,7 @@ Route::post('guias/import', 'GuiasController@import')->name('import');
  	
 
 Route::get('guias/copiado/{a}', 'GuiasController@copiado');
+
 Route::get('guias/index/{a}', 'GuiasController@index');
 Route::get('guias/search/', 'GuiasController@search')->name('search_guias');
 Route::get('guias/search_0/', 'GuiasController@search_0');

@@ -303,11 +303,15 @@ class GuiasController extends Controller
 
                   if(!empty( $correction_search2)){
 
-            return view('corrections/corrections_user/correc',compact('correction_search2'),['level'=>$level,'exito'=>'exito','rol'=>$rol,'copiar'=>$copiar, 'id'=>$id,'number_guia'=>$number_guia,'names_campo'=>$names_campo, 'campos_img'=>$campos_img,'number_campos_img'=>  '0','guia'=>$guia,'time'=>$tiempo_envio]);
+         //   return view('corrections/corrections_user/correc',compact('correction_search2'),['level'=>$level,'exito'=>'exito','rol'=>$rol,'copiar'=>$copiar, 'id'=>$id,'number_guia'=>$number_guia,'names_campo'=>$names_campo, 'campos_img'=>$campos_img,'number_campos_img'=>  '0','guia'=>$guia,'time'=>$tiempo_envio]);
+             return redirect("corrections/correc_user/".$id);
+
           }else{
              return redirect("corrections/correc_user/".$id);
           }
 
+        }else{
+            return view('corrections/corrections_user/correc',compact('correction_search2'),['level'=>$level,'error_in'=>'error_in','rol'=>$rol,'copiar'=>$copiar, 'id'=>$id,'number_guia'=>$number_guia,'names_campo'=>$names_campo, 'campos_img'=>$campos_img,'number_campos_img'=>  '0','guia'=>$guia,'time'=>$tiempo_envio]);
         }
         
  
