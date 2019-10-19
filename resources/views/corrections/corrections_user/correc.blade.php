@@ -303,7 +303,8 @@ td {
  <body class="enlarged" data-keep-enlarged="true">
 
         <!-- Begin page -->
-        <div class="wrapper">
+
+        <div class="wrapper" >
        
       @include('layouts.nav')
 
@@ -336,7 +337,7 @@ td {
                                <div class="card">
                                           <div class="card-body">   
                               <div class="row">
-                                 <div class="col-lg-4"> 
+                                 <div class="col-lg-4" > 
                                         <div ">
                                             <h4 class="header-title">Ingresa los datos para la busqueda</h4>
 
@@ -349,7 +350,7 @@ td {
                                           {{ Form::open(['url' => 'corrections/show/'.$id.'/','method'=> 'GET', 'class' => '']) }}
                                           <div class="form-row align-items-center">
                                               <div>
-                                                <div class="col-auto"> <!-- id="form"  onmousedown="return contador();" -->
+                                                <div class="col-auto"  oncontextmenu="return null" onmousedown='null'> <!-- id="form"  onmousedown="return contador();" -->
                                                    
                                                        {{Form::text('text', null, ['class'=> 'form-control mb-2', 'id'=>'form','onmousedown'=>'return contador();','placeholder' => 'Texto de la corrección'])}}
                                                    
@@ -546,13 +547,20 @@ td {
                                                                          
                                                                                 ?>
 
-                                                                              @if ( (strpos($cadena_resultante, 'http'))|| (strpos($cadena_resultante, 'wwww')))
+                                                                                  @if ( (strpos($cadena_resultante, 'http'))|| (strpos($cadena_resultante, 'wwww')))
+
                                                                                  <td>
                                                                                        <a href="{{$correction->$respues}}" target="_blank">{{$correction->$respues}}</a>
                                                                                        <br>
-                                                                              <button class="btn btn-success" " data-toggle="modal" data-target="#img-width-modal"> Ver</button> 
+                                                                               @if ((strpos($cadena_resultante, 'png'))|| (strpos($cadena_resultante, 'jpg')))
 
-                                                                             <div id="img-width-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="success-header-modalLabel" aria-hidden="true">
+                                                                              <button class="btn btn-success" " data-toggle="modal" data-target="#img-width-modal<?php echo $correction->id?>"> Ver</button> 
+                                                                               <button type="button" id="copyClip" data-clipboard-text="{{$correction->$respues}}" class="btn btn-primary"><i class=" mdi mdi-content-copy"></i></button>
+                                                                               @else
+                                                                                 <button type="button" id="copyClip" data-clipboard-text="{{$correction->$respues}}" class="btn btn-primary"><i class=" mdi mdi-content-copy"></i></button>
+                                                                               @endif
+
+                                                                             <div id="img-width-modal<?php echo $correction->id?>" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="success-header-modalLabel" aria-hidden="true">
                                                                              <div class="modal-dialog modal-full-width">
                                                                                <div class="modal-content">
                                                                                    <div class="modal-header modal-colored-header bg-success">
@@ -570,6 +578,7 @@ td {
                                                                                         <div class="row">
                                                                                               <div class="col-lg-12">
                                                                                                     <h5 class="mt-0"> Imagen:</h5>
+                                                                                                   
                                                                                                      <img src="{{$correction->$respues}}" class="img-fluid" style="max-width: 600px;" alt="No ese encontro imagen" />
                                                                                                   
                                                                                                </div> 
