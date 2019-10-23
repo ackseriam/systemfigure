@@ -335,9 +335,25 @@ class CorrectionsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function correc_user($id, Request $request)
+    public function correc_user($id,$data, Request $request)
     {
-       $rol = roleuser($request); //se llama al helper en Helpers/role
+       $id = \Crypt::decrypt($id);  
+       $data_des=\Crypt::decrypt($data);  
+        //$data_antigua=$data_des->toDateTimeString();
+      //$data_a=  $data_des->diffForHumans();
+         $now =\Carbon\Carbon::now();
+      // $data_now=$now->toDateTimeString();
+        $minutesDiff=$data_des->diffInMinutes($now);
+     //   dd($minutesDiff);
+
+     //  if($minutesDiff >1)
+
+    /*  {
+            return  abort(404);  
+       }else{*/
+  
+   //   dd($minutesDiff);
+      $rol = roleuser($request); //se llama al helper en Helpers/role
        $user=User::find(auth()->user()->id);
        $user->status_login = 'activo';
        $user->save(); 
@@ -399,10 +415,8 @@ class CorrectionsController extends Controller
             return redirect('home');
            }
 
-         }
-     
-
-       
+         //} 
+       }     
 
    }
   
@@ -418,8 +432,11 @@ class CorrectionsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
- public function show($id_guia,Request $request)
+ public function show($id_guia, Request $request)
     {
+      $id_guia = \Crypt::decrypt($id_guia);  
+      $id_guia =\Crypt::decrypt($id_guia );  
+
       $rol = roleuser($request); //se llama al helper en Helpers/role
 
       $user=User::find(auth()->user()->id);

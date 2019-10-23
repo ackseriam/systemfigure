@@ -113,7 +113,12 @@
                                                         
                                                        
                                                          <td class="table-action">
-                                                            <a href="/corrections/correc_user/{{$guia->id}}" class="action-icon" title="Ver correcciones" class=""> <i class="mdi mdi-account-search-outline btn btn-primary "></i></a>
+                                                            <?php $id=Crypt::encrypt($guia->id);
+                                                                    $data = Carbon\Carbon::now();
+                                                                    $data_cry=Crypt::encrypt($data);
+
+                                                                ?>
+                                                                   <button type="submit"  class="mdi mdi-account-search-outline btn btn-primary" title="Ver correcciones"  target="_blank" onclick="window.open('/corrections/correc_user/{{$id}}/{{$data_cry}}','', 'height = 700, width = 1100, location = NO, directories=NO, titlebar=NO, fullscreen=yes, scrollbars=auto');" > </button>
                                                         
                                                             <a href="/corrections/create/{{$guia->id}}" class="action-icon" title="Enviar corrección" class=""> <i class="mdi mdi-plus btn btn-primary "></i></a>
                                                         </td>

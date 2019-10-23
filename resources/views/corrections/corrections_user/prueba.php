@@ -318,15 +318,17 @@ td {
 <script> 
 
   $(document).ready(function() {
-  $('#hola').hide();
+  //$('#hola').hide();
   //popup = window.open("/corrections/correc_user/{{$id}}/{{$data_cry}}", "name", "width=400, height=300"):
-  
+  function abrir() { 
+open('/corrections/correc_user/{{$id}}/{{$data_cry}}','','top=300,left=300,width=300,height=300,estado = sí, toolbar = no, menubar = no, location = no"');
+
+}
 });
 
-function abrir() { 
-window.open("/corrections/correc_user/{{$id}}/{{$data_cry}}", "name", "width=400, height=300"):
-}
-        
+
+  
+window.scrollTo(0, 1);          
 </script>
 <script> 
 /*function abrir() { 
@@ -337,11 +339,11 @@ open('/corrections/correc_user/{{$id}}/','','top=300,left=300,width=300,height=3
   
 window.scrollTo(0, 1);          
 </script>
-<div id="hola" onload="abrir()">
+<div id="hola">
 
 
 
- <body class="enlarged" data-keep-enlarged="true"  >
+ <body class="enlarged" data-keep-enlarged="true" onload="abrir()" >
 
         <!-- Begin page -->
 
@@ -378,39 +380,35 @@ window.scrollTo(0, 1);
                    
                <!-- Inline Form -->
                      
-                       @if($level!='0')
-                                @if(($rol=='admin')||($rol=='foun')||($rol=='editor')||($rol=='editor0')||($rol=='buyer'))   
-                               <div class="card" style="margin-block-end: -15px;">
-                                @else
-                                    <div class="card" style="margin-block-end: -1px;">
-                                @endif
+                      
+                               <div class="card" >
                                    
-                             @else
-                            @if(($rol=='admin')||($rol=='foun')||($rol=='editor')||($rol=='editor0')||($rol=='buyer'))   
-                               <div class="card" style="margin-block-end: -15px;">
-                                @else
-                                    <div class="card" style="margin-block-end: -1px;">
-                                @endif
-                                @endif
+                             
                                 <div class="row">
-                                     <div class="col-lg-2" >    
+                                     <div class="col-lg-4" >    
                                       <?php $id_cry=Crypt::encrypt($id);
+                                            $data = Carbon\Carbon::now();
+                                            $data_cry=Crypt::encrypt($data);
+
                                         ?>      
-                                          {{ Form::open(['url' => 'corrections/show/'.$id_cry.'/','method'=> 'GET', 'class' => '']) }}
+                                          {{ Form::open(['url' => 'corrections/show/'.$id_cry.'/'.$data_cry.'/','method'=> 'GET', 'class' => '']) }}
                                           <div class="form-row align-items-center">
+                                              <div>
                                                 <div class="col-auto"  oncontextmenu="return true" onmousedown='null' id="form"  onmousedown="" > <!-- -->
                                                    
                                                        {{Form::text('text', null, ['class'=> 'form-control mb-2', 'id'=>'form','onmousedown'=>'','placeholder' => 'Texto de la corrección'])}}
+                                                   
+                                                   
                                                  </div>
-                                    
-                                                  <div class="col-auto"  onmousedown='return false;' onselectstart="return false;">
+                                               </div>
+                                                        
+                                                  <div class="col-auto">
                                                     <button type="submit" class="btn btn-primary mb-2">Buscar</button>
                                                 </div>
                                         
                                        {{ Form::close()}}
                                  </div>
                                </div>
-                                <div class="col-lg-2"  onmousedown='return false;' onselectstart="return false;">  </div>
                                      <div class="col-lg-4"  onmousedown='return false;' onselectstart="return false;"> 
                                               <div onmousedown='return false;'oncontextmenu="return false" onselectstart="return false;">
                                                   <h4 class="header-title"  onmousedown='return false;' onselectstart="return false;"  onmousedown='return false;' onselectstart="return false;">Nombre de la guia </h4>
@@ -426,7 +424,7 @@ window.scrollTo(0, 1);
                                             @endif
                                       </div>  <div class="col-lg-3"  oncontextmenu="return false"onmousedown='return false;' onselectstart="return false;"> </div>
 
-                             </div>  <div onmousedown='return false;'oncontextmenu="return false"  onselectstart="return false;"></div>
+                             </div>  <div onmousedown='return false;'oncontextmenu="return false"  onselectstart="return false;"><br ><br><br></div>
                                <div class="row" ><div class="col-lg-1" onmousedown='return false;' onselectstart="return false;"> </div>
                                       <div class="col-lg-4" onmousedown='return false;' oncontextmenu="return false" onselectstart="return false;"> 
                                           <label onmousedown='return false;' oncontextmenu="return false" onselectstart="return false;">Puede agregar otra corrección presionando el siguiente botón:</label> 
@@ -436,83 +434,62 @@ window.scrollTo(0, 1);
                                       </div>
                                        @if($level=='0')
                                             @if(($rol=='admin')||($rol=='foun')||($rol=='editor')||($rol=='editor0')||($rol=='buyer'))   
-                                                 <div class="col-lg-2" style="margin-right: -30px;"> 
-                                                  <div class="col-lg-12" onmousedown='return false;' oncontextmenu="return false" onselectstart="return false;"> 
-                                                       <label onmousedown='return false;' oncontextmenu="return false" onselectstart="return false;">Tiempo de envio de la guia:</label>
-                                                 </div>
-                                                  <?php $id_cry=Crypt::encrypt($id);?> 
-                                                     {{ Form::open(['url' => 'guias/time/'.$id_cry.'/','method'=> 'GET', 'class' => '']) }}
-                                                  <div   style="margin-right: -50px;">
-                                                    <div class="form-row align-items-center"  style="margin-right: -50px;">
-                                                          <div class="col-auto">
-                                                              {{Form::text('tiempo_envio', null, ['class'=> 'form-control mb-2', 'placeholder' => 'Tiempo de envio'])}}
-                                                           </div>
-                                                           <div class="col-auto" onmousedown='return false;' oncontextmenu="return false" onselectstart="return false;">
-                                                              <button type="submit" class="btn btn-primary mb-2">Enviar</button>
-                                                          </div>
-                                                         
-                                                      </div>
-                                                  </div>
-
-                                               </div> 
-                                                  {{ Form::close()}}
-                                   
-                                           @endif
-                                            @else
-                                             @if(($rol=='admin')||($rol=='foun')||($rol=='editor')||($rol=='buyer'))                                             
-                                                             <div class="col-lg-2" style="margin-right: -30px; "> 
-                                                  <div class="col-lg-12" onmousedown='return false;' oncontextmenu="return false" onselectstart="return false;"> 
-                                                       <label onmousedown='return false;' oncontextmenu="return false" onselectstart="return false;">Tiempo de envio de la guia:</label>
-                                                 </div>
-                                                  <?php $id_cry=Crypt::encrypt($id);?> 
-                                                     {{ Form::open(['url' => 'guias/time/'.$id_cry.'/','method'=> 'GET', 'class' => '']) }}
-                                                  <div   style="margin-right: -50px;">
-                                                    <div class="form-row align-items-center"  style="margin-right: -50px;">
-                                                          <div class="col-auto">
-                                                              {{Form::text('tiempo_envio', null, ['class'=> 'form-control mb-2', 'placeholder' => 'Tiempo de envio'])}}
-                                                           </div>
-                                                           <div class="col-auto" onmousedown='return false;' oncontextmenu="return false" onselectstart="return false;">
-                                                              <button type="submit" class="btn btn-primary mb-2">Enviar</button>
-                                                          </div>
-                                                         
-                                                      </div>
-                                                  </div>
-
-                                               </div> 
-                                                  {{ Form::close()}}
-                                   
-                                                                                            
-                                          @endif
-                                           @endif
-                                  
-                                          @if($level=='0')
-                                             
-                                             @if(($rol=='admin')||($rol=='foun')||($rol=='editor')||($rol=='editor0')||($rol=='buyer'))
-                                             <div class="col-lg-1" onmousedown='return false;'oncontextmenu="return false" onselectstart="return false;" style="margin-block-right: 5px;"></div>
-                                             <div class="col-lg-3" style="left: -5px;">   
-                                                 <label onmousedown='return false;'oncontextmenu="return false" onselectstart="return false;" style=" margin-block-end: -15px;">Colocar el numero de la columna que desea copiar. O todas.(Seperarlo con comas)</label>
-                                                 {{ Form::open(['url' => 'guias/copiado/'.$id.'/','method'=> 'GET', 'class' => '']) }}
+                                                 <div class="col-lg-3"> 
+                                                   <label onmousedown='return false;' oncontextmenu="return false" onselectstart="return false;">Tiempo de envio de la guia:</label> 
+                                                     {{ Form::open(['url' => 'guias/time/'.$id.'/','method'=> 'GET', 'class' => '']) }}
+                                                     <br>
                                                     <div class="form-row align-items-center" >
-                                                      <input type="hidden"  name="respues">
                                                           <div class="col-auto">
-                                                              {{Form::text('copiado', null, ['class'=> 'form-control mb-2', 'placeholder' => 'Escribir el numero de la columna'])}}
+                                                              {{Form::text('tiempo_envio', null, ['class'=> 'form-control mb-2', 'placeholder' => 'Tiempo de envio'])}}
                                                            </div>
                                                                   
                                                             <div class="col-auto">
                                                               <button type="submit" class="btn btn-primary mb-2">Enviar</button>
                                                           </div>
                                                     </div>
+                                               </div>
+                                           @endif
+                                            @else
+                                             @if(($rol=='admin')||($rol=='foun')||($rol=='editor')||($rol=='buyer'))                                             
+                                             <div class="col-lg-3"> 
+                                                   <label onmousedown='return false;'oncontextmenu="return false" onselectstart="return false;">Tiempo de envio de la guia:</label> 
+                                                     {{ Form::open(['url' => 'guias/time/'.$id.'/','method'=> 'GET', 'class' => '']) }}
+                                                     <br>
+                                                    <div class="form-row align-items-center" >
+                                                          <div class="col-auto">
+                                                              {{Form::text('tiempo_envio', null, ['class'=> 'form-control mb-2', 'placeholder' => 'Tiempo de envio'])}}
+                                                           </div>
+                                                                  
+                                                            <div class="col-auto">
+                                                              <button type="submit" class="btn btn-primary mb-2">Enviar</button>
+                                                          </div>
+                                                    </div>
+                                               </div>                                               
+                                          @endif
+                                           @endif
+                                     {{ Form::close()}}
+                                      <div class="col-lg-3" >
+                                          @if($level=='0')
+                                             @if(($rol=='admin')||($rol=='foun')||($rol=='editor')||($rol=='editor0')||($rol=='buyer'))   
+                                             <label onmousedown='return false;'oncontextmenu="return false" onselectstart="return false;">Colocar el numero de la columna que desea copiar. O todas.(Seperarlo con comas)</label>
+                                                 {{ Form::open(['url' => 'guias/copiado/'.$id.'/','method'=> 'GET', 'class' => '']) }}
+                                          <div class="form-row align-items-center" >
+                                            <input type="hidden"  name="respues">
+                                                <div class="col-auto">
+                                                    {{Form::text('copiado', null, ['class'=> 'form-control mb-2', 'placeholder' => 'Escribir el numero de la columna'])}}
+                                                 </div>
+                                                        
+                                                  <div class="col-auto">
+                                                    <button type="submit" class="btn btn-primary mb-2">Enviar</button>
                                                 </div>
+                                          </div>
                                            {{ Form::close()}}  
-                                            @else   <div class="col-lg-7 "onmousedown='return false;'oncontextmenu="return false" onselectstart="return false;" ></div>  
                                              @endif
                                             @else
                                             @if($level!='0')
                                               @if(($rol=='admin')||($rol=='foun')||($rol=='editor')||($rol=='buyer')) 
-                                            <div class="col-lg-1" onmousedown='return false;'oncontextmenu="return false" onselectstart="return false;" style="margin-block-right: 5px;"></div>
-                                             <div class="col-lg-3" style="left: 5px;">   
-                                                 <label onmousedown='return false;'oncontextmenu="return false" onselectstart="return false;" style=" margin-block-end: -15px;">Colocar el numero de la columna que desea copiar. O todas.(Seperarlo con comas)</label>
-                                                 {{ Form::open(['url' => 'guias/copiado/'.$id.'/','method'=> 'GET', 'class' => '']) }}
+                                                <label onmousedown='return false;' oncontextmenu="return false" onselectstart="return false;">Colocar el numero de la columna que desea copiar. O todas.(Seperarlo con comas)</label>
+                                                   {{ Form::open(['url' => 'guias/copiado/'.$id.'/','method'=> 'GET', 'class' => '']) }}
                                                     <div class="form-row align-items-center" >
                                                       <input type="hidden"  name="respues">
                                                           <div class="col-auto">
@@ -523,21 +500,17 @@ window.scrollTo(0, 1);
                                                               <button type="submit" class="btn btn-primary mb-2">Enviar</button>
                                                           </div>
                                                     </div>
-                                                </div>
-                                                
                                            {{ Form::close()}}  
-                                             @else   <div class="col-lg-7 "onmousedown='return false;'oncontextmenu="return false" onselectstart="return false;" ></div> 
                                           @endif
-                                              
                                                 @endif         
-                                        
+                                       
                                           @endif
-                                    
-                              
+                                    </div>
+                                 <div class="col-lg-1" onmousedown='return false;' onselectstart="return false;"> </div>   
                                </div> 
-                               
+                               <div class="row"  onmousedown='return false;' onselectstart="return false;" ></div>      
                          </div>  
-                        <div  oncontextmenu="return false"  onmousedown='return false;' onselectstart="return false;" ></div>      
+                        
                     
                                      
                         

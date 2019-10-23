@@ -170,6 +170,7 @@ class GuiasController extends Controller
 
      public function time(Request $request,$id)
     {
+         $id = \Crypt::decrypt($id); 
          $rol = roleuser($request); //se llama al helper en Helpers/role
         $user=User::find(auth()->user()->id);
         $user->status_login = 'activo';

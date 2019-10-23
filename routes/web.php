@@ -71,8 +71,10 @@ Route::get('corrections/multi/{a}', 'CorrectionsController@multi');
 Route::get('corrections/destroy/{a}/{b}', 'CorrectionsController@destroy');
 //Route::get('corrections/search_vpn0', 'CorrectionsController@search_vpn0');
 
-Route::get('corrections/correc_user/{a}','CorrectionsController@correc_user')->name('correc_user');
-
+Route::get('corrections/correc_user/{a}/{b}','CorrectionsController@correc_user')->name('correc_user');
+Route::get('prueba',function(){
+return view('correc_user.prueba');
+})->name('prueba');
 Route::get('corrections/show/{a}','CorrectionsController@show')->name('showa');
 Route::resource('corrections','CorrectionsController');
 Route::get('guias/edit/{a}', 'GuiasController@edit');

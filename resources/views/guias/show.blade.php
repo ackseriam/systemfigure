@@ -74,14 +74,28 @@
                                                           
                                                         </div>
                                                     </div>
-                                                      <div class="mt-4">
+                                                   
+                                                     <div class="mt-4">
                                                         <div class="d-flex">
-                                                            <a href="/corrections/correc_user/{{$guia->id}}" class="action-icon" title="Ver correcciones" target="_blank"><i class="mdi mdi-account-search-outline btn btn-primary "  target="_blank"> Ver correcciones.</i></a>
+                                                             
+                                                             <div id="cargar">
+                                                                 <?php $id=Crypt::encrypt($guia->id);
+                                                                    $data = Carbon\Carbon::now();
+                                                                    $data_cry=Crypt::encrypt($data);
+
+                                                                ?>
+                                                        <button type="submit"  class="mdi mdi-account-search-outline btn btn-primary" title="Ver correcciones"  target="_blank" onclick="window.open('/corrections/correc_user/{{$id}}/{{$data_cry}}','', 'height = 700, width = 1100, location = NO, directories=NO, titlebar=NO, fullscreen=yes, scrollbars=auto');" > Ver correcciones.</button>
+
+
+                                                      
+                                                            <!--  onclick="window.open(this.href, this.target, 'width=300,height=400'); return false;"<i class="mdi mdi-account-search-outline btn btn-primary "  target="_blank"> Ver correcciones.</i></a>-->
                                                             
                                                           
-                                                        </div>
+                                                              </div>
                                                     </div>
 
+                                                    </div>
+                                                      
                                               
                                                     <!-- Quantity -->
 												
