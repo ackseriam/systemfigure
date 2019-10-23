@@ -31,8 +31,14 @@
                             <div class="card-body"> 
                                  <div class="row">
                                 <div class="col-lg-3">
-                                      <a href="{{ url('corrections/correc_user/') }}/{{$id_guias}}" target="_blank" class="btn btn-primary">Ver corrección de la guia</a>
+                                       <?php $id=Crypt::encrypt($id_guias);
+                                                                    $data = Carbon\Carbon::now();
+                                                                    $data_cry=Crypt::encrypt($data);
+
+                                                                ?>
+                                                        <button type="submit"  class="mdi mdi-account-search-outline btn btn-primary" title="Ver correcciones"  target="_blank" onclick="window.open('/corrections/correc_user/{{$id}}/{{$data_cry}}','', 'height = 700, width = 1100, location = NO, directories=NO, titlebar=NO, fullscreen=yes, scrollbars=auto');" > Ver correcciones.</button>
                                 </div>    
+
                                 <div class="col-lg-6">
                                       <!-- Logo-->
                                      <div class="text-center w-75 m-auto">
