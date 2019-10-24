@@ -453,7 +453,10 @@ class UsersController extends Controller
             $username = $request->get('username');
             $email = $request->get('email');
             $state = $request->get('state');
-
+           
+            $users_count= User::count();
+           
+           // dd($uses_count);
             $users= User::orderBy("id", "DESC")->where('users.state','activo')
             ->username($username)
             ->email($email)
@@ -461,7 +464,7 @@ class UsersController extends Controller
 
             ->paginate(4);
             $tabla="activo";
-            return view('users.search',compact('users'),['rol'=>$rol, 'tabla'=> $tabla,'editar_usuario'=>'editar_usuario']);
+          return view('users.search',compact('users'),['rol'=>$rol,'user_count'=>$users_count ,'tabla'=> $tabla,'editar_usuario'=>'editar_usuario']);
         }else{
             return redirect('home'); 
         }

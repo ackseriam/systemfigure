@@ -166,7 +166,10 @@ class CorrectionsController extends Controller
      */
        public function create($guia, Request $request)
     {
-        
+
+      $guia = \Crypt::decrypt($guia); 
+       $guia = \Crypt::decrypt($guia); 
+       
          $rol = roleuser($request); //se llama al helper en Helpers/role
 
          $user=User::find(auth()->user()->id);
@@ -338,10 +341,13 @@ class CorrectionsController extends Controller
     public function correc_user($id,$data, Request $request)
     {
        $id = \Crypt::decrypt($id);  
+      //      $id = \Crypt::decrypt($id);  
+ 
        $data_des=\Crypt::decrypt($data);  
         //$data_antigua=$data_des->toDateTimeString();
       //$data_a=  $data_des->diffForHumans();
          $now =\Carbon\Carbon::now();
+
       // $data_now=$now->toDateTimeString();
         $minutesDiff=$data_des->diffInMinutes($now);
      //   dd($minutesDiff);

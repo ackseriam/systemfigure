@@ -170,7 +170,12 @@ class GuiasController extends Controller
 
      public function time(Request $request,$id)
     {
-         $id = \Crypt::decrypt($id); 
+         $id_guia = \Crypt::decrypt($id); 
+         $id = \Crypt::decrypt($id_guia);
+        
+         $now =\Carbon\Carbon::now(); 
+  
+         $hora=  \Crypt::encrypt($now);
          $rol = roleuser($request); //se llama al helper en Helpers/role
         $user=User::find(auth()->user()->id);
         $user->status_login = 'activo';
@@ -183,14 +188,16 @@ class GuiasController extends Controller
           if(($rol=='admin')||($rol=='foun')||($rol=='editor')||($rol=='editor0')||($rol=='buyer'))
            {
                   $guia->save();
-               return redirect("corrections/correc_user/".$id);
+                  
+              return redirect("corrections/correc_user/".$id_guia."/".$hora);
              }else{
                   return redirect('home');
               }
         }else{
              if(($rol=='admin')||($rol=='foun')||($rol=='editor'))
               {      $guia->save();
-                 return redirect("corrections/correc_user/".$id);
+
+                return redirect("corrections/correc_user/".$id_guia."/".$hora);
             }else{
               return redirect('home');
           }
@@ -208,6 +215,12 @@ class GuiasController extends Controller
      */
     public function copiado(Request $request,$id)
     {
+        $id_guia = \Crypt::decrypt($id); 
+        $id = \Crypt::decrypt($id_guia);
+
+         $now =\Carbon\Carbon::now(); 
+  
+         $hora=  \Crypt::encrypt($now);
          $rol = roleuser($request); //se llama al helper en Helpers/role
         $user=User::find(auth()->user()->id);
         $user->status_login = 'activo';
@@ -305,14 +318,14 @@ class GuiasController extends Controller
                   if(!empty( $correction_search2)){
 
          //   return view('corrections/corrections_user/correc',compact('correction_search2'),['level'=>$level,'exito'=>'exito','rol'=>$rol,'copiar'=>$copiar, 'id'=>$id,'number_guia'=>$number_guia,'names_campo'=>$names_campo, 'campos_img'=>$campos_img,'number_campos_img'=>  '0','guia'=>$guia,'time'=>$tiempo_envio]);
-             return redirect("corrections/correc_user/".$id);
+                 return redirect("corrections/correc_user/".$id_guia."/".$hora);
 
           }else{
-             return redirect("corrections/correc_user/".$id);
+                    return redirect("corrections/correc_user/".$id_guia."/".$hora);
           }
 
         }else{
-            return view('corrections/corrections_user/correc',compact('correction_search2'),['level'=>$level,'error_in'=>'error_in','rol'=>$rol,'copiar'=>$copiar, 'id'=>$id,'number_guia'=>$number_guia,'names_campo'=>$names_campo, 'campos_img'=>$campos_img,'number_campos_img'=>  '0','guia'=>$guia,'time'=>$tiempo_envio]);
+           return redirect("corrections/correc_user/".$id_guia."/".$hora);
         }
         
  

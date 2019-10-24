@@ -60,6 +60,15 @@
 								 	     </div>
 								 	</div>
 								 	  {{ Form::close()}}
+                                      <div class="col-xl-7 center">
+                                         <div class="alert alert-primary alert-dismissible bg-primary text-white border-0 fade show" role="alert">
+                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                            <strong>Usuarios en sistema- </strong> Actualmente se encuentran <strong>{{$user_count}}</strong> usuarios registrados en el sistema
+                                        </div>
+                                       
+                                    </div>
 								 	    <div class="col-xl-12">
                                 <div class="card">
                                     <div class="card-body">

@@ -431,23 +431,24 @@ window.scrollTo(0, 1);
                                       <div class="col-lg-4" onmousedown='return false;' oncontextmenu="return false" onselectstart="return false;"> 
                                           <label onmousedown='return false;' oncontextmenu="return false" onselectstart="return false;">Puede agregar otra corrección presionando el siguiente botón:</label> 
                                           <div class="form-row align-items-center" onmousedown='return false;' oncontextmenu="return false" onselectstart="return false;"><br><br>
+                                                <?php $id=Crypt::encrypt($id);?> 
                                             <a href="{{ url('corrections/create') }}/{{$id}}" target="_blank" class="btn btn-primary">Agregar corrección</a>
                                           </div>
                                       </div>
                                        @if($level=='0')
                                             @if(($rol=='admin')||($rol=='foun')||($rol=='editor')||($rol=='editor0')||($rol=='buyer'))   
-                                                 <div class="col-lg-2" style="margin-right: -30px;"> 
+                                                 <div class="col-lg-2" style="margin-right: -10px;"> 
                                                   <div class="col-lg-12" onmousedown='return false;' oncontextmenu="return false" onselectstart="return false;"> 
                                                        <label onmousedown='return false;' oncontextmenu="return false" onselectstart="return false;">Tiempo de envio de la guia:</label>
                                                  </div>
-                                                  <?php $id_cry=Crypt::encrypt($id);?> 
-                                                     {{ Form::open(['url' => 'guias/time/'.$id_cry.'/','method'=> 'GET', 'class' => '']) }}
+                                                 
+                                                     {{ Form::open(['url' => 'guias/time/'.$id.'/','method'=> 'GET', 'class' => '']) }}
                                                   <div   style="margin-right: -50px;">
                                                     <div class="form-row align-items-center"  style="margin-right: -50px;">
                                                           <div class="col-auto">
                                                               {{Form::text('tiempo_envio', null, ['class'=> 'form-control mb-2', 'placeholder' => 'Tiempo de envio'])}}
                                                            </div>
-                                                           <div class="col-auto" onmousedown='return false;' oncontextmenu="return false" onselectstart="return false;">
+                                                           <div class="col-auto" >
                                                               <button type="submit" class="btn btn-primary mb-2">Enviar</button>
                                                           </div>
                                                          
@@ -460,18 +461,18 @@ window.scrollTo(0, 1);
                                            @endif
                                             @else
                                              @if(($rol=='admin')||($rol=='foun')||($rol=='editor')||($rol=='buyer'))                                             
-                                                             <div class="col-lg-2" style="margin-right: -30px; "> 
+                                                             <div class="col-lg-2" style="margin-right: -10px; "> 
                                                   <div class="col-lg-12" onmousedown='return false;' oncontextmenu="return false" onselectstart="return false;"> 
                                                        <label onmousedown='return false;' oncontextmenu="return false" onselectstart="return false;">Tiempo de envio de la guia:</label>
                                                  </div>
                                                   <?php $id_cry=Crypt::encrypt($id);?> 
-                                                     {{ Form::open(['url' => 'guias/time/'.$id_cry.'/','method'=> 'GET', 'class' => '']) }}
+                                                     {{ Form::open(['url' => 'guias/time/'.$id.'/','method'=> 'GET', 'class' => '']) }}
                                                   <div   style="margin-right: -50px;">
                                                     <div class="form-row align-items-center"  style="margin-right: -50px;">
                                                           <div class="col-auto">
                                                               {{Form::text('tiempo_envio', null, ['class'=> 'form-control mb-2', 'placeholder' => 'Tiempo de envio'])}}
                                                            </div>
-                                                           <div class="col-auto" onmousedown='return false;' oncontextmenu="return false" onselectstart="return false;">
+                                                           <div class="col-auto" >
                                                               <button type="submit" class="btn btn-primary mb-2">Enviar</button>
                                                           </div>
                                                          
