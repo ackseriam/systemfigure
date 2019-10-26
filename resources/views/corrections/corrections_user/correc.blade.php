@@ -824,21 +824,22 @@ window.scrollTo(0, 1);
                                                 </div>
                                               </div> <!-- end card body-->
                                               </div>
+                                            </div>
                                                @if($level=='0')
                                                @if(($rol=='admin')||($rol=='foun')||($rol=='editor')||($rol=='editor0')||($rol=='buyer'))  
                                                     
-                                                    <div class="col-lg-6" omousedown='return false;' onselectstart="return false;">   
+                                                    <div class="col-lg-6">   
                                                      <div class="row">
 
                                                            <div class="col-lg-3">
-                                                              <label  onmousedown='return false;' onselectstart="return false;">Ingresar columna para realizar multi</label>
+                                                              <label  oncontextmenu="return false"  onmousedown='return false;' onselectstart="return false;">Ingresar columna para realizar multiii</label>
                                                                  {{ Form::open(['url' => '/guias/multi/'.$guia->id.'/','method'=> 'GET', 'class' => '']) }}
                                                            <input type="text" name="multi" placeholder="Columna a realizar el multi" class="form-control" required><br>
                                                            <button class="btn btn-success" type="submit">Descargar multi</button> 
                                                                 {{ Form::close()}}
                                                            </div>
                                                            @if(($rol=='admin')||($rol=='foun'))
-                                                            <div class="col-lg-3" omousedown='return false;' onselectstart="return false;">   
+                                                            <div class="col-lg-3" oncontextmenu="return false"  onmousedown='return false;' onselectstart="return false;">   
                                                                <label>Exportar guia completa</label><br>
                                                                <a href="/export/{{$guia->id}}" title="Exportar guia"  class="btn btn-primary" data-toggle="modal" target="_blank"><i class=" mdi mdi-square-edit-outline "></i> </a>
                                                           </div>   
@@ -851,11 +852,11 @@ window.scrollTo(0, 1);
                                                 @else
                                                    @if(($rol=='admin')||($rol=='foun')||($rol=='editor')||($rol=='buyer'))
                                                      
-                                                    <div class="col-lg-6" omousedown='return false;' onselectstart="return false;">   
+                                                    <div class="col-lg-6" >   
                                                      <div class="row">
 
                                                            <div class="col-lg-3">
-                                                              <label  onmousedown='return false;' onselectstart="return false;">Ingresar columna para realizar multi</label>
+                                                              <label oncontextmenu="return false"  onmousedown='return false;' onselectstart="return false;">Ingresar columna para realizar multi</label>
                                                                  {{ Form::open(['url' => '/guias/multi/'.$guia->id.'/','method'=> 'GET', 'class' => '']) }}
                                                            <input type="text" name="multi" placeholder="Columna a realizar el multi" class="form-control" required><br>
                                                            <button class="btn btn-success" type="submit">Descargar multi</button> 

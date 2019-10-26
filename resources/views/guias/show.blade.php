@@ -84,7 +84,7 @@
                                                                     $data_cry=Crypt::encrypt($data);
 
                                                                 ?>
-                                                        <button type="submit"  class="mdi mdi-account-search-outline btn btn-primary" title="Ver correcciones"  target="_blank" onclick="window.open('/corrections/correc_user/{{$id}}/{{$data_cry}}','', 'height = 700, width = 1100, location = NO, directories=NO, titlebar=NO, fullscreen=yes, scrollbars=auto');" > Ver correcciones.</button>
+                                                        <button type="submit"  class="mdi mdi-account-search-outline btn btn-primary" title="Ver correcciones"  target="_blank" onclick="window.open('/corrections/correc_user/{{$id}}/{{$data_cry}}','', 'height = 700, width = 1100, location = NO, directories=NO, titlebar=NO ');" > Ver correcciones.</button>
 
 
                                                       
