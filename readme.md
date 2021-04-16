@@ -14,7 +14,7 @@ Sistema especializado en el control de guias e integracion con el grupo predeter
 
 ## Version
 
-Actualmente, esta en desarrollo.
+1.0.
 
 ## Licencia
 
